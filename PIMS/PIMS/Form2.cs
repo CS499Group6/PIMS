@@ -16,7 +16,7 @@ namespace PIMS
         {
             InitializeComponent();
         }
-
+        //performs on opening of form2
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -30,6 +30,22 @@ namespace PIMS
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        /*Query Box for main menue::
+        This code should ToUpper all inputs,
+        then recognize the format of the search,
+        ex: JOH,DOE is a vailid patient query.
+        based on permissions should only display a valid screen
+        for the operator.
+        */
+        private void queryBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        //query label
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

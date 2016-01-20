@@ -31,8 +31,12 @@ namespace PIMS
         {
             this.Close();
         }
-        //This code executes when the "Login" button is pressed
-        //when pressed transitions to main form
+        /*This code executes when the "Login" button is pressed
+        when pressed transitions to main form(form2).
+
+        Needs to interface with the database
+        ex: check employee id and password match inputs from text box
+        */
         private void button1_Click(object sender, EventArgs e)
         {
             //opens form2
