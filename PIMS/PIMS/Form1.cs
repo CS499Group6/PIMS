@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PIMS
 {
-    public partial class login : Form
+    public partial class loginForm : Form
     {
-        public login()
+        public loginForm()
         {
             InitializeComponent();
         }
@@ -40,7 +40,7 @@ namespace PIMS
         private void button1_Click(object sender, EventArgs e)
         {
             //opens form2
-            Form2 FM2 = new Form2();
+            mainForm FM2 = new mainForm();
             FM2.Visible = true;
             //hides login screnn
             this.Hide();

@@ -1,6 +1,6 @@
 ﻿namespace PIMS
 {
-    partial class Form2
+    partial class mainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(817, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(630, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,9 +75,9 @@
             this.queryBox.AccessibleName = "queryBox";
             this.queryBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.queryBox.Location = new System.Drawing.Point(108, 217);
+            this.queryBox.Location = new System.Drawing.Point(108, 398);
             this.queryBox.Name = "queryBox";
-            this.queryBox.Size = new System.Drawing.Size(684, 20);
+            this.queryBox.Size = new System.Drawing.Size(497, 20);
             this.queryBox.TabIndex = 1;
             this.queryBox.TextChanged += new System.EventHandler(this.queryBox_TextChanged);
             // 
@@ -87,23 +87,24 @@
             this.queryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.queryLabel.AutoSize = true;
-            this.queryLabel.Location = new System.Drawing.Point(115, 201);
+            this.queryLabel.Location = new System.Drawing.Point(115, 382);
             this.queryLabel.Name = "queryLabel";
             this.queryLabel.Size = new System.Drawing.Size(336, 13);
             this.queryLabel.TabIndex = 2;
             this.queryLabel.Text = "Search for a Patient, Enter a Perscription number or select a Function ";
             this.queryLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Form2
+            // mainForm
             // 
+            this.AccessibleName = "MainForm";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 261);
+            this.ClientSize = new System.Drawing.Size(630, 442);
             this.Controls.Add(this.queryLabel);
             this.Controls.Add(this.queryBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form2";
+            this.Name = "mainForm";
             this.Text = "PIMS";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.menuStrip1.ResumeLayout(false);

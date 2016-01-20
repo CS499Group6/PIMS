@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PIMS
 {
-    public partial class Form2 : Form
+    public partial class mainForm : Form
     {
-        public Form2()
+        public mainForm()
         {
             InitializeComponent();
         }

@@ -2,10 +2,10 @@ C:\Users\max\PIMS\PIMS\PIMS\bin\Debug\PIMS.exe.config
 C:\Users\max\PIMS\PIMS\PIMS\bin\Debug\PIMS.exe
 C:\Users\max\PIMS\PIMS\PIMS\bin\Debug\PIMS.pdb
 C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.csprojResolveAssemblyReference.cache
-C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.login.resources
 C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.Properties.Resources.resources
 C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.csproj.GenerateResource.Cache
 C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.exe
 C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.pdb
-C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.Form2.resources
-C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.Form3.resources
+C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.loginForm.resources
+C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.mainForm.resources
+C:\Users\max\PIMS\PIMS\PIMS\obj\Debug\PIMS.patientForm.resources
