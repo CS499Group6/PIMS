@@ -40,12 +40,23 @@ namespace PIMS
         */
         private void queryBox_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
         //query label
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String lastNameQuery = queryTextBox.Text;
+
+            //opens form3
+            patientForm FM3 = new patientForm(lastNameQuery);
+            FM3.Visible = true;
+            //hides login screnn
+            this.Hide();
         }
     }
 }

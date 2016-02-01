@@ -44,7 +44,6 @@ namespace PIMS
             FM2.Visible = true;
             //hides login screnn
             this.Hide();
-
         }
         //This code is for the Password section
         private void textBox2_TextChanged(object sender, EventArgs e)

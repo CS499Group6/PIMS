@@ -32,35 +32,35 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lastNameBox = new System.Windows.Forms.TextBox();
-            this.firstNameBox = new System.Windows.Forms.TextBox();
-            this.middleNameBox = new System.Windows.Forms.TextBox();
-            this.dobBox = new System.Windows.Forms.TextBox();
-            this.addressBox = new System.Windows.Forms.TextBox();
-            this.cityBox = new System.Windows.Forms.TextBox();
-            this.stateBox = new System.Windows.Forms.TextBox();
-            this.zipBox = new System.Windows.Forms.TextBox();
-            this.primaryPhoneBox = new System.Windows.Forms.TextBox();
-            this.secondaryPhoneBox = new System.Windows.Forms.TextBox();
-            this.contactName1 = new System.Windows.Forms.TextBox();
-            this.contactPhone1 = new System.Windows.Forms.TextBox();
-            this.contactName2 = new System.Windows.Forms.TextBox();
-            this.contactPhone2 = new System.Windows.Forms.TextBox();
-            this.genderBox = new System.Windows.Forms.TextBox();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.dobLabel = new System.Windows.Forms.Label();
+            this.middleNameLabel = new System.Windows.Forms.Label();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
+            this.stateLabel = new System.Windows.Forms.Label();
+            this.zipLabel = new System.Windows.Forms.Label();
+            this.primaryPhoneLabel = new System.Windows.Forms.Label();
+            this.secondaryPhoneLabel = new System.Windows.Forms.Label();
+            this.contactName2Label = new System.Windows.Forms.Label();
+            this.contactName1Label = new System.Windows.Forms.Label();
+            this.contactPhone1Label = new System.Windows.Forms.Label();
+            this.contactPhone2Label = new System.Windows.Forms.Label();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.middleNameTextBox = new System.Windows.Forms.TextBox();
+            this.dobTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.stateTextBox = new System.Windows.Forms.TextBox();
+            this.zipTextBox = new System.Windows.Forms.TextBox();
+            this.primaryPhoneTextBox = new System.Windows.Forms.TextBox();
+            this.secondaryPhoneTextBox = new System.Windows.Forms.TextBox();
+            this.contactName1TextBox = new System.Windows.Forms.TextBox();
+            this.contactPhone1TextBox = new System.Windows.Forms.TextBox();
+            this.contactName2TextBox = new System.Windows.Forms.TextBox();
+            this.contactPhone2TextBox = new System.Windows.Forms.TextBox();
+            this.genderTextBox = new System.Windows.Forms.TextBox();
             this.genderLabel = new System.Windows.Forms.Label();
             this.queryBar = new System.Windows.Forms.TextBox();
             this.queryLabel = new System.Windows.Forms.Label();
@@ -99,255 +99,256 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // label1
+            // lastNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "1. Last Name:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Location = new System.Drawing.Point(89, 36);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(73, 13);
+            this.lastNameLabel.TabIndex = 1;
+            this.lastNameLabel.Text = "1. Last Name:";
+            this.lastNameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // firstNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "2. First Name:";
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Location = new System.Drawing.Point(90, 62);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(72, 13);
+            this.firstNameLabel.TabIndex = 2;
+            this.firstNameLabel.Text = "2. First Name:";
             // 
-            // label3
+            // dobLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 114);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "4. DOB (mm/dd/yyyy):";
+            this.dobLabel.AutoSize = true;
+            this.dobLabel.Location = new System.Drawing.Point(50, 114);
+            this.dobLabel.Name = "dobLabel";
+            this.dobLabel.Size = new System.Drawing.Size(112, 13);
+            this.dobLabel.TabIndex = 3;
+            this.dobLabel.Text = "4. DOB (mm/dd/yyyy):";
             // 
-            // label4
+            // middleNameLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "3. Middle Name:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.middleNameLabel.AutoSize = true;
+            this.middleNameLabel.Location = new System.Drawing.Point(78, 88);
+            this.middleNameLabel.Name = "middleNameLabel";
+            this.middleNameLabel.Size = new System.Drawing.Size(84, 13);
+            this.middleNameLabel.TabIndex = 4;
+            this.middleNameLabel.Text = "3. Middle Name:";
+            this.middleNameLabel.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label5
+            // addressLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(108, 166);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "5. Adress:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Location = new System.Drawing.Point(108, 166);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(54, 13);
+            this.addressLabel.TabIndex = 5;
+            this.addressLabel.Text = "5. Adress:";
+            this.addressLabel.Click += new System.EventHandler(this.label5_Click);
             // 
-            // label6
+            // cityLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(125, 192);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "6. City:";
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Location = new System.Drawing.Point(125, 192);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(39, 13);
+            this.cityLabel.TabIndex = 6;
+            this.cityLabel.Text = "6. City:";
             // 
-            // label7
+            // stateLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(118, 218);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "7. Sate:";
+            this.stateLabel.AutoSize = true;
+            this.stateLabel.Location = new System.Drawing.Point(118, 218);
+            this.stateLabel.Name = "stateLabel";
+            this.stateLabel.Size = new System.Drawing.Size(44, 13);
+            this.stateLabel.TabIndex = 7;
+            this.stateLabel.Text = "7. Sate:";
             // 
-            // label8
+            // zipLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(125, 244);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "8. Zip:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.zipLabel.AutoSize = true;
+            this.zipLabel.Location = new System.Drawing.Point(125, 244);
+            this.zipLabel.Name = "zipLabel";
+            this.zipLabel.Size = new System.Drawing.Size(37, 13);
+            this.zipLabel.TabIndex = 8;
+            this.zipLabel.Text = "8. Zip:";
+            this.zipLabel.Click += new System.EventHandler(this.label8_Click);
             // 
-            // label10
+            // primaryPhoneLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(72, 270);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 13);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "9. Primary Phone:";
+            this.primaryPhoneLabel.AutoSize = true;
+            this.primaryPhoneLabel.Location = new System.Drawing.Point(72, 270);
+            this.primaryPhoneLabel.Name = "primaryPhoneLabel";
+            this.primaryPhoneLabel.Size = new System.Drawing.Size(90, 13);
+            this.primaryPhoneLabel.TabIndex = 10;
+            this.primaryPhoneLabel.Text = "9. Primary Phone:";
             // 
-            // label11
+            // secondaryPhoneLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(49, 296);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "10. Secondary Phone:";
+            this.secondaryPhoneLabel.AutoSize = true;
+            this.secondaryPhoneLabel.Location = new System.Drawing.Point(49, 296);
+            this.secondaryPhoneLabel.Name = "secondaryPhoneLabel";
+            this.secondaryPhoneLabel.Size = new System.Drawing.Size(113, 13);
+            this.secondaryPhoneLabel.TabIndex = 11;
+            this.secondaryPhoneLabel.Text = "10. Secondary Phone:";
             // 
-            // label12
+            // contactName2Label
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(54, 374);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(108, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "13. Contact Name(2):";
+            this.contactName2Label.AutoSize = true;
+            this.contactName2Label.Location = new System.Drawing.Point(54, 374);
+            this.contactName2Label.Name = "contactName2Label";
+            this.contactName2Label.Size = new System.Drawing.Size(108, 13);
+            this.contactName2Label.TabIndex = 12;
+            this.contactName2Label.Text = "13. Contact Name(2):";
             // 
-            // label14
+            // contactName1Label
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(54, 322);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(108, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "11. Contact Name(1):";
+            this.contactName1Label.AutoSize = true;
+            this.contactName1Label.Location = new System.Drawing.Point(54, 322);
+            this.contactName1Label.Name = "contactName1Label";
+            this.contactName1Label.Size = new System.Drawing.Size(108, 13);
+            this.contactName1Label.TabIndex = 14;
+            this.contactName1Label.Text = "11. Contact Name(1):";
             // 
-            // label15
+            // contactPhone1Label
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(51, 348);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(111, 13);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "12. Contact Phone(1):";
+            this.contactPhone1Label.AutoSize = true;
+            this.contactPhone1Label.Location = new System.Drawing.Point(51, 348);
+            this.contactPhone1Label.Name = "contactPhone1Label";
+            this.contactPhone1Label.Size = new System.Drawing.Size(111, 13);
+            this.contactPhone1Label.TabIndex = 15;
+            this.contactPhone1Label.Text = "12. Contact Phone(1):";
             // 
-            // label9
+            // contactPhone2Label
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 400);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "14. Contact Phone(2):";
+            this.contactPhone2Label.AutoSize = true;
+            this.contactPhone2Label.Location = new System.Drawing.Point(51, 400);
+            this.contactPhone2Label.Name = "contactPhone2Label";
+            this.contactPhone2Label.Size = new System.Drawing.Size(111, 13);
+            this.contactPhone2Label.TabIndex = 16;
+            this.contactPhone2Label.Text = "14. Contact Phone(2):";
             // 
-            // lastNameBox
+            // lastNameTextBox
             // 
-            this.lastNameBox.AccessibleName = "lastNameBox";
-            this.lastNameBox.Location = new System.Drawing.Point(171, 36);
-            this.lastNameBox.Name = "lastNameBox";
-            this.lastNameBox.Size = new System.Drawing.Size(100, 20);
-            this.lastNameBox.TabIndex = 17;
-            this.lastNameBox.TextChanged += new System.EventHandler(this.lastNameBox_TextChanged);
+            this.lastNameTextBox.AccessibleName = "lastNameBox";
+            this.lastNameTextBox.Location = new System.Drawing.Point(171, 36);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameTextBox.TabIndex = 17;
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.lastNameBox_TextChanged);
             // 
-            // firstNameBox
+            // firstNameTextBox
             // 
-            this.firstNameBox.AccessibleName = "firstNameBox";
-            this.firstNameBox.Location = new System.Drawing.Point(171, 62);
-            this.firstNameBox.Name = "firstNameBox";
-            this.firstNameBox.Size = new System.Drawing.Size(100, 20);
-            this.firstNameBox.TabIndex = 18;
+            this.firstNameTextBox.AccessibleName = "firstNameBox";
+            this.firstNameTextBox.Location = new System.Drawing.Point(171, 62);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameTextBox.TabIndex = 18;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.firstNameTextBox_TextChanged);
             // 
-            // middleNameBox
+            // middleNameTextBox
             // 
-            this.middleNameBox.AccessibleName = "middleNameBox";
-            this.middleNameBox.Location = new System.Drawing.Point(171, 88);
-            this.middleNameBox.Name = "middleNameBox";
-            this.middleNameBox.Size = new System.Drawing.Size(100, 20);
-            this.middleNameBox.TabIndex = 19;
+            this.middleNameTextBox.AccessibleName = "middleNameBox";
+            this.middleNameTextBox.Location = new System.Drawing.Point(171, 88);
+            this.middleNameTextBox.Name = "middleNameTextBox";
+            this.middleNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.middleNameTextBox.TabIndex = 19;
             // 
-            // dobBox
+            // dobTextBox
             // 
-            this.dobBox.AccessibleName = "dobBox";
-            this.dobBox.Location = new System.Drawing.Point(171, 114);
-            this.dobBox.Name = "dobBox";
-            this.dobBox.Size = new System.Drawing.Size(100, 20);
-            this.dobBox.TabIndex = 20;
+            this.dobTextBox.AccessibleName = "dobBox";
+            this.dobTextBox.Location = new System.Drawing.Point(171, 114);
+            this.dobTextBox.Name = "dobTextBox";
+            this.dobTextBox.Size = new System.Drawing.Size(100, 20);
+            this.dobTextBox.TabIndex = 20;
             // 
-            // addressBox
+            // addressTextBox
             // 
-            this.addressBox.AccessibleName = "addressBox";
-            this.addressBox.Location = new System.Drawing.Point(170, 166);
-            this.addressBox.Name = "addressBox";
-            this.addressBox.Size = new System.Drawing.Size(100, 20);
-            this.addressBox.TabIndex = 21;
+            this.addressTextBox.AccessibleName = "addressBox";
+            this.addressTextBox.Location = new System.Drawing.Point(170, 166);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addressTextBox.TabIndex = 21;
             // 
-            // cityBox
+            // cityTextBox
             // 
-            this.cityBox.AccessibleName = "cityBox";
-            this.cityBox.Location = new System.Drawing.Point(170, 192);
-            this.cityBox.Name = "cityBox";
-            this.cityBox.Size = new System.Drawing.Size(100, 20);
-            this.cityBox.TabIndex = 22;
+            this.cityTextBox.AccessibleName = "cityBox";
+            this.cityTextBox.Location = new System.Drawing.Point(170, 192);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.cityTextBox.TabIndex = 22;
             // 
-            // stateBox
+            // stateTextBox
             // 
-            this.stateBox.AccessibleName = "stateBox";
-            this.stateBox.Location = new System.Drawing.Point(171, 218);
-            this.stateBox.Name = "stateBox";
-            this.stateBox.Size = new System.Drawing.Size(100, 20);
-            this.stateBox.TabIndex = 23;
+            this.stateTextBox.AccessibleName = "stateBox";
+            this.stateTextBox.Location = new System.Drawing.Point(171, 218);
+            this.stateTextBox.Name = "stateTextBox";
+            this.stateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.stateTextBox.TabIndex = 23;
             // 
-            // zipBox
+            // zipTextBox
             // 
-            this.zipBox.AccessibleName = "zipBox";
-            this.zipBox.Location = new System.Drawing.Point(171, 244);
-            this.zipBox.Name = "zipBox";
-            this.zipBox.Size = new System.Drawing.Size(100, 20);
-            this.zipBox.TabIndex = 24;
-            this.zipBox.TextChanged += new System.EventHandler(this.zipBox_TextChanged);
+            this.zipTextBox.AccessibleName = "zipBox";
+            this.zipTextBox.Location = new System.Drawing.Point(171, 244);
+            this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.Size = new System.Drawing.Size(100, 20);
+            this.zipTextBox.TabIndex = 24;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.zipBox_TextChanged);
             // 
-            // primaryPhoneBox
+            // primaryPhoneTextBox
             // 
-            this.primaryPhoneBox.AccessibleName = "primaryPhoneBox";
-            this.primaryPhoneBox.Location = new System.Drawing.Point(171, 270);
-            this.primaryPhoneBox.Name = "primaryPhoneBox";
-            this.primaryPhoneBox.Size = new System.Drawing.Size(100, 20);
-            this.primaryPhoneBox.TabIndex = 25;
+            this.primaryPhoneTextBox.AccessibleName = "primaryPhoneBox";
+            this.primaryPhoneTextBox.Location = new System.Drawing.Point(171, 270);
+            this.primaryPhoneTextBox.Name = "primaryPhoneTextBox";
+            this.primaryPhoneTextBox.Size = new System.Drawing.Size(100, 20);
+            this.primaryPhoneTextBox.TabIndex = 25;
             // 
-            // secondaryPhoneBox
+            // secondaryPhoneTextBox
             // 
-            this.secondaryPhoneBox.AccessibleName = "secondaryPhoneBox";
-            this.secondaryPhoneBox.Location = new System.Drawing.Point(171, 296);
-            this.secondaryPhoneBox.Name = "secondaryPhoneBox";
-            this.secondaryPhoneBox.Size = new System.Drawing.Size(100, 20);
-            this.secondaryPhoneBox.TabIndex = 26;
+            this.secondaryPhoneTextBox.AccessibleName = "secondaryPhoneBox";
+            this.secondaryPhoneTextBox.Location = new System.Drawing.Point(171, 296);
+            this.secondaryPhoneTextBox.Name = "secondaryPhoneTextBox";
+            this.secondaryPhoneTextBox.Size = new System.Drawing.Size(100, 20);
+            this.secondaryPhoneTextBox.TabIndex = 26;
             // 
-            // contactName1
+            // contactName1TextBox
             // 
-            this.contactName1.AccessibleName = "contactName1";
-            this.contactName1.Location = new System.Drawing.Point(171, 322);
-            this.contactName1.Name = "contactName1";
-            this.contactName1.Size = new System.Drawing.Size(100, 20);
-            this.contactName1.TabIndex = 27;
+            this.contactName1TextBox.AccessibleName = "contactName1";
+            this.contactName1TextBox.Location = new System.Drawing.Point(171, 322);
+            this.contactName1TextBox.Name = "contactName1TextBox";
+            this.contactName1TextBox.Size = new System.Drawing.Size(100, 20);
+            this.contactName1TextBox.TabIndex = 27;
             // 
-            // contactPhone1
+            // contactPhone1TextBox
             // 
-            this.contactPhone1.AccessibleName = "contactPhone1";
-            this.contactPhone1.Location = new System.Drawing.Point(171, 348);
-            this.contactPhone1.Name = "contactPhone1";
-            this.contactPhone1.Size = new System.Drawing.Size(100, 20);
-            this.contactPhone1.TabIndex = 28;
+            this.contactPhone1TextBox.AccessibleName = "contactPhone1";
+            this.contactPhone1TextBox.Location = new System.Drawing.Point(171, 348);
+            this.contactPhone1TextBox.Name = "contactPhone1TextBox";
+            this.contactPhone1TextBox.Size = new System.Drawing.Size(100, 20);
+            this.contactPhone1TextBox.TabIndex = 28;
             // 
-            // contactName2
+            // contactName2TextBox
             // 
-            this.contactName2.Location = new System.Drawing.Point(171, 374);
-            this.contactName2.Name = "contactName2";
-            this.contactName2.Size = new System.Drawing.Size(100, 20);
-            this.contactName2.TabIndex = 29;
+            this.contactName2TextBox.Location = new System.Drawing.Point(171, 374);
+            this.contactName2TextBox.Name = "contactName2TextBox";
+            this.contactName2TextBox.Size = new System.Drawing.Size(100, 20);
+            this.contactName2TextBox.TabIndex = 29;
             // 
-            // contactPhone2
+            // contactPhone2TextBox
             // 
-            this.contactPhone2.Location = new System.Drawing.Point(171, 400);
-            this.contactPhone2.Name = "contactPhone2";
-            this.contactPhone2.Size = new System.Drawing.Size(100, 20);
-            this.contactPhone2.TabIndex = 30;
+            this.contactPhone2TextBox.Location = new System.Drawing.Point(171, 400);
+            this.contactPhone2TextBox.Name = "contactPhone2TextBox";
+            this.contactPhone2TextBox.Size = new System.Drawing.Size(100, 20);
+            this.contactPhone2TextBox.TabIndex = 30;
             // 
-            // genderBox
+            // genderTextBox
             // 
-            this.genderBox.AccessibleName = "genderBox";
-            this.genderBox.Location = new System.Drawing.Point(171, 140);
-            this.genderBox.Name = "genderBox";
-            this.genderBox.Size = new System.Drawing.Size(23, 20);
-            this.genderBox.TabIndex = 31;
+            this.genderTextBox.AccessibleName = "genderBox";
+            this.genderTextBox.Location = new System.Drawing.Point(171, 140);
+            this.genderTextBox.Name = "genderTextBox";
+            this.genderTextBox.Size = new System.Drawing.Size(23, 20);
+            this.genderTextBox.TabIndex = 31;
             // 
             // genderLabel
             // 
@@ -389,39 +390,40 @@
             this.Controls.Add(this.queryLabel);
             this.Controls.Add(this.queryBar);
             this.Controls.Add(this.genderLabel);
-            this.Controls.Add(this.genderBox);
-            this.Controls.Add(this.contactPhone2);
-            this.Controls.Add(this.contactName2);
-            this.Controls.Add(this.contactPhone1);
-            this.Controls.Add(this.contactName1);
-            this.Controls.Add(this.secondaryPhoneBox);
-            this.Controls.Add(this.primaryPhoneBox);
-            this.Controls.Add(this.zipBox);
-            this.Controls.Add(this.stateBox);
-            this.Controls.Add(this.cityBox);
-            this.Controls.Add(this.addressBox);
-            this.Controls.Add(this.dobBox);
-            this.Controls.Add(this.middleNameBox);
-            this.Controls.Add(this.firstNameBox);
-            this.Controls.Add(this.lastNameBox);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.genderTextBox);
+            this.Controls.Add(this.contactPhone2TextBox);
+            this.Controls.Add(this.contactName2TextBox);
+            this.Controls.Add(this.contactPhone1TextBox);
+            this.Controls.Add(this.contactName1TextBox);
+            this.Controls.Add(this.secondaryPhoneTextBox);
+            this.Controls.Add(this.primaryPhoneTextBox);
+            this.Controls.Add(this.zipTextBox);
+            this.Controls.Add(this.stateTextBox);
+            this.Controls.Add(this.cityTextBox);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.dobTextBox);
+            this.Controls.Add(this.middleNameTextBox);
+            this.Controls.Add(this.firstNameTextBox);
+            this.Controls.Add(this.lastNameTextBox);
+            this.Controls.Add(this.contactPhone2Label);
+            this.Controls.Add(this.contactPhone1Label);
+            this.Controls.Add(this.contactName1Label);
+            this.Controls.Add(this.contactName2Label);
+            this.Controls.Add(this.secondaryPhoneLabel);
+            this.Controls.Add(this.primaryPhoneLabel);
+            this.Controls.Add(this.zipLabel);
+            this.Controls.Add(this.stateLabel);
+            this.Controls.Add(this.cityLabel);
+            this.Controls.Add(this.addressLabel);
+            this.Controls.Add(this.middleNameLabel);
+            this.Controls.Add(this.dobLabel);
+            this.Controls.Add(this.firstNameLabel);
+            this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "patientForm";
             this.Text = "PIMS";
+            this.Load += new System.EventHandler(this.patientForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -435,35 +437,35 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox lastNameBox;
-        private System.Windows.Forms.TextBox firstNameBox;
-        private System.Windows.Forms.TextBox middleNameBox;
-        private System.Windows.Forms.TextBox dobBox;
-        private System.Windows.Forms.TextBox addressBox;
-        private System.Windows.Forms.TextBox cityBox;
-        private System.Windows.Forms.TextBox stateBox;
-        private System.Windows.Forms.TextBox zipBox;
-        private System.Windows.Forms.TextBox primaryPhoneBox;
-        private System.Windows.Forms.TextBox secondaryPhoneBox;
-        private System.Windows.Forms.TextBox contactName1;
-        private System.Windows.Forms.TextBox contactPhone1;
-        private System.Windows.Forms.TextBox contactName2;
-        private System.Windows.Forms.TextBox contactPhone2;
-        private System.Windows.Forms.TextBox genderBox;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.Label firstNameLabel;
+        private System.Windows.Forms.Label dobLabel;
+        private System.Windows.Forms.Label middleNameLabel;
+        private System.Windows.Forms.Label addressLabel;
+        private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.Label stateLabel;
+        private System.Windows.Forms.Label zipLabel;
+        private System.Windows.Forms.Label primaryPhoneLabel;
+        private System.Windows.Forms.Label secondaryPhoneLabel;
+        private System.Windows.Forms.Label contactName2Label;
+        private System.Windows.Forms.Label contactName1Label;
+        private System.Windows.Forms.Label contactPhone1Label;
+        private System.Windows.Forms.Label contactPhone2Label;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.TextBox middleNameTextBox;
+        private System.Windows.Forms.TextBox dobTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.TextBox stateTextBox;
+        private System.Windows.Forms.TextBox zipTextBox;
+        private System.Windows.Forms.TextBox primaryPhoneTextBox;
+        private System.Windows.Forms.TextBox secondaryPhoneTextBox;
+        private System.Windows.Forms.TextBox contactName1TextBox;
+        private System.Windows.Forms.TextBox contactPhone1TextBox;
+        private System.Windows.Forms.TextBox contactName2TextBox;
+        private System.Windows.Forms.TextBox contactPhone2TextBox;
+        private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.TextBox queryBar;
         private System.Windows.Forms.Label queryLabel;
