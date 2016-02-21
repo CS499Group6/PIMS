@@ -1,6 +1,6 @@
 ﻿namespace PIMS
 {
-    partial class mainForm
+    partial class Form9
     {
         /// <summary>
         /// Required designer variable.
@@ -32,10 +32,17 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.queryTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.queryLabel = new System.Windows.Forms.Label();
-            this.searchButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.carrier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.binNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -45,8 +52,8 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(620, 24);
-            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Size = new System.Drawing.Size(825, 24);
+            this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -56,14 +63,12 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -71,16 +76,12 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // queryTextBox
+            // textBox1
             // 
-            this.queryTextBox.AccessibleName = "queryTextBox";
-            this.queryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.queryTextBox.Location = new System.Drawing.Point(22, 338);
-            this.queryTextBox.Name = "queryTextBox";
-            this.queryTextBox.Size = new System.Drawing.Size(487, 20);
-            this.queryTextBox.TabIndex = 1;
-            this.queryTextBox.TextChanged += new System.EventHandler(this.queryBox_TextChanged);
+            this.textBox1.Location = new System.Drawing.Point(81, 472);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(509, 20);
+            this.textBox1.TabIndex = 43;
             // 
             // queryLabel
             // 
@@ -88,39 +89,81 @@
             this.queryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.queryLabel.AutoSize = true;
-            this.queryLabel.Location = new System.Drawing.Point(19, 322);
+            this.queryLabel.Location = new System.Drawing.Point(78, 456);
             this.queryLabel.Name = "queryLabel";
             this.queryLabel.Size = new System.Drawing.Size(336, 13);
-            this.queryLabel.TabIndex = 2;
+            this.queryLabel.TabIndex = 42;
             this.queryLabel.Text = "Search for a Patient, Enter a Perscription number or select a Function ";
-            this.queryLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // searchButton
+            // dataGridView1
             // 
-            this.searchButton.Location = new System.Drawing.Point(515, 335);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
-            this.searchButton.TabIndex = 3;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.carrier,
+            this.binNum,
+            this.ID,
+            this.PCN,
+            this.groupNum,
+            this.Type});
+            this.dataGridView1.Location = new System.Drawing.Point(81, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(643, 395);
+            this.dataGridView1.TabIndex = 44;
             // 
-            // mainForm
+            // carrier
             // 
-            this.AccessibleName = "MainForm";
+            this.carrier.HeaderText = "Provider";
+            this.carrier.Name = "carrier";
+            this.carrier.ReadOnly = true;
+            // 
+            // binNum
+            // 
+            this.binNum.HeaderText = "BIN #";
+            this.binNum.Name = "binNum";
+            this.binNum.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // PCN
+            // 
+            this.PCN.HeaderText = "PCN";
+            this.PCN.Name = "PCN";
+            this.PCN.ReadOnly = true;
+            // 
+            // groupNum
+            // 
+            this.groupNum.HeaderText = "Group #";
+            this.groupNum.Name = "groupNum";
+            this.groupNum.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Insurance Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Form9
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 370);
-            this.Controls.Add(this.searchButton);
+            this.ClientSize = new System.Drawing.Size(825, 522);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.queryLabel);
-            this.Controls.Add(this.queryTextBox);
             this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "mainForm";
-            this.Text = "PIMS";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Name = "Form9";
+            this.Text = "Form9";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,8 +175,14 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TextBox queryTextBox;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label queryLabel;
-        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn carrier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn binNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PCN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }
