@@ -46,106 +46,169 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="billingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="billingForm.Designer.cs">
+      <DependentUpon>billingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form10.cs">
+    <Compile Include="billingGrid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form10.Designer.cs">
-      <DependentUpon>Form10.cs</DependentUpon>
+    <Compile Include="billingGrid.Designer.cs">
+      <DependentUpon>billingGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form11.cs">
+    <Compile Include="doctorNotesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form11.Designer.cs">
-      <DependentUpon>Form11.cs</DependentUpon>
+    <Compile Include="doctorNotesForm.Designer.cs">
+      <DependentUpon>doctorNotesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="doctorsNotesGrid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="doctorsNotesGrid.Designer.cs">
+      <DependentUpon>doctorsNotesGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="locationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="locationForm.Designer.cs">
+      <DependentUpon>locationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="locationGrid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="locationGrid.Designer.cs">
+      <DependentUpon>locationGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form6.cs">
+    <Compile Include="insuranceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <Compile Include="insuranceForm.Designer.cs">
+      <DependentUpon>insuranceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form7.cs">
+    <Compile Include="nurseNotes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form7.Designer.cs">
-      <DependentUpon>Form7.cs</DependentUpon>
+    <Compile Include="nurseNotes.Designer.cs">
+      <DependentUpon>nurseNotes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form8.cs">
+    <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form8.Designer.cs">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <Compile Include="mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form9.cs">
+    <Compile Include="nurseNotesGrid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form9.Designer.cs">
-      <DependentUpon>Form9.cs</DependentUpon>
+    <Compile Include="nurseNotesGrid.Designer.cs">
+      <DependentUpon>nurseNotesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="patientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="patientForm.Designer.cs">
+      <DependentUpon>patientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="volunteerGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="volunteerGrid.Designer.cs">
+      <DependentUpon>volunteerGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="visitorsGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="visitorsGrid.Designer.cs">
+      <DependentUpon>visitorsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainGrid.Designer.cs">
+      <DependentUpon>mainGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="prescriptionGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="prescriptionGrid.Designer.cs">
+      <DependentUpon>prescriptionGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="prescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="prescriptionForm.Designer.cs">
+      <DependentUpon>prescriptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="insuranceGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="insuranceGrid.Designer.cs">
+      <DependentUpon>insuranceGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="billingForm.resx">
+      <DependentUpon>billingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form10.resx">
-      <DependentUpon>Form10.cs</DependentUpon>
+    <EmbeddedResource Include="billingGrid.resx">
+      <DependentUpon>billingGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form11.resx">
-      <DependentUpon>Form11.cs</DependentUpon>
+    <EmbeddedResource Include="doctorNotesForm.resx">
+      <DependentUpon>doctorNotesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="doctorsNotesGrid.resx">
+      <DependentUpon>doctorsNotesGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="locationForm.resx">
+      <DependentUpon>locationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="locationGrid.resx">
+      <DependentUpon>locationGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <EmbeddedResource Include="insuranceForm.resx">
+      <DependentUpon>insuranceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form7.resx">
-      <DependentUpon>Form7.cs</DependentUpon>
+    <EmbeddedResource Include="nurseNotes.resx">
+      <DependentUpon>nurseNotes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form8.resx">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form9.resx">
-      <DependentUpon>Form9.cs</DependentUpon>
+    <EmbeddedResource Include="nurseNotesGrid.resx">
+      <DependentUpon>nurseNotesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patientForm.resx">
+      <DependentUpon>patientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="volunteerGrid.resx">
+      <DependentUpon>volunteerGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="visitorsGrid.resx">
+      <DependentUpon>visitorsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainGrid.resx">
+      <DependentUpon>mainGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prescriptionGrid.resx">
+      <DependentUpon>prescriptionGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prescriptionForm.resx">
+      <DependentUpon>prescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="insuranceGrid.resx">
+      <DependentUpon>insuranceGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
