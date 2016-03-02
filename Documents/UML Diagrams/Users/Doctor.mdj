@@ -1568,7 +1568,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "View Docotor Notes in doctorNotesGrid",
+											"text": "View Doctor Notes in doctorNotesGrid",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -10164,7 +10164,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFTONHRB6Rk4nI="
 							},
-							"name": "View Docotor Notes in doctorNotesGrid",
+							"name": "View Doctor Notes in doctorNotesGrid",
 							"visibility": "public"
 						},
 						{
