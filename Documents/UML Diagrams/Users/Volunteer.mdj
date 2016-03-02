@@ -1230,19 +1230,19 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 634,
-									"top": 187,
-									"width": 153.20703125,
+									"left": 640,
+									"top": 184,
+									"width": 89.6162109375,
 									"height": 13,
 									"autoResize": false,
-									"alpha": 1.588808580966559,
-									"distance": 93.13431161500041,
+									"alpha": 1.6452847487892726,
+									"distance": 67.1863081289633,
 									"hostEdge": {
 										"$ref": "AAAAAAFTOI3siI/ggTo="
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "Volunteer selects a patient",
+									"text": "Select a patient",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -1688,7 +1688,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFTOI3siI/fPxs="
 									},
-									"name": "Volunteer selects a patient",
+									"name": "Select a patient",
 									"visibility": "public",
 									"kind": "anyReceive"
 								}
