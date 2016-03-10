@@ -25,3 +25,4 @@ C:\Users\TeddLarry\PIMS\PIMS\PIMS\obj\Debug\PIMS.Form5.resources
 C:\Users\TeddLarry\PIMS\PIMS\PIMS\obj\Debug\PIMS.Form6.resources
 C:\Users\TeddLarry\PIMS\PIMS\PIMS\obj\Debug\PIMS.Form7.resources
 C:\Users\TeddLarry\PIMS\PIMS\PIMS\obj\Debug\PIMS.Form8.resources
+C:\Users\Ina\Desktop\PIMS\PIMS\PIMS\bin\Debug\PIMS.exe.config
