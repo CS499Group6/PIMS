@@ -8,8 +8,9 @@ namespace PIMSController
 {
     public class MedProcedure
     {
-        string what { get; set; }
-        DateTime when { get; set; }
-        string who { get; set; }
+        public string what { get; set; }
+        public DateTime when { get; set; }
+        public string who { get; set; }
+        public string where { get; set; }
     }
 }

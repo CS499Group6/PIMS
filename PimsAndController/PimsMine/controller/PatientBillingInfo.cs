@@ -8,34 +8,20 @@ namespace PIMSController
 {
     public class PatientBillingInfo
     {
-        BillingLineItem[] items { get; set; }
-        PatientInsInfo insurance { get; set; }
-        string strAddress { get; set; }
-        string city { get; set; }
-        string state { get; set; }
-        string zip { get; set; }
-        bool sameAsHome { get; set; }
+        public List<BillingLineItem> items { get; set; }
+        public PatientInsInfo insurance { get; set; }
+        public string strAddress { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string zip { get; set; }
+        public bool sameAsHome { get; set; }
 
-        PatientBillingInfo(PatientDirInfo curPatient)
+        public PatientBillingInfo()
         {
-            items = new BillingLineItem[20];
+            items = new List<BillingLineItem>();
             insurance = new PatientInsInfo();
             sameAsHome = true;
-            if(!sameAsHome)
-            {
-                strAddress = "";
-                city = "";
-                state = "";
-                zip = "";
-            }
-            else
-            {
-                strAddress = curPatient.strAddress;
-                city = curPatient.city;
-                state = curPatient.state;
-                zip = curPatient.zip;
-            }
-        }
 
+        }
     }
 }

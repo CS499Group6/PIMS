@@ -8,8 +8,20 @@ namespace PIMSController
 {
     public class PatientInsInfo
     {
-        string carrier { get; set; }
-        string acctNum { get; set; }
-        string groupNum { get; set; }
+        public string provider { get; set; }
+        public string bin { get; set; }
+        public string id { get; set; }
+        public string pcn { get; set; }
+
+        public string groupNum { get; set; }
+
+        public PatientInsInfo()
+        {
+            provider = "1234567";
+            bin = "1234567";
+            id = "1234567";
+            pcn = "1234567";
+            groupNum = "1234567";
+        }
     }
 }

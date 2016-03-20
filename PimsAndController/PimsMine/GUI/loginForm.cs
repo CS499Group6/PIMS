@@ -12,15 +12,14 @@ namespace PIMS
 {
     public partial class loginForm : Form
     {
-        PIMSController.User curUser;
         public loginForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
         //this code will execute when the form 1 is loaded
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
         //this code is for the menue bar executes when "File" is clicked
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace PIMS
         //This code is for the Exit button under the menue bar
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
         /*This code executes when the "Login" button is pressed
         when pressed transitions to main form(form2).
@@ -40,40 +39,46 @@ namespace PIMS
         */
         private void button1_Click(object sender, EventArgs e)
         {
-            if (userNameTextBox.Text == "Brandon" && passwordTextBox.Text == "1234")
+            string username = userNameTextBox.Text;
+            string password = passwordTextBox.Text;
+            bool userFound = false;
+            List<PIMSController.User> users = PIMSController.SQLcommands.getUserList();
+
+            foreach (PIMSController.User loginUser in users)
             {
-                curUser = new PIMSController.MedStaff();
-                //Open MainForm
-                mainForm MainForm = new mainForm(curUser);
-                MainForm.Visible = true;
-                //Hide loginForm
-                this.Hide();
-            }    
-            else
+                if(loginUser.username == username)
+                {
+                    userFound = true;
+                    if(loginUser.password == password)
+                    {
+                        PimsMain.Program.currentUser = loginUser;
+                        
+                        //Open MainForm
+                        if(loginUser is PIMSController.Admin)
+                        {
+                            // TODO: create user screen
+                        }
+                        mainForm MainForm = new mainForm();
+                        MainForm.Visible = true;
+                        //Hide loginForm
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid password!\nPlease check your info and try again.",
+                        "Invalid Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                }
+            }
             {
-                MessageBox.Show("Invalid username or password!\nPlease check your info and try again",
-    "Invalid Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!userFound)
+                {
+                    MessageBox.Show("User not found!\nPlease check your info and try again.",
+                        "Invalid Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-        //This code is for the Password section
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-        //Ths code is for the Username Section
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        //label for password
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        //label for username
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

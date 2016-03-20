@@ -42,11 +42,28 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.queryLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.treatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doctorNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nurseNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prescriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduledProceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailedBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.summaryBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insuranceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patientFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visitorListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,34 +179,164 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.fileToolStripMenuItem1,
+            this.treatmentToolStripMenuItem,
+            this.billingToolStripMenuItem,
+            this.directoryToolStripMenuItem,
+            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(649, 24);
             this.menuStrip1.TabIndex = 46;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // fileToolStripMenuItem1
+            // 
+            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.viewModeToolStripMenuItem});
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem1.Text = "File";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.editToolStripMenuItem.Text = "Edit Mode";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // viewModeToolStripMenuItem
+            // 
+            this.viewModeToolStripMenuItem.Name = "viewModeToolStripMenuItem";
+            this.viewModeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.viewModeToolStripMenuItem.Text = "View Mode";
+            this.viewModeToolStripMenuItem.Click += new System.EventHandler(this.viewModeToolStripMenuItem_Click);
+            // 
+            // treatmentToolStripMenuItem
+            // 
+            this.treatmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doctorNotesToolStripMenuItem,
+            this.nurseNotesToolStripMenuItem,
+            this.prescriptionsToolStripMenuItem,
+            this.scheduledProceduresToolStripMenuItem});
+            this.treatmentToolStripMenuItem.Name = "treatmentToolStripMenuItem";
+            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.treatmentToolStripMenuItem.Text = "Treatment";
+            this.treatmentToolStripMenuItem.Click += new System.EventHandler(this.treatmentToolStripMenuItem_Click);
+            // 
+            // doctorNotesToolStripMenuItem
+            // 
+            this.doctorNotesToolStripMenuItem.Name = "doctorNotesToolStripMenuItem";
+            this.doctorNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.doctorNotesToolStripMenuItem.Text = "Doctor Notes";
+            this.doctorNotesToolStripMenuItem.Click += new System.EventHandler(this.doctorNotesToolStripMenuItem_Click);
+            // 
+            // nurseNotesToolStripMenuItem
+            // 
+            this.nurseNotesToolStripMenuItem.Name = "nurseNotesToolStripMenuItem";
+            this.nurseNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.nurseNotesToolStripMenuItem.Text = "Nurse Notes";
+            this.nurseNotesToolStripMenuItem.Click += new System.EventHandler(this.nurseNotesToolStripMenuItem_Click);
+            // 
+            // prescriptionsToolStripMenuItem
+            // 
+            this.prescriptionsToolStripMenuItem.Name = "prescriptionsToolStripMenuItem";
+            this.prescriptionsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.prescriptionsToolStripMenuItem.Text = "Prescriptions";
+            this.prescriptionsToolStripMenuItem.Click += new System.EventHandler(this.prescriptionsToolStripMenuItem_Click);
+            // 
+            // scheduledProceduresToolStripMenuItem
+            // 
+            this.scheduledProceduresToolStripMenuItem.Name = "scheduledProceduresToolStripMenuItem";
+            this.scheduledProceduresToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.scheduledProceduresToolStripMenuItem.Text = "Scheduled Procedures";
+            this.scheduledProceduresToolStripMenuItem.Click += new System.EventHandler(this.scheduledProceduresToolStripMenuItem_Click);
+            // 
+            // billingToolStripMenuItem
+            // 
+            this.billingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detailedBillToolStripMenuItem,
+            this.summaryBillToolStripMenuItem,
+            this.insuranceInfoToolStripMenuItem});
+            this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
+            this.billingToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.billingToolStripMenuItem.Text = "Billing";
+            // 
+            // detailedBillToolStripMenuItem
+            // 
+            this.detailedBillToolStripMenuItem.Name = "detailedBillToolStripMenuItem";
+            this.detailedBillToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.detailedBillToolStripMenuItem.Text = "Detailed Bill";
+            this.detailedBillToolStripMenuItem.Click += new System.EventHandler(this.detailedBillToolStripMenuItem_Click);
+            // 
+            // summaryBillToolStripMenuItem
+            // 
+            this.summaryBillToolStripMenuItem.Name = "summaryBillToolStripMenuItem";
+            this.summaryBillToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.summaryBillToolStripMenuItem.Text = "Summary Bill";
+            this.summaryBillToolStripMenuItem.Click += new System.EventHandler(this.summaryBillToolStripMenuItem_Click);
+            // 
+            // insuranceInfoToolStripMenuItem
+            // 
+            this.insuranceInfoToolStripMenuItem.Name = "insuranceInfoToolStripMenuItem";
+            this.insuranceInfoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.insuranceInfoToolStripMenuItem.Text = "Insurance Info";
+            this.insuranceInfoToolStripMenuItem.Click += new System.EventHandler(this.insuranceInfoToolStripMenuItem_Click);
+            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOffToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "Exit";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            // 
+            // logOffToolStripMenuItem
+            // 
+            this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
+            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logOffToolStripMenuItem.Text = "Log off";
+            this.logOffToolStripMenuItem.Click += new System.EventHandler(this.logOffToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // aboutToolStripMenuItem
+            // directoryToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.directoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patientFormToolStripMenuItem,
+            this.locationToolStripMenuItem,
+            this.visitorListToolStripMenuItem});
+            this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
+            this.directoryToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.directoryToolStripMenuItem.Text = "Directory";
+            // 
+            // patientFormToolStripMenuItem
+            // 
+            this.patientFormToolStripMenuItem.Name = "patientFormToolStripMenuItem";
+            this.patientFormToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.patientFormToolStripMenuItem.Text = "Patient Form";
+            this.patientFormToolStripMenuItem.Click += new System.EventHandler(this.patientFormToolStripMenuItem_Click);
+            // 
+            // locationToolStripMenuItem
+            // 
+            this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
+            this.locationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.locationToolStripMenuItem.Text = "Location";
+            this.locationToolStripMenuItem.Click += new System.EventHandler(this.locationToolStripMenuItem_Click);
+            // 
+            // visitorListToolStripMenuItem
+            // 
+            this.visitorListToolStripMenuItem.Name = "visitorListToolStripMenuItem";
+            this.visitorListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.visitorListToolStripMenuItem.Text = "Visitor List";
             // 
             // comboBox1
             // 
@@ -197,24 +344,36 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(134, 212);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 21);
+            this.comboBox1.Size = new System.Drawing.Size(211, 21);
             this.comboBox1.TabIndex = 47;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(556, 288);
+            this.button1.Location = new System.Drawing.Point(351, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 48;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(537, 285);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 49;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // insuranceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 325);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.menuStrip1);
@@ -258,8 +417,26 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem billingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem treatmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detailedBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem summaryBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insuranceInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doctorNotesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nurseNotesToolStripMenuItem;
+ //       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem prescriptionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduledProceduresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem directoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem patientFormToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem locationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visitorListToolStripMenuItem;
+        private System.Windows.Forms.Button searchButton;
     }
 }

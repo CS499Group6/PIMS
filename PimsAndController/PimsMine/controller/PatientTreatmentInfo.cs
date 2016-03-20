@@ -14,12 +14,14 @@ namespace PIMSController
         public string primaryDoc { get; set; }
         public string docNotes { get; set; }
         public MedStaffNotes  medStaffNotes { get; set; }
+        public List<MedProcedure> procedures;
 
         public PatientPrescInfo prescriptions { get; set; }
 
         public PatientTreatmentInfo()
         {
             medStaffNotes = new MedStaffNotes();
+            procedures = new List<MedProcedure>();
         }
     }
 }

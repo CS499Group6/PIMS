@@ -8,6 +8,6 @@ namespace PIMSController
 {
     public class PatientPrescInfo
     {
-        PrescDrug[] prescriptions { get; set; }
+        public List<PrescDrug> prescriptions;
     }
 }

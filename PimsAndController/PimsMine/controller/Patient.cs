@@ -12,21 +12,27 @@ namespace PIMSController
         public PatientTreatmentInfo treatment;
         public PatientBillingInfo billing;
 
-
         public Patient()
         {
-            this.directory = new PatientDirInfo();
-            this.treatment = new PatientTreatmentInfo();
-            treatment.docNotes = "First set of notes" + "\nsecond line of notes";
-
-        }
-
-        public Patient(string lName, string fName)
-        {
-            directory = new PatientDirInfo();
-            directory.lName = lName;
-            directory.fName = fName;
-            treatment = new PatientTreatmentInfo();
+            if (PimsMain.Program.currentUser is Doctor ||
+               PimsMain.Program.currentUser is MedStaff)
+            {
+                directory = new PatientDirInfo();
+                treatment = new PatientTreatmentInfo();
+                billing = new PatientBillingInfo();
+            }
+            else if (PimsMain.Program.currentUser is OfficeStaff)
+            {
+                directory = new PatientDirInfo();
+                billing = new PatientBillingInfo();
+                treatment = null;
+            }
+            else
+            {
+                directory = new PatientDirInfo();
+                treatment = null;
+                billing = null;
+            }
         }
     }
 }

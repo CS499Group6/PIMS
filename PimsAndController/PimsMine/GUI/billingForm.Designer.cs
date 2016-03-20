@@ -30,28 +30,39 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.costBox = new System.Windows.Forms.TextBox();
+            this.paidBox = new System.Windows.Forms.TextBox();
+            this.insPaidBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dueBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.queryLabel = new System.Windows.Forms.Label();
+            this.logOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.treatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailedBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.summaryBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insuranceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doctorNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nurseNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prescriptionInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduledProceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
+            this.itemNameBox = new System.Windows.Forms.Label();
+            this.itemBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 46);
+            this.label1.Location = new System.Drawing.Point(23, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
@@ -61,54 +72,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 82);
+            this.label2.Location = new System.Drawing.Point(23, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Amount Paid:";
             // 
-            // textBox1
+            // costBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.costBox.Location = new System.Drawing.Point(122, 65);
+            this.costBox.Name = "costBox";
+            this.costBox.Size = new System.Drawing.Size(100, 20);
+            this.costBox.TabIndex = 2;
             // 
-            // textBox2
+            // paidBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(122, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.paidBox.Location = new System.Drawing.Point(122, 119);
+            this.paidBox.Name = "paidBox";
+            this.paidBox.Size = new System.Drawing.Size(100, 20);
+            this.paidBox.TabIndex = 3;
             // 
-            // textBox3
+            // insPaidBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(122, 119);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(122, 158);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Amount Owed:";
+            this.insPaidBox.Location = new System.Drawing.Point(122, 91);
+            this.insPaidBox.Name = "insPaidBox";
+            this.insPaidBox.Size = new System.Drawing.Size(100, 20);
+            this.insPaidBox.TabIndex = 5;
+            this.insPaidBox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 158);
+            this.label4.Location = new System.Drawing.Point(23, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 8;
@@ -117,24 +112,26 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 194);
+            this.label5.Location = new System.Drawing.Point(26, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Due Date:";
             // 
-            // textBox5
+            // dueBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(122, 194);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 6;
+            this.dueBox.Location = new System.Drawing.Point(122, 145);
+            this.dueBox.Name = "dueBox";
+            this.dueBox.Size = new System.Drawing.Size(100, 20);
+            this.dueBox.TabIndex = 6;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.fileToolStripMenuItem1,
+            this.treatmentToolStripMenuItem,
+            this.billingToolStripMenuItem,
+            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(681, 24);
@@ -144,10 +141,11 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOffToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "Exit";
             // 
             // exitToolStripMenuItem
             // 
@@ -156,27 +154,22 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(557, 250);
+            this.button1.Location = new System.Drawing.Point(122, 187);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 11;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox6
+            // searchBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(26, 250);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(509, 20);
-            this.textBox6.TabIndex = 45;
+            this.searchBox.Location = new System.Drawing.Point(26, 250);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(509, 20);
+            this.searchBox.TabIndex = 45;
             // 
             // queryLabel
             // 
@@ -184,28 +177,138 @@
             this.queryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.queryLabel.AutoSize = true;
-            this.queryLabel.Location = new System.Drawing.Point(23, 234);
+            this.queryLabel.Location = new System.Drawing.Point(23, 237);
             this.queryLabel.Name = "queryLabel";
-            this.queryLabel.Size = new System.Drawing.Size(341, 13);
+            this.queryLabel.Size = new System.Drawing.Size(336, 13);
             this.queryLabel.TabIndex = 44;
-            this.queryLabel.Text = "Search for a Patient, Enter a Presscription number or select a Function ";
+            this.queryLabel.Text = "Search for a Patient, Enter a Prescription number or select a Function ";
+            // 
+            // logOffToolStripMenuItem
+            // 
+            this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
+            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOffToolStripMenuItem.Text = "Log off";
+            this.logOffToolStripMenuItem.Click += new System.EventHandler(this.logOffToolStripMenuItem_Click);
+            // 
+            // treatmentToolStripMenuItem
+            // 
+            this.treatmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doctorNotesToolStripMenuItem,
+            this.nurseNotesToolStripMenuItem,
+            this.prescriptionInfoToolStripMenuItem,
+            this.scheduledProceduresToolStripMenuItem});
+            this.treatmentToolStripMenuItem.Name = "treatmentToolStripMenuItem";
+            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.treatmentToolStripMenuItem.Text = "Treatment";
+            // 
+            // billingToolStripMenuItem
+            // 
+            this.billingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detailedBillToolStripMenuItem,
+            this.summaryBillToolStripMenuItem,
+            this.insuranceInfoToolStripMenuItem});
+            this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
+            this.billingToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.billingToolStripMenuItem.Text = "Billing";
+            // 
+            // fileToolStripMenuItem1
+            // 
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem1.Text = "File";
+            // 
+            // detailedBillToolStripMenuItem
+            // 
+            this.detailedBillToolStripMenuItem.Name = "detailedBillToolStripMenuItem";
+            this.detailedBillToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.detailedBillToolStripMenuItem.Text = "Detailed Bill";
+            this.detailedBillToolStripMenuItem.Click += new System.EventHandler(this.detailedBillToolStripMenuItem_Click);
+            // 
+            // summaryBillToolStripMenuItem
+            // 
+            this.summaryBillToolStripMenuItem.Name = "summaryBillToolStripMenuItem";
+            this.summaryBillToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.summaryBillToolStripMenuItem.Text = "Summary Bill";
+            this.summaryBillToolStripMenuItem.Click += new System.EventHandler(this.summaryBillToolStripMenuItem_Click);
+            // 
+            // insuranceInfoToolStripMenuItem
+            // 
+            this.insuranceInfoToolStripMenuItem.Name = "insuranceInfoToolStripMenuItem";
+            this.insuranceInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.insuranceInfoToolStripMenuItem.Text = "Insurance Info";
+            this.insuranceInfoToolStripMenuItem.Click += new System.EventHandler(this.insuranceInfoToolStripMenuItem_Click);
+            // 
+            // doctorNotesToolStripMenuItem
+            // 
+            this.doctorNotesToolStripMenuItem.Name = "doctorNotesToolStripMenuItem";
+            this.doctorNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.doctorNotesToolStripMenuItem.Text = "Doctor Notes";
+            this.doctorNotesToolStripMenuItem.Click += new System.EventHandler(this.doctorNotesToolStripMenuItem_Click);
+            // 
+            // nurseNotesToolStripMenuItem
+            // 
+            this.nurseNotesToolStripMenuItem.Name = "nurseNotesToolStripMenuItem";
+            this.nurseNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.nurseNotesToolStripMenuItem.Text = "Nurse Notes";
+            this.nurseNotesToolStripMenuItem.Click += new System.EventHandler(this.nurseNotesToolStripMenuItem_Click);
+            // 
+            // prescriptionInfoToolStripMenuItem
+            // 
+            this.prescriptionInfoToolStripMenuItem.Name = "prescriptionInfoToolStripMenuItem";
+            this.prescriptionInfoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.prescriptionInfoToolStripMenuItem.Text = "Prescription Info";
+            this.prescriptionInfoToolStripMenuItem.Click += new System.EventHandler(this.prescriptionInfoToolStripMenuItem_Click);
+            // 
+            // scheduledProceduresToolStripMenuItem
+            // 
+            this.scheduledProceduresToolStripMenuItem.Name = "scheduledProceduresToolStripMenuItem";
+            this.scheduledProceduresToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.scheduledProceduresToolStripMenuItem.Text = "Scheduled Procedures";
+            this.scheduledProceduresToolStripMenuItem.Click += new System.EventHandler(this.scheduledProceduresToolStripMenuItem_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(542, 247);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // itemNameBox
+            // 
+            this.itemNameBox.AutoSize = true;
+            this.itemNameBox.Location = new System.Drawing.Point(23, 42);
+            this.itemNameBox.Name = "itemNameBox";
+            this.itemNameBox.Size = new System.Drawing.Size(59, 13);
+            this.itemNameBox.TabIndex = 47;
+            this.itemNameBox.Text = "Item name:";
+            // 
+            // itemBox
+            // 
+            this.itemBox.Location = new System.Drawing.Point(122, 39);
+            this.itemBox.Name = "itemBox";
+            this.itemBox.Size = new System.Drawing.Size(100, 20);
+            this.itemBox.TabIndex = 48;
             // 
             // billingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 282);
-            this.Controls.Add(this.textBox6);
+            this.ClientSize = new System.Drawing.Size(681, 285);
+            this.Controls.Add(this.itemBox);
+            this.Controls.Add(this.itemNameBox);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.queryLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dueBox);
+            this.Controls.Add(this.insPaidBox);
+            this.Controls.Add(this.paidBox);
+            this.Controls.Add(this.costBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -223,20 +326,31 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox costBox;
+        private System.Windows.Forms.TextBox paidBox;
+        private System.Windows.Forms.TextBox insPaidBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox dueBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Label queryLabel;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem treatmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doctorNotesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nurseNotesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prescriptionInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduledProceduresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detailedBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem summaryBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insuranceInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOffToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label itemNameBox;
+        private System.Windows.Forms.TextBox itemBox;
     }
 }

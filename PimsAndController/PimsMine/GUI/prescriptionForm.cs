@@ -23,6 +23,7 @@ namespace PIMS
         public prescriptionForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

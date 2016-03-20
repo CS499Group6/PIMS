@@ -12,11 +12,10 @@ namespace PIMS
 {
     public partial class mainForm : Form
     {
-        PIMSController.User curUser;
-        public mainForm(PIMSController.User user)
+        public mainForm()
         {
             InitializeComponent();
-            curUser = user;
+            this.ControlBox = false;
         }
         //performs on opening of form2
         private void Form2_Load(object sender, EventArgs e)
@@ -31,7 +30,7 @@ namespace PIMS
         //executes when exit is pressed in menue bar
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
         /*Query Box for main menue::
         This code should ToUpper all inputs,
@@ -55,10 +54,27 @@ namespace PIMS
             String lastNameQuery = queryTextBox.Text.ToUpper();
 
             //Open MainGrid
-            mainGrid MainGrid = new mainGrid(lastNameQuery, curUser);
-            MainGrid.Visible = true;
-            //Hide mainForm
-            this.Hide();
+            if (PimsMain.Program.currentUser is PIMSController.Volunteer)
+            {
+                volunteerGrid volGrid = new volunteerGrid(lastNameQuery);
+                volGrid.Visible = true;
+                this.Hide();
+            }
+            else if (PimsMain.Program.currentUser is PIMSController.Doctor ||
+                    PimsMain.Program.currentUser is PIMSController.MedStaff ||
+                    PimsMain.Program.currentUser is PIMSController.OfficeStaff)
+            {
+                mainGrid MainGrid = new mainGrid(lastNameQuery);
+                MainGrid.Visible = true;
+                //Hide mainForm
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid User! Closing Program",
+                        "Invalid User", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
     }
 }

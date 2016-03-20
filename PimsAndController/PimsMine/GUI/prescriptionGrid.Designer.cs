@@ -33,15 +33,25 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV = new System.Windows.Forms.DataGridView();
             this.idNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NDC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fillDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.treatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailedBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.summaryBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insuranceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doctorsNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nursesNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prescriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduledProceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewPrescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // queryLabel
@@ -66,8 +76,10 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.fileToolStripMenuItem1,
+            this.treatmentToolStripMenuItem,
+            this.billingToolStripMenuItem,
+            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(821, 24);
@@ -85,33 +97,27 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // aboutToolStripMenuItem
+            // DGV
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV.AllowUserToAddRows = false;
+            this.DGV.AllowUserToDeleteRows = false;
+            this.DGV.AllowUserToResizeColumns = false;
+            this.DGV.AllowUserToResizeRows = false;
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idNum,
             this.drugName,
             this.NDC,
             this.Column1,
             this.fillDate});
-            this.dataGridView1.Location = new System.Drawing.Point(22, 40);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(593, 452);
-            this.dataGridView1.TabIndex = 41;
+            this.DGV.Location = new System.Drawing.Point(22, 40);
+            this.DGV.Name = "DGV";
+            this.DGV.Size = new System.Drawing.Size(593, 452);
+            this.DGV.TabIndex = 41;
             // 
             // idNum
             // 
@@ -141,12 +147,91 @@
             this.fillDate.HeaderText = "Date Filled mm/dd/yyyy";
             this.fillDate.Name = "fillDate";
             // 
+            // treatmentToolStripMenuItem
+            // 
+            this.treatmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doctorsNotesToolStripMenuItem,
+            this.nursesNotesToolStripMenuItem,
+            this.prescriptionsToolStripMenuItem,
+            this.scheduledProceduresToolStripMenuItem});
+            this.treatmentToolStripMenuItem.Name = "treatmentToolStripMenuItem";
+            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.treatmentToolStripMenuItem.Text = "Treatment";
+            // 
+            // billingToolStripMenuItem
+            // 
+            this.billingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detailedBillToolStripMenuItem,
+            this.summaryBillToolStripMenuItem,
+            this.insuranceInfoToolStripMenuItem});
+            this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
+            this.billingToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.billingToolStripMenuItem.Text = "Billing";
+            // 
+            // fileToolStripMenuItem1
+            // 
+            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewPrescriptionToolStripMenuItem});
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem1.Text = "File";
+            // 
+            // detailedBillToolStripMenuItem
+            // 
+            this.detailedBillToolStripMenuItem.Name = "detailedBillToolStripMenuItem";
+            this.detailedBillToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.detailedBillToolStripMenuItem.Text = "Detailed Bill";
+            // 
+            // summaryBillToolStripMenuItem
+            // 
+            this.summaryBillToolStripMenuItem.Name = "summaryBillToolStripMenuItem";
+            this.summaryBillToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.summaryBillToolStripMenuItem.Text = "Summary Bill";
+            this.summaryBillToolStripMenuItem.Click += new System.EventHandler(this.summaryBillToolStripMenuItem_Click);
+            // 
+            // insuranceInfoToolStripMenuItem
+            // 
+            this.insuranceInfoToolStripMenuItem.Name = "insuranceInfoToolStripMenuItem";
+            this.insuranceInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.insuranceInfoToolStripMenuItem.Text = "Insurance Info";
+            this.insuranceInfoToolStripMenuItem.Click += new System.EventHandler(this.insuranceInfoToolStripMenuItem_Click);
+            // 
+            // doctorsNotesToolStripMenuItem
+            // 
+            this.doctorsNotesToolStripMenuItem.Name = "doctorsNotesToolStripMenuItem";
+            this.doctorsNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.doctorsNotesToolStripMenuItem.Text = "Doctor\'s Notes";
+            // 
+            // nursesNotesToolStripMenuItem
+            // 
+            this.nursesNotesToolStripMenuItem.Name = "nursesNotesToolStripMenuItem";
+            this.nursesNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.nursesNotesToolStripMenuItem.Text = "Nurse\'s Notes";
+            // 
+            // prescriptionsToolStripMenuItem
+            // 
+            this.prescriptionsToolStripMenuItem.Name = "prescriptionsToolStripMenuItem";
+            this.prescriptionsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.prescriptionsToolStripMenuItem.Text = "Prescriptions";
+            // 
+            // scheduledProceduresToolStripMenuItem
+            // 
+            this.scheduledProceduresToolStripMenuItem.Name = "scheduledProceduresToolStripMenuItem";
+            this.scheduledProceduresToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.scheduledProceduresToolStripMenuItem.Text = "Scheduled Procedures";
+            // 
+            // addNewPrescriptionToolStripMenuItem
+            // 
+            this.addNewPrescriptionToolStripMenuItem.Name = "addNewPrescriptionToolStripMenuItem";
+            this.addNewPrescriptionToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.addNewPrescriptionToolStripMenuItem.Text = "Add new prescription";
+            // 
             // prescriptionGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 599);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.queryLabel);
             this.Controls.Add(this.textBox1);
@@ -154,7 +239,7 @@
             this.Text = "Prescription Information";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,12 +252,22 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn idNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn drugName;
         private System.Windows.Forms.DataGridViewTextBoxColumn NDC;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fillDate;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem treatmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewPrescriptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doctorsNotesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nursesNotesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prescriptionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduledProceduresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detailedBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem summaryBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insuranceInfoToolStripMenuItem;
     }
 }

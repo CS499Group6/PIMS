@@ -25,7 +25,7 @@ namespace PIMSController
         public string phoneNum1 { get; set; }
         public string phoneNum2 { get; set; }
         public bool isAdmitted { get; set; }
-        public Visitor[] visitorList { get; set; }
+        public List<Visitor> visitors { get; set; }
         public HospLocation location { get; set; }
         public EmerContact emerContact1  { get; set; }
         public EmerContact emerContact2 { get; set; }
@@ -44,7 +44,7 @@ namespace PIMSController
             zip = "35803";
             phoneNum1 = "2569199468";
             phoneNum2 = "";
-            visitorList = new Visitor[10];
+            visitors = new List<Visitor>();
             location = new HospLocation();
             emerContact1 = new EmerContact();
             emerContact2 = new EmerContact();

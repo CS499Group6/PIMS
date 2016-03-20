@@ -8,7 +8,7 @@ namespace PIMSController
 {
     public class Visitor
     {
-        string name { get; set; }
+        public string name { get; set; }
 
     }
 }

@@ -8,12 +8,12 @@ namespace PIMSController
 {
     public class BillingLineItem
     {
-        string item { get; set; }
-        int cost { get; set; }
-        int paid { get; set; }
-        int insPaid { get; set; }
-        int owed { get; set; }
-        DateTime dueDate { get; set; }
+        public string item { get; set; }
+        public int cost { get; set; }
+        public int paid { get; set; }
+        public int insPaid { get; set; }
+        public int owed { get; set; }
+        public DateTime dueDate { get; set; }
 
     }
 }

@@ -16,29 +16,101 @@ namespace PIMS
 {
     public partial class mainGrid : Form
     {
-        PIMSController.User curUser;
         List<PIMSController.Patient> patients = new List<PIMSController.Patient>();
         PIMSController.Patient selectedPatient = null;
-        public mainGrid(String lastNameQuery, PIMSController.User user)
+        PIMSController.User user;
+        public mainGrid(String lastNameQuery)
         {
             InitializeComponent();
-            curUser = user;
+            this.ControlBox = false;
+            user            = PimsMain.Program.currentUser;
 
-            patients.Add(new PIMSController.Patient());
-            patients.Add(new PIMSController.Patient());
-            patients.Add(new PIMSController.Patient());
+            fileToolStripMenuItem1.Enabled     = false;
+            treatmentToolStripMenuItem.Enabled = false;
+            billingToolStripMenuItem.Enabled   = false;
+            directoryToolStripMenuItem.Enabled = false;
+
+            patients = PIMSController.SQLcommands.getPatientList();
+
+            fillDGV(lastNameQuery);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientQueryDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string currentID = "";
+            int count = 0;
+            // make sure just 1 is selected since it wont take radio buttons
+            foreach (DataGridViewRow row in patientQueryDataGridView.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[0].Value.Equals("true"))
+                {
+                    count++;
+                    currentID = row.Cells[1].Value.ToString();
+                }
+            }
+            if (count == 0)
+            {
+                MessageBox.Show("Please select a patient.",
+                    "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (count != 1)
+            {
+                MessageBox.Show("Please select only one patient.",
+                    "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (PIMSController.Patient myPatient in patients)
+                {
+                    if(currentID != null && myPatient.directory.patientID == currentID)
+                    {
+                        selectedPatient = myPatient;
+                    }
+                }
+
+                // open patient grid
+                PimsMain.Program.currentPatient = selectedPatient;
+                patientForm myPatientForm = new patientForm();
+                myPatientForm.Visible = true;
+                // hide this one
+                this.Hide();
+
+            }
+
+        }
+        private void fillDGV(string query)
+        {
+            patients = PIMSController.SQLcommands.getPatientList();
 
             Boolean found = false;
             foreach (var myPatient in patients)
             {
-                if (myPatient.directory.lName.ToUpper().StartsWith(lastNameQuery))
+                if (query.Length > 2 && myPatient.directory.lName.ToUpper().StartsWith(query))
                 {
                     found = true;
                     String firstName = myPatient.directory.fName;
                     string middleName = myPatient.directory.mName;
                     string dateOfBirth = myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy");
                     string lastName = myPatient.directory.lName;
-
+                    for(int i = 1; i < 9; i++)
+                    {
+                        patientQueryDataGridView.Columns[i].ReadOnly = true;
+                    }
                     patientQueryDataGridView.Rows.Add(null,
                                                       myPatient.directory.patientID,
                                                       myPatient.directory.lName,
@@ -59,67 +131,44 @@ namespace PIMS
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.patientQueryDataGridView.DataSource = null;
+            this.patientQueryDataGridView.Rows.Clear();
+            this.patientQueryDataGridView.Refresh();
+            fillDGV(textBox1.Text.ToUpper());
+            textBox1.Text = "";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void logOffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PimsMain.Program.currentPatient = null;
+            PimsMain.Program.currentUser = null;
+            PIMS.loginForm login = new PIMS.loginForm();
+            login.Visible = true;
+            this.Hide();
+        }
+
+        private void visitorListToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void patientQueryDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void locationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void patientFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string currentID = "";
-            int count = 0;
-            // make sure just 1 is selected since it wont take radio buttons
-            foreach (DataGridViewRow row in patientQueryDataGridView.Rows)
-            {
-              //  Console.WriteLine(row.Cells[0].Value.ToString());
-             //   Console.WriteLine(row.Cells[0].Value.Equals(false));
-                //DataRow currentRow = ((DataRowView)row.DataBoundItem).Row;
-                if (row.Cells[0].Value != null && row.Cells[0].Value.Equals("true"))
-                {
-                    count++;
-                    currentID = row.Cells[1].Value.ToString();
-                    Console.WriteLine(count);
-                    Console.WriteLine(currentID);
-                }
-            }
-            if (count == 0)
-            {
-                MessageBox.Show("Please select a row.",
-                    "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (count != 1)
-            {
-                MessageBox.Show("Please select only one row.",
-                    "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                foreach (PIMSController.Patient myPatient in patients)
-                {
-                    if(currentID != null && myPatient.directory.patientID == currentID)
-                    {
-                        selectedPatient = myPatient;
-                    }
-                }
- 
-                // open patient grid
-                patientForm myPatientForm = new patientForm(selectedPatient, curUser);
-                myPatientForm.Visible = true;
-                // hide this one
-                this.Hide();
 
-            }
+        }
 
+        private void addNewPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            patientForm patient = new patientForm(true);
+            patient.Visible = true;
+            this.Hide();
         }
     }
     }
