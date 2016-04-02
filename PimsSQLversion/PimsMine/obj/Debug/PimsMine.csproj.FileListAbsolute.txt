@@ -1,0 +1,55 @@
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\bin\Debug\PimsMine.exe.config
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\bin\Debug\PimsMine.exe
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\bin\Debug\PimsMine.pdb
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.csprojResolveAssemblyReference.cache
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.billingForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.billingGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.doctorNotesForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.doctorsNotesGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.insuranceForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.insuranceGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.locationForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.locationGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.loginForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.mainForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.mainGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.nurseNotes.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.nurseNotesGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.patientForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.prescriptionForm.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.prescriptionGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.visitorsGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.GUI.volunteerGrid.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.Properties.Resources.resources
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.csproj.GenerateResource.Cache
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.exe
+c:\users\brandon\documents\visual studio 2015\Projects\PimsMine\PimsMine\obj\Debug\PimsMine.pdb
+F:\PimsMine\PimsMine\bin\Debug\PimsMine.exe.config
+F:\PimsMine\PimsMine\obj\Debug\PimsMine.exe
+F:\PimsMine\PimsMine\obj\Debug\PimsMine.pdb
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\bin\Debug\PimsMine.exe.config
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.exe
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.pdb
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.csprojResolveAssemblyReference.cache
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.billingForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.billingGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.doctorNotesForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.doctorsNotesGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.insuranceForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.insuranceGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.locationForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.locationGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.loginForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.mainForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.mainGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.nurseNotes.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.nurseNotesGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.patientForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.prescriptionForm.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.prescriptionGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.visitorsGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.GUI.volunteerGrid.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.Properties.Resources.resources
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\obj\Debug\PimsMine.csproj.GenerateResource.Cache
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\bin\Debug\PimsMine.exe
+C:\Users\brandon\Documents\GitHub\PIMS\PimsAndController\PimsMine\bin\Debug\PimsMine.pdb
