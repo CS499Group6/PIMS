@@ -54,11 +54,8 @@ C:\Users\tbk0004\Downloads\PIMS-master\PIMS-master\PimsAndController\PimsMine\ob
 C:\Users\tbk0004\Downloads\PIMS-master\PIMS-master\PimsAndController\PimsMine\obj\Debug\PimsMain.exe
 C:\Users\tbk0004\Downloads\PIMS-master\PIMS-master\PimsAndController\PimsMine\obj\Debug\PimsMain.pdb
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe.config
-C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.exe
-C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.pdb
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\bin\Debug\PimsMain.pdb
-C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.csprojResolveAssemblyReference.cache
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.AddProcedureForm.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingForm.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingGrid.resources
@@ -81,3 +78,5 @@ C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.visitor
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.volunteerGrid.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.Properties.Resources.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.csproj.GenerateResource.Cache
+C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.exe
+C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.pdb
