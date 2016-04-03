@@ -12,8 +12,8 @@ namespace PIMSController
         public string bin { get; set; }
         public string id { get; set; }
         public string pcn { get; set; }
-
         public string groupNum { get; set; }
+        public string insuranceType { get; set; }
 
         public PatientInsInfo()
         {

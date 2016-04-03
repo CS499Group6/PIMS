@@ -11,8 +11,8 @@ namespace PIMSController
         public struct patientStats
         {
             public DateTime time;
+            public int patientHeight; //would it be possible to make this  a string 5'6 instead of 56
             public int patientWeight;
-            public int patientHeight;
             public int bloodPressureSys;
             public int bloodPressureDia;
             public int heartrate;
@@ -21,6 +21,7 @@ namespace PIMSController
                 time = when;
                 patientWeight = weight;
                 patientHeight = height;
+               // patientHeight = String.Copy(height);
                 bloodPressureDia = dia;
                 bloodPressureSys = sys;
                 heartrate = hr;

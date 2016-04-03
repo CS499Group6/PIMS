@@ -8,9 +8,10 @@ namespace PIMSController
 {
     public class MedProcedure
     {
-        public string what { get; set; }
-        public DateTime when { get; set; }
-        public string who { get; set; }
-        public string where { get; set; }
+        //comments specify name of corresponding column name in database 
+        public string what { get; set; } //scheduledProcedure
+        public DateTime when { get; set; } //whenScheduled
+        public string who { get; set; } //performedBy
+        public string where { get; set; } //Location
     }
 }

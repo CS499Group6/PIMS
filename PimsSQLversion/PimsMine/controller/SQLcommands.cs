@@ -10,7 +10,7 @@ namespace PIMSController
 {
     public class SQLcommands
     {
-        static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS_database;";
+        static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS_database;"; 
         static SqlConnection cnn = new SqlConnection(connectString);
         
         public static List<Patient> patients = null;
@@ -84,29 +84,31 @@ namespace PIMSController
                 if (datardr.GetValue(6) != System.DBNull.Value)
                     x.directory.strAddress = (String)datardr.GetValue(6);
                 if (datardr.GetValue(7) != System.DBNull.Value)
-                    x.directory.phoneNum1 = datardr.GetValue(7).ToString();
+                    x.directory.zip = (String)datardr.GetValue(7);
                 if (datardr.GetValue(8) != System.DBNull.Value)
-                    x.directory.phoneNum2 = datardr.GetValue(8).ToString();
-                if (datardr.GetValue(9) != System.DBNull.Value)
-                    x.directory.emerContact1.name = (String)datardr.GetValue(9);
+                    x.directory.state = (String)datardr.GetValue(8);
                 if (datardr.GetValue(10) != System.DBNull.Value)
-                    x.directory.emerContact1.phoneNum = datardr.GetValue(10).ToString();
+                    x.directory.phoneNum1 = datardr.GetValue(10).ToString();
+                if (datardr.GetValue(9) != System.DBNull.Value)
+                    x.directory.city = (String)datardr.GetValue(9);
                 if (datardr.GetValue(11) != System.DBNull.Value)
-                    x.directory.emerContact2.name = (String)datardr.GetValue(11);
+                    x.directory.phoneNum2 = datardr.GetValue(11).ToString();
                 if (datardr.GetValue(12) != System.DBNull.Value)
-                    x.directory.emerContact2.phoneNum = datardr.GetValue(12).ToString();
+                    x.directory.emerContact1.name = (String)datardr.GetValue(12);
                 if (datardr.GetValue(13) != System.DBNull.Value)
+                    x.directory.emerContact1.phoneNum = datardr.GetValue(13).ToString();
+                if (datardr.GetValue(14) != System.DBNull.Value)
+                    x.directory.emerContact2.name = (String)datardr.GetValue(14);
+                if (datardr.GetValue(15) != System.DBNull.Value)
+                    x.directory.emerContact2.phoneNum = datardr.GetValue(15).ToString();
+                if (datardr.GetValue(16) != System.DBNull.Value)
                 {
                     Visitor v = new Visitor();
-                    v.name = (String)datardr.GetValue(13);
+                    v.name = (String)datardr.GetValue(16);
                     x.directory.visitors.Add(v);
                 }
-                if (!(datardr.GetValue(14).Equals(System.DBNull.Value)))
-                    x.directory.location.bedNum = (String)datardr.GetValue(14);
-                if (datardr.GetValue(15) != System.DBNull.Value)
-                    x.directory.city = (String)datardr.GetValue(15);
-                if (datardr.GetValue(16) != System.DBNull.Value)
-                    x.directory.state = (String)datardr.GetValue(16);
+                if (!(datardr.GetValue(17).Equals(System.DBNull.Value)))
+                    x.directory.location.bedNum = (String)datardr.GetValue(17);                         
             }
 
             cnn.Close();
@@ -157,49 +159,51 @@ namespace PIMSController
             while (datardr.Read())
             {
                 Patient x = new Patient();
-                if(datardr.GetValue(0) != null)
-                   x.directory.patientID = (String)datardr.GetValue(0);
-                if (datardr.GetValue(1) != null)
-                   x.directory.fName     = (String)datardr.GetValue(1);
-                if (datardr.GetValue(2) != null)
-                   x.directory.lName     = (String)datardr.GetValue(2);
-                if (datardr.GetValue(3) != null)
-                   x.directory.mName     = (String)datardr.GetValue(3);
-                if (datardr.GetValue(4) != null)
-                    x.directory.DOB       = (DateTime)datardr.GetValue(4);
-                if (datardr.GetValue(5) != null)
+                if (datardr.GetValue(0) != System.DBNull.Value)
+                    x.directory.patientID = (String)datardr.GetValue(0);
+                if (datardr.GetValue(1) != System.DBNull.Value)
+                    x.directory.fName = (String)datardr.GetValue(1);
+                if (datardr.GetValue(2) != System.DBNull.Value)
+                    x.directory.lName = (String)datardr.GetValue(2);
+                if (datardr.GetValue(3) != System.DBNull.Value)
+                    x.directory.mName = (String)datardr.GetValue(3);
+                if (datardr.GetValue(4) != System.DBNull.Value)
+                    x.directory.DOB = (DateTime)datardr.GetValue(4);
+                if (datardr.GetValue(5) != System.DBNull.Value)
                 {
                     string g = (String)datardr.GetValue(5);
                     if (g == "m")
                         x.directory.gender = true;
                     else x.directory.gender = false;
                 }
-                if (datardr.GetValue(6) != null)
+                if (datardr.GetValue(6) != System.DBNull.Value)
                     x.directory.strAddress = (String)datardr.GetValue(6);
-                if (datardr.GetValue(7) != null)
-                    x.directory.phoneNum1 = datardr.GetValue(7).ToString();
-                if (datardr.GetValue(8) != null)
-                    x.directory.phoneNum2 = datardr.GetValue(8).ToString();
-                if (datardr.GetValue(9) != null)
-                    x.directory.emerContact1.name = (String)datardr.GetValue(9);
-                if (datardr.GetValue(10) != null)
-                    x.directory.emerContact1.phoneNum = datardr.GetValue(10).ToString();
-                if (datardr.GetValue(11) != null)
-                    x.directory.emerContact2.name = (String)datardr.GetValue(11);
-                if (datardr.GetValue(12) != null)
-                    x.directory.emerContact2.phoneNum = datardr.GetValue(12).ToString();
-                if (datardr.GetValue(13) != null)
+                if (datardr.GetValue(7) != System.DBNull.Value)
+                    x.directory.zip = (String)datardr.GetValue(7);
+                if (datardr.GetValue(8) != System.DBNull.Value)
+                    x.directory.state = (String)datardr.GetValue(8);
+                if (datardr.GetValue(10) != System.DBNull.Value)
+                    x.directory.phoneNum1 = datardr.GetValue(10).ToString();
+                if (datardr.GetValue(9) != System.DBNull.Value)
+                    x.directory.city = (String)datardr.GetValue(9);
+                if (datardr.GetValue(11) != System.DBNull.Value)
+                    x.directory.phoneNum2 = datardr.GetValue(11).ToString();
+                if (datardr.GetValue(12) != System.DBNull.Value)
+                    x.directory.emerContact1.name = (String)datardr.GetValue(12);
+                if (datardr.GetValue(13) != System.DBNull.Value)
+                    x.directory.emerContact1.phoneNum = datardr.GetValue(13).ToString();
+                if (datardr.GetValue(14) != System.DBNull.Value)
+                    x.directory.emerContact2.name = (String)datardr.GetValue(14);
+                if (datardr.GetValue(15) != System.DBNull.Value)
+                    x.directory.emerContact2.phoneNum = datardr.GetValue(15).ToString();
+                if (datardr.GetValue(16) != System.DBNull.Value)
                 {
                     Visitor v = new Visitor();
-                    v.name = (String)datardr.GetValue(13);
+                    v.name = (String)datardr.GetValue(16);
                     x.directory.visitors.Add(v);
                 }
-                if (!(datardr.GetValue(14).Equals(System.DBNull.Value)))
-                    x.directory.location.bedNum = (String)datardr.GetValue(14);
-                if(datardr.GetValue(15) != null)
-                    x.directory.city = (String)datardr.GetValue(15);
-                if(datardr.GetValue(16) != null)
-                    x.directory.state = (String)datardr.GetValue(16);
+                if (!(datardr.GetValue(17).Equals(System.DBNull.Value)))
+                    x.directory.location.bedNum = (String)datardr.GetValue(17);  
                 patients.Add(x);
                 
             }

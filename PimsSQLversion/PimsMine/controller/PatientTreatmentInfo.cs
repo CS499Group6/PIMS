@@ -8,11 +8,13 @@ namespace PIMSController
 {
     public class PatientTreatmentInfo
     {
-        public string reasonAdmitted { get; set; }
+
         public DateTime dateAdmitted { get; set; }
+        public string reasonAdmitted { get; set; }
         public DateTime dateDischarged { get; set; }
         public string primaryDoc { get; set; }
         public string docNotes { get; set; }
+        public string allergies { get; set; }
         public MedStaffNotes  medStaffNotes { get; set; }
         public List<MedProcedure> procedures;
 
