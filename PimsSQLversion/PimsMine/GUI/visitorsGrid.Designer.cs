@@ -85,7 +85,7 @@
             // volunteerGridToolStripMenuItem
             // 
             this.volunteerGridToolStripMenuItem.Name = "volunteerGridToolStripMenuItem";
-            this.volunteerGridToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.volunteerGridToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.volunteerGridToolStripMenuItem.Text = "Volunteer Grid";
             this.volunteerGridToolStripMenuItem.Click += new System.EventHandler(this.volunteerGridToolStripMenuItem_Click);
             // 
@@ -97,7 +97,7 @@
             this.prescriptionsToolStripMenuItem,
             this.scheduledProceduresToolStripMenuItem});
             this.treatmentToolStripMenuItem.Name = "treatmentToolStripMenuItem";
-            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.treatmentToolStripMenuItem.Text = "Treatment";
             // 
             // doctorNotesToolStripMenuItem
@@ -261,7 +261,7 @@
             this.vistiors.HeaderText = "Approved Vistors";
             this.vistiors.Name = "vistiors";
             this.vistiors.ReadOnly = true;
-            this.vistiors.Width = 103;
+            this.vistiors.Width = 112;
             // 
             // searchButton
             // 
@@ -314,6 +314,7 @@
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.menuStrip1);
             this.Name = "visitorsGrid";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Approved Visitors";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

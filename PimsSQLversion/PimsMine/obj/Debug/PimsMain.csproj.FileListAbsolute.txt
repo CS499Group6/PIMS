@@ -54,8 +54,11 @@ C:\Users\tbk0004\Downloads\PIMS-master\PIMS-master\PimsAndController\PimsMine\ob
 C:\Users\tbk0004\Downloads\PIMS-master\PIMS-master\PimsAndController\PimsMine\obj\Debug\PimsMain.exe
 C:\Users\tbk0004\Downloads\PIMS-master\PIMS-master\PimsAndController\PimsMine\obj\Debug\PimsMain.pdb
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe.config
+C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.exe
+C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.pdb
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\bin\Debug\PimsMain.pdb
+C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.csprojResolveAssemblyReference.cache
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.AddProcedureForm.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingForm.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingGrid.resources
@@ -78,5 +81,61 @@ C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.visitor
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.volunteerGrid.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.Properties.Resources.resources
 C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.csproj.GenerateResource.Cache
-C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.exe
-C:\Users\Ina\Desktop\PIMS\PimsSQLversion\PimsMine\obj\Debug\PimsMain.pdb
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe.config
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.exe
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.pdb
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\bin\Debug\PimsMain.pdb
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.csprojResolveAssemblyReference.cache
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.AddProcedureForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.doctorNotesForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.doctorsNotesGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.insuranceForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.insuranceGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.locationForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.locationGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.loginForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.mainForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.mainGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.nurseNotes.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.nurseNotesGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.patientForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.prescriptionForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.prescriptionGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.SchedProcForm.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.visitorsGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.volunteerGrid.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.Properties.Resources.resources
+C:\Users\tbk0004\Downloads\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.csproj.GenerateResource.Cache
+I:\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe.config
+I:\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.exe
+I:\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.pdb
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\bin\Debug\PimsMain.exe.config
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\bin\Debug\PimsMain.pdb
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.AddProcedureForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.billingGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.doctorNotesForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.doctorsNotesGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.insuranceForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.insuranceGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.locationForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.locationGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.loginForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.mainForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.mainGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.nurseNotes.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.nurseNotesGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.patientForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.prescriptionForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.prescriptionGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.SchedProcForm.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.visitorsGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.GUI.volunteerGrid.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.Properties.Resources.resources
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.csproj.GenerateResource.Cache
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.exe
+C:\Users\Ina\Desktop\PIMS-master (1)\PIMS-master\PimsSQLversion\PimsMine\obj\Debug\PimsMain.pdb

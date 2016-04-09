@@ -37,22 +37,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dueBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.queryLabel = new System.Windows.Forms.Label();
-            this.logOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.treatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.billingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.detailedBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.summaryBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insuranceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.treatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doctorNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nurseNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prescriptionInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduledProceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailedBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.summaryBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insuranceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.queryLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.itemNameBox = new System.Windows.Forms.Label();
             this.itemBox = new System.Windows.Forms.TextBox();
@@ -138,6 +138,82 @@
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // fileToolStripMenuItem1
+            // 
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem1.Text = "File";
+            // 
+            // treatmentToolStripMenuItem
+            // 
+            this.treatmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doctorNotesToolStripMenuItem,
+            this.nurseNotesToolStripMenuItem,
+            this.prescriptionInfoToolStripMenuItem,
+            this.scheduledProceduresToolStripMenuItem});
+            this.treatmentToolStripMenuItem.Name = "treatmentToolStripMenuItem";
+            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.treatmentToolStripMenuItem.Text = "Treatment";
+            // 
+            // doctorNotesToolStripMenuItem
+            // 
+            this.doctorNotesToolStripMenuItem.Name = "doctorNotesToolStripMenuItem";
+            this.doctorNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.doctorNotesToolStripMenuItem.Text = "Doctor Notes";
+            this.doctorNotesToolStripMenuItem.Click += new System.EventHandler(this.doctorNotesToolStripMenuItem_Click);
+            // 
+            // nurseNotesToolStripMenuItem
+            // 
+            this.nurseNotesToolStripMenuItem.Name = "nurseNotesToolStripMenuItem";
+            this.nurseNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.nurseNotesToolStripMenuItem.Text = "Nurse Notes";
+            this.nurseNotesToolStripMenuItem.Click += new System.EventHandler(this.nurseNotesToolStripMenuItem_Click);
+            // 
+            // prescriptionInfoToolStripMenuItem
+            // 
+            this.prescriptionInfoToolStripMenuItem.Name = "prescriptionInfoToolStripMenuItem";
+            this.prescriptionInfoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.prescriptionInfoToolStripMenuItem.Text = "Prescription Info";
+            this.prescriptionInfoToolStripMenuItem.Click += new System.EventHandler(this.prescriptionInfoToolStripMenuItem_Click);
+            // 
+            // scheduledProceduresToolStripMenuItem
+            // 
+            this.scheduledProceduresToolStripMenuItem.Name = "scheduledProceduresToolStripMenuItem";
+            this.scheduledProceduresToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.scheduledProceduresToolStripMenuItem.Text = "Scheduled Procedures";
+            this.scheduledProceduresToolStripMenuItem.Click += new System.EventHandler(this.scheduledProceduresToolStripMenuItem_Click);
+            // 
+            // billingToolStripMenuItem
+            // 
+            this.billingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detailedBillToolStripMenuItem,
+            this.summaryBillToolStripMenuItem,
+            this.insuranceInfoToolStripMenuItem});
+            this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
+            this.billingToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.billingToolStripMenuItem.Text = "Billing";
+            // 
+            // detailedBillToolStripMenuItem
+            // 
+            this.detailedBillToolStripMenuItem.Name = "detailedBillToolStripMenuItem";
+            this.detailedBillToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.detailedBillToolStripMenuItem.Text = "Detailed Bill";
+            this.detailedBillToolStripMenuItem.Click += new System.EventHandler(this.detailedBillToolStripMenuItem_Click);
+            // 
+            // summaryBillToolStripMenuItem
+            // 
+            this.summaryBillToolStripMenuItem.Name = "summaryBillToolStripMenuItem";
+            this.summaryBillToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.summaryBillToolStripMenuItem.Text = "Summary Bill";
+            this.summaryBillToolStripMenuItem.Click += new System.EventHandler(this.summaryBillToolStripMenuItem_Click);
+            // 
+            // insuranceInfoToolStripMenuItem
+            // 
+            this.insuranceInfoToolStripMenuItem.Name = "insuranceInfoToolStripMenuItem";
+            this.insuranceInfoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.insuranceInfoToolStripMenuItem.Text = "Insurance Info";
+            this.insuranceInfoToolStripMenuItem.Click += new System.EventHandler(this.insuranceInfoToolStripMenuItem_Click);
+            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -147,10 +223,17 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "Exit";
             // 
+            // logOffToolStripMenuItem
+            // 
+            this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
+            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logOffToolStripMenuItem.Text = "Log off";
+            this.logOffToolStripMenuItem.Click += new System.EventHandler(this.logOffToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -182,89 +265,6 @@
             this.queryLabel.Size = new System.Drawing.Size(336, 13);
             this.queryLabel.TabIndex = 44;
             this.queryLabel.Text = "Search for a Patient, Enter a Prescription number or select a Function ";
-            // 
-            // logOffToolStripMenuItem
-            // 
-            this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
-            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.logOffToolStripMenuItem.Text = "Log off";
-            this.logOffToolStripMenuItem.Click += new System.EventHandler(this.logOffToolStripMenuItem_Click);
-            // 
-            // treatmentToolStripMenuItem
-            // 
-            this.treatmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.doctorNotesToolStripMenuItem,
-            this.nurseNotesToolStripMenuItem,
-            this.prescriptionInfoToolStripMenuItem,
-            this.scheduledProceduresToolStripMenuItem});
-            this.treatmentToolStripMenuItem.Name = "treatmentToolStripMenuItem";
-            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.treatmentToolStripMenuItem.Text = "Treatment";
-            // 
-            // billingToolStripMenuItem
-            // 
-            this.billingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.detailedBillToolStripMenuItem,
-            this.summaryBillToolStripMenuItem,
-            this.insuranceInfoToolStripMenuItem});
-            this.billingToolStripMenuItem.Name = "billingToolStripMenuItem";
-            this.billingToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.billingToolStripMenuItem.Text = "Billing";
-            // 
-            // fileToolStripMenuItem1
-            // 
-            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem1.Text = "File";
-            // 
-            // detailedBillToolStripMenuItem
-            // 
-            this.detailedBillToolStripMenuItem.Name = "detailedBillToolStripMenuItem";
-            this.detailedBillToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.detailedBillToolStripMenuItem.Text = "Detailed Bill";
-            this.detailedBillToolStripMenuItem.Click += new System.EventHandler(this.detailedBillToolStripMenuItem_Click);
-            // 
-            // summaryBillToolStripMenuItem
-            // 
-            this.summaryBillToolStripMenuItem.Name = "summaryBillToolStripMenuItem";
-            this.summaryBillToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.summaryBillToolStripMenuItem.Text = "Summary Bill";
-            this.summaryBillToolStripMenuItem.Click += new System.EventHandler(this.summaryBillToolStripMenuItem_Click);
-            // 
-            // insuranceInfoToolStripMenuItem
-            // 
-            this.insuranceInfoToolStripMenuItem.Name = "insuranceInfoToolStripMenuItem";
-            this.insuranceInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.insuranceInfoToolStripMenuItem.Text = "Insurance Info";
-            this.insuranceInfoToolStripMenuItem.Click += new System.EventHandler(this.insuranceInfoToolStripMenuItem_Click);
-            // 
-            // doctorNotesToolStripMenuItem
-            // 
-            this.doctorNotesToolStripMenuItem.Name = "doctorNotesToolStripMenuItem";
-            this.doctorNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.doctorNotesToolStripMenuItem.Text = "Doctor Notes";
-            this.doctorNotesToolStripMenuItem.Click += new System.EventHandler(this.doctorNotesToolStripMenuItem_Click);
-            // 
-            // nurseNotesToolStripMenuItem
-            // 
-            this.nurseNotesToolStripMenuItem.Name = "nurseNotesToolStripMenuItem";
-            this.nurseNotesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.nurseNotesToolStripMenuItem.Text = "Nurse Notes";
-            this.nurseNotesToolStripMenuItem.Click += new System.EventHandler(this.nurseNotesToolStripMenuItem_Click);
-            // 
-            // prescriptionInfoToolStripMenuItem
-            // 
-            this.prescriptionInfoToolStripMenuItem.Name = "prescriptionInfoToolStripMenuItem";
-            this.prescriptionInfoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.prescriptionInfoToolStripMenuItem.Text = "Prescription Info";
-            this.prescriptionInfoToolStripMenuItem.Click += new System.EventHandler(this.prescriptionInfoToolStripMenuItem_Click);
-            // 
-            // scheduledProceduresToolStripMenuItem
-            // 
-            this.scheduledProceduresToolStripMenuItem.Name = "scheduledProceduresToolStripMenuItem";
-            this.scheduledProceduresToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.scheduledProceduresToolStripMenuItem.Text = "Scheduled Procedures";
-            this.scheduledProceduresToolStripMenuItem.Click += new System.EventHandler(this.scheduledProceduresToolStripMenuItem_Click);
             // 
             // button2
             // 
@@ -314,7 +314,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "billingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Billing Information";
+            this.Load += new System.EventHandler(this.billingForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

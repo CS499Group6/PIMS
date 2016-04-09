@@ -28,15 +28,12 @@ namespace PIMSController
             }
 
         }
-        public List<patientStats> statList = new List<patientStats>();
+        public List<patientStats> statList;
         public string nurseNotes;
         public string allergies;
         public MedStaffNotes()
         {
-            statList.Add(new patientStats(new DateTime(1980,1,1), 150, 56, 120, 70, 60));
-            statList.Add(new patientStats(new DateTime(1990,1,1), 150, 56, 120, 70, 60));
-            statList.Add(new patientStats(new DateTime(2000,1,1), 150, 56, 120, 70, 60));
-            statList.Add(new patientStats(new DateTime(2010,1,1), 150, 56, 120, 70, 60));
+            statList = new List<patientStats>();
 
         }
     }

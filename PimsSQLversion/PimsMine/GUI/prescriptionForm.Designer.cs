@@ -209,6 +209,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "prescriptionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prescription Information";
             this.Load += new System.EventHandler(this.prescriptionForm_Load);
             this.menuStrip1.ResumeLayout(false);

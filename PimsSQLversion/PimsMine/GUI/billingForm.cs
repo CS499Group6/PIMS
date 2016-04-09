@@ -152,5 +152,10 @@ namespace PIMS
                 Application.Exit();
             }
         }
+
+        private void billingForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

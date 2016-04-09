@@ -49,10 +49,11 @@
             this.insuranceInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.queryLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.logOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PrintButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -127,7 +128,7 @@
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.addItemToolStripMenuItem.Text = "Add Item";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -139,7 +140,7 @@
             this.prescriptionsToolStripMenuItem,
             this.scheduledProceduresToolStripMenuItem});
             this.treatmentToolStripMenuItem.Name = "treatmentToolStripMenuItem";
-            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.treatmentToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.treatmentToolStripMenuItem.Text = "Treatment";
             // 
             // doctorNotesToolStripMenuItem
@@ -213,9 +214,15 @@
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            // 
+            // logOffToolStripMenuItem
+            // 
+            this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
+            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logOffToolStripMenuItem.Text = "Log off";
             // 
             // searchBox
             // 
@@ -246,17 +253,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // logOffToolStripMenuItem
+            // PrintButton
             // 
-            this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
-            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.logOffToolStripMenuItem.Text = "Log off";
+            this.PrintButton.Location = new System.Drawing.Point(585, 348);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(75, 23);
+            this.PrintButton.TabIndex = 47;
+            this.PrintButton.Text = "Print";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
             // billingGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 412);
+            this.Controls.Add(this.PrintButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.queryLabel);
@@ -264,6 +276,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "billingGrid";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Billing Information";
             this.Load += new System.EventHandler(this.billingGrid_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
@@ -301,5 +314,6 @@
         private System.Windows.Forms.ToolStripMenuItem summaryBillingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insuranceInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOffToolStripMenuItem;
+        private System.Windows.Forms.Button PrintButton;
     }
 }

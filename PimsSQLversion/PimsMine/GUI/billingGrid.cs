@@ -14,6 +14,7 @@ namespace PIMS
     {
         PIMSController.Patient patient;
         PIMSController.User user;
+        PIMSController.PrintInfo document = new PIMSController.PrintInfo(); //instantiate new printInfo object to print page
         public billingGrid()
         {
             InitializeComponent();
@@ -24,14 +25,15 @@ namespace PIMS
             int insPaidSum= 0;
             int paidSum = 0;
             int owedSum = 0;
-
+            Console.WriteLine("billing grid constructer!");
             if(!(user is PIMSController.OfficeStaff))
             {
                 fileToolStripMenuItem.Enabled = false;
             }
-
+            int i = 0;
             foreach(PIMSController.BillingLineItem item in patient.billing.items)
             {
+                Console.WriteLine(i++);
                 int owed = item.cost - item.insPaid - item.paid;
                 owedSum += owed;
                 costSum += item.cost;
@@ -180,6 +182,15 @@ namespace PIMS
             PimsMain.GUI.SchedProcForm procForm = new PimsMain.GUI.SchedProcForm();
             procForm.Visible = true;
             this.Hide();
+        }
+
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            //create textfile and write information to the textfile.
+
+            document.printButton_Click(); //call print function in print class
+
+            //delete textfile after printing is complete
         }
     }
 }

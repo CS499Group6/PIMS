@@ -82,6 +82,7 @@
     <Compile Include="controller\PatientPrescInfo.cs" />
     <Compile Include="controller\PatientTreatmentInfo.cs" />
     <Compile Include="controller\PrescDrug.cs" />
+    <Compile Include="controller\PrintInfo.cs" />
     <Compile Include="controller\SQLcommands.cs" />
     <Compile Include="controller\User.cs" />
     <Compile Include="controller\Visitor.cs" />

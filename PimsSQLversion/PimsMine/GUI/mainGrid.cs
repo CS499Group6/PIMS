@@ -31,7 +31,7 @@ namespace PIMS
             directoryToolStripMenuItem.Enabled = false;
 
             patients = PIMSController.SQLcommands.getPatientList();
-            PIMSController.SQLcommands.buildPatient("1");
+           
 
             fillDGV(lastNameQuery);
         }
@@ -85,7 +85,8 @@ namespace PIMS
                 }
 
                 // open patient grid
-                PimsMain.Program.currentPatient = selectedPatient;
+                
+                PimsMain.Program.currentPatient = PIMSController.SQLcommands.buildPatient(selectedPatient.directory.patientID);
                 patientForm myPatientForm = new patientForm();
                 myPatientForm.Visible = true;
                 // hide this one

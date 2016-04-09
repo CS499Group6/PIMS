@@ -14,6 +14,7 @@ namespace PIMSController
         public int insPaid { get; set; }
         public int owed { get; set; }
         public DateTime dueDate { get; set; }
+        public string itemId;
 
     }
 }
