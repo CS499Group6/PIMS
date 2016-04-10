@@ -10,8 +10,8 @@ namespace PIMSController
 {
     public class SQLcommands
     {
-        //static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS;";
-        static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS_database;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+        static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS;";
+        //static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS_database;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
         static SqlConnection cnn = new SqlConnection(connectString);
         
         public static List<Patient> patients = null;
@@ -54,6 +54,7 @@ namespace PIMSController
         public static Patient buildPatient(string patientID)
         {
             Patient x = new Patient();
+            
             string getDirInfo = "SELECT * from Patient where patientID = " + patientID;
             if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
                 cnn.Close();
@@ -111,15 +112,59 @@ namespace PIMSController
                 if (!(datardr.GetValue(17).Equals(System.DBNull.Value)))
                     x.directory.location.bedNum = (String)datardr.GetValue(17);                         
             }
+            /*
 
-            cnn.Close();
+             Visitor v= new Visitor();
+                 DateTime min = (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue;
+                 if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                 {
+                     cnn.Close();
+                 }
+            cnn.Open();   
+             SqlCommand cmd= new SqlCommand("createPatient", cnn);
+             SqlDataReader datardr;
 
+             //Add all the parameters required by the procedure in SQL
+                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+             //The input parameter patientID    
+                     cmd.Parameters.Add(new SqlParameter("@patientID", patientID));
+             //all the output parameters
+                     cmd.Parameters.Add(new SqlParameter("@fname", x.directory.fName));
+                     cmd.Parameters.Add(new SqlParameter( "@lname", x.directory.lName));
+                     cmd.Parameters.Add(new SqlParameter("@mname", x.directory.mName));
+                     cmd.Parameters.Add(new SqlParameter("@DOB", min));
+                         x.directory.DOB = min;
+                     cmd.Parameters.Add(new SqlParameter("@gender", x.directory.gender));
+                     cmd.Parameters.Add(new SqlParameter("@pStreet", x.directory.strAddress));
+                     cmd.Parameters.Add(new SqlParameter("@pCity", x.directory.city));
+                     cmd.Parameters.Add(new SqlParameter( "@pState", x.directory.state));
+                     cmd.Parameters.Add(new SqlParameter( "@pZip", x.directory.zip));
+                     cmd.Parameters.Add(new SqlParameter( "@phone1", x.directory.phoneNum1));
+                     cmd.Parameters.Add(new SqlParameter( "@phone2", x.directory.phoneNum2));
+                     cmd.Parameters.Add(new SqlParameter( "@emName1", x.directory.emerContact1.name));
+                     cmd.Parameters.Add(new SqlParameter( "@emNum1", x.directory.emerContact1.phoneNum));
+                     cmd.Parameters.Add(new SqlParameter("@emName2", x.directory.emerContact2.name));
+                     cmd.Parameters.Add(new SqlParameter( "@emNum2", x.directory.emerContact2.phoneNum));
+                     cmd.Parameters.Add(new SqlParameter("@visitor", v.name));
+                     cmd.Parameters.Add(new SqlParameter( "@bedNum", x.directory.location.bedNum));                  
+             
+             datardr = cmd.ExecuteReader();
+             datardr.Read();
+            */
+             cnn.Close();
+             datardr.Close();
+       
             string getLocInfo = "SELECT * from Location where bedNo = " + x.directory.location.bedNum;
             if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+            {
                 cnn.Close();
+            }
             cnn.Open();
+
             cmd = new SqlCommand(getLocInfo, cnn);
+            cmd.CommandType = System.Data.CommandType.Text;
             datardr = cmd.ExecuteReader();
+     
             datardr.Read();
             if (datardr.GetValue(1) != System.DBNull.Value)
                 x.directory.location.unit = (String)datardr.GetValue(1);
@@ -130,6 +175,7 @@ namespace PIMSController
             if (datardr.GetValue(4) != System.DBNull.Value)
                 x.directory.location.occupancy = (int)datardr.GetValue(4);
 
+            cnn.Close();
             datardr.Close();
 
             // If current user is a volunteer, this is all the info we need
@@ -149,16 +195,16 @@ namespace PIMSController
             while (datardr.Read())
             {
                 BillingLineItem item = new BillingLineItem();
+                if (datardr.GetValue(1) != System.DBNull.Value)
+                    item.item = (String)datardr.GetValue(1);
                 if (datardr.GetValue(2) != System.DBNull.Value)
-                    item.item = (String)datardr.GetValue(2);
+                    item.cost = (int)datardr.GetValue(2);
                 if (datardr.GetValue(3) != System.DBNull.Value)
-                    item.cost = (int)datardr.GetValue(3);
+                    item.paid = (int)datardr.GetValue(3);
                 if (datardr.GetValue(4) != System.DBNull.Value)
-                    item.paid = (int)datardr.GetValue(4);
+                    item.insPaid = (int)datardr.GetValue(4);
                 if (datardr.GetValue(5) != System.DBNull.Value)
-                    item.insPaid = (int)datardr.GetValue(5);
-                if (datardr.GetValue(6) != System.DBNull.Value)
-                    item.dueDate = (DateTime)datardr.GetValue(6);
+                    item.dueDate = (DateTime)datardr.GetValue(5);
                 x.billing.items.Add(item);
             }
             datardr.Close();
