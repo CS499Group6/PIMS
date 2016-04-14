@@ -1,0 +1,20 @@
+PATIENT ADDRESS
+
+Bagginseses, Frodo 
+103 Bagginses Way 
+Hobbitton, The Shire 
+00000
+
+
+PATIENT INFORMATION
+
+Patient ID:              1477                      
+Date of Birth:           1/1/1960                  
+Gender:                  F                         
+Primary Phone:           321-123-3333              
+Secondary Phone:         321-123-3334              
+Emergency Contact:       PIMSController.EmerContact 
+Emergency Contact Number:911                       
+Emergency Contact:       PIMSController.EmerContact 
+Emergency Contact Number:4567893322                
+
