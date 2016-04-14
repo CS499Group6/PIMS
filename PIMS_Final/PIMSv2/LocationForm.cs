@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace PIMS
 {
-    public partial class TreatmentForm : UserControl
+    public partial class LocationForm : UserControl
     {
-        public TreatmentForm()
+        public LocationForm()
         {
             InitializeComponent();
-        }
-
-        private void printButon_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

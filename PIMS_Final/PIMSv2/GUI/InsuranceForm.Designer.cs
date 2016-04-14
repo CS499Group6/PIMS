@@ -140,7 +140,6 @@
             this.printButton.TabIndex = 74;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = true;
-            this.printButton.Click += new System.EventHandler(this.print_click);
             // 
             // typeTextBox
             // 

@@ -37,7 +37,6 @@
             this.InsurancePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.billingDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,21 +105,10 @@
             this.AmountOwed.HeaderText = "Amount Owed";
             this.AmountOwed.Name = "AmountOwed";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(775, 346);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.print_click);
-            // 
             // OfficeStaffBillingGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.billingDataGridView);
             this.Name = "OfficeStaffBillingGrid";
             this.Size = new System.Drawing.Size(875, 573);
@@ -140,6 +128,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InsurancePaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountOwed;
-        private System.Windows.Forms.Button button1;
     }
 }

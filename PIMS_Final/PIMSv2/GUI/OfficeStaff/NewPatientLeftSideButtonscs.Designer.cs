@@ -1,6 +1,6 @@
 ﻿namespace PIMS
 {
-    partial class NewPatientLeftSideButtonscs
+    partial class NewPatientLeftSideButtons
     {
         /// <summary> 
         /// Required designer variable.

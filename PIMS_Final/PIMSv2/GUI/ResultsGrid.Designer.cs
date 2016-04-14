@@ -35,8 +35,13 @@
             this.fName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bedNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facility = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isAdmitted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -52,8 +57,13 @@
             this.fName,
             this.mName,
             this.dob,
+            this.gender,
             this.phone1,
             this.phone2,
+            this.roomNumber,
+            this.bedNumber,
+            this.unit,
+            this.facility,
             this.isAdmitted});
             this.dataGridView1.Location = new System.Drawing.Point(4, 4);
             this.dataGridView1.Name = "dataGridView1";
@@ -98,6 +108,11 @@
             this.dob.Name = "dob";
             this.dob.ReadOnly = true;
             // 
+            // gender
+            // 
+            this.gender.HeaderText = "Gender";
+            this.gender.Name = "gender";
+            // 
             // phone1
             // 
             this.phone1.HeaderText = "Home Phone";
@@ -109,6 +124,26 @@
             this.phone2.HeaderText = "Cell Phone";
             this.phone2.Name = "phone2";
             this.phone2.ReadOnly = true;
+            // 
+            // roomNumber
+            // 
+            this.roomNumber.HeaderText = "Room Number";
+            this.roomNumber.Name = "roomNumber";
+            // 
+            // bedNumber
+            // 
+            this.bedNumber.HeaderText = "BedNumber";
+            this.bedNumber.Name = "bedNumber";
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "Unit";
+            this.unit.Name = "unit";
+            // 
+            // facility
+            // 
+            this.facility.HeaderText = "Facility";
+            this.facility.Name = "facility";
             // 
             // isAdmitted
             // 
@@ -137,8 +172,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fName;
         private System.Windows.Forms.DataGridViewTextBoxColumn mName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone1;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bedNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn facility;
         private System.Windows.Forms.DataGridViewTextBoxColumn isAdmitted;
     }
 }

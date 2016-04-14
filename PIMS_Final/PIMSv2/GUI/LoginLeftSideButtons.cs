@@ -10,22 +10,12 @@ using System.Windows.Forms;
 
 namespace PIMS
 {
-    public partial class StartLeftSideButtons : UserControl
+    public partial class LoginLeftSideButtons : UserControl
     {
         // Default Constructor
-        public StartLeftSideButtons()
+        public LoginLeftSideButtons()
         {
             InitializeComponent();
-        }
-
-        // Will allow the user to serach for a new patient
-        private void newSearchButton_Click(object sender, EventArgs e)
-        {
-            // Clear contents of Panel1 and Panel2
-            Program.myForm.splitContainer1.Panel1.Controls.Clear();
-            Program.myForm.splitContainer1.Panel2.Controls.Clear();
-            // Add PatientSearch to Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
         }
 
         // Will log the current user off of the server
@@ -49,7 +39,5 @@ namespace PIMS
         {
             Application.Exit();
         }
-
-        
     }
 }

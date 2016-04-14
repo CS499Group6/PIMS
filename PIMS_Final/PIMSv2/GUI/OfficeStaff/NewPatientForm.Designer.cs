@@ -31,7 +31,7 @@
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.saveUpdateButton = new System.Windows.Forms.Button();
             this.contactPhone2TextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.contactName2TextBox = new System.Windows.Forms.TextBox();
@@ -88,15 +88,15 @@
             this.label16.TabIndex = 66;
             this.label16.Text = "Patient ID: ";
             // 
-            // saveButton
+            // saveUpdateButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(132, 449);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(100, 23);
-            this.saveButton.TabIndex = 65;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveUpdateButton.Location = new System.Drawing.Point(132, 449);
+            this.saveUpdateButton.Name = "saveUpdateButton";
+            this.saveUpdateButton.Size = new System.Drawing.Size(100, 23);
+            this.saveUpdateButton.TabIndex = 65;
+            this.saveUpdateButton.Text = "Update";
+            this.saveUpdateButton.UseVisualStyleBackColor = true;
+            this.saveUpdateButton.Click += new System.EventHandler(this.saveUpdateButton_Click);
             // 
             // contactPhone2TextBox
             // 
@@ -361,7 +361,7 @@
             this.Controls.Add(this.genderTextBox);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.saveUpdateButton);
             this.Controls.Add(this.contactPhone2TextBox);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.contactName2TextBox);
@@ -403,7 +403,7 @@
         private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button saveUpdateButton;
         private System.Windows.Forms.TextBox contactPhone2TextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox contactName2TextBox;

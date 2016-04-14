@@ -37,32 +37,5 @@ namespace PIMS
             groupTextBox.ReadOnly = true;
             typeTextBox.ReadOnly = true;
         }
-
-        private void print_click(object sender, EventArgs e)
-        {
-            PIMSController.PrintInfo document = new PIMSController.PrintInfo(); //instantiate new printInfo object to print page
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter("MyFile.txt"))
-            {
-
-                file.WriteLine("PATIENT BILLING ADDRESS\n");
-                String address = String.Format("{0}, {1} \n{2} \n{3}, {4} \n{5}\n\n", patient.directory.lName, patient.directory.fName, patient.directory.strAddress,
-                    patient.directory.city, patient.directory.state, patient.directory.zip);
-                file.WriteLine(address);
-
-                file.WriteLine("PATIENT INSURANCE INFORMATION\n");
-
-
-                file.WriteLine(String.Format("{0, 15}: {1, 15} \n{2, 15}: {3, 15} \n{4, 15}: {5, 15} \n{6, 15}: {7, 15} \n{8, 15}: {9, 15} \n {10, 15}: {11, 15} \n", 
-                    "Provider", patient.insurance.provider, 
-                    "BIN", patient.insurance.bin, 
-                    "ID", patient.insurance.id, 
-                    "PCN", patient.insurance.pcn, 
-                    "Group Number", patient.insurance.groupNum, 
-                    "Insurance Type", patient.insurance.insuranceType));
-
-            }
-
-            document.printButton_Click(); //call print function in print class 
-        }
     }
 }

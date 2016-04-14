@@ -15,7 +15,7 @@ namespace PIMS
         public static LeftSideButtons leftSideButton;
         public static VolunteerLeftSideButtons volunteerLeftSideButton;
         public static OfficeStaffLeftSideButtons officeStaffLeftSideButton;
-        public static NewPatientLeftSideButtonscs newPatientLeftSideButtons;
+        public static NewPatientLeftSideButtons newPatientLeftSideButton;
 
         public static string lastNameQuery = "";
 
@@ -31,7 +31,7 @@ namespace PIMS
             leftSideButton = new LeftSideButtons();
             volunteerLeftSideButton = new VolunteerLeftSideButtons();
             officeStaffLeftSideButton = new OfficeStaffLeftSideButtons();
-            newPatientLeftSideButtons = new NewPatientLeftSideButtonscs();
+            newPatientLeftSideButton = new NewPatientLeftSideButtons();
 
             Application.Run(myForm);
         }

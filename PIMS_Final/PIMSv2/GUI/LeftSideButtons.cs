@@ -14,6 +14,7 @@ namespace PIMS
     {
         PIMSController.User currUser;
 
+        // Default Constructor
         public LeftSideButtons()
         {
             InitializeComponent();
@@ -100,6 +101,21 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
             // Add PatientSearch to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new VisitorsGrid());
+        }
+
+        private void logOffButton_Click(object sender, EventArgs e)
+        {
+            Program.currentPatient = null;
+            Program.currentUser = null;
+
+            // Clear contents of Panel1 and Panel2
+            Program.myForm.splitContainer1.Panel1.Controls.Clear();
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+
+            // Add LoginLeftSideButtons to Panel1
+            Program.myForm.splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
+            // Add Login form to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new Login());
         }
 
         private void exitButton_Click(object sender, EventArgs e)

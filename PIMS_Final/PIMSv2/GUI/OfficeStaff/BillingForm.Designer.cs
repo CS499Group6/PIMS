@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.printButon = new System.Windows.Forms.Button();
-            this.itemBox = new System.Windows.Forms.TextBox();
+            this.itemTextBox = new System.Windows.Forms.TextBox();
             this.itemNameBox = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.saveUpdateButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dueBox = new System.Windows.Forms.TextBox();
-            this.insPaidBox = new System.Windows.Forms.TextBox();
-            this.paidBox = new System.Windows.Forms.TextBox();
-            this.costBox = new System.Windows.Forms.TextBox();
+            this.dueTextBox = new System.Windows.Forms.TextBox();
+            this.insPaidTextBox = new System.Windows.Forms.TextBox();
+            this.paidTextBox = new System.Windows.Forms.TextBox();
+            this.costTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -53,12 +53,12 @@
             this.printButon.UseVisualStyleBackColor = true;
             this.printButon.Click += new System.EventHandler(this.printButon_Click);
             // 
-            // itemBox
+            // itemTextBox
             // 
-            this.itemBox.Location = new System.Drawing.Point(124, 24);
-            this.itemBox.Name = "itemBox";
-            this.itemBox.Size = new System.Drawing.Size(100, 20);
-            this.itemBox.TabIndex = 59;
+            this.itemTextBox.Location = new System.Drawing.Point(124, 24);
+            this.itemTextBox.Name = "itemTextBox";
+            this.itemTextBox.Size = new System.Drawing.Size(100, 20);
+            this.itemTextBox.TabIndex = 59;
             // 
             // itemNameBox
             // 
@@ -69,15 +69,15 @@
             this.itemNameBox.TabIndex = 58;
             this.itemNameBox.Text = "Item Name:";
             // 
-            // saveButton
+            // saveUpdateButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(102, 172);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 57;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveUpdateButton.Location = new System.Drawing.Point(102, 172);
+            this.saveUpdateButton.Name = "saveUpdateButton";
+            this.saveUpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.saveUpdateButton.TabIndex = 57;
+            this.saveUpdateButton.Text = "Update";
+            this.saveUpdateButton.UseVisualStyleBackColor = true;
+            this.saveUpdateButton.Click += new System.EventHandler(this.saveUpdateButton_Click);
             // 
             // label5
             // 
@@ -97,33 +97,33 @@
             this.label4.TabIndex = 55;
             this.label4.Text = "Insurance Paid:";
             // 
-            // dueBox
+            // dueTextBox
             // 
-            this.dueBox.Location = new System.Drawing.Point(124, 130);
-            this.dueBox.Name = "dueBox";
-            this.dueBox.Size = new System.Drawing.Size(100, 20);
-            this.dueBox.TabIndex = 54;
+            this.dueTextBox.Location = new System.Drawing.Point(124, 130);
+            this.dueTextBox.Name = "dueTextBox";
+            this.dueTextBox.Size = new System.Drawing.Size(100, 20);
+            this.dueTextBox.TabIndex = 54;
             // 
-            // insPaidBox
+            // insPaidTextBox
             // 
-            this.insPaidBox.Location = new System.Drawing.Point(124, 76);
-            this.insPaidBox.Name = "insPaidBox";
-            this.insPaidBox.Size = new System.Drawing.Size(100, 20);
-            this.insPaidBox.TabIndex = 53;
+            this.insPaidTextBox.Location = new System.Drawing.Point(124, 76);
+            this.insPaidTextBox.Name = "insPaidTextBox";
+            this.insPaidTextBox.Size = new System.Drawing.Size(100, 20);
+            this.insPaidTextBox.TabIndex = 53;
             // 
-            // paidBox
+            // paidTextBox
             // 
-            this.paidBox.Location = new System.Drawing.Point(124, 104);
-            this.paidBox.Name = "paidBox";
-            this.paidBox.Size = new System.Drawing.Size(100, 20);
-            this.paidBox.TabIndex = 52;
+            this.paidTextBox.Location = new System.Drawing.Point(124, 104);
+            this.paidTextBox.Name = "paidTextBox";
+            this.paidTextBox.Size = new System.Drawing.Size(100, 20);
+            this.paidTextBox.TabIndex = 52;
             // 
-            // costBox
+            // costTextBox
             // 
-            this.costBox.Location = new System.Drawing.Point(124, 50);
-            this.costBox.Name = "costBox";
-            this.costBox.Size = new System.Drawing.Size(100, 20);
-            this.costBox.TabIndex = 51;
+            this.costTextBox.Location = new System.Drawing.Point(124, 50);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.Size = new System.Drawing.Size(100, 20);
+            this.costTextBox.TabIndex = 51;
             // 
             // label2
             // 
@@ -147,15 +147,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.itemBox);
+            this.Controls.Add(this.itemTextBox);
             this.Controls.Add(this.itemNameBox);
-            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.saveUpdateButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dueBox);
-            this.Controls.Add(this.insPaidBox);
-            this.Controls.Add(this.paidBox);
-            this.Controls.Add(this.costBox);
+            this.Controls.Add(this.dueTextBox);
+            this.Controls.Add(this.insPaidTextBox);
+            this.Controls.Add(this.paidTextBox);
+            this.Controls.Add(this.costTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.printButon);
@@ -168,15 +168,15 @@
 
         #endregion
         private System.Windows.Forms.Button printButon;
-        private System.Windows.Forms.TextBox itemBox;
+        private System.Windows.Forms.TextBox itemTextBox;
         private System.Windows.Forms.Label itemNameBox;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button saveUpdateButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox dueBox;
-        private System.Windows.Forms.TextBox insPaidBox;
-        private System.Windows.Forms.TextBox paidBox;
-        private System.Windows.Forms.TextBox costBox;
+        private System.Windows.Forms.TextBox dueTextBox;
+        private System.Windows.Forms.TextBox insPaidTextBox;
+        private System.Windows.Forms.TextBox paidTextBox;
+        private System.Windows.Forms.TextBox costTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

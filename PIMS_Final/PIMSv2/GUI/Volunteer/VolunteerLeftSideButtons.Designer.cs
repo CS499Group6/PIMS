@@ -35,9 +35,12 @@
             this.profileInformationButton = new System.Windows.Forms.Button();
             this.newSearchButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.logOffButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -123,10 +126,35 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.logOffButton);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(24, 399);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(175, 69);
+            this.groupBox4.TabIndex = 12;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Log Off";
+            // 
+            // logOffButton
+            // 
+            this.logOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOffButton.Location = new System.Drawing.Point(45, 29);
+            this.logOffButton.Name = "logOffButton";
+            this.logOffButton.Size = new System.Drawing.Size(75, 23);
+            this.logOffButton.TabIndex = 5;
+            this.logOffButton.Text = "Log Off";
+            this.logOffButton.UseVisualStyleBackColor = true;
+            this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
+            // 
             // VolunteerLeftSideButtons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.backButton);
             this.Controls.Add(groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -135,6 +163,7 @@
             this.Size = new System.Drawing.Size(264, 582);
             groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -147,5 +176,7 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button approvedVisitorsButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button logOffButton;
     }
 }

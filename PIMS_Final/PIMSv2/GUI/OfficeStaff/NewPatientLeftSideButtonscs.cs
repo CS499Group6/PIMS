@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PIMS
 {
-    public partial class NewPatientLeftSideButtonscs : UserControl
+    public partial class NewPatientLeftSideButtons : UserControl
     {
-        public NewPatientLeftSideButtonscs()
+        public NewPatientLeftSideButtons()
         {
             InitializeComponent();
         }
