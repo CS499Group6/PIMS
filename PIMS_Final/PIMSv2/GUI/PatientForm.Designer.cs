@@ -329,6 +329,7 @@
             this.printButon.TabIndex = 35;
             this.printButon.Text = "Print";
             this.printButon.UseVisualStyleBackColor = true;
+            this.printButon.Click += new System.EventHandler(this.print_click);
             // 
             // mmddyyyLabel
             // 

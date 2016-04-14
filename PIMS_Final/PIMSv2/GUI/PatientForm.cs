@@ -60,5 +60,36 @@ namespace PIMS
             this.contactName2TextBox.ReadOnly = true;
             this.contactPhone2TextBox.ReadOnly = true;
         }
+
+        private void print_click(object sender, EventArgs e)
+        {
+            PIMSController.PrintInfo document = new PIMSController.PrintInfo(); //instantiate new printInfo object to print page
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter("MyFile.txt"))
+            {
+
+                file.WriteLine("PATIENT ADDRESS\n");
+                String address = String.Format("{0}, {1} {2}\n{3} \n{4}, {5} \n{6}\n\n", patient.directory.lName, patient.directory.fName, patient.directory.mName, patient.directory.strAddress,
+                    patient.directory.city, patient.directory.state, patient.directory.zip);
+                file.WriteLine(address);
+
+                file.WriteLine("PATIENT INFORMATION\n");
+
+
+                file.WriteLine(String.Format("{0, -25}{1, -25} \n{2, -25}{3, -25} \n{4, -25}{5, -25} \n{6, -25}{7, -25} \n{8, -25}{9, -25} \n{10, -25}{11, -25} \n{12, -25}{13, -25} \n{14, -25}{15, -25} \n{16, -25}{17, -25} \n", 
+                    "Patient ID:", patient.directory.patientID, 
+                    "Date of Birth:", patient.directory.DOB.Date.ToString("d"), 
+                    "Gender:", patient.directory.gender ? "M":"F", 
+                    "Primary Phone:", patient.directory.phoneNum1, 
+                    "Secondary Phone:", patient.directory.phoneNum2, 
+                    "Emergency Contact:", patient.directory.emerContact1, 
+                    "Emergency Contact Number:", patient.directory.emerContact1.phoneNum,
+                    "Emergency Contact:", patient.directory.emerContact2, 
+                    "Emergency Contact Number:", patient.directory.emerContact2.phoneNum));
+
+            }
+
+            document.printButton_Click(); //call print function in print class 
+        }
+        
     }
 }

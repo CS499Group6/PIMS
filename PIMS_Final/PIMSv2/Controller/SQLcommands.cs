@@ -10,6 +10,8 @@ namespace PIMSController
 {
     public class SQLcommands
     {
+
+        //static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS_database;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
         static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS;";
         static SqlConnection cnn = new SqlConnection(connectString);
         
@@ -153,16 +155,16 @@ namespace PIMSController
             while (datardr.Read())
             {
                 BillingLineItem item = new BillingLineItem();
-                if (datardr.GetValue(1) != System.DBNull.Value)
-                    item.item = (String)datardr.GetValue(1);
                 if (datardr.GetValue(2) != System.DBNull.Value)
-                    item.cost = (int)datardr.GetValue(2);
+                    item.item = (String)datardr.GetValue(2);
                 if (datardr.GetValue(3) != System.DBNull.Value)
-                    item.paid = (int)datardr.GetValue(3);
+                    item.cost = (int)datardr.GetValue(3);
                 if (datardr.GetValue(4) != System.DBNull.Value)
-                    item.insPaid = (int)datardr.GetValue(4);
+                    item.paid = (int)datardr.GetValue(4);
                 if (datardr.GetValue(5) != System.DBNull.Value)
-                    item.dueDate = (DateTime)datardr.GetValue(5);
+                    item.insPaid = (int)datardr.GetValue(5);
+                if (datardr.GetValue(6) != System.DBNull.Value)
+                    item.dueDate = (DateTime)datardr.GetValue(6);
                 x.billing.items.Add(item);
             }
             datardr.Close();
@@ -234,10 +236,10 @@ namespace PIMSController
                     stats.bloodPressureDia = (int)datardr.GetValue(4);
                 if (datardr.GetValue(5) != System.DBNull.Value)
                     stats.heartrate = (int)datardr.GetValue(5);
-                if (datardr.GetValue(7) != System.DBNull.Value)
+                if (datardr.GetValue(6) != System.DBNull.Value)
                 {
                     DateTime date1;
-                    DateTime.TryParse((String)datardr.GetValue(7),out date1);
+                    DateTime.TryParse((String)datardr.GetValue(6),out date1);
                     stats.time = date1;
                 }
 

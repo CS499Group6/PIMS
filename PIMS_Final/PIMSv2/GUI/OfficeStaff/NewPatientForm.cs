@@ -12,40 +12,38 @@ namespace PIMS
 {
     public partial class NewPatientForm : UserControl
     {
-        // Default Constructor
+        PIMSController.Patient patient;
+
         public NewPatientForm()
         {
             InitializeComponent();
 
-            // If we have a current patient, add profile information about the patient to various profile text box's
-            if (Program.currentPatient != null)
+            patient = Program.currentPatient;
+
+            if (patient != null)
             {
-                this.idTextBox.Text = Program.currentPatient.directory.patientID;
-                this.lastNameTextBox.Text = Program.currentPatient.directory.lName;
-                this.firstNameTextBox.Text = Program.currentPatient.directory.fName;
-                this.middleNameTextBox.Text = Program.currentPatient.directory.mName;
-                this.dobTextBox.Text = Program.currentPatient.directory.DOB.ToString(@"MM\/dd\/yyyy");
-                if (Program.currentPatient.directory.gender)
+                this.idTextBox.Text = patient.directory.patientID;
+                this.lastNameTextBox.Text = patient.directory.lName;
+                this.firstNameTextBox.Text = patient.directory.fName;
+                this.middleNameTextBox.Text = patient.directory.mName;
+                this.dobTextBox.Text = patient.directory.DOB.ToString(@"MM\/dd\/yyyy");
+                if (patient.directory.gender)
                     this.genderTextBox.Text = "M";
                 else
                     this.genderTextBox.Text = "F";
-                this.addressTextBox.Text = Program.currentPatient.directory.strAddress;
-                this.cityTextBox.Text = Program.currentPatient.directory.city;
-                this.stateTextBox.Text = Program.currentPatient.directory.state;
-                this.zipTextBox.Text = Program.currentPatient.directory.zip;
-                this.primaryPhoneTextBox.Text = Program.currentPatient.directory.phoneNum1;
-                this.secondaryPhoneTextBox.Text = Program.currentPatient.directory.phoneNum2;
-                this.contactName1TextBox.Text = Program.currentPatient.directory.emerContact1.name;
-                this.contactPhone1TextBox.Text = Program.currentPatient.directory.emerContact1.phoneNum;
-                this.contactName2TextBox.Text = Program.currentPatient.directory.emerContact2.name;
-                this.contactPhone2TextBox.Text = Program.currentPatient.directory.emerContact2.phoneNum;
-
-                // Makes the patient's profile text box's not editable
-                makeReadOnly();
+                this.addressTextBox.Text = patient.directory.strAddress;
+                this.cityTextBox.Text = patient.directory.city;
+                this.stateTextBox.Text = patient.directory.state;
+                this.zipTextBox.Text = patient.directory.zip;
+                this.primaryPhoneTextBox.Text = patient.directory.phoneNum1;
+                this.secondaryPhoneTextBox.Text = patient.directory.phoneNum2;
+                this.contactName1TextBox.Text = patient.directory.emerContact1.name;
+                this.contactPhone1TextBox.Text = patient.directory.emerContact1.phoneNum;
+                this.contactName2TextBox.Text = patient.directory.emerContact2.name;
+                this.contactPhone2TextBox.Text = patient.directory.emerContact2.phoneNum;
             }
         }
 
-        // Makes the patient's profile text box's not editable
         public void makeReadOnly()
         {
             this.idTextBox.ReadOnly = true;
@@ -66,7 +64,6 @@ namespace PIMS
             this.contactPhone2TextBox.ReadOnly = true;
         }
 
-        // Makes the patient's profile text box's editable
         public void makeReadable()
         {
             this.idTextBox.ReadOnly = false;
@@ -87,68 +84,41 @@ namespace PIMS
             this.contactPhone2TextBox.ReadOnly = false;
         }
 
-        // Will allow the Office Staff user to update a patient's profile information
-        private void saveUpdateButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            if (saveUpdateButton.Text == "Update")
+            PIMSController.PatientDirInfo dir;
+            Boolean createNew = false;
+
+            if (Program.currentPatient == null)
             {
-                // Makes the patient's profile text box's editable
-                makeReadable();
-                // Change the saveUpdateButton text
-                saveUpdateButton.Text = "Save";
-                // Exit out of this function
-                return;
+                Program.currentPatient = new PIMSController.Patient();
+                createNew = true;
             }
-            else if (saveUpdateButton.Text == "Save")
-            {
-                Boolean createNew = false;
+            dir = Program.currentPatient.directory;
 
-                // Check to see if we have a current patient
-                // If we don't, create a new patient
-                if (Program.currentPatient == null)
-                {
-                    Program.currentPatient = new PIMSController.Patient();
-                    createNew = true;
-                }
+            Program.currentPatient.directory.patientID = this.idTextBox.Text;
+            Program.currentPatient.directory.lName = this.lastNameTextBox.Text;
+            Program.currentPatient.directory.fName = this.firstNameTextBox.Text;
+            Program.currentPatient.directory.mName = this.middleNameTextBox.Text;
+            Program.currentPatient.directory.DOB = Convert.ToDateTime(this.dobTextBox.Text);
+            if (this.genderTextBox.Text.ToUpper().Equals("M"))
+                Program.currentPatient.directory.gender = true;
+            else Program.currentPatient.directory.gender = false;
+            Program.currentPatient.directory.strAddress = this.addressTextBox.Text;
+            Program.currentPatient.directory.city = this.cityTextBox.Text;
+            Program.currentPatient.directory.state = this.stateTextBox.Text;
+            Program.currentPatient.directory.zip = this.zipTextBox.Text;
+            Program.currentPatient.directory.phoneNum1 = this.primaryPhoneTextBox.Text;
+            Program.currentPatient.directory.phoneNum2 = this.secondaryPhoneTextBox.Text;
+            Program.currentPatient.directory.emerContact1.name = this.contactName1TextBox.Text;
+            Program.currentPatient.directory.emerContact1.phoneNum = this.contactPhone1TextBox.Text;
+            Program.currentPatient.directory.emerContact2.name = this.contactName2TextBox.Text;
+            Program.currentPatient.directory.emerContact2.phoneNum = this.contactPhone2TextBox.Text;
 
-                // Assign various profile information to the curent patient
-                Program.currentPatient.directory.patientID = this.idTextBox.Text;
-                Program.currentPatient.directory.lName = this.lastNameTextBox.Text;
-                Program.currentPatient.directory.fName = this.firstNameTextBox.Text;
-                Program.currentPatient.directory.mName = this.middleNameTextBox.Text;
-                Program.currentPatient.directory.DOB = Convert.ToDateTime(this.dobTextBox.Text);
-                if (this.genderTextBox.Text.ToUpper().Equals("M"))
-                    Program.currentPatient.directory.gender = true;
-                else Program.currentPatient.directory.gender = false;
-                Program.currentPatient.directory.strAddress = this.addressTextBox.Text;
-                Program.currentPatient.directory.city = this.cityTextBox.Text;
-                Program.currentPatient.directory.state = this.stateTextBox.Text;
-                Program.currentPatient.directory.zip = this.zipTextBox.Text;
-                Program.currentPatient.directory.phoneNum1 = this.primaryPhoneTextBox.Text;
-                Program.currentPatient.directory.phoneNum2 = this.secondaryPhoneTextBox.Text;
-                Program.currentPatient.directory.emerContact1.name = this.contactName1TextBox.Text;
-                Program.currentPatient.directory.emerContact1.phoneNum = this.contactPhone1TextBox.Text;
-                Program.currentPatient.directory.emerContact2.name = this.contactName2TextBox.Text;
-                Program.currentPatient.directory.emerContact2.phoneNum = this.contactPhone2TextBox.Text;
-
-                //// This is a new patient
-                //// Create a new patient
-                //if (createNew)
-                //    PIMSController.SQLcommands.createPatient();
-                //// This is an existing patient
-                //// Update the exisitng patient
-                //else
-                //    PIMSController.SQLcommands.updatePatient(Program.currentPatient);
-
-                // Makes the patient's profile text box's not editable
-                makeReadOnly();
-                // Change the saveUpdateButton text
-                saveUpdateButton.Text = "Update";
-
-                // Display information message
-                MessageBox.Show("Patient's profile information has been saved!",
-                "Information saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            if (createNew)
+                PIMSController.SQLcommands.createPatient();
+            else
+                PIMSController.SQLcommands.updatePatient(Program.currentPatient);
         }
 
         private void printButton_Click(object sender, EventArgs e)
