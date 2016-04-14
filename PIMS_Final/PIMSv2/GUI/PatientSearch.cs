@@ -37,16 +37,18 @@ namespace PIMS
             {
                 if(Program.currentUser is PIMSController.OfficeStaff)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Would you like to create a new patient?", "Patient not found in database!", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Would you like to create a new patient?", "Patient not found in database!", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        // Clear contents of Panel1
+                        Program.myForm.splitContainer1.Panel1.Controls.Clear();
                         // Add the newPatientLeftSideButtons to the Panel1
-                        Program.myForm.splitContainer1.Panel1.Controls.Add(Program.newPatientLeftSideButtons);
+                        Program.myForm.splitContainer1.Panel1.Controls.Add(Program.newPatientLeftSideButton);
 
                         // Clear contents of Panel2
                         Program.myForm.splitContainer1.Panel2.Controls.Clear();
                         // Add the PatientForm to the Panel2
-                        Program.myForm.splitContainer1.Panel2.Controls.Add(new NewPatientForm());
+                        Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
                     }
                     else if (dialogResult == DialogResult.No)
                     {
@@ -58,8 +60,9 @@ namespace PIMS
                 }
                 else
                 {
+                    // Display error message
                     MessageBox.Show("Patient not found in database! \n Please search for a new patient",
-                   "Patient not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Patient not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     // Clear contents of Panel2
                     Program.myForm.splitContainer1.Panel2.Controls.Clear();
@@ -88,6 +91,8 @@ namespace PIMS
                             Program.currentUser is PIMSController.MedStaff ||
                             Program.currentUser is PIMSController.OfficeStaff)
                     {
+                        // Clear contents of Panel1
+                        Program.myForm.splitContainer1.Panel1.Controls.Clear();
                         // Add the StartLeftSideButtons to the Panel1
                         Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
 

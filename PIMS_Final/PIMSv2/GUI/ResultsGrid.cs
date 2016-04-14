@@ -15,42 +15,57 @@ namespace PIMS
         List<PIMSController.Patient> patients = new List<PIMSController.Patient>();
         PIMSController.Patient selectedPatient = null;
 
+        // Deafualt Constructor
         public ResultsGrid(String lastNameQuery)
         {
             InitializeComponent();
 
             Program.lastNameQuery = lastNameQuery;
 
-            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+            // If the current user is not an OfficeStaff
+            // Don't allow the user to see the saveUpdateButton
+            if (!(Program.currentUser is PIMSController.OfficeStaff))
+            {
+                addPatientButton.Visible = false;
+            }
+
+            resultsDataGridView.CellValueChanged += dataGridView1_CellValueChanged;
 
             patients = PIMSController.SQLcommands.getPatientList();
 
             fillDGV(lastNameQuery);
         }
 
+        // Will fill the dataGridView with the list of available patient's
         private void fillDGV(string query)
         {
             foreach (PIMSController.Patient myPatient in patients)
             {
                 if (query.Length > 2 && myPatient.directory.lName.ToUpper().StartsWith(query))
                 {
-                       dataGridView1.Rows.Add(null,
+                       resultsDataGridView.Rows.Add(null,
                                                       myPatient.directory.patientID,
                                                       myPatient.directory.lName,
                                                       myPatient.directory.fName,
                                                       myPatient.directory.mName,
                                                       myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy"),
+                                                      myPatient.directory.gender,
                                                       myPatient.directory.phoneNum1,
                                                       myPatient.directory.phoneNum2,
+                                                      myPatient.directory.location.roomNum,
+                                                      myPatient.directory.location.bedNum,
+                                                      myPatient.directory.location.floor,
                                                       myPatient.directory.isAdmitted ? "Y" : "N");
                 }
             }
         }
 
 
+        // If the resultsDataGridView is clicked
+        // Commit that edit
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            resultsDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -59,7 +74,7 @@ namespace PIMS
             int count = 0;
             // make sure just 1 is selected since it wont take radio buttons
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in resultsDataGridView.Rows)
             {
                 if (row.Cells[0].Value != null && row.Cells[0].Value.Equals("true"))
                 {
@@ -110,6 +125,19 @@ namespace PIMS
                     Program.leftSideButton.addGroupBoxText();
                 }
             }
+        }
+
+        // Will allow the Office Staff to add anew patient if they are not in the ResultsGrid
+        private void addPatientButton_Click(object sender, EventArgs e)
+        {
+            // Clear contents of Panel1 and Panel2
+            Program.myForm.splitContainer1.Panel1.Controls.Clear();
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+
+            // Add NewPatientLeftSideButtons to Panel1
+            Program.myForm.splitContainer1.Panel1.Controls.Add(new NewPatientLeftSideButtons());
+            // Add PatientForm to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
         }
     }
 }

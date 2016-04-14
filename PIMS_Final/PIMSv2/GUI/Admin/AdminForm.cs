@@ -12,6 +12,7 @@ namespace PIMS
 {
     public partial class AdminForm : UserControl
     {
+        // Deafult Constructor
         public AdminForm()
         {
             InitializeComponent();
@@ -22,9 +23,9 @@ namespace PIMS
             this.userTypeComboBox.Items.Add("Volunteer");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        // Will allow the Admin to create a new user
+        private void createUserButton_Click(object sender, EventArgs e)
         {
-
             // Need to implement add user
             string userName = userNameTextBox.Text;
             string password = passwordTextBox.Text;
