@@ -33,11 +33,8 @@
             this.newSearchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.logOffButton = new System.Windows.Forms.Button();
             closeApplicationGroupBox = new System.Windows.Forms.GroupBox();
             closeApplicationGroupBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // closeApplicationGroupBox
@@ -47,9 +44,9 @@
             closeApplicationGroupBox.BackColor = System.Drawing.SystemColors.Control;
             closeApplicationGroupBox.Controls.Add(this.exitButton);
             closeApplicationGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            closeApplicationGroupBox.Location = new System.Drawing.Point(36, 854);
+            closeApplicationGroupBox.Location = new System.Drawing.Point(36, 595);
             closeApplicationGroupBox.Name = "closeApplicationGroupBox";
-            closeApplicationGroupBox.Size = new System.Drawing.Size(175, 68);
+            closeApplicationGroupBox.Size = new System.Drawing.Size(175, 61);
             closeApplicationGroupBox.TabIndex = 7;
             closeApplicationGroupBox.TabStop = false;
             closeApplicationGroupBox.Text = "Close Application";
@@ -57,7 +54,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(45, 28);
+            this.exitButton.Location = new System.Drawing.Point(57, 19);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 4;
@@ -95,41 +92,17 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "to view their information";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.logOffButton);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(36, 747);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(175, 69);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Log Off";
-            // 
-            // logOffButton
-            // 
-            this.logOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOffButton.Location = new System.Drawing.Point(45, 29);
-            this.logOffButton.Name = "logOffButton";
-            this.logOffButton.Size = new System.Drawing.Size(75, 23);
-            this.logOffButton.TabIndex = 5;
-            this.logOffButton.Text = "Log Off";
-            this.logOffButton.UseVisualStyleBackColor = true;
-            this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
-            // 
             // StartLeftSideButtons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(closeApplicationGroupBox);
             this.Controls.Add(this.newSearchButton);
             this.Name = "StartLeftSideButtons";
-            this.Size = new System.Drawing.Size(345, 966);
+            this.Size = new System.Drawing.Size(345, 700);
             closeApplicationGroupBox.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,7 +114,5 @@
         private System.Windows.Forms.Button newSearchButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button logOffButton;
     }
 }

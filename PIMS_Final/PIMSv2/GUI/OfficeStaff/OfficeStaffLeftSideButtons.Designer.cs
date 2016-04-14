@@ -38,8 +38,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.locationButton = new System.Windows.Forms.Button();
             this.approvedVisitorsButton = new System.Windows.Forms.Button();
+            this.editInsuranceButton = new System.Windows.Forms.Button();
+            this.editBillingButton = new System.Windows.Forms.Button();
+            this.editProfileButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.logOffButton = new System.Windows.Forms.Button();
+            this.editLocationButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -53,7 +56,7 @@
             groupBox3.BackColor = System.Drawing.SystemColors.Control;
             groupBox3.Controls.Add(this.exitButton);
             groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupBox3.Location = new System.Drawing.Point(42, 858);
+            groupBox3.Location = new System.Drawing.Point(42, 592);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new System.Drawing.Size(211, 61);
             groupBox3.TabIndex = 10;
@@ -160,27 +163,62 @@
             this.approvedVisitorsButton.UseVisualStyleBackColor = true;
             this.approvedVisitorsButton.Click += new System.EventHandler(this.approvedVisitorsButton_Click);
             // 
+            // editInsuranceButton
+            // 
+            this.editInsuranceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInsuranceButton.Location = new System.Drawing.Point(16, 107);
+            this.editInsuranceButton.Name = "editInsuranceButton";
+            this.editInsuranceButton.Size = new System.Drawing.Size(173, 23);
+            this.editInsuranceButton.TabIndex = 9;
+            this.editInsuranceButton.Text = "Insurance Information";
+            this.editInsuranceButton.UseVisualStyleBackColor = true;
+            this.editInsuranceButton.Click += new System.EventHandler(this.editInsuranceButton_Click);
+            // 
+            // editBillingButton
+            // 
+            this.editBillingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBillingButton.Location = new System.Drawing.Point(16, 67);
+            this.editBillingButton.Name = "editBillingButton";
+            this.editBillingButton.Size = new System.Drawing.Size(173, 23);
+            this.editBillingButton.TabIndex = 8;
+            this.editBillingButton.Text = "Billing Information";
+            this.editBillingButton.UseVisualStyleBackColor = true;
+            this.editBillingButton.Click += new System.EventHandler(this.editBillingButton_Click);
+            // 
+            // editProfileButton
+            // 
+            this.editProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editProfileButton.Location = new System.Drawing.Point(16, 29);
+            this.editProfileButton.Name = "editProfileButton";
+            this.editProfileButton.Size = new System.Drawing.Size(173, 23);
+            this.editProfileButton.TabIndex = 7;
+            this.editProfileButton.Text = "Profile Information";
+            this.editProfileButton.UseVisualStyleBackColor = true;
+            this.editProfileButton.Click += new System.EventHandler(this.editProfileButton_Click);
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.logOffButton);
+            this.groupBox2.Controls.Add(this.editLocationButton);
+            this.groupBox2.Controls.Add(this.editProfileButton);
+            this.groupBox2.Controls.Add(this.editInsuranceButton);
+            this.groupBox2.Controls.Add(this.editBillingButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(42, 757);
+            this.groupBox2.Location = new System.Drawing.Point(42, 373);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(213, 69);
-            this.groupBox2.TabIndex = 14;
+            this.groupBox2.Size = new System.Drawing.Size(211, 186);
+            this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Log Off";
             // 
-            // logOffButton
+            // editLocationButton
             // 
-            this.logOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOffButton.Location = new System.Drawing.Point(57, 29);
-            this.logOffButton.Name = "logOffButton";
-            this.logOffButton.Size = new System.Drawing.Size(75, 23);
-            this.logOffButton.TabIndex = 5;
-            this.logOffButton.Text = "Log Off";
-            this.logOffButton.UseVisualStyleBackColor = true;
-            this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
+            this.editLocationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editLocationButton.Location = new System.Drawing.Point(16, 148);
+            this.editLocationButton.Name = "editLocationButton";
+            this.editLocationButton.Size = new System.Drawing.Size(173, 23);
+            this.editLocationButton.TabIndex = 10;
+            this.editLocationButton.Text = "Location Information";
+            this.editLocationButton.UseVisualStyleBackColor = true;
+            this.editLocationButton.Click += new System.EventHandler(this.editLocationButton_Click);
             // 
             // OfficeStaffLeftSideButtons
             // 
@@ -192,7 +230,7 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.groupBox1);
             this.Name = "OfficeStaffLeftSideButtons";
-            this.Size = new System.Drawing.Size(322, 939);
+            this.Size = new System.Drawing.Size(322, 673);
             groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -209,9 +247,12 @@
         private System.Windows.Forms.Button backButton;
         public System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button editInsuranceButton;
+        private System.Windows.Forms.Button editBillingButton;
+        private System.Windows.Forms.Button editProfileButton;
         private System.Windows.Forms.Button approvedVisitorsButton;
-        private System.Windows.Forms.Button locationButton;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button logOffButton;
+        private System.Windows.Forms.Button locationButton;
+        private System.Windows.Forms.Button editLocationButton;
     }
 }

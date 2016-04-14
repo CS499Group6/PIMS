@@ -66,36 +66,66 @@ C:\Users\Jennifer\Dropbox\My Documents\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\
 C:\Users\Jennifer\Dropbox\My Documents\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffBillingGrid.resources
 C:\Users\Jennifer\Dropbox\My Documents\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLocationForm.resources
 C:\Users\Jennifer\Dropbox\My Documents\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LocationForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe.config
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.pdb
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.csprojResolveAssemblyReference.cache
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingGrid.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLocationForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewPatientLeftSideButtons.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.AdminForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.Login.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientSearch.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PimsForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffVisitorsGrid.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewInsuranceForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLeftSideButtons.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewPatientForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.InsuranceForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffBillingGrid.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LocationForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LoginLeftSideButtons.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.Properties.Resources.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.ResultsGrid.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LeftSideButtons.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerLeftSideButtons.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerResultsGrid.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.TreatmentForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerForm.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.StartLeftSideButtons.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VisitorsGrid.resources
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.csproj.GenerateResource.Cache
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.exe
-E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.pdb
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe.config
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.exe
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.pdb
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.pdb
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.csprojResolveAssemblyReference.cache
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingGrid.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLocationForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewPatientLeftSideButtonscs.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.AdminForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.Login.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientSearch.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PimsForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffVisitorsGrid.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewInsuranceForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLeftSideButtons.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewPatientForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.InsuranceForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffBillingGrid.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LocationForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.Properties.Resources.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.ResultsGrid.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LeftSideButtons.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerLeftSideButtons.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerResultsGrid.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.TreatmentForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerForm.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.StartLeftSideButtons.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VisitorsGrid.resources
+G:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.csproj.GenerateResource.Cache
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingGrid.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLocationForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewPatientLeftSideButtonscs.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.AdminForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.Login.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientSearch.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.PimsForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffVisitorsGrid.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewInsuranceForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewPatientForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.InsuranceForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffBillingGrid.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.LocationForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.Properties.Resources.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.ResultsGrid.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.LeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerResultsGrid.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.TreatmentForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerForm.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.StartLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.VisitorsGrid.resources
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMS.csproj.GenerateResource.Cache
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe.config
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.pdb
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.exe
+C:\Users\Ina\Desktop\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.pdb

@@ -40,7 +40,6 @@ namespace PIMS
                                                       myPatient.directory.fName,
                                                       myPatient.directory.mName,
                                                       myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy"),
-                                                      myPatient.directory.gender,
                                                       myPatient.directory.phoneNum1,
                                                       myPatient.directory.phoneNum2,
                                                       myPatient.directory.isAdmitted ? "Y" : "N");

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.saveUpdateButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.groupTextBox = new System.Windows.Forms.TextBox();
             this.pcnTextBox = new System.Windows.Forms.TextBox();
@@ -44,15 +44,15 @@
             this.printButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // saveUpdateButton
+            // saveButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(141, 254);
-            this.saveUpdateButton.Name = "saveUpdateButton";
-            this.saveUpdateButton.Size = new System.Drawing.Size(75, 23);
-            this.saveUpdateButton.TabIndex = 61;
-            this.saveUpdateButton.Text = "Update";
-            this.saveUpdateButton.UseVisualStyleBackColor = true;
-            this.saveUpdateButton.Click += new System.EventHandler(this.saveUpdateButton_Click);
+            this.saveButton.Location = new System.Drawing.Point(141, 254);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 61;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // typeComboBox
             // 
@@ -167,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.printButton);
-            this.Controls.Add(this.saveUpdateButton);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.groupTextBox);
             this.Controls.Add(this.pcnTextBox);
@@ -189,7 +189,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button saveUpdateButton;
+        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.ComboBox typeComboBox;
         private System.Windows.Forms.TextBox groupTextBox;
         private System.Windows.Forms.TextBox pcnTextBox;

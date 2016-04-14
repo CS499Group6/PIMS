@@ -17,9 +17,12 @@ namespace PIMS
             InitializeComponent();
         }
 
-        private void printButon_Click(object sender, EventArgs e)
+        private void print_click(object sender, EventArgs e)
         {
-
+            /*
+             * 
+             * 
+             */
         }
     }
 }
