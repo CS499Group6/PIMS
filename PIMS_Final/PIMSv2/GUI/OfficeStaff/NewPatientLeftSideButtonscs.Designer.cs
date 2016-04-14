@@ -1,6 +1,6 @@
 ﻿namespace PIMS
 {
-    partial class NewPatientLeftSideButtonscs
+    partial class NewPatientLeftSideButtons
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,9 +35,13 @@
             this.editInsuranceButton = new System.Windows.Forms.Button();
             this.editBillingButton = new System.Windows.Forms.Button();
             this.editProfileButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.logOffButton = new System.Windows.Forms.Button();
+            this.assignRoomButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -46,7 +50,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             groupBox3.BackColor = System.Drawing.SystemColors.Control;
             groupBox3.Controls.Add(this.exitButton);
-            groupBox3.Location = new System.Drawing.Point(75, 446);
+            groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            groupBox3.Location = new System.Drawing.Point(64, 752);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new System.Drawing.Size(191, 61);
             groupBox3.TabIndex = 14;
@@ -55,6 +60,7 @@
             // 
             // exitButton
             // 
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(57, 19);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
@@ -75,17 +81,20 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.assignRoomButton);
             this.groupBox1.Controls.Add(this.editInsuranceButton);
             this.groupBox1.Controls.Add(this.editBillingButton);
             this.groupBox1.Controls.Add(this.editProfileButton);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(64, 115);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 209);
+            this.groupBox1.Size = new System.Drawing.Size(213, 258);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
             // editInsuranceButton
             // 
+            this.editInsuranceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editInsuranceButton.Location = new System.Drawing.Point(29, 160);
             this.editInsuranceButton.Name = "editInsuranceButton";
             this.editInsuranceButton.Size = new System.Drawing.Size(151, 23);
@@ -96,6 +105,7 @@
             // 
             // editBillingButton
             // 
+            this.editBillingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editBillingButton.Location = new System.Drawing.Point(29, 101);
             this.editBillingButton.Name = "editBillingButton";
             this.editBillingButton.Size = new System.Drawing.Size(151, 23);
@@ -106,6 +116,7 @@
             // 
             // editProfileButton
             // 
+            this.editProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editProfileButton.Location = new System.Drawing.Point(29, 41);
             this.editProfileButton.Name = "editProfileButton";
             this.editProfileButton.Size = new System.Drawing.Size(151, 23);
@@ -114,17 +125,51 @@
             this.editProfileButton.UseVisualStyleBackColor = true;
             this.editProfileButton.Click += new System.EventHandler(this.editProfileButton_Click);
             // 
-            // NewPatientLeftSideButtonscs
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.logOffButton);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(64, 651);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(191, 69);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Log Off";
+            // 
+            // logOffButton
+            // 
+            this.logOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOffButton.Location = new System.Drawing.Point(45, 29);
+            this.logOffButton.Name = "logOffButton";
+            this.logOffButton.Size = new System.Drawing.Size(75, 23);
+            this.logOffButton.TabIndex = 5;
+            this.logOffButton.Text = "Log Off";
+            this.logOffButton.UseVisualStyleBackColor = true;
+            // 
+            // assignRoomButton
+            // 
+            this.assignRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assignRoomButton.Location = new System.Drawing.Point(29, 215);
+            this.assignRoomButton.Name = "assignRoomButton";
+            this.assignRoomButton.Size = new System.Drawing.Size(151, 23);
+            this.assignRoomButton.TabIndex = 10;
+            this.assignRoomButton.Text = "Assign Room";
+            this.assignRoomButton.UseVisualStyleBackColor = true;
+            this.assignRoomButton.Click += new System.EventHandler(this.assignRoomButton_Click);
+            // 
+            // NewPatientLeftSideButtons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(groupBox3);
             this.Controls.Add(this.newSearchButton);
             this.Controls.Add(this.groupBox1);
-            this.Name = "NewPatientLeftSideButtonscs";
-            this.Size = new System.Drawing.Size(341, 534);
+            this.Name = "NewPatientLeftSideButtons";
+            this.Size = new System.Drawing.Size(341, 840);
             groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -137,5 +182,8 @@
         private System.Windows.Forms.Button editInsuranceButton;
         private System.Windows.Forms.Button editBillingButton;
         private System.Windows.Forms.Button editProfileButton;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button logOffButton;
+        private System.Windows.Forms.Button assignRoomButton;
     }
 }

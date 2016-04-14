@@ -28,43 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.unitBox = new System.Windows.Forms.TextBox();
-            this.bedBox = new System.Windows.Forms.TextBox();
-            this.roomBox = new System.Windows.Forms.TextBox();
-            this.floorBox = new System.Windows.Forms.TextBox();
+            this.unitTextBox = new System.Windows.Forms.TextBox();
+            this.bedTextBox = new System.Windows.Forms.TextBox();
+            this.roomTextBox = new System.Windows.Forms.TextBox();
+            this.floorTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.saveUpdateButton = new System.Windows.Forms.Button();
+            this.printButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // unitBox
+            // unitTextBox
             // 
-            this.unitBox.Location = new System.Drawing.Point(126, 130);
-            this.unitBox.Name = "unitBox";
-            this.unitBox.Size = new System.Drawing.Size(100, 20);
-            this.unitBox.TabIndex = 17;
+            this.unitTextBox.Location = new System.Drawing.Point(126, 130);
+            this.unitTextBox.Name = "unitTextBox";
+            this.unitTextBox.Size = new System.Drawing.Size(100, 20);
+            this.unitTextBox.TabIndex = 17;
             // 
-            // bedBox
+            // bedTextBox
             // 
-            this.bedBox.Location = new System.Drawing.Point(126, 98);
-            this.bedBox.Name = "bedBox";
-            this.bedBox.Size = new System.Drawing.Size(100, 20);
-            this.bedBox.TabIndex = 16;
+            this.bedTextBox.Location = new System.Drawing.Point(126, 98);
+            this.bedTextBox.Name = "bedTextBox";
+            this.bedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.bedTextBox.TabIndex = 16;
             // 
-            // roomBox
+            // roomTextBox
             // 
-            this.roomBox.Location = new System.Drawing.Point(126, 64);
-            this.roomBox.Name = "roomBox";
-            this.roomBox.Size = new System.Drawing.Size(100, 20);
-            this.roomBox.TabIndex = 15;
+            this.roomTextBox.Location = new System.Drawing.Point(126, 64);
+            this.roomTextBox.Name = "roomTextBox";
+            this.roomTextBox.Size = new System.Drawing.Size(100, 20);
+            this.roomTextBox.TabIndex = 15;
             // 
-            // floorBox
+            // floorTextBox
             // 
-            this.floorBox.Location = new System.Drawing.Point(126, 32);
-            this.floorBox.Name = "floorBox";
-            this.floorBox.Size = new System.Drawing.Size(100, 20);
-            this.floorBox.TabIndex = 14;
+            this.floorTextBox.Location = new System.Drawing.Point(126, 32);
+            this.floorTextBox.Name = "floorTextBox";
+            this.floorTextBox.Size = new System.Drawing.Size(100, 20);
+            this.floorTextBox.TabIndex = 14;
             // 
             // label4
             // 
@@ -102,14 +104,36 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Room Number:";
             // 
+            // saveUpdateButton
+            // 
+            this.saveUpdateButton.Location = new System.Drawing.Point(100, 169);
+            this.saveUpdateButton.Name = "saveUpdateButton";
+            this.saveUpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.saveUpdateButton.TabIndex = 18;
+            this.saveUpdateButton.Text = "Update";
+            this.saveUpdateButton.UseVisualStyleBackColor = true;
+            this.saveUpdateButton.Click += new System.EventHandler(this.saveUpdateButton_Click);
+            // 
+            // printButton
+            // 
+            this.printButton.Location = new System.Drawing.Point(199, 169);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(75, 23);
+            this.printButton.TabIndex = 19;
+            this.printButton.Text = "Print";
+            this.printButton.UseVisualStyleBackColor = true;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
+            // 
             // LocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.unitBox);
-            this.Controls.Add(this.bedBox);
-            this.Controls.Add(this.roomBox);
-            this.Controls.Add(this.floorBox);
+            this.Controls.Add(this.printButton);
+            this.Controls.Add(this.saveUpdateButton);
+            this.Controls.Add(this.unitTextBox);
+            this.Controls.Add(this.bedTextBox);
+            this.Controls.Add(this.roomTextBox);
+            this.Controls.Add(this.floorTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -123,13 +147,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox unitBox;
-        private System.Windows.Forms.TextBox bedBox;
-        private System.Windows.Forms.TextBox roomBox;
-        private System.Windows.Forms.TextBox floorBox;
+        private System.Windows.Forms.TextBox unitTextBox;
+        private System.Windows.Forms.TextBox bedTextBox;
+        private System.Windows.Forms.TextBox roomTextBox;
+        private System.Windows.Forms.TextBox floorTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button saveUpdateButton;
+        private System.Windows.Forms.Button printButton;
     }
 }

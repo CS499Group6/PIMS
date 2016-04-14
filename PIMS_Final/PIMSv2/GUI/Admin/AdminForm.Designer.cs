@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.createUserButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
@@ -39,15 +39,15 @@
             this.firstLastLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // createUserButton
             // 
-            this.button1.Location = new System.Drawing.Point(104, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Create New User";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.createUserButton.Location = new System.Drawing.Point(104, 298);
+            this.createUserButton.Name = "createUserButton";
+            this.createUserButton.Size = new System.Drawing.Size(138, 23);
+            this.createUserButton.TabIndex = 0;
+            this.createUserButton.Text = "Create New User";
+            this.createUserButton.UseVisualStyleBackColor = true;
+            this.createUserButton.Click += new System.EventHandler(this.createUserButton_Click);
             // 
             // label1
             // 
@@ -126,7 +126,7 @@
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.createUserButton);
             this.Name = "AdminForm";
             this.Size = new System.Drawing.Size(520, 495);
             this.ResumeLayout(false);
@@ -136,7 +136,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button createUserButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox userNameTextBox;

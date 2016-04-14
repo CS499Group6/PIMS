@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace PIMS
 {
-    public partial class NewPatientLeftSideButtonscs : UserControl
+    public partial class NewPatientLeftSideButtons : UserControl
     {
-        public NewPatientLeftSideButtonscs()
+        // Default Constructor
+        public NewPatientLeftSideButtons()
         {
             InitializeComponent();
+        }
+
+        // Add text to groupBox1
+        public void addGroupBoxText()
+        {
+            try
+            {
+                groupBox1.Text = "Add information to new patient:";
+            }
+            catch (Exception ex)
+            {
+                groupBox1.Text = "View Selected Patients:";
+            }
         }
 
         private void newSearchButton_Click(object sender, EventArgs e)
@@ -30,7 +44,7 @@ namespace PIMS
         {
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
-            NewPatientForm newPatientForm = new NewPatientForm();
+            PatientForm newPatientForm = new PatientForm();
 
             // Add PatientForm to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(newPatientForm);
@@ -51,12 +65,20 @@ namespace PIMS
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
 
-            NewInsuranceForm newInsuranceForm = new NewInsuranceForm();
+            InsuranceForm newInsuranceForm = new InsuranceForm();
 
             // Add PatientSearch to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(newInsuranceForm);
 
             newInsuranceForm.makeReadable();
+        }
+
+        private void assignRoomButton_Click(object sender, EventArgs e)
+        {
+            // Clear contents of Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add PatientSearch to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new RoomAssignmentGrid());
         }
 
         private void exitButton_Click(object sender, EventArgs e)
