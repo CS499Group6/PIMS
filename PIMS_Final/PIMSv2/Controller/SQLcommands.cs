@@ -10,7 +10,9 @@ namespace PIMSController
 {
     public class SQLcommands
     {
-        static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS;";
+       // static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS;";
+        static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+
         static SqlConnection cnn = new SqlConnection(connectString);
         
         public static List<Patient> patients = null;
@@ -69,7 +71,7 @@ namespace PIMSController
             while (datardr.Read())
             {
                 if (datardr.GetValue(0) != System.DBNull.Value)
-                    x.directory.patientID = (String)datardr.GetValue(0);
+                    x.directory.patientID = datardr.GetValue(0).ToString();
                 if (datardr.GetValue(1) != System.DBNull.Value)
                     x.directory.fName = (String)datardr.GetValue(1);
                 if (datardr.GetValue(2) != System.DBNull.Value)
@@ -153,16 +155,16 @@ namespace PIMSController
             while (datardr.Read())
             {
                 BillingLineItem item = new BillingLineItem();
-                if (datardr.GetValue(1) != System.DBNull.Value)
-                    item.item = (String)datardr.GetValue(1);
                 if (datardr.GetValue(2) != System.DBNull.Value)
-                    item.cost = (int)datardr.GetValue(2);
+                    item.item = (string)datardr.GetValue(2);
                 if (datardr.GetValue(3) != System.DBNull.Value)
-                    item.paid = (int)datardr.GetValue(3);
+                    item.cost = (int)datardr.GetValue(3);
                 if (datardr.GetValue(4) != System.DBNull.Value)
-                    item.insPaid = (int)datardr.GetValue(4);
+                    item.paid = (int)datardr.GetValue(4);
                 if (datardr.GetValue(5) != System.DBNull.Value)
-                    item.dueDate = (DateTime)datardr.GetValue(5);
+                    item.insPaid = (int)datardr.GetValue(5);
+                if (datardr.GetValue(6) != System.DBNull.Value)
+                    item.dueDate = (DateTime)datardr.GetValue(6);
                 x.billing.items.Add(item);
             }
             datardr.Close();
@@ -234,13 +236,14 @@ namespace PIMSController
                     stats.bloodPressureDia = (int)datardr.GetValue(4);
                 if (datardr.GetValue(5) != System.DBNull.Value)
                     stats.heartrate = (int)datardr.GetValue(5);
+              /*
                 if (datardr.GetValue(7) != System.DBNull.Value)
                 {
                     DateTime date1;
                     DateTime.TryParse((String)datardr.GetValue(7),out date1);
                     stats.time = date1;
                 }
-
+                */
 
                 x.treatment.medStaffNotes.statList.Add(stats);
             }
@@ -317,7 +320,7 @@ namespace PIMSController
                 Console.WriteLine("reading a patient");
                 Patient x = new Patient();
                 if (datardr.GetValue(0) != System.DBNull.Value)
-                    x.directory.patientID = (String)datardr.GetValue(0);
+                    x.directory.patientID = datardr.GetValue(0).ToString();
                 if (datardr.GetValue(1) != System.DBNull.Value)
                     x.directory.fName = (String)datardr.GetValue(1);
                 if (datardr.GetValue(2) != System.DBNull.Value)
@@ -525,7 +528,47 @@ namespace PIMSController
 
                 cmd.ExecuteNonQuery();
             }
-        }
+        }//end update billing
         
-    }
-}
+     //creates a new patient using the patient object filled out in the GUI
+        public static String createPatient(Patient P)
+        {
+            //create patientid 
+            int id = 0;
+            SqlCommand cmd; 
+            cmd = new SqlCommand("CreatePatient", cnn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+         
+                cmd.Parameters.AddWithValue("@fname", P.directory.fName);
+                cmd.Parameters.AddWithValue("@mname", P.directory.lName);
+                cmd.Parameters.AddWithValue("@lname", P.directory.mName);
+                cmd.Parameters.AddWithValue("@DOB", P.directory.DOB);
+                cmd.Parameters.AddWithValue("@gender", P.directory.gender);
+                cmd.Parameters.AddWithValue("@patientAddress", P.directory.strAddress);
+                cmd.Parameters.AddWithValue("@patientZip", P.directory.zip);
+                cmd.Parameters.AddWithValue("@patientState", P.directory.state);
+                cmd.Parameters.AddWithValue("@patientCity", P.directory.city);
+                cmd.Parameters.AddWithValue("@phone1", P.directory.phoneNum1);
+                cmd.Parameters.AddWithValue("@phone2", P.directory.phoneNum2);
+                cmd.Parameters.AddWithValue("@emergencyName", P.directory.emerContact1.name);
+                cmd.Parameters.AddWithValue("@emergencyNum", P.directory.emerContact1.phoneNum);
+                cmd.Parameters.AddWithValue("@emergencyName2", P.directory.emerContact2.name);
+                cmd.Parameters.AddWithValue("@emergencyNum2", P.directory.emerContact2.phoneNum);
+                cmd.Parameters.AddWithValue("@visitorList", P.directory.visitors);
+                cmd.Parameters.AddWithValue("@patientID", id);
+           // SqlDataReader datardr;
+            datardrd = cmd.ExecuteReader();
+ 
+            //    cmd.ExecuteNonQuery();
+             //   cmd.Parameters.Clear();
+                cnn.Close();
+                return id.ToString();
+
+        }//end create patient
+
+
+
+
+        public static SqlDataReader datardrd { get; set; }
+    }//end sqlcommands class
+}//end PIMS controller namespace

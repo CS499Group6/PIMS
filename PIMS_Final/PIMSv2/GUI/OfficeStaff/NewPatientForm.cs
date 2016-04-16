@@ -91,12 +91,14 @@ namespace PIMS
 
             if (Program.currentPatient == null)
             {
+                Console.WriteLine("create new patient true");
+
                 Program.currentPatient = new PIMSController.Patient();
                 createNew = true;
             }
             dir = Program.currentPatient.directory;
 
-            Program.currentPatient.directory.patientID = this.idTextBox.Text;
+           // Program.currentPatient.directory.patientID = this.idTextBox.Text;
             Program.currentPatient.directory.lName = this.lastNameTextBox.Text;
             Program.currentPatient.directory.fName = this.firstNameTextBox.Text;
             Program.currentPatient.directory.mName = this.middleNameTextBox.Text;
@@ -116,9 +118,17 @@ namespace PIMS
             Program.currentPatient.directory.emerContact2.phoneNum = this.contactPhone2TextBox.Text;
 
             if (createNew)
-                PIMSController.SQLcommands.createPatient();
+            {
+
+                Console.WriteLine(Program.currentPatient.directory.fName);
+                Program.currentPatient.directory.patientID = PIMSController.SQLcommands.createPatient(Program.currentPatient);
+                Console.WriteLine("Id num is");
+                Console.WriteLine(Program.currentPatient.directory.patientID);
+            }
             else
+            {
                 PIMSController.SQLcommands.updatePatient(Program.currentPatient);
+            }
         }
 
         private void printButton_Click(object sender, EventArgs e)
