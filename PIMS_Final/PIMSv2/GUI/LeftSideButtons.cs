@@ -111,22 +111,27 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new VisitorsGrid());
         }
         
-        // Will allow the Doctor or Medical Staff to see the patient's treatment information
-        private void treatmentInformationButton_Click(object sender, EventArgs e)
+        // Will allow the Doctor or Medical Staff to see the patient's prescriptions
+        private void prescriptionsButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
             // Add PatientSearch to Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Add(new TreatmentForm());
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new PrescriptionGrid());
         }
 
-        // Will allow the user to see the Nurse Note's
+        // Will allow the user to see the patient's stats
         private void nurseNotesButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
             // Add PatientSearch to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new NurseNotesGrid());
+        }
+
+        private void scheduledProceduresButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         // Will log the current user off of the server

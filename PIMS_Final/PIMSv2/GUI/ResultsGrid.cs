@@ -31,6 +31,7 @@ namespace PIMS
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
                 addPatientButton.Visible = false;
+                deletePatientButton.Visible = false;
             }
 
             // Do not allow users to add new rows to resultsDataGridView
@@ -61,16 +62,6 @@ namespace PIMS
         // Will add the rows to the resultsDataGridView
         private void addRows(PIMSController.Patient myPatient)
         {
-            string firstName = myPatient.directory.fName;
-            string middleName = myPatient.directory.mName;
-            string dateOfBirth = myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy");
-            string lastName = myPatient.directory.lName;
-
-            for (int i = 1; i < 9; i++)
-            {
-                resultsDataGridView.Columns[i].ReadOnly = true;
-            }
-
             resultsDataGridView.Rows.Add(null,
                                                       myPatient.directory.patientID,
                                                       myPatient.directory.lName,
@@ -78,8 +69,6 @@ namespace PIMS
                                                       myPatient.directory.mName,
                                                       myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy"),
                                                       myPatient.directory.gender ? "M" : "F",                                                     
-                                                      myPatient.directory.phoneNum1,
-                                                      myPatient.directory.phoneNum2,
                                                       myPatient.directory.location.roomNum,
                                                       myPatient.directory.location.bedNum,
                                                       myPatient.directory.location.floor,
@@ -153,7 +142,7 @@ namespace PIMS
             }
         }
 
-        // Will allow the Office Staff to add anew patient if they are not in the ResultsGrid
+        // Will allow the Office Staff user to add a new patient if they are not in the ResultsGrid
         private void addPatientButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel1 and Panel2
@@ -164,6 +153,12 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel1.Controls.Add(new NewPatientLeftSideButtons());
             // Add PatientForm to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
+        }
+
+        // Will allow the Office Staff user to delete a patient
+        private void deletePatientButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

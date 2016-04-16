@@ -13,6 +13,5 @@ namespace PIMSController
         {
             prescriptions = new List<PrescDrug>();
         }
-
     }
 }

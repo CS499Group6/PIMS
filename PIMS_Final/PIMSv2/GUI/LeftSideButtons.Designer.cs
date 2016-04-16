@@ -37,13 +37,13 @@
             this.profileInformationButton = new System.Windows.Forms.Button();
             this.insuranceInformationButton = new System.Windows.Forms.Button();
             this.billingInformationButton = new System.Windows.Forms.Button();
-            this.treatmentInformationButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.prescriptionsButton = new System.Windows.Forms.Button();
+            this.nurseNotesButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.logOffButton = new System.Windows.Forms.Button();
-            this.nurseNotesButton = new System.Windows.Forms.Button();
-            this.doctorsNotesButton = new System.Windows.Forms.Button();
+            this.scheduledProceduresButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -155,17 +155,6 @@
             this.billingInformationButton.UseVisualStyleBackColor = true;
             this.billingInformationButton.Click += new System.EventHandler(this.billingInformationButton_Click);
             // 
-            // treatmentInformationButton
-            // 
-            this.treatmentInformationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treatmentInformationButton.Location = new System.Drawing.Point(18, 29);
-            this.treatmentInformationButton.Name = "treatmentInformationButton";
-            this.treatmentInformationButton.Size = new System.Drawing.Size(151, 23);
-            this.treatmentInformationButton.TabIndex = 2;
-            this.treatmentInformationButton.Text = "Treatment";
-            this.treatmentInformationButton.UseVisualStyleBackColor = true;
-            this.treatmentInformationButton.Click += new System.EventHandler(this.treatmentInformationButton_Click);
-            // 
             // backButton
             // 
             this.backButton.Location = new System.Drawing.Point(41, 70);
@@ -178,15 +167,37 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.doctorsNotesButton);
+            this.groupBox2.Controls.Add(this.scheduledProceduresButton);
+            this.groupBox2.Controls.Add(this.prescriptionsButton);
             this.groupBox2.Controls.Add(this.nurseNotesButton);
-            this.groupBox2.Controls.Add(this.treatmentInformationButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(23, 405);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 190);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
+            // 
+            // prescriptionsButton
+            // 
+            this.prescriptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionsButton.Location = new System.Drawing.Point(18, 97);
+            this.prescriptionsButton.Name = "prescriptionsButton";
+            this.prescriptionsButton.Size = new System.Drawing.Size(151, 23);
+            this.prescriptionsButton.TabIndex = 4;
+            this.prescriptionsButton.Text = "Prescriptions";
+            this.prescriptionsButton.UseVisualStyleBackColor = true;
+            this.prescriptionsButton.Click += new System.EventHandler(this.prescriptionsButton_Click);
+            // 
+            // nurseNotesButton
+            // 
+            this.nurseNotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nurseNotesButton.Location = new System.Drawing.Point(18, 40);
+            this.nurseNotesButton.Name = "nurseNotesButton";
+            this.nurseNotesButton.Size = new System.Drawing.Size(151, 23);
+            this.nurseNotesButton.TabIndex = 3;
+            this.nurseNotesButton.Text = "Patient Stats";
+            this.nurseNotesButton.UseVisualStyleBackColor = true;
+            this.nurseNotesButton.Click += new System.EventHandler(this.nurseNotesButton_Click);
             // 
             // groupBox4
             // 
@@ -212,26 +223,16 @@
             this.logOffButton.UseVisualStyleBackColor = true;
             this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
             // 
-            // nurseNotesButton
+            // scheduledProceduresButton
             // 
-            this.nurseNotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nurseNotesButton.Location = new System.Drawing.Point(18, 89);
-            this.nurseNotesButton.Name = "nurseNotesButton";
-            this.nurseNotesButton.Size = new System.Drawing.Size(151, 23);
-            this.nurseNotesButton.TabIndex = 3;
-            this.nurseNotesButton.Text = "Nurse Notes";
-            this.nurseNotesButton.UseVisualStyleBackColor = true;
-            this.nurseNotesButton.Click += new System.EventHandler(this.nurseNotesButton_Click);
-            // 
-            // doctorsNotesButton
-            // 
-            this.doctorsNotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorsNotesButton.Location = new System.Drawing.Point(18, 145);
-            this.doctorsNotesButton.Name = "doctorsNotesButton";
-            this.doctorsNotesButton.Size = new System.Drawing.Size(151, 23);
-            this.doctorsNotesButton.TabIndex = 4;
-            this.doctorsNotesButton.Text = "Doctor Notes";
-            this.doctorsNotesButton.UseVisualStyleBackColor = true;
+            this.scheduledProceduresButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scheduledProceduresButton.Location = new System.Drawing.Point(18, 149);
+            this.scheduledProceduresButton.Name = "scheduledProceduresButton";
+            this.scheduledProceduresButton.Size = new System.Drawing.Size(151, 23);
+            this.scheduledProceduresButton.TabIndex = 5;
+            this.scheduledProceduresButton.Text = "Scheduled Procedures";
+            this.scheduledProceduresButton.UseVisualStyleBackColor = true;
+            this.scheduledProceduresButton.Click += new System.EventHandler(this.scheduledProceduresButton_Click);
             // 
             // LeftSideButtons
             // 
@@ -256,7 +257,6 @@
         #endregion
 
         private System.Windows.Forms.Button newSearchButton;
-        private System.Windows.Forms.Button treatmentInformationButton;
         private System.Windows.Forms.Button insuranceInformationButton;
         private System.Windows.Forms.Button billingInformationButton;
         private System.Windows.Forms.Button exitButton;
@@ -268,7 +268,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button logOffButton;
-        private System.Windows.Forms.Button doctorsNotesButton;
+        private System.Windows.Forms.Button prescriptionsButton;
         private System.Windows.Forms.Button nurseNotesButton;
+        private System.Windows.Forms.Button scheduledProceduresButton;
     }
 }

@@ -49,8 +49,6 @@ namespace PIMS
             string lastNameQuery = searchTextBox.Text.ToUpper();
             string newLastNameQuery = lastNameQuery.Replace(".", "");
 
-            Console.WriteLine("newLastName = ", newLastNameQuery);
-
             Boolean found = false;
 
             // Make sure we have at least 3 characters

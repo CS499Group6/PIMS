@@ -13,6 +13,7 @@ namespace PIMS
         public static PIMSController.Patient currentPatient;
         public static PimsForm myForm;
         public static LeftSideButtons leftSideButton;
+        public static VolunteerLeftSideButtons volunteerLeftSideButton;
         public static OfficeStaffLeftSideButtons officeStaffLeftSideButton;
         public static NewPatientLeftSideButtons newPatientLeftSideButton;
 
@@ -28,6 +29,7 @@ namespace PIMS
             Application.SetCompatibleTextRenderingDefault(false);
             myForm = new PimsForm();
             leftSideButton = new LeftSideButtons();
+            volunteerLeftSideButton = new VolunteerLeftSideButtons();
             officeStaffLeftSideButton = new OfficeStaffLeftSideButtons();
             newPatientLeftSideButton = new NewPatientLeftSideButtons();
 

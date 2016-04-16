@@ -12,13 +12,12 @@ namespace PIMS
 {
     public partial class PatientForm : UserControl
     {
+        bool createNew = false;
+
         // Default Constructor
         public PatientForm()
         {
             InitializeComponent();
-
-            // Do not allow user to edit the idTextBox
-            this.idTextBox.ReadOnly = true;
 
             // If the current user is not an OfficeStaff
             // Don't allow the user to see the saveUpdateButton
@@ -30,15 +29,14 @@ namespace PIMS
             {
                 saveUpdateButton.Visible = true;
             }
-            
-            // If we have a current patient, add profile information about the patient to various profile text box's
-            if (Program.currentPatient != null)
+
+            // If createnew is false then we have a current patient, add profile information about the patient to various profile text box's
+            if (!createNew)
             {
-                //this.idTextBox.Text = Program.currentPatient.directory.patientID;
                 this.lastNameTextBox.Text = Program.currentPatient.directory.lName;
                 this.firstNameTextBox.Text = Program.currentPatient.directory.fName;
                 this.middleNameTextBox.Text = Program.currentPatient.directory.mName;
-                this.dobTextBox.Text = Program.currentPatient.directory.DOB.ToString(@"MM\/dd\/yyyy");
+                this.dateTimePicker.Value = Program.currentPatient.directory.DOB;
                 if (Program.currentPatient.directory.gender)
                     this.genderTextBox.Text = "M";
                 else
@@ -57,6 +55,22 @@ namespace PIMS
                 // Makes the patient's profile text box's not editable
                 makeReadOnly();
             }
+            else
+            {
+                makeReadable();
+                saveUpdateButton.Visible = false;
+                createNew = true;
+            }
+        }
+
+        private void lastNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (createNew)
+            {
+                saveUpdateButton.Text = "Save Profile Information";
+                saveUpdateButton.Visible = true;
+                createNew = true;
+            }
         }
 
         // Makes the patient's profile text box's not editable
@@ -65,7 +79,7 @@ namespace PIMS
             this.lastNameTextBox.ReadOnly = true;
             this.firstNameTextBox.ReadOnly = true;
             this.middleNameTextBox.ReadOnly = true;
-            this.dobTextBox.ReadOnly = true;
+            this.dateTimePicker.Enabled = false;
             this.genderTextBox.ReadOnly = true;
             this.addressTextBox.ReadOnly = true;
             this.cityTextBox.ReadOnly = true;
@@ -85,7 +99,7 @@ namespace PIMS
             this.lastNameTextBox.ReadOnly = false;
             this.firstNameTextBox.ReadOnly = false;
             this.middleNameTextBox.ReadOnly = false;
-            this.dobTextBox.ReadOnly = false;
+            this.dateTimePicker.Enabled = true;
             this.genderTextBox.ReadOnly = false;
             this.addressTextBox.ReadOnly = false;
             this.cityTextBox.ReadOnly = false;
@@ -106,6 +120,7 @@ namespace PIMS
             {
                 // Makes the patient's profile text box's editable
                 makeReadable();
+
                 // Change the saveUpdateButton text
                 saveUpdateButton.Text = "Save Profile Information";
                 // Exit out of this function
@@ -115,17 +130,21 @@ namespace PIMS
             {
                 // Check to see if we have a current patient
                 // If we don't, create a new patient
-                if (Program.currentPatient == null)
+
+                //if create new is true then patient is new
+                if (createNew)
                 {
                     Program.currentPatient = new PIMSController.Patient();
+
+                    PIMSController.SQLcommands.patientIndex++;
+                    Program.currentPatient.directory.patientID = PIMSController.SQLcommands.patientIndex.ToString();
                 }
 
                 // Assign various profile information to the current patient
-                Program.currentPatient.directory.patientID = this.idTextBox.Text;
                 Program.currentPatient.directory.lName = this.lastNameTextBox.Text;
                 Program.currentPatient.directory.fName = this.firstNameTextBox.Text;
                 Program.currentPatient.directory.mName = this.middleNameTextBox.Text;
-                Program.currentPatient.directory.DOB = Convert.ToDateTime(this.dobTextBox.Text);
+                Program.currentPatient.directory.DOB = this.dateTimePicker.Value;
                 if (this.genderTextBox.Text.ToUpper().Equals("M"))
                     Program.currentPatient.directory.gender = true;
                 else Program.currentPatient.directory.gender = false;
@@ -140,8 +159,18 @@ namespace PIMS
                 Program.currentPatient.directory.emerContact2.name = this.contactName2TextBox.Text;
                 Program.currentPatient.directory.emerContact2.phoneNum = this.contactPhone2TextBox.Text;
 
-                PIMSController.SQLcommands.updatePatient();
+                if (createNew == false)
+                {
+                    PIMSController.SQLcommands.updatePatient();
+                }
+                // Create new patient and set patientID with value generated by SQL commands class
+                else
+                {
+                    Program.currentPatient.directory.patientID = PIMSController.SQLcommands.insertNewPatient(Program.currentPatient);
 
+                    // Set createNew back to false
+                    createNew = false; 
+                }
                 // Makes the patient's profile text box's not editable
                 makeReadOnly();
                 // Change the saveUpdateButton text
@@ -157,7 +186,7 @@ namespace PIMS
         private void printButton_Click(object sender, EventArgs e)
         {
             // Instantiate new printInfo object to print page
-            PIMSController.PrintInfo document = new PIMSController.PrintInfo(); 
+            PIMSController.PrintInfo document = new PIMSController.PrintInfo();
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter("MyFile.txt"))
             {
@@ -185,5 +214,6 @@ namespace PIMS
             // Call the print function in the print class
             document.printButton_Click();
         }
+
     }
 }

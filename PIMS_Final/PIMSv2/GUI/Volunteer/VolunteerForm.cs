@@ -22,7 +22,6 @@ namespace PIMS
             // If we have a current patient, add profile information about the patient to various profile text box's
             if (Program.currentPatient != null)
             {
-                this.idBox.Text = Program.currentPatient.directory.patientID;
                 this.lastNameTextBox.Text = Program.currentPatient.directory.lName;
                 this.firstNameTextBox.Text = Program.currentPatient.directory.fName;
                 this.middleNameTextBox.Text = Program.currentPatient.directory.mName;

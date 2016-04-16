@@ -109,7 +109,7 @@ namespace PIMS
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
             // Add LeftSideButtons to Panel2
-            //Program.myForm.splitContainer1.Panel2.Controls.Add(new BillingForm());
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new BillingForm(new PIMSController.BillingLineItem()));
         }
 
          // Will allow the user to print the patient's billing information

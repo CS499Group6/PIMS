@@ -14,7 +14,7 @@ namespace PIMSController
         // This specifies the server/db/user to use to login to the SQL db
         static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS;Connect Timeout=5;";
         static SqlConnection cnn = new SqlConnection(connectString);
-
+        
         public static List<Patient> patients = null;
 
         // Indexes for adding new items to certain tables, these values get initialized to the max value
@@ -144,6 +144,8 @@ namespace PIMSController
                                 PIMS.Program.currentUser = new MedStaff();
                             else if (datardr.GetValue(2).Equals("vol"))
                                 PIMS.Program.currentUser = new Volunteer();
+
+                            PIMS.Program.currentUser.name = datardr.GetValue(1).ToString();
 
                             datardr.Close();
                             cnn.Close();
@@ -354,12 +356,18 @@ namespace PIMSController
                     stats.bloodPressureDia = (int)datardr.GetValue(4);
                 if (datardr.GetValue(5) != System.DBNull.Value)
                     stats.heartrate = (int)datardr.GetValue(5);
+                if (datardr.GetValue(6) != System.DBNull.Value)
+                    stats.idNum = (int)datardr.GetValue(6);
                 if (datardr.GetValue(7) != System.DBNull.Value)
                 {
                     DateTime date1;
                     DateTime.TryParse((String)datardr.GetValue(7), out date1);
                     stats.time = date1;
                 }
+                if (datardr.GetValue(8) != System.DBNull.Value)
+                    stats.nurse = (string)datardr.GetValue(8);
+                else
+                    stats.nurse = "";
 
 
                 x.treatment.medStaffNotes.statList.Add(stats);
@@ -375,6 +383,8 @@ namespace PIMSController
             {
                 PrescDrug drug = new PrescDrug();
 
+                if (datardr.GetValue(0) != System.DBNull.Value)
+                    drug.id = (int)datardr.GetValue(0);
                 if (datardr.GetValue(1) != System.DBNull.Value)
                     drug.name = (String)datardr.GetValue(1);
                 if (datardr.GetValue(2) != System.DBNull.Value)
@@ -409,6 +419,8 @@ namespace PIMSController
                     proc.who = (String)datardr.GetValue(3);
                 if (datardr.GetValue(4) != System.DBNull.Value)
                     proc.where = (String)datardr.GetValue(4);
+                if (datardr.GetValue(5) != System.DBNull.Value)
+                    proc.id = (int)datardr.GetValue(5);
 
                 x.treatment.procedures.Add(proc);
 
@@ -746,11 +758,11 @@ namespace PIMSController
 
             cmdText = "IF NOT EXISTS(SELECT pHeight from patientStats where idNum = @idNum) " +
                       "INSERT INTO patientStats " +
-                      "values(@pid, @ph , @pw ,  @sp ,  @dp ,  @hr ,  @idNum ,  @t) " +
+                      "values(@pid, @ph , @pw ,  @sp ,  @dp ,  @hr ,  @idNum ,  @t, @n) " +
                       "else " +
                       "UPDATE patientStats SET patientID = @pid, pHeight = @ph, pWeight = @pw, " +
                       "systolicPressure = @sp, diastolicPressure = @dp, heartRate = @hr, " +
-                      "time = @t WHERE idNum = @idNum";
+                      "time = @t, nurse = @n WHERE idNum = @idNum";
 
 
 
@@ -765,6 +777,7 @@ namespace PIMSController
                 cmd.Parameters.AddWithValue("@dp", stats.bloodPressureDia);
                 cmd.Parameters.AddWithValue("@hr", stats.heartrate);
                 cmd.Parameters.AddWithValue("@t", stats.time);
+                cmd.Parameters.AddWithValue("@n", stats.nurse);
 
                 if (stats.idNum == 0)
                 {
@@ -772,8 +785,6 @@ namespace PIMSController
                     cmd.Parameters.AddWithValue("@idNum", statsIndex);
                 }
                 else cmd.Parameters.AddWithValue("@idNum", stats.idNum);
-
-
 
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
@@ -785,6 +796,45 @@ namespace PIMSController
 
             //}
         }
+
+        //Takes Patient object and creates a new patient using the patient object
+        //Returns database generated patientID as a string
+        public static String insertNewPatient(Patient P)
+        {
+            Console.WriteLine("CREATING PATIENT");
+            //create patientid 
+            if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                cnn.Close();
+            cnn.Open();
+
+            SqlCommand cmd;
+            cmd = new SqlCommand("CreatePatient", cnn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@fname", P.directory.fName);
+            cmd.Parameters.AddWithValue("@mname", P.directory.lName);
+            cmd.Parameters.AddWithValue("@lname", P.directory.mName);
+            cmd.Parameters.AddWithValue("@DOB", Convert.ToDateTime(P.directory.DOB.Date.ToShortDateString()));
+            cmd.Parameters.AddWithValue("@gender", P.directory.gender ? "M" : "F");
+            cmd.Parameters.AddWithValue("@patientAddress", P.directory.strAddress);
+            cmd.Parameters.AddWithValue("@patientZip", P.directory.zip);
+            cmd.Parameters.AddWithValue("@patientState", P.directory.state);
+            cmd.Parameters.AddWithValue("@patientCity", P.directory.city);
+            cmd.Parameters.AddWithValue("@phone1", P.directory.phoneNum1);
+            cmd.Parameters.AddWithValue("@phone2", P.directory.phoneNum2);
+            cmd.Parameters.AddWithValue("@emergencyName", P.directory.emerContact1.name);
+            cmd.Parameters.AddWithValue("@emergencyNum", P.directory.emerContact1.phoneNum);
+            cmd.Parameters.AddWithValue("@emergencyName2", P.directory.emerContact2.name);
+            cmd.Parameters.AddWithValue("@emergencyNum2", P.directory.emerContact2.phoneNum);
+            cmd.Parameters.AddWithValue("@visitorList", P.directory.fName);
+            cmd.Parameters.AddWithValue("@patientID", P.directory.patientID);
+
+            cmd.ExecuteReader();
+            cmd.Parameters.Clear();
+            cnn.Close();
+            return P.directory.patientID.ToString();
+            //   return id.ToString();
+
+        }//end create patient
     }
 }
 

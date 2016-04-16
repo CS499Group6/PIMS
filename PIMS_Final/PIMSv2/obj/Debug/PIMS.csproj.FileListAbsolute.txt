@@ -99,3 +99,34 @@ E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VisitorsGrid.resources
 E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.csproj.GenerateResource.Cache
 E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.exe
 E:\School\CS 499\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.pdb
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.exe.config
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.AdminForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingGrid.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.InsuranceForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LocationForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.Login.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.LoginLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NurseNotesForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NurseNotesGrid.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.BillingForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.NewPatientLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.OfficeStaffLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.RoomAssignmentGrid.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PatientSearch.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.PimsForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.ResultsGrid.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.StartLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.TreatmentForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VisitorsGrid.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerForm.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerLeftSideButtons.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.VolunteerResultsGrid.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.Properties.Resources.resources
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.csproj.GenerateResource.Cache
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.exe
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMSv2.pdb
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\bin\Debug\PIMSv2.pdb
+C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\obj\Debug\PIMS.csprojResolveAssemblyReference.cache

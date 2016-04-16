@@ -53,7 +53,7 @@
             this.roomAssignmentDataGridView.Location = new System.Drawing.Point(18, 22);
             this.roomAssignmentDataGridView.Name = "roomAssignmentDataGridView";
             this.roomAssignmentDataGridView.RowHeadersWidth = 35;
-            this.roomAssignmentDataGridView.Size = new System.Drawing.Size(537, 362);
+            this.roomAssignmentDataGridView.Size = new System.Drawing.Size(648, 362);
             this.roomAssignmentDataGridView.TabIndex = 3;
             this.roomAssignmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomAssignmentDataGridView_CellContentClick);
             // 

@@ -8,7 +8,7 @@ namespace PIMSController
 {
     public class MedStaffNotes
     {
-        public struct patientStats
+        public class patientStats
         {
             public int idNum; // Id
             public DateTime time;
@@ -17,6 +17,7 @@ namespace PIMSController
             public int bloodPressureSys;
             public int bloodPressureDia;
             public int heartrate;
+            public string nurse;
 
             public patientStats(DateTime when, int weight, int height, int sys, int dia, int hr)
             {
@@ -30,6 +31,10 @@ namespace PIMSController
                 heartrate = hr;
             }
 
+            public patientStats()
+            {
+
+            }
         }
 
         public List<patientStats> statList;

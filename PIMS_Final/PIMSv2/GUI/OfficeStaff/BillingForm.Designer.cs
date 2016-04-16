@@ -40,12 +40,14 @@
             this.costTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.idLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // printButon
             // 
             this.printButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printButon.Location = new System.Drawing.Point(223, 229);
+            this.printButon.Location = new System.Drawing.Point(266, 218);
             this.printButon.Name = "printButon";
             this.printButon.Size = new System.Drawing.Size(75, 23);
             this.printButon.TabIndex = 1;
@@ -63,7 +65,7 @@
             // itemNameBox
             // 
             this.itemNameBox.AutoSize = true;
-            this.itemNameBox.Location = new System.Drawing.Point(104, 75);
+            this.itemNameBox.Location = new System.Drawing.Point(124, 75);
             this.itemNameBox.Name = "itemNameBox";
             this.itemNameBox.Size = new System.Drawing.Size(61, 13);
             this.itemNameBox.TabIndex = 58;
@@ -71,18 +73,18 @@
             // 
             // saveUpdateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(107, 229);
+            this.saveUpdateButton.Location = new System.Drawing.Point(107, 218);
             this.saveUpdateButton.Name = "saveUpdateButton";
-            this.saveUpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.saveUpdateButton.Size = new System.Drawing.Size(138, 23);
             this.saveUpdateButton.TabIndex = 57;
-            this.saveUpdateButton.Text = "Update";
+            this.saveUpdateButton.Text = "Update Billing Line Item";
             this.saveUpdateButton.UseVisualStyleBackColor = true;
             this.saveUpdateButton.Click += new System.EventHandler(this.saveUpdateButton_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 181);
+            this.label5.Location = new System.Drawing.Point(124, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 56;
@@ -128,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 152);
+            this.label2.Location = new System.Drawing.Point(115, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 50;
@@ -137,16 +139,34 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 101);
+            this.label1.Location = new System.Drawing.Point(136, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 49;
             this.label1.Text = "Charges:";
             // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(203, 46);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.TabIndex = 61;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(124, 49);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(61, 13);
+            this.idLabel.TabIndex = 60;
+            this.idLabel.Text = "ID Number:";
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.idTextBox);
+            this.Controls.Add(this.idLabel);
             this.Controls.Add(this.itemTextBox);
             this.Controls.Add(this.itemNameBox);
             this.Controls.Add(this.saveUpdateButton);
@@ -179,5 +199,7 @@
         private System.Windows.Forms.TextBox costTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.Label idLabel;
     }
 }

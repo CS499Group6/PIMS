@@ -33,10 +33,10 @@
             this.allergiesTextBox = new System.Windows.Forms.RichTextBox();
             this.dateTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.notesTextBox = new System.Windows.Forms.RichTextBox();
+            this.notesNotesTextBox = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.heartRateTextBox = new System.Windows.Forms.TextBox();
-            this.bpTextBox = new System.Windows.Forms.TextBox();
+            this.diaTextBox = new System.Windows.Forms.TextBox();
             this.weightTextBox = new System.Windows.Forms.TextBox();
             this.heightTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,11 +46,13 @@
             this.htLabel = new System.Windows.Forms.Label();
             this.nurseTextBox = new System.Windows.Forms.TextBox();
             this.nurseLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.sysTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // saveUpdateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(109, 431);
+            this.saveUpdateButton.Location = new System.Drawing.Point(410, 488);
             this.saveUpdateButton.Name = "saveUpdateButton";
             this.saveUpdateButton.Size = new System.Drawing.Size(129, 23);
             this.saveUpdateButton.TabIndex = 89;
@@ -60,7 +62,7 @@
             // 
             // nurseReportButton
             // 
-            this.nurseReportButton.Location = new System.Drawing.Point(267, 431);
+            this.nurseReportButton.Location = new System.Drawing.Point(568, 488);
             this.nurseReportButton.Name = "nurseReportButton";
             this.nurseReportButton.Size = new System.Drawing.Size(124, 23);
             this.nurseReportButton.TabIndex = 86;
@@ -69,7 +71,7 @@
             // 
             // allergiesTextBox
             // 
-            this.allergiesTextBox.Location = new System.Drawing.Point(109, 192);
+            this.allergiesTextBox.Location = new System.Drawing.Point(410, 249);
             this.allergiesTextBox.Name = "allergiesTextBox";
             this.allergiesTextBox.Size = new System.Drawing.Size(282, 43);
             this.allergiesTextBox.TabIndex = 85;
@@ -77,32 +79,32 @@
             // 
             // dateTextBox
             // 
-            this.dateTextBox.Location = new System.Drawing.Point(108, 36);
+            this.dateTextBox.Location = new System.Drawing.Point(409, 117);
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.dateTextBox.Size = new System.Drawing.Size(130, 20);
             this.dateTextBox.TabIndex = 84;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 36);
+            this.label6.Location = new System.Drawing.Point(342, 117);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 83;
             this.label6.Text = "Date/Time:";
             // 
-            // notesTextBox
+            // notesNotesTextBox
             // 
-            this.notesTextBox.Location = new System.Drawing.Point(109, 241);
-            this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(282, 169);
-            this.notesTextBox.TabIndex = 82;
-            this.notesTextBox.Text = "";
+            this.notesNotesTextBox.Location = new System.Drawing.Point(410, 298);
+            this.notesNotesTextBox.Name = "notesNotesTextBox";
+            this.notesNotesTextBox.Size = new System.Drawing.Size(282, 169);
+            this.notesNotesTextBox.TabIndex = 82;
+            this.notesNotesTextBox.Text = "";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 241);
+            this.label5.Location = new System.Drawing.Point(334, 298);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 81;
@@ -110,36 +112,36 @@
             // 
             // heartRateTextBox
             // 
-            this.heartRateTextBox.Location = new System.Drawing.Point(109, 165);
+            this.heartRateTextBox.Location = new System.Drawing.Point(410, 222);
             this.heartRateTextBox.Name = "heartRateTextBox";
-            this.heartRateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.heartRateTextBox.Size = new System.Drawing.Size(129, 20);
             this.heartRateTextBox.TabIndex = 80;
             // 
-            // bpTextBox
+            // diaTextBox
             // 
-            this.bpTextBox.Location = new System.Drawing.Point(108, 139);
-            this.bpTextBox.Name = "bpTextBox";
-            this.bpTextBox.Size = new System.Drawing.Size(100, 20);
-            this.bpTextBox.TabIndex = 79;
+            this.diaTextBox.Location = new System.Drawing.Point(668, 193);
+            this.diaTextBox.Name = "diaTextBox";
+            this.diaTextBox.Size = new System.Drawing.Size(100, 20);
+            this.diaTextBox.TabIndex = 79;
             // 
             // weightTextBox
             // 
-            this.weightTextBox.Location = new System.Drawing.Point(108, 113);
+            this.weightTextBox.Location = new System.Drawing.Point(409, 170);
             this.weightTextBox.Name = "weightTextBox";
-            this.weightTextBox.Size = new System.Drawing.Size(100, 20);
+            this.weightTextBox.Size = new System.Drawing.Size(130, 20);
             this.weightTextBox.TabIndex = 78;
             // 
             // heightTextBox
             // 
-            this.heightTextBox.Location = new System.Drawing.Point(108, 89);
+            this.heightTextBox.Location = new System.Drawing.Point(409, 146);
             this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.Size = new System.Drawing.Size(100, 20);
+            this.heightTextBox.Size = new System.Drawing.Size(130, 20);
             this.heightTextBox.TabIndex = 77;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 191);
+            this.label4.Location = new System.Drawing.Point(354, 248);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 76;
@@ -148,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 165);
+            this.label3.Location = new System.Drawing.Point(341, 222);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 75;
@@ -157,16 +159,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 139);
+            this.label2.Location = new System.Drawing.Point(565, 197);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.Size = new System.Drawing.Size(94, 13);
             this.label2.TabIndex = 74;
-            this.label2.Text = "Blood Pressure:";
+            this.label2.Text = "Diastolic Pressure:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 113);
+            this.label1.Location = new System.Drawing.Point(359, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 73;
@@ -175,7 +177,7 @@
             // htLabel
             // 
             this.htLabel.AutoSize = true;
-            this.htLabel.Location = new System.Drawing.Point(61, 89);
+            this.htLabel.Location = new System.Drawing.Point(362, 146);
             this.htLabel.Name = "htLabel";
             this.htLabel.Size = new System.Drawing.Size(41, 13);
             this.htLabel.TabIndex = 72;
@@ -183,24 +185,42 @@
             // 
             // nurseTextBox
             // 
-            this.nurseTextBox.Location = new System.Drawing.Point(108, 63);
+            this.nurseTextBox.Location = new System.Drawing.Point(409, 80);
             this.nurseTextBox.Name = "nurseTextBox";
-            this.nurseTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nurseTextBox.Size = new System.Drawing.Size(130, 20);
             this.nurseTextBox.TabIndex = 93;
             // 
             // nurseLabel
             // 
             this.nurseLabel.AutoSize = true;
-            this.nurseLabel.Location = new System.Drawing.Point(64, 63);
+            this.nurseLabel.Location = new System.Drawing.Point(362, 83);
             this.nurseLabel.Name = "nurseLabel";
             this.nurseLabel.Size = new System.Drawing.Size(38, 13);
             this.nurseLabel.TabIndex = 92;
             this.nurseLabel.Text = "Nurse:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(309, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 13);
+            this.label7.TabIndex = 97;
+            this.label7.Text = "Systolic Pressure:";
+            // 
+            // sysTextBox
+            // 
+            this.sysTextBox.Location = new System.Drawing.Point(410, 194);
+            this.sysTextBox.Name = "sysTextBox";
+            this.sysTextBox.Size = new System.Drawing.Size(129, 20);
+            this.sysTextBox.TabIndex = 96;
+            // 
             // NurseNotesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.sysTextBox);
             this.Controls.Add(this.nurseTextBox);
             this.Controls.Add(this.nurseLabel);
             this.Controls.Add(this.saveUpdateButton);
@@ -208,10 +228,10 @@
             this.Controls.Add(this.allergiesTextBox);
             this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.notesTextBox);
+            this.Controls.Add(this.notesNotesTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.heartRateTextBox);
-            this.Controls.Add(this.bpTextBox);
+            this.Controls.Add(this.diaTextBox);
             this.Controls.Add(this.weightTextBox);
             this.Controls.Add(this.heightTextBox);
             this.Controls.Add(this.label4);
@@ -233,10 +253,10 @@
         private System.Windows.Forms.RichTextBox allergiesTextBox;
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RichTextBox notesTextBox;
+        private System.Windows.Forms.RichTextBox notesNotesTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox heartRateTextBox;
-        private System.Windows.Forms.TextBox bpTextBox;
+        private System.Windows.Forms.TextBox diaTextBox;
         private System.Windows.Forms.TextBox weightTextBox;
         private System.Windows.Forms.TextBox heightTextBox;
         private System.Windows.Forms.Label label4;
@@ -246,5 +266,7 @@
         private System.Windows.Forms.Label htLabel;
         private System.Windows.Forms.TextBox nurseTextBox;
         private System.Windows.Forms.Label nurseLabel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox sysTextBox;
     }
 }

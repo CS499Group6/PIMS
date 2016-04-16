@@ -15,6 +15,8 @@ namespace PIMS
         // Default Constructor
         public LoginLeftSideButtons()
         {
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+
             InitializeComponent();
         }
 

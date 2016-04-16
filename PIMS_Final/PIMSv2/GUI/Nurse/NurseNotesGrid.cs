@@ -21,12 +21,29 @@ namespace PIMS
             allergiesTextBox.Text = Program.currentPatient.treatment.allergies;
             notesTextBox.Text = Program.currentPatient.treatment.medStaffNotes.nurseNotes;
 
+
+            // If the current user is not an MedicalStaff
+            // Don't allow the user to see the addStat
+            if (!(Program.currentUser is PIMSController.MedStaff))
+            {
+                addStat.Visible = false;
+                updateAllergiesButton.Visible = false;
+                updateNurseNotesButton.Visible = false;
+
+                this.nurseNotesDataGridView.Columns[0].Visible = false;
+            }
+            else
+            {
+                addStat.Visible = true;
+            }
+
             // Do not allow users to add new rows to nurseNotesDataGridView
             nurseNotesDataGridView.AllowUserToAddRows = false;
 
             // Add a new event handler
             nurseNotesDataGridView.CellValueChanged += nurseNotesDataGridView_CellValueChanged;
 
+            // Fill the nurseNotesDataGridView with the list of nurse's notes
             fillNurseNotesDataGridView();
 
             // Makes the various treatment text box's not editable
@@ -43,14 +60,20 @@ namespace PIMS
         // Will fill the nurseNotesDataGridView with the list of nurse's notes
         private void fillNurseNotesDataGridView()
         {
-            PIMSController.MedStaffNotes.patientStats stats =
-                Program.currentPatient.treatment.medStaffNotes.statList[Program.currentPatient.treatment.medStaffNotes.statList.Count - count];
+            while (count <= Program.currentPatient.treatment.medStaffNotes.statList.Count)
+            {
+                PIMSController.MedStaffNotes.patientStats stats =
+                    Program.currentPatient.treatment.medStaffNotes.statList[Program.currentPatient.treatment.medStaffNotes.statList.Count - count];
 
-            nurseNotesDataGridView.Rows.Add(null, stats.idNum, "Nurse", stats.time,
-                                                                                    stats.patientHeight,
-                                                                                    stats.patientWeight,
-                                                                                    (stats.bloodPressureSys + "/" + stats.bloodPressureDia).ToString(),
-                                                                                    stats.heartrate.ToString());
+                nurseNotesDataGridView.Rows.Add(null, stats.idNum, stats.nurse, stats.time,
+                                                                                        stats.patientHeight,
+                                                                                        stats.patientWeight,
+                                                                                        (stats.bloodPressureSys + "/" + stats.bloodPressureDia).ToString(),
+                                                                                        stats.heartrate.ToString());
+                count++;
+            }
+
+            count = 0;
         }
 
         // If the nurseNotesDataGridView is clicked
@@ -73,7 +96,6 @@ namespace PIMS
                     count++;
                     currentID = (int)row.Cells[1].Value;
                 }
-                Console.WriteLine("Test");
             }
             if (count == 0)
             {
@@ -87,12 +109,10 @@ namespace PIMS
             }
             else
             {
-                Console.WriteLine("Test2");
                 foreach (PIMSController.MedStaffNotes.patientStats stat in Program.currentPatient.treatment.medStaffNotes.statList)
                 {
                     if (stat.idNum == currentID)
                     {
-                        Console.WriteLine("Test");
                         // Clear contents of Panel2
                         Program.myForm.splitContainer1.Panel2.Controls.Clear();
                         // Add LeftSideButtons to Panel2
@@ -120,6 +140,7 @@ namespace PIMS
             {
                 // Update allergies in the database
                 Program.currentPatient.treatment.medStaffNotes.allergies = allergiesTextBox.Text;
+
                 PIMSController.SQLcommands.updatePatient();
 
                 // Makes the allergiesTextBox not editable
@@ -148,6 +169,7 @@ namespace PIMS
             {
                 // Update nurse note's in the database
                 Program.currentPatient.treatment.medStaffNotes.nurseNotes = notesTextBox.Text;
+
                 PIMSController.SQLcommands.updatePatient();
 
                 // Makes the allergiesTextBox editable
@@ -163,9 +185,7 @@ namespace PIMS
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
             // Add LeftSideButtons to Panel2
-            Program.myForm.splitContainer1.Panel1.Controls.Add(new NurseNotesForm(new PIMSController.MedStaffNotes.patientStats()));
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new NurseNotesForm(new PIMSController.MedStaffNotes.patientStats()));
         }
-
-       
     }
 }

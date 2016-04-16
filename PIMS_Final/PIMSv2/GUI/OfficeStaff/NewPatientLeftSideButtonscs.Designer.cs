@@ -169,6 +169,7 @@
             this.logOffButton.TabIndex = 5;
             this.logOffButton.Text = "Log Off";
             this.logOffButton.UseVisualStyleBackColor = true;
+            this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
             // 
             // NewPatientLeftSideButtons
             // 

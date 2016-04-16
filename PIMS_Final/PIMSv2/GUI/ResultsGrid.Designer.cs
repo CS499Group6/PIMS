@@ -36,13 +36,12 @@
             this.mName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bedNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isAdmitted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addPatientButton = new System.Windows.Forms.Button();
+            this.deletePatientButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,8 +57,6 @@
             this.mName,
             this.dob,
             this.gender,
-            this.phone1,
-            this.phone2,
             this.roomNumber,
             this.bedNumber,
             this.unit,
@@ -112,18 +109,6 @@
             this.gender.HeaderText = "Gender";
             this.gender.Name = "gender";
             // 
-            // phone1
-            // 
-            this.phone1.HeaderText = "Home Phone";
-            this.phone1.Name = "phone1";
-            this.phone1.ReadOnly = true;
-            // 
-            // phone2
-            // 
-            this.phone2.HeaderText = "Cell Phone";
-            this.phone2.Name = "phone2";
-            this.phone2.ReadOnly = true;
-            // 
             // roomNumber
             // 
             this.roomNumber.HeaderText = "Room Number";
@@ -155,10 +140,21 @@
             this.addPatientButton.UseVisualStyleBackColor = true;
             this.addPatientButton.Click += new System.EventHandler(this.addPatientButton_Click);
             // 
+            // deletePatientButton
+            // 
+            this.deletePatientButton.Location = new System.Drawing.Point(977, 651);
+            this.deletePatientButton.Name = "deletePatientButton";
+            this.deletePatientButton.Size = new System.Drawing.Size(147, 23);
+            this.deletePatientButton.TabIndex = 2;
+            this.deletePatientButton.Text = "Delete Selected Patient";
+            this.deletePatientButton.UseVisualStyleBackColor = true;
+            this.deletePatientButton.Click += new System.EventHandler(this.deletePatientButton_Click);
+            // 
             // ResultsGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.deletePatientButton);
             this.Controls.Add(this.addPatientButton);
             this.Controls.Add(this.resultsDataGridView);
             this.Name = "ResultsGrid";
@@ -170,6 +166,8 @@
 
         #endregion
 
+        private System.Windows.Forms.Button addPatientButton;
+        private System.Windows.Forms.DataGridView resultsDataGridView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn lName;
@@ -177,13 +175,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dob;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone2;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn bedNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn isAdmitted;
-        private System.Windows.Forms.Button addPatientButton;
-        private System.Windows.Forms.DataGridView resultsDataGridView;
+        private System.Windows.Forms.Button deletePatientButton;
     }
 }
