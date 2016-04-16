@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\OfficeStaff\BillingForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\OfficeStaff\BillingForm.Designer.cs">
+      <DependentUpon>BillingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\AdminForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\Admin.cs" />
     <Compile Include="Controller\BillingLineItem.cs" />
     <Compile Include="Controller\Controller.cs" />
@@ -69,18 +81,23 @@
     <Compile Include="Controller\User.cs" />
     <Compile Include="Controller\visitor.cs" />
     <Compile Include="Controller\Volunteer.cs" />
-    <Compile Include="Controller\PrintInfo.cs" />
-    <Compile Include="GUI\Admin\AdminForm.cs">
+    <Compile Include="GUI\Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\Admin\AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="GUI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\BillingGrid.cs">
+    <Compile Include="GUI\PatientSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\BillingGrid.Designer.cs">
-      <DependentUpon>BillingGrid.cs</DependentUpon>
+    <Compile Include="GUI\PatientSearch.Designer.cs">
+      <DependentUpon>PatientSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PimsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PimsForm.Designer.cs">
+      <DependentUpon>PimsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\InsuranceForm.cs">
       <SubType>UserControl</SubType>
@@ -88,11 +105,29 @@
     <Compile Include="GUI\InsuranceForm.Designer.cs">
       <DependentUpon>InsuranceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\LeftSideButtons.cs">
+    <Compile Include="GUI\OfficeStaff\OfficeStaffLeftSideButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\LeftSideButtons.Designer.cs">
-      <DependentUpon>LeftSideButtons.cs</DependentUpon>
+    <Compile Include="GUI\OfficeStaff\OfficeStaffLeftSideButtons.Designer.cs">
+      <DependentUpon>OfficeStaffLeftSideButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PatientForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\PatientForm.Designer.cs">
+      <DependentUpon>PatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.Designer.cs">
+      <DependentUpon>NewPatientLeftSideButtonscs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BillingGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BillingGrid.Designer.cs">
+      <DependentUpon>BillingGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\LocationForm.cs">
       <SubType>UserControl</SubType>
@@ -100,18 +135,13 @@
     <Compile Include="GUI\LocationForm.Designer.cs">
       <DependentUpon>LocationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Login.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\LoginLeftSideButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\LoginLeftSideButtons.Designer.cs">
       <DependentUpon>LoginLeftSideButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\PrintInfo.cs" />
     <Compile Include="GUI\Nurse\NurseNotesForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,77 +154,25 @@
     <Compile Include="GUI\Nurse\NurseNotesGrid.Designer.cs">
       <DependentUpon>NurseNotesGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OfficeStaff\BillingForm.cs">
+    <Compile Include="GUI\PrescriptionGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\OfficeStaff\BillingForm.Designer.cs">
-      <DependentUpon>BillingForm.cs</DependentUpon>
+    <Compile Include="GUI\PrescriptionGrid.Designer.cs">
+      <DependentUpon>PrescriptionGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.Designer.cs">
-      <DependentUpon>NewPatientLeftSideButtonscs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffLeftSideButtons.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffLeftSideButtons.Designer.cs">
-      <DependentUpon>OfficeStaffLeftSideButtons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\RoomAssignmentGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\RoomAssignmentGrid.Designer.cs">
-      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\PatientForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\PatientForm.Designer.cs">
-      <DependentUpon>PatientForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\PatientSearch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\patientSearch.Designer.cs">
-      <DependentUpon>PatientSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\PimsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\PimsForm.Designer.cs">
-      <DependentUpon>PimsForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\ResultsGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\ResultsGrid.Designer.cs">
       <DependentUpon>ResultsGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\StartLeftSideButtons.cs">
+    <Compile Include="GUI\LeftSideButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\StartLeftSideButtons.Designer.cs">
-      <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\TreatmentForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\TreatmentForm.Designer.cs">
-      <DependentUpon>TreatmentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\VisitorsGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\VisitorsGrid.Designer.cs">
-      <DependentUpon>VisitorsGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Volunteer\VolunteerForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Volunteer\VolunteerForm.Designer.cs">
-      <DependentUpon>VolunteerForm.cs</DependentUpon>
+    <Compile Include="GUI\LeftSideButtons.Designer.cs">
+      <DependentUpon>LeftSideButtons.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Volunteer\VolunteerLeftSideButtons.cs">
       <SubType>UserControl</SubType>
@@ -208,25 +186,74 @@
     <Compile Include="GUI\Volunteer\VolunteerResultsGrid.Designer.cs">
       <DependentUpon>VolunteerResultsGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\PrescriptionForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\PrescriptionForm.Designer.cs">
+      <DependentUpon>PrescriptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VisitorsGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\VisitorsGrid.Designer.cs">
+      <DependentUpon>VisitorsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Volunteer\VolunteerForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Volunteer\VolunteerForm.Designer.cs">
+      <DependentUpon>VolunteerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StartLeftSideButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\StartLeftSideButtons.Designer.cs">
+      <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OfficeStaff\RoomAssignmentGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\OfficeStaff\RoomAssignmentGrid.Designer.cs">
+      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\OfficeStaff\BillingForm.resx">
+      <DependentUpon>BillingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.resx">
+      <DependentUpon>NewPatientLeftSideButtonscs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BillingGrid.resx">
-      <DependentUpon>BillingGrid.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OfficeStaff\RoomAssignmentGrid.resx">
+      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PatientSearch.resx">
+      <DependentUpon>PatientSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PimsForm.resx">
+      <DependentUpon>PimsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VisitorsGrid.resx">
+      <DependentUpon>VisitorsGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\InsuranceForm.resx">
       <DependentUpon>InsuranceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\LeftSideButtons.resx">
-      <DependentUpon>LeftSideButtons.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\OfficeStaff\OfficeStaffLeftSideButtons.resx">
+      <DependentUpon>OfficeStaffLeftSideButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PatientForm.resx">
+      <DependentUpon>PatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BillingGrid.resx">
+      <DependentUpon>BillingGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LocationForm.resx">
       <DependentUpon>LocationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginLeftSideButtons.resx">
       <DependentUpon>LoginLeftSideButtons.cs</DependentUpon>
@@ -237,47 +264,8 @@
     <EmbeddedResource Include="GUI\Nurse\NurseNotesGrid.resx">
       <DependentUpon>NurseNotesGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\BillingForm.resx">
-      <DependentUpon>BillingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.resx">
-      <DependentUpon>NewPatientLeftSideButtonscs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\OfficeStaffLeftSideButtons.resx">
-      <DependentUpon>OfficeStaffLeftSideButtons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\RoomAssignmentGrid.resx">
-      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\PatientForm.resx">
-      <DependentUpon>PatientForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\PatientSearch.resx">
-      <DependentUpon>PatientSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\PimsForm.resx">
-      <DependentUpon>PimsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ResultsGrid.resx">
-      <DependentUpon>ResultsGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\StartLeftSideButtons.resx">
-      <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\TreatmentForm.resx">
-      <DependentUpon>TreatmentForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\VisitorsGrid.resx">
-      <DependentUpon>VisitorsGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Volunteer\VolunteerForm.resx">
-      <DependentUpon>VolunteerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Volunteer\VolunteerLeftSideButtons.resx">
-      <DependentUpon>VolunteerLeftSideButtons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Volunteer\VolunteerResultsGrid.resx">
-      <DependentUpon>VolunteerResultsGrid.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\PrescriptionGrid.resx">
+      <DependentUpon>PrescriptionGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -289,6 +277,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="GUI\ResultsGrid.resx">
+      <DependentUpon>ResultsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LeftSideButtons.resx">
+      <DependentUpon>LeftSideButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Volunteer\VolunteerLeftSideButtons.resx">
+      <DependentUpon>VolunteerLeftSideButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Volunteer\VolunteerResultsGrid.resx">
+      <DependentUpon>VolunteerResultsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PrescriptionForm.resx">
+      <DependentUpon>PrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Volunteer\VolunteerForm.resx">
+      <DependentUpon>VolunteerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StartLeftSideButtons.resx">
+      <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -302,9 +311,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GUI\Doctor\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

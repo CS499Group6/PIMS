@@ -43,7 +43,7 @@ namespace PIMS
             {
                 if (user != "admin")
                 {
-
+                    // Clear contents of Panel2
                     Program.myForm.splitContainer1.Panel2.Controls.Clear();
                     // Add PatientSearch to Panel2;
                     Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());

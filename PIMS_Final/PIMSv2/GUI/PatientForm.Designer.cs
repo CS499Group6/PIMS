@@ -60,6 +60,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.printButton = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // genderTextBox
@@ -308,7 +309,7 @@
             // 
             // printButton
             // 
-            this.printButton.Location = new System.Drawing.Point(332, 489);
+            this.printButton.Location = new System.Drawing.Point(324, 489);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(100, 23);
             this.printButton.TabIndex = 69;
@@ -323,10 +324,21 @@
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 71;
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(154, 528);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(153, 23);
+            this.cancelButton.TabIndex = 72;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // PatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.genderTextBox);
@@ -400,5 +412,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

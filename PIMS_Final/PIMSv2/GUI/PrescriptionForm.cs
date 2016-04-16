@@ -73,7 +73,7 @@ namespace PIMS
             tempDrug.name = this.drugTextBox.Text;
             tempDrug.ndc = this.ndcTextBox.Text;
             tempDrug.SIG = this.sigTextBox.Text;
-            tempDrug.cost = int.Parse(this.priceTextBox.Text);
+            tempDrug.cost = (int)(float.Parse(this.priceTextBox.Text)*100);
             tempDrug.prescribingPhysician = this.physicianTextBox.Text;
             tempDrug.dateFilled = Convert.ToDateTime(this.dateTextBox.Text);
 

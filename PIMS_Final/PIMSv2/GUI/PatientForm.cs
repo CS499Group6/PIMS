@@ -12,8 +12,7 @@ namespace PIMS
 {
     public partial class PatientForm : UserControl
     {
-        bool createNew = false;
-
+        bool createNew = false; //bool to toggle features if patient is new or existing
         // Default Constructor
         public PatientForm()
         {
@@ -24,14 +23,13 @@ namespace PIMS
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
                 saveUpdateButton.Visible = false;
+                cancelButton.Visible = false;
             }
-            else
-            {
-                saveUpdateButton.Visible = true;
-            }
+         
 
-            // If createnew is false then we have a current patient, add profile information about the patient to various profile text box's
-            if (!createNew)
+            // If we have a current patient
+            // Add profile information about the patient to various profile text box's
+            if (Program.currentPatient != null)
             {
                 this.lastNameTextBox.Text = Program.currentPatient.directory.lName;
                 this.firstNameTextBox.Text = Program.currentPatient.directory.fName;
@@ -54,22 +52,28 @@ namespace PIMS
 
                 // Makes the patient's profile text box's not editable
                 makeReadOnly();
+                saveUpdateButton.Text = "Update Profile Information";
             }
             else
             {
+                // Makes the patient's profile text box's editable
                 makeReadable();
+
+                // Office Staff user is not allowed to save the new profile information 
+                // Until text has been entered into the lastNameTextBox
                 saveUpdateButton.Visible = false;
                 createNew = true;
             }
         }
 
+        // If text has been entered into the lastNameTextBox
         private void lastNameTextBox_TextChanged(object sender, EventArgs e)
         {
             if (createNew)
             {
-                saveUpdateButton.Text = "Save Profile Information";
+                // Update the saveUpdateButton
                 saveUpdateButton.Visible = true;
-                createNew = true;
+                saveUpdateButton.Text = "Save Profile Information";
             }
         }
 
@@ -116,6 +120,7 @@ namespace PIMS
         // Will allow the Office Staff user to update a patient's profile information
         private void saveUpdateButton_Click(object sender, EventArgs e)
         {
+            
             if (saveUpdateButton.Text == "Update Profile Information")
             {
                 // Makes the patient's profile text box's editable
@@ -128,58 +133,87 @@ namespace PIMS
             }
             else if (saveUpdateButton.Text == "Save Profile Information")
             {
-                // Check to see if we have a current patient
-                // If we don't, create a new patient
+                bool notFilled = false;
 
-                //if create new is true then patient is new
-                if (createNew)
+                foreach (Control tBox in this.Controls)
                 {
-                    Program.currentPatient = new PIMSController.Patient();
-
-                    PIMSController.SQLcommands.patientIndex++;
-                    Program.currentPatient.directory.patientID = PIMSController.SQLcommands.patientIndex.ToString();
+                    if (tBox is TextBox && tBox.Text.Equals(null))
+                    {
+                        notFilled = true;
+                    }
                 }
 
-                // Assign various profile information to the current patient
-                Program.currentPatient.directory.lName = this.lastNameTextBox.Text;
-                Program.currentPatient.directory.fName = this.firstNameTextBox.Text;
-                Program.currentPatient.directory.mName = this.middleNameTextBox.Text;
-                Program.currentPatient.directory.DOB = this.dateTimePicker.Value;
-                if (this.genderTextBox.Text.ToUpper().Equals("M"))
-                    Program.currentPatient.directory.gender = true;
-                else Program.currentPatient.directory.gender = false;
-                Program.currentPatient.directory.strAddress = this.addressTextBox.Text;
-                Program.currentPatient.directory.city = this.cityTextBox.Text;
-                Program.currentPatient.directory.state = this.stateTextBox.Text;
-                Program.currentPatient.directory.zip = this.zipTextBox.Text;
-                Program.currentPatient.directory.phoneNum1 = this.primaryPhoneTextBox.Text;
-                Program.currentPatient.directory.phoneNum2 = this.secondaryPhoneTextBox.Text;
-                Program.currentPatient.directory.emerContact1.name = this.contactName1TextBox.Text;
-                Program.currentPatient.directory.emerContact1.phoneNum = this.contactPhone1TextBox.Text;
-                Program.currentPatient.directory.emerContact2.name = this.contactName2TextBox.Text;
-                Program.currentPatient.directory.emerContact2.phoneNum = this.contactPhone2TextBox.Text;
-
-                if (createNew == false)
+                if (!notFilled)
                 {
-                    PIMSController.SQLcommands.updatePatient();
+                    // Check to see if we have a current patient
+                    if (Program.currentPatient == null)
+                    {
+                        createNew = true;
+                        Program.currentPatient = new PIMSController.Patient();
+
+                        PIMSController.SQLcommands.patientIndex++;
+                        Program.currentPatient.directory.patientID = PIMSController.SQLcommands.patientIndex.ToString();
+                    }
+
+                    // Assign various profile information to the current patient
+                    Program.currentPatient.directory.lName = this.lastNameTextBox.Text;
+                    Program.currentPatient.directory.fName = this.firstNameTextBox.Text;
+                    Program.currentPatient.directory.mName = this.middleNameTextBox.Text;
+                    Program.currentPatient.directory.DOB = this.dateTimePicker.Value;
+                    if (this.genderTextBox.Text.ToUpper().Equals("M"))
+                        Program.currentPatient.directory.gender = true;
+                    else Program.currentPatient.directory.gender = false;
+                    Program.currentPatient.directory.strAddress = this.addressTextBox.Text;
+                    Program.currentPatient.directory.city = this.cityTextBox.Text;
+                    Program.currentPatient.directory.state = this.stateTextBox.Text;
+                    Program.currentPatient.directory.zip = this.zipTextBox.Text;
+                    Program.currentPatient.directory.phoneNum1 = this.primaryPhoneTextBox.Text;
+                    Program.currentPatient.directory.phoneNum2 = this.secondaryPhoneTextBox.Text;
+                    Program.currentPatient.directory.emerContact1.name = this.contactName1TextBox.Text;
+                    Program.currentPatient.directory.emerContact1.phoneNum = this.contactPhone1TextBox.Text;
+                    Program.currentPatient.directory.emerContact2.name = this.contactName2TextBox.Text;
+                    Program.currentPatient.directory.emerContact2.phoneNum = this.contactPhone2TextBox.Text;
+
+                    // If we already had a patient
+                    // Just update their information
+                    if (!createNew)
+                    {
+                        PIMSController.SQLcommands.updatePatient();
+                    }
+                    // Create new patient and set patientID with value generated by SQL commands class
+                    else
+                    {
+                        Program.currentPatient.directory.patientID = PIMSController.SQLcommands.insertNewPatient(Program.currentPatient);
+                        createNew = false;
+                    }
+                    // Makes the patient's profile text box's not editable
+                    makeReadOnly();
+                    // Change the saveUpdateButton text
+                    saveUpdateButton.Text = "Update Profile Information";
+
+                    // Display information message
+                    MessageBox.Show("Patient's profile information has been saved!",
+                    "Information saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                // Create new patient and set patientID with value generated by SQL commands class
                 else
                 {
-                    Program.currentPatient.directory.patientID = PIMSController.SQLcommands.insertNewPatient(Program.currentPatient);
-
-                    // Set createNew back to false
-                    createNew = false; 
+                    // Display error message
+                    MessageBox.Show("All text boxes in the Patient's profile information must be filled!",
+                     "Not enough data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                // Makes the patient's profile text box's not editable
-                makeReadOnly();
-                // Change the saveUpdateButton text
-                saveUpdateButton.Text = "Update Profile Information";
-
-                // Display information message
-                MessageBox.Show("Patient's profile information has been saved!",
-                "Information saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        // Will allow the office staff user to not create a new patient
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Program.currentPatient = null;
+
+            // Clear contents of Panel1 and Panel2
+            Program.myForm.splitContainer1.Panel1.Controls.Clear();
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add PatientSearch to Panel2;
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
         }
 
         // Will allow the user to print the patient's profile information
@@ -214,6 +248,5 @@ namespace PIMS
             // Call the print function in the print class
             document.printButton_Click();
         }
-
     }
 }

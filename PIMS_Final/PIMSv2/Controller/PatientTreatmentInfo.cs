@@ -9,9 +9,9 @@ namespace PIMSController
     public class PatientTreatmentInfo
     {
 
-        public DateTime dateAdmitted { get; set; }
+        public DateTime? dateAdmitted { get; set; } 
         public string reasonAdmitted { get; set; }
-        public DateTime dateDischarged { get; set; }
+        public DateTime? dateDischarged { get; set; }
         public string primaryDoc { get; set; }
         public string docNotes { get; set; }
         public string allergies { get; set; }
@@ -22,6 +22,8 @@ namespace PIMSController
 
         public PatientTreatmentInfo()
         {
+            dateAdmitted = null;
+            dateDischarged = null;
             medStaffNotes = new MedStaffNotes();
             procedures = new List<MedProcedure>();
             prescriptions = new PatientPrescInfo();

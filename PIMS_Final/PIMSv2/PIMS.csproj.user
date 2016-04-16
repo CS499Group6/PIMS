@@ -4,6 +4,6 @@
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartWorkingDirectory>C:\Users\Ina\Desktop\PIMS\PIMS_Final\PIMSv2\</StartWorkingDirectory>
+    <StartWorkingDirectory>C:\Users\Ina\Desktop\PIMS\PIMS_Final\</StartWorkingDirectory>
   </PropertyGroup>
 </Project>
