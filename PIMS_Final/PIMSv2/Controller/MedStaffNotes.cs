@@ -10,14 +10,17 @@ namespace PIMSController
     {
         public struct patientStats
         {
+            public int idNum; // Id
             public DateTime time;
             public int patientHeight; //would it be possible to make this  a string 5'6 instead of 56
             public int patientWeight;
             public int bloodPressureSys;
             public int bloodPressureDia;
             public int heartrate;
+
             public patientStats(DateTime when, int weight, int height, int sys, int dia, int hr)
             {
+                idNum = 0;
                 time = when;
                 patientWeight = weight;
                 patientHeight = height;
@@ -28,13 +31,14 @@ namespace PIMSController
             }
 
         }
+
         public List<patientStats> statList;
         public string nurseNotes;
         public string allergies;
+
         public MedStaffNotes()
         {
             statList = new List<patientStats>();
-
         }
     }
 }

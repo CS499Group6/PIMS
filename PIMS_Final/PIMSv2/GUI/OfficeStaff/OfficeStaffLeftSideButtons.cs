@@ -34,9 +34,12 @@ namespace PIMS
         // Will allow the Office Staff user to search for a new patent
         private void newSearchButton_Click(object sender, EventArgs e)
         {
+            Program.currentPatient = null;
+
             // Clear contents of Panel and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
+
             // Add LoginLeftSideButtons to Panel1
             Program.myForm.splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
             // Add PatientSearch to Panel2
@@ -49,6 +52,7 @@ namespace PIMS
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
+
             // Add StartLeftSideButtons to Panel1
             Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
             // Add ResultsGrid to Panel2
@@ -97,7 +101,7 @@ namespace PIMS
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
             // Add PatientSearch to Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Add(new OfficeStaffVisitorsGrid());
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new VisitorsGrid());
         }
 
         // Will log the Office Staff user off of the server

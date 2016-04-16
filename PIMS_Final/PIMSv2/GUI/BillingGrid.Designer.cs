@@ -38,6 +38,7 @@
             this.AmountPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.printButton = new System.Windows.Forms.Button();
+            this.addBillingItemButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.billingDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,6 @@
             this.billingDataGridView.RowHeadersWidth = 35;
             this.billingDataGridView.Size = new System.Drawing.Size(837, 320);
             this.billingDataGridView.TabIndex = 2;
-            this.billingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.billingGridDataView_CellContentClick);
             // 
             // Column1
             // 
@@ -116,13 +116,24 @@
             this.printButton.UseVisualStyleBackColor = true;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
-            // OfficeStaffBillingGrid
+            // addBillingItemButton
+            // 
+            this.addBillingItemButton.Location = new System.Drawing.Point(450, 377);
+            this.addBillingItemButton.Name = "addBillingItemButton";
+            this.addBillingItemButton.Size = new System.Drawing.Size(151, 23);
+            this.addBillingItemButton.TabIndex = 4;
+            this.addBillingItemButton.Text = "Add New Billing Line Item";
+            this.addBillingItemButton.UseVisualStyleBackColor = true;
+            this.addBillingItemButton.Click += new System.EventHandler(this.addBillingItemButton_Click);
+            // 
+            // BillingGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.addBillingItemButton);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.billingDataGridView);
-            this.Name = "OfficeStaffBillingGrid";
+            this.Name = "BillingGrid";
             this.Size = new System.Drawing.Size(875, 573);
             ((System.ComponentModel.ISupportInitialize)(this.billingDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -141,5 +152,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountPaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountOwed;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Button addBillingItemButton;
     }
 }

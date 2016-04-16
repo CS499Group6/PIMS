@@ -16,48 +16,74 @@ namespace PIMS
         PIMSController.Patient selectedPatient = null;
 
         // Deafualt Constructor
-        public ResultsGrid(String lastNameQuery)
+        public ResultsGrid(string lastNameQuery)
         {
             InitializeComponent();
 
+            // Set the lastNameQuery to a global variable
             Program.lastNameQuery = lastNameQuery;
 
+            // Get the list of all patients in the database
+            patients = PIMSController.SQLcommands.getPatientList();
+
             // If the current user is not an OfficeStaff
-            // Don't allow the user to see the saveUpdateButton
+            // Don't allow the user to see the addPatientButton
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
                 addPatientButton.Visible = false;
             }
 
+            // Do not allow users to add new rows to resultsDataGridView
+            resultsDataGridView.AllowUserToAddRows = false;
+
+            // Add a new event handler
             resultsDataGridView.CellValueChanged += dataGridView1_CellValueChanged;
 
-            patients = PIMSController.SQLcommands.getPatientList();
-
-            fillDGV(lastNameQuery);
+            // Fill the resultsDataGridView with the list of available patient's
+            fillResultsDataGridView(lastNameQuery);
         }
 
-        // Will fill the dataGridView with the list of available patient's
-        private void fillDGV(string query)
+        // Will fill the resultsDataGridView with the list of available patient's
+        private void fillResultsDataGridView(string query)
         {
+            // For all patient's in the database
             foreach (PIMSController.Patient myPatient in patients)
             {
-                if (query.Length > 2 && myPatient.directory.lName.ToUpper().StartsWith(query))
+                // If the current patient in myPatient is the patient the user searched for
+                if (query.Length > 2 && (myPatient.directory.lName.ToUpper().StartsWith(query) ||
+                                         myPatient.directory.fName.ToUpper().StartsWith(query)))
                 {
-                       resultsDataGridView.Rows.Add(null,
+                    addRows(myPatient);
+                }
+            }
+        }
+
+        // Will add the rows to the resultsDataGridView
+        private void addRows(PIMSController.Patient myPatient)
+        {
+            string firstName = myPatient.directory.fName;
+            string middleName = myPatient.directory.mName;
+            string dateOfBirth = myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy");
+            string lastName = myPatient.directory.lName;
+
+            for (int i = 1; i < 9; i++)
+            {
+                resultsDataGridView.Columns[i].ReadOnly = true;
+            }
+
+            resultsDataGridView.Rows.Add(null,
                                                       myPatient.directory.patientID,
                                                       myPatient.directory.lName,
                                                       myPatient.directory.fName,
                                                       myPatient.directory.mName,
                                                       myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy"),
-                                                      myPatient.directory.gender,
+                                                      myPatient.directory.gender ? "M" : "F",                                                     
                                                       myPatient.directory.phoneNum1,
                                                       myPatient.directory.phoneNum2,
                                                       myPatient.directory.location.roomNum,
                                                       myPatient.directory.location.bedNum,
                                                       myPatient.directory.location.floor,
                                                       myPatient.directory.isAdmitted ? "Y" : "N");
-                }
-            }
         }
 
 
@@ -68,11 +94,11 @@ namespace PIMS
             resultsDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
+        // The cell was selected
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             string currentID = "";
             int count = 0;
-            // make sure just 1 is selected since it wont take radio buttons
 
             foreach (DataGridViewRow row in resultsDataGridView.Rows)
             {

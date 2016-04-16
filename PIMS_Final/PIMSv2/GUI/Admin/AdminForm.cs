@@ -27,6 +27,7 @@ namespace PIMS
         private void createUserButton_Click(object sender, EventArgs e)
         {
             // Need to implement add user
+            string name = nameTextBox.Text;
             string userName = userNameTextBox.Text;
             string password = passwordTextBox.Text;
 

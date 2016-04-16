@@ -64,7 +64,7 @@
             this.bedNumber,
             this.unit,
             this.isAdmitted});
-            this.resultsDataGridView.Location = new System.Drawing.Point(4, 4);
+            this.resultsDataGridView.Location = new System.Drawing.Point(22, 58);
             this.resultsDataGridView.Name = "resultsDataGridView";
             this.resultsDataGridView.Size = new System.Drawing.Size(1294, 560);
             this.resultsDataGridView.TabIndex = 0;
@@ -147,11 +147,11 @@
             // 
             // addPatientButton
             // 
-            this.addPatientButton.Location = new System.Drawing.Point(1168, 583);
+            this.addPatientButton.Location = new System.Drawing.Point(1170, 651);
             this.addPatientButton.Name = "addPatientButton";
             this.addPatientButton.Size = new System.Drawing.Size(111, 23);
             this.addPatientButton.TabIndex = 1;
-            this.addPatientButton.Text = "Add New Patient";
+            this.addPatientButton.Text = "Add A New Patient";
             this.addPatientButton.UseVisualStyleBackColor = true;
             this.addPatientButton.Click += new System.EventHandler(this.addPatientButton_Click);
             // 
@@ -162,7 +162,7 @@
             this.Controls.Add(this.addPatientButton);
             this.Controls.Add(this.resultsDataGridView);
             this.Name = "ResultsGrid";
-            this.Size = new System.Drawing.Size(1298, 643);
+            this.Size = new System.Drawing.Size(1383, 712);
             ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -170,7 +170,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView resultsDataGridView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn lName;
@@ -185,5 +184,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn isAdmitted;
         private System.Windows.Forms.Button addPatientButton;
+        private System.Windows.Forms.DataGridView resultsDataGridView;
     }
 }

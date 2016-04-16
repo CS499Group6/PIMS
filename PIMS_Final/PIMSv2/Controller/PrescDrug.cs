@@ -8,7 +8,7 @@ namespace PIMSController
 {
     public class PrescDrug
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string ndc { get; set; }
         public string SIG { get; set; }

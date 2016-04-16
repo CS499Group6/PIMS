@@ -21,5 +21,10 @@ namespace PIMS
         {
 
         }
+
+        private void TreatmentForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

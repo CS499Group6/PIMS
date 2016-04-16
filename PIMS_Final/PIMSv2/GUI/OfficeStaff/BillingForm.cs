@@ -13,21 +13,21 @@ namespace PIMS
     public partial class BillingForm : UserControl
     {
         // Default Constructor
-        public BillingForm()
+        public BillingForm(PIMSController.BillingLineItem item)
         {
             InitializeComponent();
 
             // If we have a current patient, add billing information about the patient to various billing text box's
             if (Program.currentPatient != null)
             {
-                // Billing is done funky!
-
-                //itemTextBox.Text = 
-                //costTextBox.Text = 
-                //insPaidTextBox.Text = 
-                //paidTextBox.Text = 
-                //dueTextBox.Text = 
+                itemTextBox.Text = item.item;
+                costTextBox.Text = Math.Round(((float)item.cost / 100.0), 2).ToString();
+                insPaidTextBox.Text = Math.Round(((float)item.insPaid / 100.0), 2).ToString();
+                paidTextBox.Text = Math.Round(((float)item.paid / 100.0), 2).ToString();
+                dueTextBox.Text = item.dueDate.ToString(@"MM\/dd\/yyyy");
             }
+
+            makeReadOnly();
         }
 
         // Makes the patient's billing text box's not editable

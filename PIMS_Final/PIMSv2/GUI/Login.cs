@@ -9,12 +9,33 @@ namespace PIMS
         public Login()
         {
             InitializeComponent();
+
+            // Add a new event handler
+            passwordTextBox.KeyDown += passwordTextBox_KeyDown;   
+        }
+
+        // A key press event has happened
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            // If the key press event was an "Enter" key
+            if (e.KeyCode == Keys.Return)
+            {
+                // Log the uer into the system
+                loginButton_Click(sender, e);
+            }
+        }
+
+        // When the Login form loads into the splitContainer1
+        private void Login_Load(object sender, EventArgs e)
+        {
+            // Set the active control to the userNameTextBox
+            this.ActiveControl = userNameTextBox;
         }
         
         // Will log a user into the system
         private void loginButton_Click(object sender, EventArgs e)
         {
-            // Addisn the user and password taken from the text box's on the login form
+            // Assign the user and password taken from the text box's on the login form
             string user = userNameTextBox.Text;
             string pass = passwordTextBox.Text;
 

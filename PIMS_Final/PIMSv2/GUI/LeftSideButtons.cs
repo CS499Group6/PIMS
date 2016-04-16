@@ -12,16 +12,13 @@ namespace PIMS
 {
     public partial class LeftSideButtons : UserControl
     {
-        PIMSController.User currUser;
-
         // Default Constructor
         public LeftSideButtons()
         {
             InitializeComponent();
-
-            currUser = Program.currentUser;
         }
 
+        // Add text to groupBox1
         public void addGroupBoxText()
         {
             try
@@ -35,37 +32,45 @@ namespace PIMS
                 groupBox2.Text = "Edit Selected Patients:";
             }
         }
-      
+
+        // Will allow the user to search for a new patent
         private void newSearchButton_Click(object sender, EventArgs e)
         {
+            Program.currentPatient = null;
+
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
+
+            // Add LoginLeftSideButtons to Panel1
+            Program.myForm.splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
             // Add PatientSearch to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
         }
 
+        // Will go back to the search results
         private void backButton_Click(object sender, EventArgs e)
         {
-            // Clear contents of Panel2
+            // Clear contents of Panel1 and Panel2
+            Program.myForm.splitContainer1.Panel1.Controls.Clear();
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
+
+            // Add StartLeftSideButtons to Panel1
+            Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
             // Add PatientForm to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new ResultsGrid(Program.lastNameQuery));
         }
 
+        // Will display the current patient's profile information
         private void profileInformationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
-
-            PatientForm patientForm = new PatientForm();
-
             // Add PatientForm to Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Add(patientForm);
-
-            patientForm.makeReadOnly();
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
         }
 
+        // Will display the current patient's billing information
         private void billingInformationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -74,6 +79,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new BillingGrid());
         }
 
+        // Will display the current patient's insurance information
         private void insuranceInformationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -87,14 +93,7 @@ namespace PIMS
             insuranceForm.makeReadOnly();
         }
 
-        private void treatmentInformationButton_Click(object sender, EventArgs e)
-        {
-            // Clear contents of Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Clear();
-            // Add PatientSearch to Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Add(new TreatmentForm());
-        }
-
+        // Will display the current patient's location
         private void locationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -103,6 +102,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new LocationForm());
         }
 
+        // Will display the current patient's list of approved visitors
         private void approvedVisitorsButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -110,7 +110,26 @@ namespace PIMS
             // Add PatientSearch to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new VisitorsGrid());
         }
+        
+        // Will allow the Doctor or Medical Staff to see the patient's treatment information
+        private void treatmentInformationButton_Click(object sender, EventArgs e)
+        {
+            // Clear contents of Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add PatientSearch to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new TreatmentForm());
+        }
 
+        // Will allow the user to see the Nurse Note's
+        private void nurseNotesButton_Click(object sender, EventArgs e)
+        {
+            // Clear contents of Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add PatientSearch to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new NurseNotesGrid());
+        }
+
+        // Will log the current user off of the server
         private void logOffButton_Click(object sender, EventArgs e)
         {
             Program.currentPatient = null;
@@ -126,6 +145,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new Login());
         }
 
+        // Will exit the application
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();

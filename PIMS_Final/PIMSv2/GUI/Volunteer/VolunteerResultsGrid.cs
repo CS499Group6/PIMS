@@ -15,15 +15,20 @@ namespace PIMS
         List<PIMSController.Patient> patients = new List<PIMSController.Patient>();
         PIMSController.Patient selectedPatient = null;
 
+        // Default Constructor
         public VolunteerResultsGrid(string lastNameQuery)
         {
             InitializeComponent();
+
+            Program.lastNameQuery = lastNameQuery;
 
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
 
             patients = PIMSController.SQLcommands.getPatientList();
 
             fillVolDGV(lastNameQuery);
+
+            dataGridView1.AllowUserToAddRows = false;
         }
 
         private void fillVolDGV(string lastNameQuery)
@@ -60,7 +65,6 @@ namespace PIMS
         {
             string currentID = "";
             int count = 0;
-            // make sure just 1 is selected since it wont take radio buttons
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -94,11 +98,8 @@ namespace PIMS
 
                 // Clear contents of Panel1
                 Program.myForm.splitContainer1.Panel1.Controls.Clear();
-                // Add PatientForm to Panel2
-                Program.myForm.splitContainer1.Panel1.Controls.Add(Program.volunteerLeftSideButton);
-
-                // Call the addGroupBoxText function in leftSideButton
-                Program.volunteerLeftSideButton.addGroupBoxText();
+                // Add VolunteerLeftSideButtons to Panel1
+                Program.myForm.splitContainer1.Panel1.Controls.Add(new VolunteerLeftSideButtons());
             }
         }
     }

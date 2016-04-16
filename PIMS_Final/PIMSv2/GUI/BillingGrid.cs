@@ -18,15 +18,28 @@ namespace PIMS
             InitializeComponent();
 
             // If the current user is not an OfficeStaff
-            // Don't allow the user to see the Select Column
+            // Don't allow the user to see various items
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
                 this.billingDataGridView.Columns[0].Visible = false;
                 this.billingDataGridView.Columns[1].Visible = false;
+
+                this.addBillingItemButton.Visible = false;
             }
 
-            billingDataGridView.CellValueChanged += billingDataGridView_CellValueChanged;
+            // Do not allow users to add new rows to billingDataGridView
+            billingDataGridView.AllowUserToAddRows = false;
 
+            // Add a new event handler
+            //billingDataGridView.CellValueChanged += billingDataGridView_CellValueChanged;
+
+            // Fill the billingDataGridView with the list of the patient's billing line items
+            fillBillingDataGridView();
+        }
+
+        // Will fill the billingDataGridView with the list of the patient's billing line items
+        private void fillBillingDataGridView()
+        {
             int costSum = 0;
             int insPaidSum = 0;
             int paidSum = 0;
@@ -46,17 +59,15 @@ namespace PIMS
                              Math.Round(((float)item.paid / 100.0), 2),
                              Math.Round(((float)owed / 100.0), 2));
             }
-
         }
 
-        private void billingGridDataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            billingDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
-        }
 
+       
+
+        // The cell was selected
         private void billingDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            string currentID = "";
+            int currentID = 0;
             int count = 0;
 
             foreach (DataGridViewRow row in billingDataGridView.Rows)
@@ -64,36 +75,41 @@ namespace PIMS
                 if (row.Cells[0].Value != null && row.Cells[0].Value.Equals("true"))
                 {
                     count++;
-                    currentID = row.Cells[1].Value.ToString();
+                    currentID = (int)row.Cells[1].Value;
                 }
             }
             if (count == 0)
             {
-                MessageBox.Show("Please select a patient.",
+                MessageBox.Show("Please select a billing line item.",
                     "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (count != 1)
             {
-                MessageBox.Show("Please select only one patient.",
+                MessageBox.Show("Please select only one billing line item.",
                     "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                //foreach (PIMSController.Patient myPatient in patients)
-                //{
-                //    if (currentID != null && myPatient.directory.patientID == currentID)
-                //    {
-                //        selectedPatient = myPatient;
-                //    }
-                //}
-
-                //Program.currentPatient = PIMSController.SQLcommands.buildPatient(selectedPatient.directory.patientID);
-
-                // Clear contents of Panel2
-                Program.myForm.splitContainer1.Panel2.Controls.Clear();
-                // Add LeftSideButtons to Panel2
-                Program.myForm.splitContainer1.Panel2.Controls.Add(new BillingForm());
+                foreach (PIMSController.BillingLineItem item in Program.currentPatient.billing.items)
+                {
+                    if (currentID != 0 && item.itemId == currentID)
+                    {
+                        // Clear contents of Panel2
+                        Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                        // Add LeftSideButtons to Panel2
+                        Program.myForm.splitContainer1.Panel2.Controls.Add(new BillingForm(item));
+                    }
+                }
             }
+        }
+
+        // Will allow the Office Staff user to add a new billing line item
+        private void addBillingItemButton_Click(object sender, EventArgs e)
+        {
+            // Clear contents of Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add LeftSideButtons to Panel2
+            //Program.myForm.splitContainer1.Panel2.Controls.Add(new BillingForm());
         }
 
          // Will allow the user to print the patient's billing information

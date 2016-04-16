@@ -87,36 +87,6 @@
     <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OfficeStaff\NewInsuranceForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\NewInsuranceForm.Designer.cs">
-      <DependentUpon>NewInsuranceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\NewPatientForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\NewPatientForm.Designer.cs">
-      <DependentUpon>NewPatientForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\NewVisitorsForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\NewVisitorsForm.Designer.cs">
-      <DependentUpon>NewVisitorsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffBillingGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffBillingGrid.Designer.cs">
-      <DependentUpon>OfficeStaffBillingGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffLocationForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffLocationForm.Designer.cs">
-      <DependentUpon>OfficeStaffLocationForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\PatientSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +142,18 @@
       <DependentUpon>LoginLeftSideButtons.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\PrintInfo.cs" />
+    <Compile Include="GUI\Nurse\NurseNotesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Nurse\NurseNotesForm.Designer.cs">
+      <DependentUpon>NurseNotesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Nurse\NurseNotesGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Nurse\NurseNotesGrid.Designer.cs">
+      <DependentUpon>NurseNotesGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\ResultsGrid.cs">
@@ -204,11 +186,11 @@
     <Compile Include="GUI\TreatmentForm.Designer.cs">
       <DependentUpon>TreatmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffVisitorsGrid.cs">
+    <Compile Include="GUI\VisitorsGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\OfficeStaff\OfficeStaffVisitorsGrid.Designer.cs">
-      <DependentUpon>OfficeStaffVisitorsGrid.cs</DependentUpon>
+    <Compile Include="GUI\VisitorsGrid.Designer.cs">
+      <DependentUpon>VisitorsGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Volunteer\VolunteerForm.cs">
       <SubType>UserControl</SubType>
@@ -222,12 +204,6 @@
     <Compile Include="GUI\StartLeftSideButtons.Designer.cs">
       <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\VisitorsGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\VisitorsGrid.Designer.cs">
-      <DependentUpon>VisitorsGrid.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\OfficeStaff\RoomAssignmentGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,12 +212,6 @@
     </Compile>
     <EmbeddedResource Include="GUI\OfficeStaff\BillingForm.resx">
       <DependentUpon>BillingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\NewInsuranceForm.resx">
-      <DependentUpon>NewInsuranceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\NewPatientForm.resx">
-      <DependentUpon>NewPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.resx">
       <DependentUpon>NewPatientLeftSideButtonscs.cs</DependentUpon>
@@ -252,12 +222,6 @@
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\OfficeStaffBillingGrid.resx">
-      <DependentUpon>OfficeStaffBillingGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\OfficeStaffLocationForm.resx">
-      <DependentUpon>OfficeStaffLocationForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\OfficeStaff\RoomAssignmentGrid.resx">
       <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,8 +231,8 @@
     <EmbeddedResource Include="GUI\PimsForm.resx">
       <DependentUpon>PimsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\OfficeStaffVisitorsGrid.resx">
-      <DependentUpon>OfficeStaffVisitorsGrid.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\VisitorsGrid.resx">
+      <DependentUpon>VisitorsGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\InsuranceForm.resx">
       <DependentUpon>InsuranceForm.cs</DependentUpon>
@@ -287,6 +251,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginLeftSideButtons.resx">
       <DependentUpon>LoginLeftSideButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Nurse\NurseNotesForm.resx">
+      <DependentUpon>NurseNotesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Nurse\NurseNotesGrid.resx">
+      <DependentUpon>NurseNotesGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -319,9 +289,6 @@
     <EmbeddedResource Include="GUI\StartLeftSideButtons.resx">
       <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\VisitorsGrid.resx">
-      <DependentUpon>VisitorsGrid.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -335,7 +302,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GUI\Doctor\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

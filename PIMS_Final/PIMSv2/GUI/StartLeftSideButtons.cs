@@ -21,9 +21,14 @@ namespace PIMS
         // Will allow the user to serach for a new patient
         private void newSearchButton_Click(object sender, EventArgs e)
         {
+            Program.currentPatient = null;
+
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
+
+            // Add LoginLeftSideButtons to Panel1
+            Program.myForm.splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
             // Add PatientSearch to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
         }

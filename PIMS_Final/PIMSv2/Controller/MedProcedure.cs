@@ -13,5 +13,6 @@ namespace PIMSController
         public DateTime when { get; set; } //whenScheduled
         public string who { get; set; } //performedBy
         public string where { get; set; } //Location
+        public int id { get; set; } // Id
     }
 }

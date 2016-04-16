@@ -45,7 +45,7 @@
             // printButon
             // 
             this.printButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printButon.Location = new System.Drawing.Point(196, 172);
+            this.printButon.Location = new System.Drawing.Point(223, 229);
             this.printButon.Name = "printButon";
             this.printButon.Size = new System.Drawing.Size(75, 23);
             this.printButon.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // itemTextBox
             // 
-            this.itemTextBox.Location = new System.Drawing.Point(124, 24);
+            this.itemTextBox.Location = new System.Drawing.Point(203, 72);
             this.itemTextBox.Name = "itemTextBox";
             this.itemTextBox.Size = new System.Drawing.Size(100, 20);
             this.itemTextBox.TabIndex = 59;
@@ -63,7 +63,7 @@
             // itemNameBox
             // 
             this.itemNameBox.AutoSize = true;
-            this.itemNameBox.Location = new System.Drawing.Point(25, 27);
+            this.itemNameBox.Location = new System.Drawing.Point(104, 75);
             this.itemNameBox.Name = "itemNameBox";
             this.itemNameBox.Size = new System.Drawing.Size(61, 13);
             this.itemNameBox.TabIndex = 58;
@@ -71,7 +71,7 @@
             // 
             // saveUpdateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(102, 172);
+            this.saveUpdateButton.Location = new System.Drawing.Point(107, 229);
             this.saveUpdateButton.Name = "saveUpdateButton";
             this.saveUpdateButton.Size = new System.Drawing.Size(75, 23);
             this.saveUpdateButton.TabIndex = 57;
@@ -82,7 +82,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 133);
+            this.label5.Location = new System.Drawing.Point(107, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 56;
@@ -91,7 +91,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 79);
+            this.label4.Location = new System.Drawing.Point(104, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 55;
@@ -99,28 +99,28 @@
             // 
             // dueTextBox
             // 
-            this.dueTextBox.Location = new System.Drawing.Point(124, 130);
+            this.dueTextBox.Location = new System.Drawing.Point(203, 178);
             this.dueTextBox.Name = "dueTextBox";
             this.dueTextBox.Size = new System.Drawing.Size(100, 20);
             this.dueTextBox.TabIndex = 54;
             // 
             // insPaidTextBox
             // 
-            this.insPaidTextBox.Location = new System.Drawing.Point(124, 76);
+            this.insPaidTextBox.Location = new System.Drawing.Point(203, 124);
             this.insPaidTextBox.Name = "insPaidTextBox";
             this.insPaidTextBox.Size = new System.Drawing.Size(100, 20);
             this.insPaidTextBox.TabIndex = 53;
             // 
             // paidTextBox
             // 
-            this.paidTextBox.Location = new System.Drawing.Point(124, 104);
+            this.paidTextBox.Location = new System.Drawing.Point(203, 152);
             this.paidTextBox.Name = "paidTextBox";
             this.paidTextBox.Size = new System.Drawing.Size(100, 20);
             this.paidTextBox.TabIndex = 52;
             // 
             // costTextBox
             // 
-            this.costTextBox.Location = new System.Drawing.Point(124, 50);
+            this.costTextBox.Location = new System.Drawing.Point(203, 98);
             this.costTextBox.Name = "costTextBox";
             this.costTextBox.Size = new System.Drawing.Size(100, 20);
             this.costTextBox.TabIndex = 51;
@@ -128,7 +128,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 104);
+            this.label2.Location = new System.Drawing.Point(104, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 50;
@@ -137,7 +137,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 53);
+            this.label1.Location = new System.Drawing.Point(104, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 49;
@@ -160,7 +160,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.printButon);
             this.Name = "BillingForm";
-            this.Size = new System.Drawing.Size(495, 416);
+            this.Size = new System.Drawing.Size(610, 496);
             this.ResumeLayout(false);
             this.PerformLayout();
 

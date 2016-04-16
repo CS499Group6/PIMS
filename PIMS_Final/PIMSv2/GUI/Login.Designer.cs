@@ -89,6 +89,7 @@
             this.Controls.Add(this.passwordTextBox);
             this.Name = "Login";
             this.Size = new System.Drawing.Size(706, 418);
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,8 +99,8 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.Button loginButton;
+        public System.Windows.Forms.TextBox passwordTextBox;
+        public System.Windows.Forms.TextBox userNameTextBox;
     }
 }

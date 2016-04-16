@@ -32,12 +32,13 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.newSearchButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addVisitorsButton = new System.Windows.Forms.Button();
+            this.assignRoomButton = new System.Windows.Forms.Button();
             this.editInsuranceButton = new System.Windows.Forms.Button();
             this.editBillingButton = new System.Windows.Forms.Button();
             this.editProfileButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.logOffButton = new System.Windows.Forms.Button();
-            this.assignRoomButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -51,7 +52,7 @@
             groupBox3.BackColor = System.Drawing.SystemColors.Control;
             groupBox3.Controls.Add(this.exitButton);
             groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupBox3.Location = new System.Drawing.Point(64, 752);
+            groupBox3.Location = new System.Drawing.Point(64, 851);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new System.Drawing.Size(191, 61);
             groupBox3.TabIndex = 14;
@@ -81,6 +82,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.addVisitorsButton);
             this.groupBox1.Controls.Add(this.assignRoomButton);
             this.groupBox1.Controls.Add(this.editInsuranceButton);
             this.groupBox1.Controls.Add(this.editBillingButton);
@@ -88,9 +90,31 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(64, 115);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 258);
+            this.groupBox1.Size = new System.Drawing.Size(213, 322);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
+            // 
+            // addVisitorsButton
+            // 
+            this.addVisitorsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addVisitorsButton.Location = new System.Drawing.Point(29, 217);
+            this.addVisitorsButton.Name = "addVisitorsButton";
+            this.addVisitorsButton.Size = new System.Drawing.Size(151, 23);
+            this.addVisitorsButton.TabIndex = 11;
+            this.addVisitorsButton.Text = "Add Approved Visitors";
+            this.addVisitorsButton.UseVisualStyleBackColor = true;
+            this.addVisitorsButton.Click += new System.EventHandler(this.addVisitorsButton_Click);
+            // 
+            // assignRoomButton
+            // 
+            this.assignRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assignRoomButton.Location = new System.Drawing.Point(29, 273);
+            this.assignRoomButton.Name = "assignRoomButton";
+            this.assignRoomButton.Size = new System.Drawing.Size(151, 23);
+            this.assignRoomButton.TabIndex = 10;
+            this.assignRoomButton.Text = "Assign Room";
+            this.assignRoomButton.UseVisualStyleBackColor = true;
+            this.assignRoomButton.Click += new System.EventHandler(this.assignRoomButton_Click);
             // 
             // editInsuranceButton
             // 
@@ -129,7 +153,7 @@
             // 
             this.groupBox2.Controls.Add(this.logOffButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(64, 651);
+            this.groupBox2.Location = new System.Drawing.Point(64, 759);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(191, 69);
             this.groupBox2.TabIndex = 15;
@@ -146,17 +170,6 @@
             this.logOffButton.Text = "Log Off";
             this.logOffButton.UseVisualStyleBackColor = true;
             // 
-            // assignRoomButton
-            // 
-            this.assignRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assignRoomButton.Location = new System.Drawing.Point(29, 215);
-            this.assignRoomButton.Name = "assignRoomButton";
-            this.assignRoomButton.Size = new System.Drawing.Size(151, 23);
-            this.assignRoomButton.TabIndex = 10;
-            this.assignRoomButton.Text = "Assign Room";
-            this.assignRoomButton.UseVisualStyleBackColor = true;
-            this.assignRoomButton.Click += new System.EventHandler(this.assignRoomButton_Click);
-            // 
             // NewPatientLeftSideButtons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,7 +179,7 @@
             this.Controls.Add(this.newSearchButton);
             this.Controls.Add(this.groupBox1);
             this.Name = "NewPatientLeftSideButtons";
-            this.Size = new System.Drawing.Size(341, 840);
+            this.Size = new System.Drawing.Size(341, 939);
             groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -185,5 +198,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button logOffButton;
         private System.Windows.Forms.Button assignRoomButton;
+        private System.Windows.Forms.Button addVisitorsButton;
     }
 }

@@ -44,7 +44,7 @@
             // printButon
             // 
             this.printButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printButon.Location = new System.Drawing.Point(185, 200);
+            this.printButon.Location = new System.Drawing.Point(711, 527);
             this.printButon.Name = "printButon";
             this.printButon.Size = new System.Drawing.Size(75, 23);
             this.printButon.TabIndex = 2;
@@ -52,14 +52,15 @@
             this.printButon.UseVisualStyleBackColor = true;
             this.printButon.Click += new System.EventHandler(this.printButon_Click);
             // 
-            // TreamtentForm
+            // TreatmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.printButon);
             this.Controls.Add(this.label1);
-            this.Name = "TreamtentForm";
-            this.Size = new System.Drawing.Size(277, 242);
+            this.Name = "TreatmentForm";
+            this.Size = new System.Drawing.Size(803, 569);
+            this.Load += new System.EventHandler(this.TreatmentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

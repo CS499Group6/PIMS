@@ -32,6 +32,7 @@ namespace PIMS
                 this.idTextBox.Text = Program.currentPatient.insurance.id;
                 this.pcnTextBox.Text = Program.currentPatient.insurance.pcn;
                 this.groupTextBox.Text = Program.currentPatient.insurance.groupNum;
+
                 if (Program.currentPatient.insurance.insuranceType == "Medical")
                 {
                     this.typeComboBox.Text = "Medical";
@@ -49,12 +50,12 @@ namespace PIMS
                     this.typeComboBox.Text = "Vision";
                 }
 
-                // Makes the patient's insurance text box's not editable
+                // Makes the patient's insurance information not editable
                 makeReadOnly();
             }
         }
 
-        // Makes the patient's insurance text box's not editable
+        // Makes the patient's insurance information not editable
         public void makeReadOnly()
         {
             this.providerTextBox.ReadOnly = true;
@@ -62,9 +63,10 @@ namespace PIMS
             this.idTextBox.ReadOnly = true;
             this.pcnTextBox.ReadOnly = true;
             this.groupTextBox.ReadOnly = true;
+            this.typeComboBox.Enabled = true;
         }
 
-        // Makes the patient's insurance text box's editable
+        // Makes the patient's insurance information editable
         public void makeReadable()
         {
             this.providerTextBox.ReadOnly = false;
@@ -72,6 +74,7 @@ namespace PIMS
             this.idTextBox.ReadOnly = false;
             this.pcnTextBox.ReadOnly = false;
             this.groupTextBox.ReadOnly = false;
+            this.typeComboBox.Enabled = false;
         }
 
         // Will allow the Office Staff user to update a patient's insurance information

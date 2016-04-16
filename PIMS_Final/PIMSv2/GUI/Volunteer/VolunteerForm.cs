@@ -14,26 +14,36 @@ namespace PIMS
     {
         PIMSController.Patient patient;
 
+        // Default Constructor
         public VolunteerForm()
         {
             InitializeComponent();
 
-            patient = Program.currentPatient;
+            // If we have a current patient, add profile information about the patient to various profile text box's
+            if (Program.currentPatient != null)
+            {
+                this.idBox.Text = Program.currentPatient.directory.patientID;
+                this.lastNameTextBox.Text = Program.currentPatient.directory.lName;
+                this.firstNameTextBox.Text = Program.currentPatient.directory.fName;
+                this.middleNameTextBox.Text = Program.currentPatient.directory.mName;
+                this.dobTextBox.Text = Program.currentPatient.directory.DOB.ToString(@"MM\/dd\/yyyy");
+                if (Program.currentPatient.directory.gender)
+                    this.genderTextBox.Text = "M";
+                else
+                    this.genderTextBox.Text = "F";
+                this.faciltiyTextBox.Text = Program.currentPatient.directory.location.floor;
+                this.roomNumberTextBox.Text = Program.currentPatient.directory.location.roomNum;
+                this.bedNumberTextBox.Text = Program.currentPatient.directory.location.bedNum;
+                this.inPatientTextBox.Text = Program.currentPatient.directory.isAdmitted ? "Y" : "N";
+            }
 
-            this.idBox.Text = patient.directory.patientID;
-            this.lastNameTextBox.Text = patient.directory.lName;
-            this.firstNameTextBox.Text = patient.directory.fName;
-            this.middleNameTextBox.Text = patient.directory.mName;
-            this.dobTextBox.Text = patient.directory.DOB.ToString(@"MM\/dd\/yyyy");
-            if (patient.directory.gender)
-                this.genderTextBox.Text = "M";
-            else
-                this.genderTextBox.Text = "F";
-            this.faciltiyTextBox.Text = patient.directory.location.floor;
-            this.roomNumberTextBox.Text = patient.directory.location.roomNum;
-            this.bedNumberTextBox.Text = patient.directory.location.bedNum;
-            this.inPatientTextBox.Text = patient.directory.isAdmitted ? "Y" : "N";
+            // Makes the patient's profile text box's not editable
+            makeReadOnly();
+        }
 
+        // Makes the patient's profile text box's not editable
+        public void makeReadOnly()
+        {
             this.idBox.ReadOnly = true;
             this.lastNameTextBox.ReadOnly = true;
             this.firstNameTextBox.ReadOnly = true;
@@ -44,6 +54,6 @@ namespace PIMS
             this.roomNumberTextBox.ReadOnly = true;
             this.bedNumberTextBox.ReadOnly = true;
             this.inPatientTextBox.ReadOnly = true;
-        }        
+        }
     }
 }

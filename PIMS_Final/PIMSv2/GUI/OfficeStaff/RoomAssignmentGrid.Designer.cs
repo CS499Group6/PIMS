@@ -34,6 +34,7 @@
             this.roomNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facility = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assignButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.roomAssignmentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.roomAssignmentDataGridView.RowHeadersWidth = 35;
             this.roomAssignmentDataGridView.Size = new System.Drawing.Size(537, 362);
             this.roomAssignmentDataGridView.TabIndex = 3;
-            this.roomAssignmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.billingDataGridView_CellContentClick);
+            this.roomAssignmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomAssignmentDataGridView_CellContentClick);
             // 
             // Column1
             // 
@@ -84,10 +85,21 @@
             this.facility.HeaderText = "Facility";
             this.facility.Name = "facility";
             // 
+            // assignButton
+            // 
+            this.assignButton.Location = new System.Drawing.Point(417, 413);
+            this.assignButton.Name = "assignButton";
+            this.assignButton.Size = new System.Drawing.Size(138, 23);
+            this.assignButton.TabIndex = 4;
+            this.assignButton.Text = "Assign Room to Patient";
+            this.assignButton.UseVisualStyleBackColor = true;
+            this.assignButton.Click += new System.EventHandler(this.assignButton_Click);
+            // 
             // RoomAssignmentGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.assignButton);
             this.Controls.Add(this.roomAssignmentDataGridView);
             this.Name = "RoomAssignmentGrid";
             this.Size = new System.Drawing.Size(735, 526);
@@ -104,5 +116,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn facility;
+        private System.Windows.Forms.Button assignButton;
     }
 }

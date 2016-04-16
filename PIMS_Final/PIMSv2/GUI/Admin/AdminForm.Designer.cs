@@ -35,7 +35,7 @@
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.userTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.firstLastLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -98,12 +98,12 @@
             this.userTypeComboBox.Size = new System.Drawing.Size(121, 21);
             this.userTypeComboBox.TabIndex = 6;
             // 
-            // textBox2
+            // nameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(177, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 10;
+            this.nameTextBox.Location = new System.Drawing.Point(177, 84);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(206, 20);
+            this.nameTextBox.TabIndex = 10;
             // 
             // firstLastLabel
             // 
@@ -119,7 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.firstLastLabel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.userTypeComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.passwordTextBox);
@@ -143,7 +143,7 @@
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox userTypeComboBox;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label firstLastLabel;
     }
 }
