@@ -255,6 +255,30 @@ namespace PIMSController
 
         }
 
+        /*
+         * Takes a patient object and uses that patient's location information
+         * sents the current patients room information into the database
+         */
+        public static void updatePatientLocation(Patient A)
+        {
+             Console.WriteLine("UPDATING LOCATION");
+            //create patientid 
+            if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                cnn.Close();
+            cnn.Open();
+
+            SqlCommand cmd;
+            cmd = new SqlCommand("UpdateLocation", cnn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@bed", A.directory.location.bedNum);
+            cmd.Parameters.AddWithValue("@patientID", A.directory.patientID);
+
+            cmd.ExecuteReader();
+            cmd.Parameters.Clear();
+            cnn.Close();
+
+        }//end create patient
+
         // This function queries the SQL server and builds the patient requested by the 
         // PatientID according to the type of user currently logged in
         public static Patient buildPatient(string patientID)
@@ -310,7 +334,9 @@ namespace PIMSController
                     x.directory.emerContact2.name = (String)datardr.GetValue(14);
                 if (datardr.GetValue(15) != System.DBNull.Value)
                     x.directory.emerContact2.phoneNum = datardr.GetValue(15).ToString();
-                if (datardr.GetValue(16) != System.DBNull.Value)
+                if (datardr.GetValue(15) != System.DBNull.Value)
+                    x.directory.workphone = datardr.GetValue(18).ToString();
+                if (datardr.GetValue(18) != System.DBNull.Value)
                 {
                     string unparsedNames = (String)datardr.GetValue(16);
                     string[] visitors = unparsedNames.Split('$');
@@ -434,7 +460,8 @@ namespace PIMSController
                     x.treatment.medStaffNotes.nurseNotes = (String)datardr.GetValue(9);
                 if (datardr.GetValue(10) != System.DBNull.Value)
                     x.treatment.reasonDischarged = (String)datardr.GetValue(10);
-
+                if (datardr.GetValue(11) != System.DBNull.Value)
+                    x.treatment.diagnosis = (String)datardr.GetValue(11);
             }
             datardr.Close();
 
@@ -588,6 +615,8 @@ namespace PIMSController
                     x.directory.emerContact2.name = (String)datardr.GetValue(14);
                 if (datardr.GetValue(15) != System.DBNull.Value)
                     x.directory.emerContact2.phoneNum = datardr.GetValue(15).ToString();
+                if (datardr.GetValue(18) != System.DBNull.Value)
+                    x.directory.workphone = datardr.GetValue(18).ToString();
                 if (datardr.GetValue(16) != System.DBNull.Value)
                 {
                     string unparsedNames = (String)datardr.GetValue(16);
@@ -855,7 +884,7 @@ namespace PIMSController
             if (info.dateAdmitted != null)
                 cmd.Parameters.AddWithValue("@da", info.dateAdmitted.ToString());
             else cmd.Parameters.AddWithValue("@da", System.DBNull.Value.ToString());
-
+           
             if (info.reasonAdmitted != null)
                 cmd.Parameters.AddWithValue("@r", info.reasonAdmitted);
             else cmd.Parameters.AddWithValue("@r", System.DBNull.Value);
@@ -1015,6 +1044,7 @@ namespace PIMSController
             cmd.Parameters.AddWithValue("@patientCity", P.directory.city);
             cmd.Parameters.AddWithValue("@phone1", P.directory.phoneNum1);
             cmd.Parameters.AddWithValue("@phone2", P.directory.phoneNum2);
+            cmd.Parameters.AddWithValue("@work", P.directory.workphone);
             cmd.Parameters.AddWithValue("@emergencyName", P.directory.emerContact1.name);
             cmd.Parameters.AddWithValue("@emergencyNum", P.directory.emerContact1.phoneNum);
             cmd.Parameters.AddWithValue("@emergencyName2", P.directory.emerContact2.name);

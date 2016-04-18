@@ -23,6 +23,7 @@ namespace PIMSController
         public string zip { get; set; }
         public string phoneNum1 { get; set; }
         public string phoneNum2 { get; set; }
+        public string workphone { get; set; }
         public bool isAdmitted { get; set; }
         public List<Visitor> visitors { get; set; }
         public HospLocation location { get; set; }

@@ -89,7 +89,7 @@
             this.roomAssignmentDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.roomAssignmentDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.roomAssignmentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.roomAssignmentDataGridView.Size = new System.Drawing.Size(713, 485);
+            this.roomAssignmentDataGridView.Size = new System.Drawing.Size(991, 602);
             this.roomAssignmentDataGridView.TabIndex = 3;
             this.roomAssignmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomAssignmentDataGridView_CellContentClick);
             // 
@@ -97,31 +97,31 @@
             // 
             this.unit.HeaderText = "Unit";
             this.unit.Name = "unit";
-            this.unit.Width = 130;
+            this.unit.Width = 175;
             // 
             // floor
             // 
             this.floor.HeaderText = "Floor";
             this.floor.Name = "floor";
-            this.floor.Width = 130;
+            this.floor.Width = 175;
             // 
             // roomNumber
             // 
             this.roomNumber.HeaderText = "Room";
             this.roomNumber.Name = "roomNumber";
-            this.roomNumber.Width = 130;
+            this.roomNumber.Width = 175;
             // 
             // bedNo
             // 
             this.bedNo.HeaderText = "Bed";
             this.bedNo.Name = "bedNo";
-            this.bedNo.Width = 130;
+            this.bedNo.Width = 175;
             // 
             // bedsAvailable
             // 
             this.bedsAvailable.HeaderText = "Availability";
             this.bedsAvailable.Name = "bedsAvailable";
-            this.bedsAvailable.Width = 130;
+            this.bedsAvailable.Width = 175;
             // 
             // select
             // 
@@ -130,7 +130,6 @@
             this.select.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.select.Text = "Assign";
             this.select.UseColumnTextForButtonValue = true;
-            this.select.Width = 45;
             // 
             // RoomAssignmentGrid
             // 
@@ -138,7 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.roomAssignmentDataGridView);
             this.Name = "RoomAssignmentGrid";
-            this.Size = new System.Drawing.Size(751, 526);
+            this.Size = new System.Drawing.Size(1029, 643);
             ((System.ComponentModel.ISupportInitialize)(this.roomAssignmentDataGridView)).EndInit();
             this.ResumeLayout(false);
 

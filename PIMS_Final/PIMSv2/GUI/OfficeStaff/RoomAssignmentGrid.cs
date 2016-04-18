@@ -26,32 +26,32 @@ namespace PIMS
 
         public void fill()
         {
-            //create list
+            //create list of hospital objects
             List<PIMSController.HospLocation> hosplist = new List<PIMSController.HospLocation>();
 
-            for(int i=1; i<26; i++)
+            //fill the List by getting data from the Locations table
+            for(int i=1; i<84; i++)
             {
                 hosplist.Add(PIMSController.SQLcommands.buildHospital(i));
             }   
 
+            //for each listed item fill the datagridview
             foreach (PIMSController.HospLocation bed in hosplist)
             {
-
-                roomAssignmentDataGridView.Rows.Add(          
-                   bed.unit,
-                   bed.floor,
-                   bed.roomNum,
-                   bed.bedNum,
-                   Convert.ToBoolean(bed.occupancy) ? "N" : "Y",
-                   Convert.ToBoolean(bed.occupancy)? select.ReadOnly=false:select.ReadOnly=true);
+                if (!Convert.ToBoolean(bed.occupancy))
+                {
+                    roomAssignmentDataGridView.Rows.Add(
+                       bed.unit,
+                        bed.floor,
+                        bed.roomNum,
+                        bed.bedNum,
+                        Convert.ToBoolean(bed.occupancy) ? "N" : "Y");
+                }
                
             }            
 
         }
 
-        private void roomAssignmentDataGridView_RowsAdded(){
-            
-        }
 
         // If the resultsDataGridView is clicked
         // Commit that edit

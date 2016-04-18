@@ -21,7 +21,7 @@ namespace PIMS
             // Don't allow the user to see the saveUpdateButton
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
-                saveUpdateButton.Visible = false;
+                updateButton.Visible = false;
             }
             
             // If we have a current patient, add location information about the patient to various location text box's
@@ -56,59 +56,55 @@ namespace PIMS
         }
 
         // Will allow the Office Staff user to update a patient's profile information
-        private void saveUpdateButton_Click(object sender, EventArgs e)
+        private void updateButton_Click(object sender, EventArgs e)
         {
-            if (saveUpdateButton.Text == "Update")
-            {
                 // Clear contents of Panel2
                 Program.myForm.splitContainer1.Panel2.Controls.Clear();
                 // Add PatientSearch to Panel2
                 Program.myForm.splitContainer1.Panel2.Controls.Add(new RoomAssignmentGrid());
-                return;
-            }
-            else if (saveUpdateButton.Text == "Save")
-            {
-                Boolean createNew = false;
-
-                // Check to see if we have a current patient
-                // If we don't, create a new patient
-                if (Program.currentPatient == null)
-                {
-                    Program.currentPatient = new PIMSController.Patient();
-                    createNew = true;
-                }
-
-                // Assign various location information to the current patient
-
-                Program.currentPatient.directory.location.floor = Int32.Parse(floorTextBox.Text);
-                Program.currentPatient.directory.location.roomNum = Int32.Parse(roomTextBox.Text);
-                Program.currentPatient.directory.location.bedNum = Int32.Parse(bedTextBox.Text);
-                Program.currentPatient.directory.location.unit = unitTextBox.Text;
-
-                //// This is a new patient
-                //// Create a new patient
-                //if (createNew)
-                //    PIMSController.SQLcommands.createPatient();
-                //// This is an existing patient
-                //// Update the exisitng patient
-                //else
-                //    PIMSController.SQLcommands.updatePatient(Program.currentPatient);
-
-                // Makes the patient's profile text box's not editable
-                makeReadOnly();
-                // Change the saveUpdateButton text
-                saveUpdateButton.Text = "Update";
-
-                // Display information message
-                MessageBox.Show("Patient's location information has been saved!",
-                "Information saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                return;           
         }
+
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            Boolean createNew = false;
+
+            // Check to see if we have a current patient
+            // If we don't, create a new patient
+            if (Program.currentPatient == null)
+            {
+                Program.currentPatient = new PIMSController.Patient();
+                createNew = true;
+            }
+
+            // Assign various location information to the current patient
+
+            Program.currentPatient.directory.location.floor = Int32.Parse(floorTextBox.Text);
+            Program.currentPatient.directory.location.roomNum = Int32.Parse(roomTextBox.Text);
+            Program.currentPatient.directory.location.bedNum = Int32.Parse(bedTextBox.Text);
+            Program.currentPatient.directory.location.unit = unitTextBox.Text;
+
+       
+            //// Update the Patient's Location information
+             PIMSController.SQLcommands.updatePatientLocation(Program.currentPatient);
+
+            // Makes the patient's profile text box's not editable
+            makeReadOnly();
+            // Change the saveUpdateButton text
+            updateButton.Text = "Update";
+
+            // Display information message
+            MessageBox.Show("Patient's location information has been saved!",
+            "Information saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }   
 
         // Will allow the user to print the patient's insurance information
         private void printButton_Click(object sender, EventArgs e)
         {
 
-        }    
+        }
+
+        
     }
 }

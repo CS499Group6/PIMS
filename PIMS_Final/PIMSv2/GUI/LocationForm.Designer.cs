@@ -36,8 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.saveUpdateButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // unitTextBox
@@ -104,19 +105,19 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Room Number:";
             // 
-            // saveUpdateButton
+            // updateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(100, 169);
-            this.saveUpdateButton.Name = "saveUpdateButton";
-            this.saveUpdateButton.Size = new System.Drawing.Size(75, 23);
-            this.saveUpdateButton.TabIndex = 18;
-            this.saveUpdateButton.Text = "Update";
-            this.saveUpdateButton.UseVisualStyleBackColor = true;
-            this.saveUpdateButton.Click += new System.EventHandler(this.saveUpdateButton_Click);
+            this.updateButton.Location = new System.Drawing.Point(94, 169);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 18;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // printButton
             // 
-            this.printButton.Location = new System.Drawing.Point(199, 169);
+            this.printButton.Location = new System.Drawing.Point(196, 169);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(75, 23);
             this.printButton.TabIndex = 19;
@@ -124,12 +125,23 @@
             this.printButton.UseVisualStyleBackColor = true;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
+            // save
+            // 
+            this.save.Location = new System.Drawing.Point(94, 208);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 25);
+            this.save.TabIndex = 20;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // LocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.save);
             this.Controls.Add(this.printButton);
-            this.Controls.Add(this.saveUpdateButton);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.unitTextBox);
             this.Controls.Add(this.bedTextBox);
             this.Controls.Add(this.roomTextBox);
@@ -155,7 +167,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button saveUpdateButton;
+        private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Button save;
     }
 }
