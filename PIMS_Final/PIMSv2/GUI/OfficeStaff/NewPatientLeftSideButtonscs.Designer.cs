@@ -33,7 +33,7 @@
             this.newSearchButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addVisitorsButton = new System.Windows.Forms.Button();
-            this.assignRoomButton = new System.Windows.Forms.Button();
+            this.admitPatientButton = new System.Windows.Forms.Button();
             this.editInsuranceButton = new System.Windows.Forms.Button();
             this.editBillingButton = new System.Windows.Forms.Button();
             this.editProfileButton = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             groupBox3.BackColor = System.Drawing.SystemColors.Control;
             groupBox3.Controls.Add(this.exitButton);
             groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupBox3.Location = new System.Drawing.Point(64, 851);
+            groupBox3.Location = new System.Drawing.Point(64, 725);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new System.Drawing.Size(191, 61);
             groupBox3.TabIndex = 14;
@@ -83,14 +83,14 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.addVisitorsButton);
-            this.groupBox1.Controls.Add(this.assignRoomButton);
+            this.groupBox1.Controls.Add(this.admitPatientButton);
             this.groupBox1.Controls.Add(this.editInsuranceButton);
             this.groupBox1.Controls.Add(this.editBillingButton);
             this.groupBox1.Controls.Add(this.editProfileButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(64, 115);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 322);
+            this.groupBox1.Size = new System.Drawing.Size(213, 371);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
@@ -105,16 +105,16 @@
             this.addVisitorsButton.UseVisualStyleBackColor = true;
             this.addVisitorsButton.Click += new System.EventHandler(this.addVisitorsButton_Click);
             // 
-            // assignRoomButton
+            // admitPatientButton
             // 
-            this.assignRoomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assignRoomButton.Location = new System.Drawing.Point(29, 273);
-            this.assignRoomButton.Name = "assignRoomButton";
-            this.assignRoomButton.Size = new System.Drawing.Size(151, 23);
-            this.assignRoomButton.TabIndex = 10;
-            this.assignRoomButton.Text = "Assign Room";
-            this.assignRoomButton.UseVisualStyleBackColor = true;
-            this.assignRoomButton.Click += new System.EventHandler(this.assignRoomButton_Click);
+            this.admitPatientButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admitPatientButton.Location = new System.Drawing.Point(29, 273);
+            this.admitPatientButton.Name = "admitPatientButton";
+            this.admitPatientButton.Size = new System.Drawing.Size(151, 23);
+            this.admitPatientButton.TabIndex = 10;
+            this.admitPatientButton.Text = "Admit Patient";
+            this.admitPatientButton.UseVisualStyleBackColor = true;
+            this.admitPatientButton.Click += new System.EventHandler(this.assignRoomButton_Click);
             // 
             // editInsuranceButton
             // 
@@ -153,7 +153,7 @@
             // 
             this.groupBox2.Controls.Add(this.logOffButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(64, 759);
+            this.groupBox2.Location = new System.Drawing.Point(64, 650);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(191, 69);
             this.groupBox2.TabIndex = 15;
@@ -198,7 +198,7 @@
         private System.Windows.Forms.Button editProfileButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button logOffButton;
-        private System.Windows.Forms.Button assignRoomButton;
+        private System.Windows.Forms.Button admitPatientButton;
         private System.Windows.Forms.Button addVisitorsButton;
     }
 }

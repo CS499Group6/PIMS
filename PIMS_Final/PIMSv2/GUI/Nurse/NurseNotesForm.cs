@@ -12,8 +12,6 @@ namespace PIMS
 {
     public partial class NurseNotesForm : UserControl
     {
-        int count = 1;
-
         PIMSController.MedStaffNotes.patientStats tempStat;
 
         // Default Constructor
@@ -23,9 +21,32 @@ namespace PIMS
 
             InitializeComponent();
 
-            // Do not allow user to edit nurseTextBox and dateTextBox
-            this.nurseTextBox.ReadOnly = false;
-            this.dateTextBox.ReadOnly = false;
+            // If the current user is not a MedicalStaff
+            // Don't allow the user to see the saveUpdatebutton
+            if (!(Program.currentUser is PIMSController.MedStaff))
+            {
+                saveUpdateButton.Visible = false;
+                cancelButton.Visible = false;
+            }
+
+            // If the text == "Update Stat"
+            // Do not allow Office staff user to see the cancelButton
+            if (saveUpdateButton.Text == "Update Stat")
+            {
+                this.cancelButton.Visible = false;
+            }
+
+            // The text == "Save New Stat"
+            // The MedicalStaff user might not want to enter in a new stat
+            // Allow them to see the cancelButton
+            if (saveUpdateButton.Text == "Save New Stat")
+            {
+                this.cancelButton.Visible = true;
+            }
+
+            // Do not allow user to edit nurseTextBox and dateTimePicker
+            this.nurseTextBox.ReadOnly = true;
+            this.dateTimePicker1.Enabled = true;
 
             // If we have stat's to add
             // Add them
@@ -34,7 +55,7 @@ namespace PIMS
                 if (Program.currentPatient.treatment.medStaffNotes.statList.Count > 0)
                 {
                     this.nurseTextBox.Text = stat.nurse;
-                    this.dateTextBox.Text = stat.time.ToString();
+                    this.dateTimePicker1.Value = stat.time;
                     this.heightTextBox.Text = stat.patientHeight.ToString();
                     this.diaTextBox.Text = stat.bloodPressureDia.ToString();
                     this.sysTextBox.Text = stat.bloodPressureDia.ToString();
@@ -43,25 +64,17 @@ namespace PIMS
                     this.sysTextBox.Text = stat.bloodPressureSys.ToString();
                     this.heartRateTextBox.Text = stat.heartrate.ToString();
                 } 
-                
-                allergiesTextBox.Text = Program.currentPatient.treatment.allergies;
-                notesNotesTextBox.Text = Program.currentPatient.treatment.medStaffNotes.nurseNotes;
 
-                // Makes the patient's medical stats not editable
+                // Make the patient's medical stats not editable
                 makeReadOnly();
             }
             // This is a new stat
             else
             {
-                // Set the new stat id in Controller
-
-                this.dateTextBox.Text = DateTime.Now.ToString();
+                this.dateTimePicker1.Value = DateTime.Now;
                 this.nurseTextBox.Text = Program.currentUser.name;
-
-                allergiesTextBox.Text = Program.currentPatient.treatment.allergies;
-                notesNotesTextBox.Text = Program.currentPatient.treatment.medStaffNotes.nurseNotes;
                 
-                // Makes the patient's medical stats editable
+                // Make the patient's medical stats editable
                 makeReadable();
 
                 saveUpdateButton.Text = "Save New Stat";
@@ -71,32 +84,26 @@ namespace PIMS
          // Makes the patient's medical stats not editable
         public void makeReadOnly()
         {
-            this.nurseTextBox.ReadOnly = true;
-            this.dateTextBox.ReadOnly = true;
+            this.dateTimePicker1.Enabled = false;
             this.heightTextBox.ReadOnly = true;
             this.weightTextBox.ReadOnly = true;
             this.diaTextBox.ReadOnly = true;
             this.sysTextBox.ReadOnly = true;
             this.heartRateTextBox.ReadOnly = true;
-            this.allergiesTextBox.ReadOnly = true;
-            this.notesNotesTextBox.ReadOnly = true;
         }
 
         // Makes the patient's medical stats editable
         public void makeReadable()
-        {
-            this.nurseTextBox.ReadOnly = false;
-            this.dateTextBox.ReadOnly = false;
+        {            
+            this.dateTimePicker1.Enabled = true;
             this.heightTextBox.ReadOnly = false;
             this.weightTextBox.ReadOnly = false;
             this.diaTextBox.ReadOnly = false;
             this.sysTextBox.ReadOnly = false; 
             this.heartRateTextBox.ReadOnly = false;
-            this.allergiesTextBox.ReadOnly = false;
-            this.notesNotesTextBox.ReadOnly = false;
         }
 
-        // Will allow a Doctor or MedicalStaff to update patient's stats
+        // Will allow the MedicalStaff user to update patient's stats
         private void saveUpdateButton_Click(object sender, EventArgs e)
         {
             tempStat.nurse = this.nurseTextBox.Text;
@@ -106,16 +113,17 @@ namespace PIMS
             tempStat.bloodPressureDia = int.Parse(this.diaTextBox.Text);
             tempStat.bloodPressureSys = int.Parse(this.sysTextBox.Text);
             tempStat.heartrate = int.Parse(this.heartRateTextBox.Text);
-            Program.currentPatient.treatment.allergies = this.allergiesTextBox.Text;
-            Program.currentPatient.treatment.medStaffNotes.nurseNotes = this.notesNotesTextBox.Text;
 
-            if (saveUpdateButton.Text == "Update Stats")
+            if (saveUpdateButton.Text == "Update Stat")
             {
-                // Makes the patient's medical stats editable
+                // Make the patient's medical stats editable
                 makeReadable();
 
+                // Allow the MedicalStaff user to see the cancelButton
+                cancelButton.Visible = true;
+
                 // Change the saveUpdateButton text
-                saveUpdateButton.Text = "Save Stats";
+                saveUpdateButton.Text = "Save Stat";
 
                 // Exit out of this function
                 return;
@@ -130,15 +138,38 @@ namespace PIMS
 
             PIMSController.SQLcommands.updatePatient();
 
-            // Makes the patient's profile text box's not editable
+            // Make the patient's profile text box's not editable
             makeReadOnly();
 
+            // Do not allow the MedicalStaff user to see the cancelButton
+            cancelButton.Visible = false;
+
             // Change the saveUpdateButton text
-            saveUpdateButton.Text = "Update Stats";
+            saveUpdateButton.Text = "Update Stat";
 
             // Display information message
-            MessageBox.Show("Patient's medical stats have been updated!",
+            MessageBox.Show("Patient's medical stat has been updated!",
             "Information saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        // Will allow the MedicalStaff to not update a stat on the patient
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            if (saveUpdateButton.Text == "Save Stat")
+            {
+                // Clear contents of Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                // Add LeftSideButtons to Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new NurseNotesGrid());
+            }
+            // Change the saveUpdateButton text
+            saveUpdateButton.Text = "Save Stat";
+
+            // Do not allow the Doctor to see the cancelButton
+            cancelButton.Visible = false;
+
+            // Make the patient's medical stats not editable
+            makeReadOnly();
         }
     }
 }

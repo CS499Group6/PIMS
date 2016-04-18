@@ -23,29 +23,32 @@ namespace PIMS
             {
                 saveUpdateButton.Visible = false;
             }
-
+            typeComboBox.Items.Add("Medical");
+            typeComboBox.Items.Add("Dental");
+            typeComboBox.Items.Add("Prescriptions");
+            typeComboBox.Items.Add("Vision");
             // If we have a current patient, add insuracne information about the patient to various insurance text box's
             if (Program.currentPatient != null)
             {
-                this.providerTextBox.Text = Program.currentPatient.insurance.provider;
-                this.binTextBox.Text = Program.currentPatient.insurance.bin;
-                this.idTextBox.Text = Program.currentPatient.insurance.id;
-                this.pcnTextBox.Text = Program.currentPatient.insurance.pcn;
-                this.groupTextBox.Text = Program.currentPatient.insurance.groupNum;
+                this.providerTextBox.Text = Program.currentPatient.billing.insurance.provider;
+                this.binTextBox.Text = Program.currentPatient.billing.insurance.bin;
+                this.idTextBox.Text = Program.currentPatient.billing.insurance.id;
+                this.pcnTextBox.Text = Program.currentPatient.billing.insurance.pcn;
+                this.groupTextBox.Text = Program.currentPatient.billing.insurance.groupNum;
 
-                if (Program.currentPatient.insurance.insuranceType == "Medical")
+                if (Program.currentPatient.billing.insurance.insuranceType == "Medical")
                 {
                     this.typeComboBox.Text = "Medical";
                 }
-                else if (Program.currentPatient.insurance.insuranceType == "Dental")
+                else if (Program.currentPatient.billing.insurance.insuranceType == "Dental")
                 {
                     this.typeComboBox.Text = "Dental";
                 }
-                else if (Program.currentPatient.insurance.insuranceType == "Prescriptions")
+                else if (Program.currentPatient.billing.insurance.insuranceType == "Prescriptions")
                 {
                     this.typeComboBox.Text = "Prescriptions";
                 }
-                else if (Program.currentPatient.insurance.insuranceType == "Vision")
+                else if (Program.currentPatient.billing.insurance.insuranceType == "Vision")
                 {
                     this.typeComboBox.Text = "Vision";
                 }
@@ -63,7 +66,7 @@ namespace PIMS
             this.idTextBox.ReadOnly = true;
             this.pcnTextBox.ReadOnly = true;
             this.groupTextBox.ReadOnly = true;
-            this.typeComboBox.Enabled = true;
+            this.typeComboBox.Enabled = false;
         }
 
         // Makes the patient's insurance information editable
@@ -74,7 +77,7 @@ namespace PIMS
             this.idTextBox.ReadOnly = false;
             this.pcnTextBox.ReadOnly = false;
             this.groupTextBox.ReadOnly = false;
-            this.typeComboBox.Enabled = false;
+            this.typeComboBox.Enabled = true;
         }
 
         // Will allow the Office Staff user to update a patient's insurance information
@@ -91,23 +94,23 @@ namespace PIMS
             }
             else if (saveUpdateButton.Text == "Save")
             {
-                Boolean createNew = false;
+                //Boolean createNew = false;
 
                 // Check to see if we have a current patient
                 // If we don't, create a new patient
-                if (Program.currentPatient == null)
-                {
-                    Program.currentPatient = new PIMSController.Patient();
-                    createNew = true;
-                }
+                //if (Program.currentPatient == null)
+                //{
+                //    Program.currentPatient = new PIMSController.Patient();
+                //    createNew = true;
+                //}
 
                 // Assign various insurance information to the current patient
-                Program.currentPatient.insurance.provider = providerTextBox.Text;
-                Program.currentPatient.insurance.bin = binTextBox.Text;
-                Program.currentPatient.insurance.id = idTextBox.Text;
-                Program.currentPatient.insurance.pcn = pcnTextBox.Text;
-                Program.currentPatient.insurance.groupNum = groupTextBox.Text;
-                Program.currentPatient.insurance.insuranceType = typeComboBox.Text;
+                Program.currentPatient.billing.insurance.provider = providerTextBox.Text;
+                Program.currentPatient.billing.insurance.bin = binTextBox.Text;
+                Program.currentPatient.billing.insurance.id = idTextBox.Text;
+                Program.currentPatient.billing.insurance.pcn = pcnTextBox.Text;
+                Program.currentPatient.billing.insurance.groupNum = groupTextBox.Text;
+                Program.currentPatient.billing.insurance.insuranceType = typeComboBox.Text;
 
                 //// This is a new patient
                 //// Create a new patient
@@ -119,6 +122,7 @@ namespace PIMS
                 //    PIMSController.SQLcommands.updatePatient(Program.currentPatient);
 
                 // Makes the patient's profile text box's not editable
+                PIMSController.SQLcommands.updatePatient();
                 makeReadOnly();
                 // Change the saveUpdateButton text
                 saveUpdateButton.Text = "Update";
@@ -146,12 +150,12 @@ namespace PIMS
                 file.WriteLine("PATIENT INSURANCE INFORMATION\n");
 
                 file.WriteLine(String.Format("{0, 15}: {1, 15} \n{2, 15}: {3, 15} \n{4, 15}: {5, 15} \n{6, 15}: {7, 15} \n{8, 15}: {9, 15} \n {10, 15}: {11, 15} \n",
-                    "Provider", Program.currentPatient.insurance.provider,
-                    "BIN", Program.currentPatient.insurance.bin,
-                    "ID", Program.currentPatient.insurance.id,
-                    "PCN", Program.currentPatient.insurance.pcn,
-                    "Group Number", Program.currentPatient.insurance.groupNum,
-                    "Insurance Type", Program.currentPatient.insurance.insuranceType));
+                    "Provider", Program.currentPatient.billing.insurance.provider,
+                    "BIN", Program.currentPatient.billing.insurance.bin,
+                    "ID", Program.currentPatient.billing.insurance.id,
+                    "PCN", Program.currentPatient.billing.insurance.pcn,
+                    "Group Number", Program.currentPatient.billing.insurance.groupNum,
+                    "Insurance Type", Program.currentPatient.billing.insurance.insuranceType));
             }
 
             // Call the print function in the print class

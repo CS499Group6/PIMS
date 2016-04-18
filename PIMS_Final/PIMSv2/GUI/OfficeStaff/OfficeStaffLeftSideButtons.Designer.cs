@@ -40,6 +40,7 @@
             this.approvedVisitorsButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.logOffButton = new System.Windows.Forms.Button();
+            this.dischargeButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -53,9 +54,9 @@
             groupBox3.BackColor = System.Drawing.SystemColors.Control;
             groupBox3.Controls.Add(this.exitButton);
             groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupBox3.Location = new System.Drawing.Point(42, 858);
+            groupBox3.Location = new System.Drawing.Point(36, 662);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new System.Drawing.Size(211, 61);
+            groupBox3.Size = new System.Drawing.Size(191, 69);
             groupBox3.TabIndex = 10;
             groupBox3.TabStop = false;
             groupBox3.Text = "Close Application";
@@ -63,7 +64,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(62, 19);
+            this.exitButton.Location = new System.Drawing.Point(57, 29);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 4;
@@ -164,9 +165,9 @@
             // 
             this.groupBox2.Controls.Add(this.logOffButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(42, 757);
+            this.groupBox2.Location = new System.Drawing.Point(36, 587);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(213, 69);
+            this.groupBox2.Size = new System.Drawing.Size(191, 69);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Log Off";
@@ -182,10 +183,21 @@
             this.logOffButton.UseVisualStyleBackColor = true;
             this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
             // 
+            // dischargeButton
+            // 
+            this.dischargeButton.Location = new System.Drawing.Point(60, 373);
+            this.dischargeButton.Name = "dischargeButton";
+            this.dischargeButton.Size = new System.Drawing.Size(173, 23);
+            this.dischargeButton.TabIndex = 15;
+            this.dischargeButton.Text = "Discharge Patient";
+            this.dischargeButton.UseVisualStyleBackColor = true;
+            this.dischargeButton.Click += new System.EventHandler(this.dischargeButton_Click);
+            // 
             // OfficeStaffLeftSideButtons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dischargeButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(groupBox3);
             this.Controls.Add(this.newSearchButton);
@@ -213,5 +225,6 @@
         private System.Windows.Forms.Button locationButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button logOffButton;
+        private System.Windows.Forms.Button dischargeButton;
     }
 }

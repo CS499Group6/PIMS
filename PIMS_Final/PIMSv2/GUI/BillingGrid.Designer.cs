@@ -62,6 +62,7 @@
             this.billingDataGridView.RowHeadersWidth = 35;
             this.billingDataGridView.Size = new System.Drawing.Size(837, 320);
             this.billingDataGridView.TabIndex = 2;
+            this.billingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.billingDataGridView_CellContentClick);
             // 
             // Column1
             // 

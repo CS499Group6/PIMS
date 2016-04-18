@@ -8,13 +8,16 @@ namespace PIMSController
 {
     public class PrescDrug
     {
+        public PIMS.Controller.Drug drug;
         public int id { get; set; }
-        public string name { get; set; }
         public string ndc { get; set; }
         public string SIG { get; set; }
         public string prescribingPhysician { get; set; }
         public DateTime dateFilled { get; set; }
-        public int cost { get; set; }
 
+        public PrescDrug()
+        {
+            drug = new PIMS.Controller.Drug();
+        }
     }
 }

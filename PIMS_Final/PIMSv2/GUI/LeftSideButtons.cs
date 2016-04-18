@@ -61,7 +61,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new ResultsGrid(Program.lastNameQuery));
         }
 
-        // Will display the current patient's profile information
+        // Will display the patient's profile information
         private void profileInformationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -70,7 +70,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
         }
 
-        // Will display the current patient's billing information
+        // Will display the patient's billing information
         private void billingInformationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -79,7 +79,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new BillingGrid());
         }
 
-        // Will display the current patient's insurance information
+        // Will display the patient's insurance information
         private void insuranceInformationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -93,7 +93,7 @@ namespace PIMS
             insuranceForm.makeReadOnly();
         }
 
-        // Will display the current patient's location
+        // Will display the patient's location
         private void locationButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -102,7 +102,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new LocationForm());
         }
 
-        // Will display the current patient's list of approved visitors
+        // Will display the patient's list of approved visitors
         private void approvedVisitorsButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -120,7 +120,7 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new PrescriptionGrid());
         }
 
-        // Will allow the user to see the patient's stats
+        // Will allow the Doctor or Medical Staff to see the patient's stats
         private void nurseNotesButton_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2
@@ -129,9 +129,22 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new NurseNotesGrid());
         }
 
+        // Will allow the Doctor or MedicalStaff to see procedures scheduled for the patient
         private void scheduledProceduresButton_Click(object sender, EventArgs e)
         {
+            // Clear contents of Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add ScheduledProcedureGrid to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new ScheduledProcdureGrid());
+        }
 
+        // Will allow the Doctor or MedicalStaff to see notes the doctor has written on the patient
+        private void doctorNotesButton_Click(object sender, EventArgs e)
+        {
+            // Clear contents of Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add DoctorNotesForm to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new DoctorNotesForm());
         }
 
         // Will log the current user off of the server
@@ -139,6 +152,8 @@ namespace PIMS
         {
             Program.currentPatient = null;
             Program.currentUser = null;
+
+            Program.myForm.label2.Text = "";
 
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();

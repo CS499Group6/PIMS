@@ -17,11 +17,7 @@ namespace PIMSController
 
         public PatientInsInfo()
         {
-            provider = "1234567";
-            bin = "1234567";
-            id = "1234567";
-            pcn = "1234567";
-            groupNum = "1234567";
+
         }
     }
 }

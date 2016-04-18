@@ -18,19 +18,25 @@ namespace PIMS
         public PrescriptionForm(PIMSController.PrescDrug drug)
         {
             tempDrug = drug;
-
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             InitializeComponent();
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = PIMS.Program.drugs;
+            comboBox1.DataSource = bs;
+
+            if (drug.prescribingPhysician != "new")
+            {
+                this.physicanTextBox.Text = Program.currentUser.name;
+            }
 
             // If we have drugs to add
             // Add them
             if (drug.id != 0)
             {
-                this.drugTextBox.Text = drug.name;
-                this.ndcTextBox.Text = drug.ndc;
+                this.comboBox1.Text = drug.drug.name;
                 this.sigTextBox.Text = drug.SIG;
-                this.priceTextBox.Text = drug.cost.ToString();
-                this.physicianTextBox.Text = drug.prescribingPhysician;
-                this.dateTextBox.Text = drug.dateFilled.ToString(@"MM\/dd\/yyyy");
+                this.dateTimePicker1.Value = drug.dateFilled;
 
                 // Makes the patient's prescription text box's not editable
                 makeReadOnly();
@@ -48,35 +54,34 @@ namespace PIMS
         // Makes the patient's prescription text box's not editable
         public void makeReadOnly()
         {
-            this.drugTextBox.ReadOnly = true;
-            this.ndcTextBox.ReadOnly = true;
             this.sigTextBox.ReadOnly = true;
-            this.priceTextBox.ReadOnly = true;
-            this.physicianTextBox.ReadOnly = true;
-            this.dateTextBox.ReadOnly = true;
+            this.dateTimePicker1.Enabled = false;
+            this.comboBox1.Enabled = false;
+
         }
 
         // Makes the patient's prescription text box's editable
         public void makeReadable()
         {
-            this.drugTextBox.ReadOnly = false;
-            this.ndcTextBox.ReadOnly = false;
             this.sigTextBox.ReadOnly = false;
-            this.priceTextBox.ReadOnly = false;
-            this.physicianTextBox.ReadOnly = false;
-            this.dateTextBox.ReadOnly = false;
+            this.dateTimePicker1.Enabled = true;
+            this.comboBox1.Enabled = true;
         }
 
         // Will allow the Doctor or MedicalStaff to update a patient's prescriptions
         private void saveUpdateButton_Click(object sender, EventArgs e)
         {
-            tempDrug.name = this.drugTextBox.Text;
-            tempDrug.ndc = this.ndcTextBox.Text;
+            tempDrug.ndc = PIMSController.SQLcommands.drugIndex.ToString();
             tempDrug.SIG = this.sigTextBox.Text;
-            tempDrug.cost = (int)(float.Parse(this.priceTextBox.Text)*100);
-            tempDrug.prescribingPhysician = this.physicianTextBox.Text;
-            tempDrug.dateFilled = Convert.ToDateTime(this.dateTextBox.Text);
+            tempDrug.drug = (PIMS.Controller.Drug)comboBox1.SelectedValue;
+            tempDrug.dateFilled = this.dateTimePicker1.Value;
+            tempDrug.prescribingPhysician = this.physicanTextBox.Text;
 
+            if (tempDrug.prescribingPhysician == null)
+            {
+                tempDrug.prescribingPhysician = Program.currentUser.name;
+            }
+            
             if (saveUpdateButton.Text == "Update Prescription")
             {
                 // Makes the patient's medical stats editable
@@ -90,8 +95,9 @@ namespace PIMS
             }
             else if (saveUpdateButton.Text == "Save New Prescription")
             {
-                PIMSController.SQLcommands.statsIndex++;
-                tempDrug.id = PIMSController.SQLcommands.statsIndex;
+                PIMSController.SQLcommands.drugIndex++;
+                tempDrug.id = PIMSController.SQLcommands.drugIndex;
+                tempDrug.ndc = PIMSController.SQLcommands.drugIndex.ToString();
 
                 Program.currentPatient.treatment.prescriptions.prescriptions.Add(tempDrug);
             }

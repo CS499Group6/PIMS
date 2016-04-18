@@ -31,7 +31,7 @@ namespace PIMS
             billingDataGridView.AllowUserToAddRows = false;
 
             // Add a new event handler
-            //billingDataGridView.CellValueChanged += billingDataGridView_CellValueChanged;
+            billingDataGridView.CellValueChanged += billingDataGridView_CellValueChanged;
 
             // Fill the billingDataGridView with the list of the patient's billing line items
             fillBillingDataGridView();
@@ -54,10 +54,10 @@ namespace PIMS
                 paidSum += item.paid;
                 billingDataGridView.Rows.Add(null, item.itemId, item.item,
                              item.dueDate.ToString(@"MM\/dd\/yyyy"),
-                             Math.Round(((float)item.cost / 100.0), 2),
-                             Math.Round(((float)item.insPaid / 100.0), 2),
-                             Math.Round(((float)item.paid / 100.0), 2),
-                             Math.Round(((float)owed / 100.0), 2));
+                             Math.Round(((float)item.cost / 100.0), 2).ToString("N2"),
+                             Math.Round(((float)item.insPaid / 100.0), 2).ToString("N2"),
+                             Math.Round(((float)item.paid / 100.0), 2).ToString("N2"),
+                             Math.Round(((float)owed / 100.0), 2).ToString("N2"));
             }
         }
 
@@ -140,5 +140,12 @@ namespace PIMS
             // Call the print function in the print class
             document.printButton_Click();
         }
+
+        private void billingDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            billingDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+
     }
 }

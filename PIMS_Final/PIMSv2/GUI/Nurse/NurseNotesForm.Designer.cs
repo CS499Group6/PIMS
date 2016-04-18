@@ -30,16 +30,11 @@
         {
             this.saveUpdateButton = new System.Windows.Forms.Button();
             this.nurseReportButton = new System.Windows.Forms.Button();
-            this.allergiesTextBox = new System.Windows.Forms.RichTextBox();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.notesNotesTextBox = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.heartRateTextBox = new System.Windows.Forms.TextBox();
             this.diaTextBox = new System.Windows.Forms.TextBox();
             this.weightTextBox = new System.Windows.Forms.TextBox();
             this.heightTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,41 +43,28 @@
             this.nurseLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.sysTextBox = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // saveUpdateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(410, 488);
+            this.saveUpdateButton.Location = new System.Drawing.Point(410, 272);
             this.saveUpdateButton.Name = "saveUpdateButton";
             this.saveUpdateButton.Size = new System.Drawing.Size(129, 23);
             this.saveUpdateButton.TabIndex = 89;
-            this.saveUpdateButton.Text = "Update Stats";
+            this.saveUpdateButton.Text = "Update Stat";
             this.saveUpdateButton.UseVisualStyleBackColor = true;
             this.saveUpdateButton.Click += new System.EventHandler(this.saveUpdateButton_Click);
             // 
             // nurseReportButton
             // 
-            this.nurseReportButton.Location = new System.Drawing.Point(568, 488);
+            this.nurseReportButton.Location = new System.Drawing.Point(568, 272);
             this.nurseReportButton.Name = "nurseReportButton";
             this.nurseReportButton.Size = new System.Drawing.Size(124, 23);
             this.nurseReportButton.TabIndex = 86;
             this.nurseReportButton.Text = "Print Report";
             this.nurseReportButton.UseVisualStyleBackColor = true;
-            // 
-            // allergiesTextBox
-            // 
-            this.allergiesTextBox.Location = new System.Drawing.Point(410, 249);
-            this.allergiesTextBox.Name = "allergiesTextBox";
-            this.allergiesTextBox.Size = new System.Drawing.Size(282, 43);
-            this.allergiesTextBox.TabIndex = 85;
-            this.allergiesTextBox.Text = "";
-            // 
-            // dateTextBox
-            // 
-            this.dateTextBox.Location = new System.Drawing.Point(409, 117);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(130, 20);
-            this.dateTextBox.TabIndex = 84;
             // 
             // label6
             // 
@@ -92,23 +74,6 @@
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 83;
             this.label6.Text = "Date/Time:";
-            // 
-            // notesNotesTextBox
-            // 
-            this.notesNotesTextBox.Location = new System.Drawing.Point(410, 298);
-            this.notesNotesTextBox.Name = "notesNotesTextBox";
-            this.notesNotesTextBox.Size = new System.Drawing.Size(282, 169);
-            this.notesNotesTextBox.TabIndex = 82;
-            this.notesNotesTextBox.Text = "";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(334, 298);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 81;
-            this.label5.Text = "Nurse Notes:";
             // 
             // heartRateTextBox
             // 
@@ -137,15 +102,6 @@
             this.heightTextBox.Name = "heightTextBox";
             this.heightTextBox.Size = new System.Drawing.Size(130, 20);
             this.heightTextBox.TabIndex = 77;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(354, 248);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 76;
-            this.label4.Text = "Allergies:";
             // 
             // label3
             // 
@@ -215,26 +171,41 @@
             this.sysTextBox.Size = new System.Drawing.Size(129, 20);
             this.sysTextBox.TabIndex = 96;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(409, 111);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 98;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(410, 321);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cancelButton.Size = new System.Drawing.Size(129, 23);
+            this.cancelButton.TabIndex = 99;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // NurseNotesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.sysTextBox);
             this.Controls.Add(this.nurseTextBox);
             this.Controls.Add(this.nurseLabel);
             this.Controls.Add(this.saveUpdateButton);
             this.Controls.Add(this.nurseReportButton);
-            this.Controls.Add(this.allergiesTextBox);
-            this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.notesNotesTextBox);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.heartRateTextBox);
             this.Controls.Add(this.diaTextBox);
             this.Controls.Add(this.weightTextBox);
             this.Controls.Add(this.heightTextBox);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -250,16 +221,11 @@
 
         private System.Windows.Forms.Button saveUpdateButton;
         private System.Windows.Forms.Button nurseReportButton;
-        private System.Windows.Forms.RichTextBox allergiesTextBox;
-        private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RichTextBox notesNotesTextBox;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox heartRateTextBox;
         private System.Windows.Forms.TextBox diaTextBox;
         private System.Windows.Forms.TextBox weightTextBox;
         private System.Windows.Forms.TextBox heightTextBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -268,5 +234,7 @@
         private System.Windows.Forms.Label nurseLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox sysTextBox;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

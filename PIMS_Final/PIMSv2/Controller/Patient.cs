@@ -11,7 +11,7 @@ namespace PIMSController
         public PatientDirInfo directory;
         public PatientTreatmentInfo treatment;
         public PatientBillingInfo billing;
-        public PatientInsInfo insurance;
+       // public PatientInsInfo insurance;
 
         public Patient()
         {
@@ -21,19 +21,19 @@ namespace PIMSController
                 directory = new PatientDirInfo();
                 treatment = new PatientTreatmentInfo();
                 billing = new PatientBillingInfo();
-                insurance = new PatientInsInfo();
+                //insurance = new PatientInsInfo();
             }
             else if (PIMS.Program.currentUser is OfficeStaff)
             {
                 directory = new PatientDirInfo();
                 billing = new PatientBillingInfo();
-                insurance = new PatientInsInfo();
+               // insurance = new PatientInsInfo();
                 treatment = null;
             }
             else
             {
                 directory = new PatientDirInfo();
-                insurance = null;
+               // insurance = null;
                 treatment = null;
                 billing = null;
             }

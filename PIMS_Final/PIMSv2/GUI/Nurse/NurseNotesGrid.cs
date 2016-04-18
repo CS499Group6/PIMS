@@ -21,7 +21,6 @@ namespace PIMS
             allergiesTextBox.Text = Program.currentPatient.treatment.allergies;
             notesTextBox.Text = Program.currentPatient.treatment.medStaffNotes.nurseNotes;
 
-
             // If the current user is not an MedicalStaff
             // Don't allow the user to see the addStat
             if (!(Program.currentUser is PIMSController.MedStaff))
@@ -180,6 +179,7 @@ namespace PIMS
             }
         }
 
+        // Will allo the MedicalStaff user to add a new stat for a patient
         private void addStat_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel2

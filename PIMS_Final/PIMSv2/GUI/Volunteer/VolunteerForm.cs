@@ -12,8 +12,6 @@ namespace PIMS
 {
     public partial class VolunteerForm : UserControl
     {
-        PIMSController.Patient patient;
-
         // Default Constructor
         public VolunteerForm()
         {
@@ -25,12 +23,12 @@ namespace PIMS
                 this.lastNameTextBox.Text = Program.currentPatient.directory.lName;
                 this.firstNameTextBox.Text = Program.currentPatient.directory.fName;
                 this.middleNameTextBox.Text = Program.currentPatient.directory.mName;
-                this.dobTextBox.Text = Program.currentPatient.directory.DOB.ToString(@"MM\/dd\/yyyy");
+                this.dateTimePicker1.Value = Program.currentPatient.directory.DOB;
                 if (Program.currentPatient.directory.gender)
                     this.genderTextBox.Text = "M";
                 else
                     this.genderTextBox.Text = "F";
-                this.faciltiyTextBox.Text =  Program.currentPatient.directory.location.floor.ToString();
+                this.faciltiyTextBox.Text = Program.currentPatient.directory.location.floor.ToString();
                 this.roomNumberTextBox.Text = Program.currentPatient.directory.location.roomNum.ToString();
                 this.bedNumberTextBox.Text = Program.currentPatient.directory.location.bedNum.ToString();
                 this.inPatientTextBox.Text = Program.currentPatient.directory.isAdmitted ? "Y" : "N";
@@ -43,11 +41,10 @@ namespace PIMS
         // Makes the patient's profile text box's not editable
         public void makeReadOnly()
         {
-            this.idBox.ReadOnly = true;
             this.lastNameTextBox.ReadOnly = true;
             this.firstNameTextBox.ReadOnly = true;
             this.middleNameTextBox.ReadOnly = true;
-            this.dobTextBox.ReadOnly = true;
+            this.dateTimePicker1.Enabled = false;
             this.genderTextBox.ReadOnly = true;
             this.faciltiyTextBox.ReadOnly = true;
             this.roomNumberTextBox.ReadOnly = true;

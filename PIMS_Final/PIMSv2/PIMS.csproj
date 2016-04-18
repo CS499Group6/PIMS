@@ -48,6 +48,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\BedList.cs" />
+    <Compile Include="GUI\OfficeStaff\AdmitPatientForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\OfficeStaff\AdmitPatientForm.Designer.cs">
+      <DependentUpon>AdmitPatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\Drug.cs" />
+    <Compile Include="Controller\PrintInfo.cs" />
+    <Compile Include="GUI\OfficeStaff\DischargePatientForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\OfficeStaff\DischargePatientForm.Designer.cs">
+      <DependentUpon>DischargePatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Doctor\DoctorNotesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Doctor\DoctorNotesForm.Designer.cs">
+      <DependentUpon>DoctorNotesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\OfficeStaff\BillingForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,7 +162,6 @@
     <Compile Include="GUI\LoginLeftSideButtons.Designer.cs">
       <DependentUpon>LoginLeftSideButtons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\PrintInfo.cs" />
     <Compile Include="GUI\Nurse\NurseNotesForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -217,8 +236,32 @@
     <Compile Include="GUI\OfficeStaff\RoomAssignmentGrid.Designer.cs">
       <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Doctor\ScheduledProcedureForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Doctor\ScheduledProcedureForm.Designer.cs">
+      <DependentUpon>ScheduledProcedureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Doctor\ScheduledProcdureGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Doctor\ScheduledProcdureGrid.Designer.cs">
+      <DependentUpon>ScheduledProcdureGrid.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\OfficeStaff\AdmitPatientForm.resx">
+      <DependentUpon>AdmitPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Doctor\DoctorNotesForm.resx">
+      <DependentUpon>DoctorNotesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Doctor\ScheduledProcedureForm.resx">
+      <DependentUpon>ScheduledProcedureForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\OfficeStaff\BillingForm.resx">
       <DependentUpon>BillingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OfficeStaff\DischargePatientForm.resx">
+      <DependentUpon>DischargePatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.resx">
       <DependentUpon>NewPatientLeftSideButtonscs.cs</DependentUpon>
@@ -228,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OfficeStaff\RoomAssignmentGrid.resx">
+      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\PatientSearch.resx">
       <DependentUpon>PatientSearch.cs</DependentUpon>
@@ -296,8 +342,8 @@
     <EmbeddedResource Include="GUI\StartLeftSideButtons.resx">
       <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\RoomAssignmentGrid.resx">
-      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Doctor\ScheduledProcdureGrid.resx">
+      <DependentUpon>ScheduledProcdureGrid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -312,7 +358,35 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

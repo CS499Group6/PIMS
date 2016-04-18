@@ -48,9 +48,9 @@ namespace PIMS
                                                       myPatient.directory.fName,
                                                       myPatient.directory.mName,
                                                       myPatient.directory.DOB.ToString(@"MM\/dd\/yyyy"),
-                                                      myPatient.directory.location.unit,
                                                       myPatient.directory.location.roomNum,
                                                       myPatient.directory.location.bedNum,
+                                                      myPatient.directory.location.unit,
                                                       myPatient.directory.isAdmitted ? "Y" : "N");
                 }
             }

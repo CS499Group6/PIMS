@@ -12,7 +12,9 @@ namespace PIMS
 {
     public partial class PatientForm : UserControl
     {
-        bool createNew = false; //bool to toggle features if patient is new or existing
+        // bool to toggle features if patient is new or existing
+        bool createNew = false;
+
         // Default Constructor
         public PatientForm()
         {
@@ -25,8 +27,13 @@ namespace PIMS
                 saveUpdateButton.Visible = false;
                 cancelButton.Visible = false;
             }
-         
 
+            // Do not allow Office Staff user to see the cancelButton at this time
+            if (saveUpdateButton.Text == "Update Profile Information")
+            {
+                cancelButton.Visible = false;
+            }
+         
             // If we have a current patient
             // Add profile information about the patient to various profile text box's
             if (Program.currentPatient != null)
@@ -50,13 +57,15 @@ namespace PIMS
                 this.contactName2TextBox.Text = Program.currentPatient.directory.emerContact2.name;
                 this.contactPhone2TextBox.Text = Program.currentPatient.directory.emerContact2.phoneNum;
 
-                // Makes the patient's profile text box's not editable
+                // Make the patient's profile text box's not editable
                 makeReadOnly();
+
+                // Change the text to the saveUpdateButton
                 saveUpdateButton.Text = "Update Profile Information";
             }
             else
             {
-                // Makes the patient's profile text box's editable
+                // Make the patient's profile text box's editable
                 makeReadable();
 
                 // Office Staff user is not allowed to save the new profile information 
@@ -123,11 +132,15 @@ namespace PIMS
             
             if (saveUpdateButton.Text == "Update Profile Information")
             {
-                // Makes the patient's profile text box's editable
+                // Make the patient's profile text box's editable
                 makeReadable();
+
+                // Allow Office Staff user to see the cancelButton
+                cancelButton.Visible = true;
 
                 // Change the saveUpdateButton text
                 saveUpdateButton.Text = "Save Profile Information";
+
                 // Exit out of this function
                 return;
             }
@@ -188,6 +201,7 @@ namespace PIMS
                     }
                     // Makes the patient's profile text box's not editable
                     makeReadOnly();
+
                     // Change the saveUpdateButton text
                     saveUpdateButton.Text = "Update Profile Information";
 
@@ -204,16 +218,27 @@ namespace PIMS
             }
         }
 
-        // Will allow the office staff user to not create a new patient
+        // Will allow the office staff user to not update the patient's profile
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            Program.currentPatient = null;
+            if (!(this.lastNameTextBox.Text == null))
+            {
+                // Do not allow the Office Staff user to see the cancelButton
+                cancelButton.Visible = false;
 
-            // Clear contents of Panel1 and Panel2
-            Program.myForm.splitContainer1.Panel1.Controls.Clear();
-            Program.myForm.splitContainer1.Panel2.Controls.Clear();
-            // Add PatientSearch to Panel2;
-            Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
+                // Make the patient's profile text box's not editable
+                makeReadOnly();
+            }
+            else
+            {
+                Program.currentPatient = null;
+
+                // Clear contents of Panel1 and Panel2
+                Program.myForm.splitContainer1.Panel1.Controls.Clear();
+                Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                // Add PatientSearch to Panel2;
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
+            }
         }
 
         // Will allow the user to print the patient's profile information

@@ -47,6 +47,7 @@ namespace PIMS
                     Program.myForm.splitContainer1.Panel2.Controls.Clear();
                     // Add PatientSearch to Panel2;
                     Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
+                    Program.myForm.label2.Text = "Welcome, " + Program.currentUser.name + "!";
                 }
                 else
                 {

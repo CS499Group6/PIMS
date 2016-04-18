@@ -13,10 +13,10 @@ namespace PIMSController
     {
         // This specifies the server/db/user to use to login to the SQL db
         static string connectString = "user id=PIMS;password=PIMS;server=146.229.232.110\\PIMS;database=PIMS;Connect Timeout=5;";
-       //static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+        //static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
 
         static SqlConnection cnn = new SqlConnection(connectString);
-        
+
         public static List<Patient> patients = null;
 
         // Indexes for adding new items to certain tables, these values get initialized to the max value
@@ -34,73 +34,100 @@ namespace PIMSController
          */
         public static void initValues()
         {
+
+            string drugList = " SELECT * from drugs";
+            SqlCommand cmd = new SqlCommand(drugList, cnn);
+            cnn.Open();
+            SqlDataReader datardr = cmd.ExecuteReader();
+
+            while (datardr.Read())
+            {
+                PIMS.Controller.Drug d = new PIMS.Controller.Drug();
+                d.name = datardr.GetValue(0).ToString();
+                d.cost = (int)datardr.GetValue(1);
+                PIMS.Program.drugs.Add(d);
+            }
+            datardr.Close();
+            string locList = " SELECT * from location";
+            cmd = new SqlCommand(locList, cnn);
+            datardr = cmd.ExecuteReader();
+            while (datardr.Read())
+            {
+                HospLocation loc = new HospLocation();
+                loc.bedNum = Convert.ToInt32(datardr.GetValue(0).ToString());
+                loc.unit = datardr.GetValue(1).ToString();
+                loc.floor = Convert.ToInt32(datardr.GetValue(2).ToString());
+                loc.roomNum = Convert.ToInt32(datardr.GetValue(3).ToString());
+                loc.occupancy = (int)datardr.GetValue(4);
+
+                PIMS.Program.locations.Add(loc);
+                Console.WriteLine(loc.unit);
+            }
+            datardr.Close();
             ////try
             ////{
 
-                string genericStr = "select max(idNum) from ";
-                cnn.Open();
-                string statsStr = genericStr + "patientStats";
-                SqlCommand cmd = new SqlCommand(statsStr, cnn);
-                try
-                {
-                    statsIndex = (int)cmd.ExecuteScalar();
-                }
-                catch (Exception ex)
-                {
-                    statsIndex = 0;
-                }
-                Console.WriteLine("Stats index is " + statsIndex);
+            string genericStr = "select max(idNum) from ";
+            string statsStr = genericStr + "patientStats";
+            cmd = new SqlCommand(statsStr, cnn);
+            try
+            {
+                statsIndex = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                statsIndex = 9999;
+            }
 
-                string idString = "Select max(patientID) from patient";
-                cmd = new SqlCommand(idString, cnn);
-                try
-                {
-                    patientIndex = (int)cmd.ExecuteScalar();
-                }
-                catch (Exception ex)
-                {
-                    patientIndex = 9999;
-                }
+            string idString = "Select max(patientID) from patient";
+            cmd = new SqlCommand(idString, cnn);
+            try
+            {
+                patientIndex = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                patientIndex = 9999;
+            }
 
 
-                string billStr = genericStr + "charges";
-                cmd = new SqlCommand(billStr, cnn);
+            string billStr = genericStr + "charges";
+            cmd = new SqlCommand(billStr, cnn);
+            try
+            {
                 billIndex = (int)cmd.ExecuteScalar();
-                try
-                {
-                    billIndex = (int)cmd.ExecuteScalar();
-                }
-                catch (Exception ex)
-                {
-                    billIndex = 0;
-                }
+            }
+            catch (Exception ex)
+            {
+                billIndex = 9999;
+            }
 
 
-                string drugStr = "Select max(drugID) from prescriptions";
-                cmd = new SqlCommand(drugStr, cnn);
-                drugIndex = int.Parse(cmd.ExecuteScalar().ToString());
-                try
-                {
-                    drugIndex = (int)cmd.ExecuteScalar();
-                }
-                catch (Exception ex)
-                {
-                    drugIndex = 0;
-                }
+            string drugStr = "Select max(drugID) from prescriptions";
+            cmd = new SqlCommand(drugStr, cnn);
+            try
+            {
+                drugIndex = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                drugIndex = 9999;
+            }
 
-                string procStr = genericStr + "ScheduledProcedures";
-                cmd = new SqlCommand(procStr, cnn);
+            string procStr = genericStr + "ScheduledProcedures";
+            cmd = new SqlCommand(procStr, cnn);
+            procIndex = (int)cmd.ExecuteScalar();
+            try
+            {
                 procIndex = (int)cmd.ExecuteScalar();
-                try
-                {
-                    procIndex = (int)cmd.ExecuteScalar();
-                }
-                catch (Exception ex)
-                {
-                    procIndex = 0;
-                }
+            }
+            catch (Exception ex)
+            {
+                procIndex = 9999;
+            }
 
-                cnn.Close();
+            // cnn.Close();
+            // MessageBox.Show("statIndex= " + statsIndex + "\ndrugIndex = " + drugIndex + "\nprocIndex = " + procIndex + "\nbillIndex = " + billIndex + "\npatIndex = " + patientIndex);
             //}
             //catch (Exception ex)
             //{
@@ -166,6 +193,9 @@ namespace PIMSController
 
         }
 
+        /* Takes int bedid for the bed number being queried for
+         * create a room object to return
+         */
         public static HospLocation buildHospital(int bedID)
         {
 
@@ -175,56 +205,55 @@ namespace PIMSController
             SqlCommand cmd = new SqlCommand("getLocations", cnn);
             SqlDataReader rdr;
 
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                HospLocation current = new HospLocation();
-                current.bedNum = bedID;
-                cmd.Parameters.AddWithValue("@bedNum", bedID);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            HospLocation current = new HospLocation();
+            current.bedNum = bedID;
+            cmd.Parameters.AddWithValue("@bedNum", bedID);
 
-                 //Create a SqlParameter object to hold the output parameter value
-                SqlParameter units = new SqlParameter();
-                units.ParameterName = "@unit";
-                units.SqlDbType = System.Data.SqlDbType.VarChar;
-                units.Size = 15;
-                units.Direction = System.Data.ParameterDirection.Output;
-                units.Value = current.unit;
-                cmd.Parameters.Add(units);
+            //Create a SqlParameter object to hold the output parameter value
+            SqlParameter units = new SqlParameter();
+            units.ParameterName = "@unit";
+            units.SqlDbType = System.Data.SqlDbType.VarChar;
+            units.Size = 15;
+            units.Direction = System.Data.ParameterDirection.Output;
+            units.Value = current.unit;
+            cmd.Parameters.Add(units);
 
-                 SqlParameter floorN = new SqlParameter();
-                 floorN.ParameterName = "@floorNum";
-                 floorN.SqlDbType = System.Data.SqlDbType.Int;
-                 floorN.Direction = System.Data.ParameterDirection.Output;
-                 floorN.Value = current.floor;
-                 cmd.Parameters.Add(floorN);
+            SqlParameter floorN = new SqlParameter();
+            floorN.ParameterName = "@floorNum";
+            floorN.SqlDbType = System.Data.SqlDbType.Int;
+            floorN.Direction = System.Data.ParameterDirection.Output;
+            floorN.Value = current.floor;
+            cmd.Parameters.Add(floorN);
 
-                 SqlParameter roomN = new SqlParameter();
-                 roomN.ParameterName = "@roomNum";
-                 roomN.SqlDbType = System.Data.SqlDbType.Int;
-                 roomN.Direction = System.Data.ParameterDirection.Output;
-                 roomN.Value = current.roomNum;
-                 cmd.Parameters.Add(roomN);
+            SqlParameter roomN = new SqlParameter();
+            roomN.ParameterName = "@roomNum";
+            roomN.SqlDbType = System.Data.SqlDbType.Int;
+            roomN.Direction = System.Data.ParameterDirection.Output;
+            roomN.Value = current.roomNum;
+            cmd.Parameters.Add(roomN);
 
-                 SqlParameter occup = new SqlParameter();
-                 occup.ParameterName = "@occupants";
-                 occup.SqlDbType = System.Data.SqlDbType.Int;
-                 occup.Direction = System.Data.ParameterDirection.Output;
-                 occup.Value = current.occupancy;
-                 cmd.Parameters.Add(occup);
-            
-                 rdr = cmd.ExecuteReader();
-                 current.unit = Convert.ToString(units.Value);
-                 current.floor = Convert.ToInt32(floorN.Value);
-                 current.roomNum = Convert.ToInt32(roomN.Value);
-                 current.occupancy = Convert.ToInt32(occup.Value);
+            SqlParameter occup = new SqlParameter();
+            occup.ParameterName = "@occupants";
+            occup.SqlDbType = System.Data.SqlDbType.Int;
+            occup.Direction = System.Data.ParameterDirection.Output;
+            occup.Value = current.occupancy;
+            cmd.Parameters.Add(occup);
 
-              
-                cmd.Parameters.Clear();
-                rdr.Close();
+            rdr = cmd.ExecuteReader();
+            current.unit = Convert.ToString(units.Value);
+            current.floor = Convert.ToInt32(floorN.Value);
+            current.roomNum = Convert.ToInt32(roomN.Value);
+            current.occupancy = Convert.ToInt32(occup.Value);
+
+
+            cmd.Parameters.Clear();
+            rdr.Close();
 
             cnn.Close();
             return current;
 
         }
-
 
         // This function queries the SQL server and builds the patient requested by the 
         // PatientID according to the type of user currently logged in
@@ -257,7 +286,7 @@ namespace PIMSController
                 if (datardr.GetValue(5) != System.DBNull.Value)
                 {
                     string g = (String)datardr.GetValue(5);
-                    if (g == "m")
+                    if (g.Equals("m") || g.Equals("M"))
                         x.directory.gender = true;
                     else x.directory.gender = false;
                 }
@@ -283,12 +312,19 @@ namespace PIMSController
                     x.directory.emerContact2.phoneNum = datardr.GetValue(15).ToString();
                 if (datardr.GetValue(16) != System.DBNull.Value)
                 {
-                    Visitor v = new Visitor();
-                    v.name = (String)datardr.GetValue(16);
-                    x.directory.visitors.Add(v);
+                    string unparsedNames = (String)datardr.GetValue(16);
+                    string[] visitors = unparsedNames.Split('$');
+                    foreach (string vis in visitors)
+                    {
+                        Visitor v = new Visitor();
+                        v.name = vis;
+                        if (!v.name.Equals(""))
+                            x.directory.visitors.Add(v);
+                    }
+
                 }
-                if (!(datardr.GetValue(17).Equals(System.DBNull.Value)))
-                    x.directory.location.bedNum = Int32.Parse(datardr.GetValue(17).ToString());
+                if (!(datardr.GetValue(17) == (System.DBNull.Value)))
+                    x.directory.location.bedNum = (int)datardr.GetValue(17);
             }
 
             cnn.Close();
@@ -305,11 +341,11 @@ namespace PIMSController
                     if (datardr.GetValue(1) != System.DBNull.Value)
                         x.directory.location.unit = (String)datardr.GetValue(1);
                     if (datardr.GetValue(2) != System.DBNull.Value)
-                        x.directory.location.floor = Int32.Parse(datardr.GetValue(2).ToString());
+                        x.directory.location.floor = (int)datardr.GetValue(2);
                     if (datardr.GetValue(3) != System.DBNull.Value)
-                        x.directory.location.roomNum = Int32.Parse(datardr.GetValue(3).ToString());
+                        x.directory.location.roomNum = (int)datardr.GetValue(3);
                     if (datardr.GetValue(4) != System.DBNull.Value)
-                        x.directory.location.occupancy = Int32.Parse(datardr.GetValue(4).ToString());
+                        x.directory.location.occupancy = (int)datardr.GetValue(4);
                 }
                 datardr.Close();
             }
@@ -396,6 +432,9 @@ namespace PIMSController
                     x.treatment.allergies = (String)datardr.GetValue(6);
                 if (datardr.GetValue(9) != System.DBNull.Value)
                     x.treatment.medStaffNotes.nurseNotes = (String)datardr.GetValue(9);
+                if (datardr.GetValue(10) != System.DBNull.Value)
+                    x.treatment.reasonDischarged = (String)datardr.GetValue(10);
+
             }
             datardr.Close();
 
@@ -446,7 +485,7 @@ namespace PIMSController
                 if (datardr.GetValue(0) != System.DBNull.Value)
                     drug.id = (int)datardr.GetValue(0);
                 if (datardr.GetValue(1) != System.DBNull.Value)
-                    drug.name = (String)datardr.GetValue(1);
+                    drug.drug.name = (String)datardr.GetValue(1);
                 if (datardr.GetValue(2) != System.DBNull.Value)
                     drug.ndc = (String)datardr.GetValue(2);
                 if (datardr.GetValue(3) != System.DBNull.Value)
@@ -456,7 +495,7 @@ namespace PIMSController
                 if (datardr.GetValue(5) != System.DBNull.Value)
                     drug.dateFilled = (DateTime)datardr.GetValue(5);
                 if (datardr.GetValue(6) != System.DBNull.Value)
-                    drug.cost = (int)datardr.GetValue(6);
+                    drug.drug.cost = (int)datardr.GetValue(6);
 
                 x.treatment.prescriptions.prescriptions.Add(drug);
             }
@@ -485,7 +524,7 @@ namespace PIMSController
                 x.treatment.procedures.Add(proc);
 
             }
-            datardr.Close();
+
 
             return x;
             //}
@@ -506,10 +545,8 @@ namespace PIMSController
             cnn.Open();
             SqlCommand cmd = new SqlCommand(getPatList, cnn);
             SqlDataReader datardr;
-            datardr = cmd.ExecuteReader();
-
-
             patients = new List<Patient>();
+            datardr = cmd.ExecuteReader();
 
             while (datardr.Read())
             {
@@ -527,7 +564,7 @@ namespace PIMSController
                 if (datardr.GetValue(5) != System.DBNull.Value)
                 {
                     string g = (String)datardr.GetValue(5);
-                    if (g == "m")
+                    if (g.Equals("m") || g.Equals("M"))
                         x.directory.gender = true;
                     else x.directory.gender = false;
                 }
@@ -553,16 +590,48 @@ namespace PIMSController
                     x.directory.emerContact2.phoneNum = datardr.GetValue(15).ToString();
                 if (datardr.GetValue(16) != System.DBNull.Value)
                 {
-                    Visitor v = new Visitor();
-                    v.name = (String)datardr.GetValue(16);
-                    x.directory.visitors.Add(v);
+                    string unparsedNames = (String)datardr.GetValue(16);
+                    string[] visitors = unparsedNames.Split('$');
+                    foreach (string vis in visitors)
+                    {
+                        Visitor v = new Visitor();
+                        v.name = vis;
+                        if (!v.name.Equals(""))
+                            x.directory.visitors.Add(v);
+                    }
                 }
                 if (!(datardr.GetValue(17).Equals(System.DBNull.Value)))
-                    x.directory.location.bedNum = Int32.Parse(datardr.GetValue(17).ToString());
+                    x.directory.location.bedNum = (int)datardr.GetValue(17);
+
+
+
                 patients.Add(x);
 
             }
 
+            foreach (PIMSController.Patient x in patients)
+            {
+                if (x.directory.location.bedNum != null)
+                {
+                    string getLocInfo = "SELECT * from Location where bedNo = " + x.directory.location.bedNum;
+                    if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                        cnn.Close();
+                    cnn.Open();
+                    cmd = new SqlCommand(getLocInfo, cnn);
+                    datardr = cmd.ExecuteReader();
+                    while (datardr.Read())
+                    {
+                        if (datardr.GetValue(1) != System.DBNull.Value)
+                            x.directory.location.unit = (String)datardr.GetValue(1);
+                        if (datardr.GetValue(2) != System.DBNull.Value)
+                            x.directory.location.floor = (int)datardr.GetValue(2);
+                        if (datardr.GetValue(3) != System.DBNull.Value)
+                            x.directory.location.roomNum = (int)datardr.GetValue(3);
+                        if (datardr.GetValue(4) != System.DBNull.Value)
+                            x.directory.location.occupancy = (int)datardr.GetValue(4);
+                    }
+                }
+            }
 
             return patients;
         }
@@ -647,59 +716,122 @@ namespace PIMSController
 
         static void updateBillingInfo()
         {
-            try
-            {
-                Patient patient = PIMS.Program.currentPatient;
-                PatientBillingInfo bill = PIMS.Program.currentPatient.billing;
-                if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
-                    cnn.Close();
-                cnn.Open();
-                String cmdText = "UPDATE Insurance SET provider = @pr, BIN = @bin, ID = @id, " +
-                                 "PCN = @pcn, groupNo = @gn " +
-                                 "WHERE patientID = " + patient.directory.patientID;
+            //try
+            //{
+            Patient patient = PIMS.Program.currentPatient;
+            PatientBillingInfo bill = PIMS.Program.currentPatient.billing;
+            if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                cnn.Close();
+            cnn.Open();
 
-                SqlCommand cmd = new SqlCommand(cmdText, cnn);
+            //Updates insurance information
+            String cmdText = "IF NOT EXISTS(SELECT patientID from Insurance where patientID = @pid) " +
+                             " INSERT INTO Insurance values(@pid, @pr, @bin, @id, @pcn, @gn, @type) " +
+                             "else " +
+                             "UPDATE Insurance SET provider = @pr, BIN = @bin, ID = @id, " +
+                             "PCN = @pcn, groupNo = @gn, insuranceType = @type " +
+                             "WHERE patientID = @pid ";
 
+            SqlCommand cmd = new SqlCommand(cmdText, cnn);
+            cmd.Parameters.AddWithValue("@pid", patient.directory.patientID);
+
+            if (bill.insurance.provider == null)
+                cmd.Parameters.AddWithValue("@pr", System.DBNull.Value);
+            else
                 cmd.Parameters.AddWithValue("@pr", bill.insurance.provider);
+
+            if (bill.insurance.bin == null)
+                cmd.Parameters.AddWithValue("@bin", System.DBNull.Value);
+            else
                 cmd.Parameters.AddWithValue("@bin", bill.insurance.bin);
+
+            if (bill.insurance.id == null)
+                cmd.Parameters.AddWithValue("@id", System.DBNull.Value);
+            else
                 cmd.Parameters.AddWithValue("@id", bill.insurance.id);
+
+            if (bill.insurance.pcn == null)
+                cmd.Parameters.AddWithValue("@pcn", System.DBNull.Value);
+            else
                 cmd.Parameters.AddWithValue("@pcn", bill.insurance.pcn);
+
+            if (bill.insurance.groupNum == null)
+                cmd.Parameters.AddWithValue("@gn", System.DBNull.Value);
+            else
                 cmd.Parameters.AddWithValue("@gn", bill.insurance.groupNum);
 
-                cmd.ExecuteNonQuery();
+            if (bill.insurance.insuranceType == null)
+                cmd.Parameters.AddWithValue("@type", System.DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@type", bill.insurance.insuranceType);
 
-                cmdText = "IF NOT EXISTS(SELECT item from charges where  idNum = @id) " +
-                          "INSERT INTO  Charges values('@pid','@item'," +
-                          "'@c','@ap','@ip','@dd','@id')" +
-                          "else " +
-                          " UPDATE  Charges SET item = @item, cost = @c, amountPaid = @ap, " +
-                          "insurancePaid = @ip, dueDate = @dd WHERE idNum = @id ";
+            cmd.ExecuteNonQuery();
 
 
+            // Updates billing address
 
-                foreach (BillingLineItem item in bill.items)
+            cmdText = "IF NOT EXISTS(SELECT billingAddress from BillingAddress where patientID = @pid) " +
+                      "INSERT INTO BillingAddress values(@pid, @ba, @bc, @bs, @bz) " +
+                      "else " +
+                      "UPDATE billingAddress SET billingAddress = @ba, billingCity = @bc, " +
+                      "billingState = @bs, billingZip = @bz WHERE patientID = @pid ";
+            cmd = new SqlCommand(cmdText, cnn);
+
+            cmd.Parameters.AddWithValue("@pid", PIMS.Program.currentPatient.directory.patientID);
+            if (bill.strAddress == null)
+                cmd.Parameters.AddWithValue("@ba", System.DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@ba", bill.strAddress);
+            if (bill.city == null)
+                cmd.Parameters.AddWithValue("@bc", System.DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@bc", bill.city);
+            if (bill.state == null)
+                cmd.Parameters.AddWithValue("@bs", System.DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@bs", bill.state);
+            if (bill.zip == null)
+                cmd.Parameters.AddWithValue("@bz", System.DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@bz", bill.zip);
+
+            cmd.ExecuteNonQuery();
+
+
+            cmdText = "IF NOT EXISTS(SELECT item from charges where  idNum = @id) " +
+                      "INSERT INTO  Charges values(@pid, @id, @item, " +
+                      "@c, @ap, @ip, @dd)" +
+                      "else " +
+                      " UPDATE  Charges SET item = @item, cost = @c, amountPaid = @ap, " +
+                      "insurancePaid = @ip, dueDate = @dd WHERE idNum = @id ";
+
+
+            foreach (BillingLineItem item in bill.items)
+            {
+                billIndex++;
+
+                cmd = new SqlCommand(cmdText, cnn);
+                cmd.Parameters.AddWithValue("@pid", PIMS.Program.currentPatient.directory.patientID);
+                cmd.Parameters.AddWithValue("@item", item.item);
+                cmd.Parameters.AddWithValue("@c", item.cost);
+                cmd.Parameters.AddWithValue("@ap", item.paid);
+                cmd.Parameters.AddWithValue("@ip", item.insPaid);
+                cmd.Parameters.AddWithValue("@dd", item.dueDate);
+                if (item.itemId == 0)
                 {
                     billIndex++;
-
-                    cmd = new SqlCommand(cmdText, cnn);
-
-                    cmd.Parameters.AddWithValue("@item", item.item);
-                    cmd.Parameters.AddWithValue("@c", item.cost);
-                    cmd.Parameters.AddWithValue("@ap", item.paid);
-                    cmd.Parameters.AddWithValue("@ip", item.insPaid);
-                    cmd.Parameters.AddWithValue("@dd", item.dueDate);
-                    if (item.itemId == 0)
-                        item.itemId = billIndex;
-                    cmd.Parameters.AddWithValue("@id", item.itemId);
-
-                    cmd.ExecuteNonQuery();
-                    cmd.Parameters.Clear();
+                    item.itemId = billIndex;
                 }
+                cmd.Parameters.AddWithValue("@id", item.itemId);
+
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating billing information.\nPlease try again.");
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error updating billing information.\nPlease try again.");
+            //}333332
         }
 
         static void updateTreatmentInfo()
@@ -799,12 +931,12 @@ namespace PIMSController
             foreach (PrescDrug drug in info.prescriptions.prescriptions)
             {
                 cmd.Parameters.AddWithValue("@pid", PIMS.Program.currentPatient.directory.patientID);
-                cmd.Parameters.AddWithValue("@dn", drug.name);
+                cmd.Parameters.AddWithValue("@dn", drug.drug.name);
                 cmd.Parameters.AddWithValue("@ndc", drug.ndc);
                 cmd.Parameters.AddWithValue("@sig", drug.SIG);
                 cmd.Parameters.AddWithValue("@pp", drug.prescribingPhysician);
                 cmd.Parameters.AddWithValue("@pd", drug.dateFilled);
-                cmd.Parameters.AddWithValue("@c", drug.cost);
+                cmd.Parameters.AddWithValue("@c", drug.drug.cost);
                 if (drug.id == 0)
                 {
                     drugIndex++;
@@ -820,11 +952,11 @@ namespace PIMSController
 
             cmdText = "IF NOT EXISTS(SELECT pHeight from patientStats where idNum = @idNum) " +
                       "INSERT INTO patientStats " +
-                      "values(@pid, @ph , @pw ,  @sp ,  @dp ,  @hr ,  @idNum ,  @t, @n) " +
+                      "values(@pid, @ph , @pw ,  @sp ,  @dp ,  @hr , @t, @idNum , @n) " +
                       "else " +
                       "UPDATE patientStats SET patientID = @pid, pHeight = @ph, pWeight = @pw, " +
                       "systolicPressure = @sp, diastolicPressure = @dp, heartRate = @hr, " +
-                      "time = @t, nurse = @n WHERE idNum = @idNum";
+                      "timeRead = @t, nurse = @n WHERE idNum = @idNum";
 
 
 
@@ -838,7 +970,7 @@ namespace PIMSController
                 cmd.Parameters.AddWithValue("@sp", stats.bloodPressureSys);
                 cmd.Parameters.AddWithValue("@dp", stats.bloodPressureDia);
                 cmd.Parameters.AddWithValue("@hr", stats.heartrate);
-                cmd.Parameters.AddWithValue("@t", stats.time);
+                cmd.Parameters.AddWithValue("@t", stats.time.Date);
                 cmd.Parameters.AddWithValue("@n", stats.nurse);
 
                 if (stats.idNum == 0)

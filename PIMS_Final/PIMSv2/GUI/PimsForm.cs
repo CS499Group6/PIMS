@@ -17,7 +17,6 @@ namespace PIMS
         {
             InitializeComponent();
 
-
             // Add LoginLeftSideButtons to Panel1
             splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
             // Add Login form to Panel2
@@ -28,12 +27,7 @@ namespace PIMS
         // If there is one, add the leftSideButtons to Panel1
         public void checkCurrentPatient()
         {
-            if (Program.currentPatient == null)
-            {
-                // Do nothing
-                Console.WriteLine("cur patient is null");
-            }
-            else
+            if (Program.currentPatient != null)
             {
                 // Add leftSideButton to Panel1
                 this.splitContainer1.Panel1.Controls.Add(Program.leftSideButton);

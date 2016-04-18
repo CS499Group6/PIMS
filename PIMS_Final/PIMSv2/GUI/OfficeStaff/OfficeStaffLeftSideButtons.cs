@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
+using Microsoft.Office.Interop.Word;
 
 namespace PIMS
 {
@@ -110,6 +112,8 @@ namespace PIMS
             Program.currentPatient = null;
             Program.currentUser = null;
 
+            Program.myForm.label2.Text = "";
+
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();
             Program.myForm.splitContainer1.Panel2.Controls.Clear();
@@ -120,11 +124,21 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new Login());
         }
 
+        private void dischargeButton_Click(object sender, EventArgs e)
+        {
+            // Clear contents of Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            // Add DischargeForm form to Panel2
+            Program.myForm.splitContainer1.Panel2.Controls.Add(new DischargePatientForm());
+        }
+
         // Will exit the application
         private void exitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
+
+
 
     }
 }

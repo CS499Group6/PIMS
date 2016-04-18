@@ -34,7 +34,6 @@
             this.saveUpdateButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dueTextBox = new System.Windows.Forms.TextBox();
             this.insPaidTextBox = new System.Windows.Forms.TextBox();
             this.paidTextBox = new System.Windows.Forms.TextBox();
             this.costTextBox = new System.Windows.Forms.TextBox();
@@ -42,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.idLabel = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // printButon
@@ -99,13 +99,6 @@
             this.label4.TabIndex = 55;
             this.label4.Text = "Insurance Paid:";
             // 
-            // dueTextBox
-            // 
-            this.dueTextBox.Location = new System.Drawing.Point(203, 178);
-            this.dueTextBox.Name = "dueTextBox";
-            this.dueTextBox.Size = new System.Drawing.Size(100, 20);
-            this.dueTextBox.TabIndex = 54;
-            // 
             // insPaidTextBox
             // 
             this.insPaidTextBox.Location = new System.Drawing.Point(203, 124);
@@ -161,10 +154,18 @@
             this.idLabel.TabIndex = 60;
             this.idLabel.Text = "ID Number:";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(203, 178);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 62;
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.itemTextBox);
@@ -172,7 +173,6 @@
             this.Controls.Add(this.saveUpdateButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dueTextBox);
             this.Controls.Add(this.insPaidTextBox);
             this.Controls.Add(this.paidTextBox);
             this.Controls.Add(this.costTextBox);
@@ -193,7 +193,6 @@
         private System.Windows.Forms.Button saveUpdateButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox dueTextBox;
         private System.Windows.Forms.TextBox insPaidTextBox;
         private System.Windows.Forms.TextBox paidTextBox;
         private System.Windows.Forms.TextBox costTextBox;
@@ -201,5 +200,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

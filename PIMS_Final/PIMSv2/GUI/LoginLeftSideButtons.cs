@@ -16,8 +16,10 @@ namespace PIMS
         public LoginLeftSideButtons()
         {
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+           
 
             InitializeComponent();
+            //this.Size = Program.myForm.splitContainer1.Panel1.PreferredSize;
         }
 
         // Will log the current user off of the server
@@ -25,6 +27,8 @@ namespace PIMS
         {
             Program.currentPatient = null;
             Program.currentUser = null;
+
+            Program.myForm.label2.Text = "";
 
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();

@@ -71,7 +71,7 @@ namespace PIMS
                                                       myPatient.directory.gender ? "M" : "F",                                                     
                                                       myPatient.directory.location.roomNum,
                                                       myPatient.directory.location.bedNum,
-                                                      myPatient.directory.location.floor,
+                                                      myPatient.directory.location.unit,
                                                       myPatient.directory.isAdmitted ? "Y" : "N");
         }
 

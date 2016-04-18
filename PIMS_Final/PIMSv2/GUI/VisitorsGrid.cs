@@ -90,6 +90,8 @@ namespace PIMS
 
             visitorDataGridView.Rows.Clear();
 
+            PIMSController.SQLcommands.updatePatient();
+
             foreach (PIMSController.Visitor person in Program.currentPatient.directory.visitors)
             {
                 visitorDataGridView.Rows.Add(null, person.name);

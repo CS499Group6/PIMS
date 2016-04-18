@@ -109,8 +109,8 @@ namespace PIMS
             {
                 // Clear contents of Panel2
                 Program.myForm.splitContainer1.Panel2.Controls.Clear();
-                // Add PatientSearch to Panel2
-                Program.myForm.splitContainer1.Panel2.Controls.Add(new RoomAssignmentGrid());
+                // Add AdmitPatientForm to Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new AdmitPatientForm());
             }
             else
             {
@@ -125,6 +125,8 @@ namespace PIMS
         {
             Program.currentPatient = null;
             Program.currentUser = null;
+
+            Program.myForm.label2.Text = "";
 
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();

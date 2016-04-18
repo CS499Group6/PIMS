@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.genderTextBox = new System.Windows.Forms.TextBox();
-            this.idBox = new System.Windows.Forms.TextBox();
-            this.idLabel = new System.Windows.Forms.Label();
-            this.dobTextBox = new System.Windows.Forms.TextBox();
             this.middleNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
@@ -49,8 +46,8 @@
             this.inPatientLabel = new System.Windows.Forms.Label();
             this.inPatientTextBox = new System.Windows.Forms.TextBox();
             this.yesOrNoLabel = new System.Windows.Forms.Label();
-            this.mmddyyyLabel = new System.Windows.Forms.Label();
             this.printButon = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // genderTextBox
@@ -61,35 +58,6 @@
             this.genderTextBox.Name = "genderTextBox";
             this.genderTextBox.Size = new System.Drawing.Size(158, 20);
             this.genderTextBox.TabIndex = 47;
-            // 
-            // idBox
-            // 
-            this.idBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.idBox.Location = new System.Drawing.Point(101, 35);
-            this.idBox.Name = "idBox";
-            this.idBox.Size = new System.Drawing.Size(158, 20);
-            this.idBox.TabIndex = 46;
-            // 
-            // idLabel
-            // 
-            this.idLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(35, 42);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(60, 13);
-            this.idLabel.TabIndex = 45;
-            this.idLabel.Text = "Patient ID: ";
-            // 
-            // dobTextBox
-            // 
-            this.dobTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dobTextBox.Location = new System.Drawing.Point(101, 140);
-            this.dobTextBox.Name = "dobTextBox";
-            this.dobTextBox.Size = new System.Drawing.Size(158, 20);
-            this.dobTextBox.TabIndex = 43;
             // 
             // middleNameTextBox
             // 
@@ -264,17 +232,6 @@
             this.yesOrNoLabel.TabIndex = 56;
             this.yesOrNoLabel.Text = "Yes/No";
             // 
-            // mmddyyyLabel
-            // 
-            this.mmddyyyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mmddyyyLabel.AutoSize = true;
-            this.mmddyyyLabel.Location = new System.Drawing.Point(265, 147);
-            this.mmddyyyLabel.Name = "mmddyyyLabel";
-            this.mmddyyyLabel.Size = new System.Drawing.Size(60, 13);
-            this.mmddyyyLabel.TabIndex = 57;
-            this.mmddyyyLabel.Text = "mm/dd/yyy";
-            // 
             // printButon
             // 
             this.printButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -285,12 +242,19 @@
             this.printButon.Text = "Print";
             this.printButon.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(101, 141);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 59;
+            // 
             // VolunteerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.printButon);
-            this.Controls.Add(this.mmddyyyLabel);
             this.Controls.Add(this.yesOrNoLabel);
             this.Controls.Add(this.inPatientLabel);
             this.Controls.Add(this.inPatientTextBox);
@@ -301,9 +265,6 @@
             this.Controls.Add(this.roomNumberTextBox);
             this.Controls.Add(this.faciltiyTextBox);
             this.Controls.Add(this.genderTextBox);
-            this.Controls.Add(this.idBox);
-            this.Controls.Add(this.idLabel);
-            this.Controls.Add(this.dobTextBox);
             this.Controls.Add(this.middleNameTextBox);
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.lastNameTextBox);
@@ -322,9 +283,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox genderTextBox;
-        private System.Windows.Forms.TextBox idBox;
-        private System.Windows.Forms.Label idLabel;
-        private System.Windows.Forms.TextBox dobTextBox;
         private System.Windows.Forms.TextBox middleNameTextBox;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
@@ -342,7 +300,7 @@
         private System.Windows.Forms.Label inPatientLabel;
         private System.Windows.Forms.TextBox inPatientTextBox;
         private System.Windows.Forms.Label yesOrNoLabel;
-        private System.Windows.Forms.Label mmddyyyLabel;
         private System.Windows.Forms.Button printButon;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

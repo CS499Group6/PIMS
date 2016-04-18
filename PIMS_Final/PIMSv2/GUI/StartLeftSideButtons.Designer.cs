@@ -42,14 +42,13 @@
             // 
             // closeApplicationGroupBox
             // 
-            closeApplicationGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            closeApplicationGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             closeApplicationGroupBox.BackColor = System.Drawing.SystemColors.Control;
             closeApplicationGroupBox.Controls.Add(this.exitButton);
             closeApplicationGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            closeApplicationGroupBox.Location = new System.Drawing.Point(36, 854);
+            closeApplicationGroupBox.Location = new System.Drawing.Point(36, 662);
             closeApplicationGroupBox.Name = "closeApplicationGroupBox";
-            closeApplicationGroupBox.Size = new System.Drawing.Size(191, 68);
+            closeApplicationGroupBox.Size = new System.Drawing.Size(191, 69);
             closeApplicationGroupBox.TabIndex = 7;
             closeApplicationGroupBox.TabStop = false;
             closeApplicationGroupBox.Text = "Close Application";
@@ -57,7 +56,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(45, 28);
+            this.exitButton.Location = new System.Drawing.Point(57, 29);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 4;
@@ -99,7 +98,7 @@
             // 
             this.groupBox1.Controls.Add(this.logOffButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(36, 747);
+            this.groupBox1.Location = new System.Drawing.Point(36, 587);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(191, 69);
             this.groupBox1.TabIndex = 10;
@@ -109,7 +108,7 @@
             // logOffButton
             // 
             this.logOffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOffButton.Location = new System.Drawing.Point(45, 29);
+            this.logOffButton.Location = new System.Drawing.Point(57, 29);
             this.logOffButton.Name = "logOffButton";
             this.logOffButton.Size = new System.Drawing.Size(75, 23);
             this.logOffButton.TabIndex = 5;
@@ -119,15 +118,15 @@
             // 
             // StartLeftSideButtons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(closeApplicationGroupBox);
             this.Controls.Add(this.newSearchButton);
             this.Name = "StartLeftSideButtons";
-            this.Size = new System.Drawing.Size(345, 966);
+            this.Size = new System.Drawing.Size(347, 744);
             closeApplicationGroupBox.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

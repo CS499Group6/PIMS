@@ -12,6 +12,7 @@ namespace PIMSController
         public DateTime? dateAdmitted { get; set; } 
         public string reasonAdmitted { get; set; }
         public DateTime? dateDischarged { get; set; }
+        public string reasonDischarged { get; set; }
         public string primaryDoc { get; set; }
         public string docNotes { get; set; }
         public string allergies { get; set; }

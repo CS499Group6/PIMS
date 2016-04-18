@@ -35,9 +35,9 @@
             this.fName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facility = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bedNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isAdmitted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,13 +53,13 @@
             this.fName,
             this.mName,
             this.dob,
-            this.facility,
             this.roomNum,
             this.bedNum,
+            this.unit,
             this.isAdmitted});
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(846, 494);
+            this.dataGridView1.Size = new System.Drawing.Size(992, 494);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -100,11 +100,6 @@
             this.dob.Name = "dob";
             this.dob.ReadOnly = true;
             // 
-            // facility
-            // 
-            this.facility.HeaderText = "Factility";
-            this.facility.Name = "facility";
-            // 
             // roomNum
             // 
             this.roomNum.HeaderText = "Room Number";
@@ -114,6 +109,11 @@
             // 
             this.bedNum.HeaderText = "Bed Number";
             this.bedNum.Name = "bedNum";
+            // 
+            // unit
+            // 
+            this.unit.HeaderText = "Unit";
+            this.unit.Name = "unit";
             // 
             // isAdmitted
             // 
@@ -142,9 +142,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fName;
         private System.Windows.Forms.DataGridViewTextBoxColumn mName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dob;
-        private System.Windows.Forms.DataGridViewTextBoxColumn facility;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn bedNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn isAdmitted;
 
     }

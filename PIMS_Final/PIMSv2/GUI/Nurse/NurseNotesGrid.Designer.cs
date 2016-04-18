@@ -31,6 +31,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nurseNotesDataGridView = new System.Windows.Forms.DataGridView();
+            this.updateAllergiesButton = new System.Windows.Forms.Button();
+            this.updateNurseNotesButton = new System.Windows.Forms.Button();
+            this.addStat = new System.Windows.Forms.Button();
+            this.allergiesTextBox = new System.Windows.Forms.TextBox();
+            this.notesTextBox = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nurse = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,11 +44,6 @@
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateAllergiesButton = new System.Windows.Forms.Button();
-            this.updateNurseNotesButton = new System.Windows.Forms.Button();
-            this.addStat = new System.Windows.Forms.Button();
-            this.allergiesTextBox = new System.Windows.Forms.TextBox();
-            this.notesTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nurseNotesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,8 +67,7 @@
             // 
             // nurseNotesDataGridView
             // 
-            this.nurseNotesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nurseNotesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.nurseNotesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.nurseNotesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -79,55 +78,13 @@
             this.weight,
             this.bp,
             this.hr});
+            this.nurseNotesDataGridView.Cursor = System.Windows.Forms.Cursors.Default;
             this.nurseNotesDataGridView.Location = new System.Drawing.Point(17, 33);
             this.nurseNotesDataGridView.Name = "nurseNotesDataGridView";
             this.nurseNotesDataGridView.RowHeadersWidth = 35;
-            this.nurseNotesDataGridView.Size = new System.Drawing.Size(839, 313);
+            this.nurseNotesDataGridView.Size = new System.Drawing.Size(851, 313);
             this.nurseNotesDataGridView.TabIndex = 90;
             this.nurseNotesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nurseNotesDataGridView_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.FalseValue = "false";
-            this.Column1.HeaderText = "Select";
-            this.Column1.IndeterminateValue = "false";
-            this.Column1.Name = "Column1";
-            this.Column1.TrueValue = "true";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id Number";
-            this.id.Name = "id";
-            // 
-            // nurse
-            // 
-            this.nurse.HeaderText = "Nurse";
-            this.nurse.Name = "nurse";
-            // 
-            // dateTime
-            // 
-            this.dateTime.HeaderText = "Date/Time";
-            this.dateTime.Name = "dateTime";
-            // 
-            // height
-            // 
-            this.height.HeaderText = "Height";
-            this.height.Name = "height";
-            // 
-            // weight
-            // 
-            this.weight.HeaderText = "Weight";
-            this.weight.Name = "weight";
-            // 
-            // bp
-            // 
-            this.bp.HeaderText = "Blood Pressure";
-            this.bp.Name = "bp";
-            // 
-            // hr
-            // 
-            this.hr.HeaderText = "Heart Rate";
-            this.hr.Name = "hr";
             // 
             // updateAllergiesButton
             // 
@@ -174,6 +131,56 @@
             this.notesTextBox.Name = "notesTextBox";
             this.notesTextBox.Size = new System.Drawing.Size(226, 115);
             this.notesTextBox.TabIndex = 99;
+            // 
+            // Column1
+            // 
+            this.Column1.FalseValue = "false";
+            this.Column1.HeaderText = "Select";
+            this.Column1.IndeterminateValue = "false";
+            this.Column1.Name = "Column1";
+            this.Column1.TrueValue = "true";
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id Number";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // nurse
+            // 
+            this.nurse.HeaderText = "Nurse";
+            this.nurse.Name = "nurse";
+            this.nurse.ReadOnly = true;
+            // 
+            // dateTime
+            // 
+            this.dateTime.HeaderText = "Date/Time";
+            this.dateTime.Name = "dateTime";
+            this.dateTime.ReadOnly = true;
+            // 
+            // height
+            // 
+            this.height.HeaderText = "Height";
+            this.height.Name = "height";
+            this.height.ReadOnly = true;
+            // 
+            // weight
+            // 
+            this.weight.HeaderText = "Weight";
+            this.weight.Name = "weight";
+            this.weight.ReadOnly = true;
+            // 
+            // bp
+            // 
+            this.bp.HeaderText = "Blood Pressure";
+            this.bp.Name = "bp";
+            this.bp.ReadOnly = true;
+            // 
+            // hr
+            // 
+            this.hr.HeaderText = "Heart Rate";
+            this.hr.Name = "hr";
+            this.hr.ReadOnly = true;
             // 
             // NurseNotesGrid
             // 

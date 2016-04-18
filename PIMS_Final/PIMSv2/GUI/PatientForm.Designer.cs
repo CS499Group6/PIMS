@@ -372,7 +372,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "PatientForm";
-            this.Size = new System.Drawing.Size(639, 617);
+            this.Size = new System.Drawing.Size(828, 617);
             this.ResumeLayout(false);
             this.PerformLayout();
 
