@@ -107,11 +107,11 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(94, 169);
+            this.updateButton.Location = new System.Drawing.Point(57, 169);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.Size = new System.Drawing.Size(112, 23);
             this.updateButton.TabIndex = 18;
-            this.updateButton.Text = "Update";
+            this.updateButton.Text = "Assign Room";
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
@@ -119,7 +119,7 @@
             // 
             this.printButton.Location = new System.Drawing.Point(196, 169);
             this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(75, 23);
+            this.printButton.Size = new System.Drawing.Size(102, 23);
             this.printButton.TabIndex = 19;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = true;
@@ -127,9 +127,9 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(94, 208);
+            this.save.Location = new System.Drawing.Point(57, 208);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(75, 25);
+            this.save.Size = new System.Drawing.Size(112, 25);
             this.save.TabIndex = 20;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
