@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.printButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // saveUpdateButton
@@ -87,6 +88,7 @@
             // providerTextBox
             // 
             this.providerTextBox.Location = new System.Drawing.Point(141, 36);
+            this.providerTextBox.MaxLength = 15;
             this.providerTextBox.Name = "providerTextBox";
             this.providerTextBox.Size = new System.Drawing.Size(211, 20);
             this.providerTextBox.TabIndex = 56;
@@ -162,10 +164,21 @@
             this.printButton.UseVisualStyleBackColor = true;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
-            // NewInsuranceForm
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(141, 294);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 63;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // InsuranceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.saveUpdateButton);
             this.Controls.Add(this.typeComboBox);
@@ -180,7 +193,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "NewInsuranceForm";
+            this.Name = "InsuranceForm";
             this.Size = new System.Drawing.Size(494, 408);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -203,5 +216,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

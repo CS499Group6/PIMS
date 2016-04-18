@@ -39,14 +39,13 @@
             // 
             // closeApplicationGroupBox
             // 
-            closeApplicationGroupBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             closeApplicationGroupBox.AutoSize = true;
             closeApplicationGroupBox.BackColor = System.Drawing.SystemColors.Control;
             closeApplicationGroupBox.Controls.Add(this.exitButton);
             closeApplicationGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            closeApplicationGroupBox.Location = new System.Drawing.Point(51, 174);
+            closeApplicationGroupBox.Location = new System.Drawing.Point(15, 164);
             closeApplicationGroupBox.Name = "closeApplicationGroupBox";
-            closeApplicationGroupBox.Size = new System.Drawing.Size(175, 71);
+            closeApplicationGroupBox.Size = new System.Drawing.Size(186, 71);
             closeApplicationGroupBox.TabIndex = 12;
             closeApplicationGroupBox.TabStop = false;
             closeApplicationGroupBox.Text = "Close Application";
@@ -64,13 +63,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.logOffButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(51, 54);
+            this.groupBox1.Location = new System.Drawing.Point(15, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(175, 71);
+            this.groupBox1.Size = new System.Drawing.Size(186, 71);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Log Off";
@@ -93,7 +91,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(closeApplicationGroupBox);
             this.Name = "LoginLeftSideButtons";
-            this.Size = new System.Drawing.Size(347, 753);
+            this.Size = new System.Drawing.Size(214, 314);
             closeApplicationGroupBox.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

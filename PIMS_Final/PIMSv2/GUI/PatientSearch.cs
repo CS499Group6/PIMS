@@ -51,100 +51,127 @@ namespace PIMS
 
             Boolean found = false;
 
-            // Make sure we have at least 3 characters
-            if (newLastNameQuery.Length < 3)
+            if (newLastNameQuery == "*")
             {
-                // Display error message
-                MessageBox.Show("Please enter in at least 3 letters of the patient's last name",
-                "Not enough characters!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Open a ResultsGrid depending on current user type
+                if (PIMS.Program.currentUser is PIMSController.Volunteer)
+                {
+                    // Display error message
+                    MessageBox.Show("Please enter in at least 3 letters of the patient's last name",
+                    "Not enough characters!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (Program.currentUser is PIMSController.Doctor ||
+                        Program.currentUser is PIMSController.MedStaff ||
+                        Program.currentUser is PIMSController.OfficeStaff)
+                {
+                    // Clear contents of Panel1
+                    Program.myForm.splitContainer1.Panel1.Controls.Clear();
+                    // Add the StartLeftSideButtons to the Panel1
+                    Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
 
-                searchTextBox.Clear();
+                    // Clear contents of Panel2
+                    Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                    // Add the ResultsGrid form to the Panel2
+                    Program.myForm.splitContainer1.Panel2.Controls.Add(new ResultsGrid(newLastNameQuery));
+                }
             }
-
-            // We have at least 3 charcters to use to query the database
             else
             {
-                // For all patient's in the database
-                foreach (PIMSController.Patient myPatient in patients)
+                // Make sure we have at least 3 characters
+                if (newLastNameQuery.Length < 3)
                 {
-                    // If the current patient in myPatient is the patient the user searched for
-                    if (newLastNameQuery.Length > 2 && (myPatient.directory.lName.ToUpper().StartsWith(newLastNameQuery) || 
-                                                        myPatient.directory.fName.ToUpper().StartsWith(newLastNameQuery)))
-                    {
-                        found = true;
-                    }   
+                    // Display error message
+                    MessageBox.Show("Please enter in at least 3 letters of the patient's last name",
+                    "Not enough characters!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    searchTextBox.Clear();
                 }
-                // Patient was not found in the database
-                if (!found)
+
+                // We have at least 3 charcters to use to query the database
+                else
                 {
-                    // If the current user is Office Staff
-                    // Allow them the option to create a new patient
-                    if (Program.currentUser is PIMSController.OfficeStaff)
+                    // For all patient's in the database
+                    foreach (PIMSController.Patient myPatient in patients)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Would you like to create a new patient?", "Patient not found in database!", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                        if (dialogResult == DialogResult.Yes)
+                        // If the current patient in myPatient is the patient the user searched for
+                        if (newLastNameQuery.Length > 2 && (myPatient.directory.lName.ToUpper().StartsWith(newLastNameQuery) ||
+                                                            myPatient.directory.fName.ToUpper().StartsWith(newLastNameQuery)))
                         {
-                            Program.currentPatient = null;
-
-                            // Clear contents of Panel1
-                            Program.myForm.splitContainer1.Panel1.Controls.Clear();
-                            // Add the newPatientLeftSideButtons to the Panel1
-                            Program.myForm.splitContainer1.Panel1.Controls.Add(Program.newPatientLeftSideButton);
-
-                            // Clear contents of Panel2
-                            Program.myForm.splitContainer1.Panel2.Controls.Clear();
-                            // Add the PatientForm to the Panel2
-                            Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
+                            found = true;
                         }
-                        else if (dialogResult == DialogResult.No)
+                    }
+                    // Patient was not found in the database
+                    if (!found)
+                    {
+                        // If the current user is Office Staff
+                        // Allow them the option to create a new patient
+                        if (Program.currentUser is PIMSController.OfficeStaff)
                         {
+                            DialogResult dialogResult = MessageBox.Show("Would you like to create a new patient?", "Patient not found in database!", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                Program.currentPatient = null;
+
+                                // Clear contents of Panel1
+                                Program.myForm.splitContainer1.Panel1.Controls.Clear();
+                                // Add the newPatientLeftSideButtons to the Panel1
+                                Program.myForm.splitContainer1.Panel1.Controls.Add(Program.newPatientLeftSideButton);
+
+                                // Clear contents of Panel2
+                                Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                                // Add the PatientForm to the Panel2
+                                Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
+                            }
+                            else if (dialogResult == DialogResult.No)
+                            {
+                                // Clear contents of Panel2
+                                Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                                // Add the PatientSerach to the Panel2
+                                Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
+                            }
+                        }
+                        // Current user is not an Office Staff
+                        else
+                        {
+                            MessageBox.Show("Patient not found in database! \n Please search for a new patient",
+                                "Patient not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                             // Clear contents of Panel2
                             Program.myForm.splitContainer1.Panel2.Controls.Clear();
                             // Add the PatientSerach to the Panel2
                             Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
                         }
                     }
-                    // Current user is not an Office Staff
-                    else
+                    // Patient was found in the database
+                    else if (found)
                     {
-                        MessageBox.Show("Patient not found in database! \n Please search for a new patient",
-                            "Patient not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // Open a ResultsGrid depending on current user type
+                        if (PIMS.Program.currentUser is PIMSController.Volunteer)
+                        {
+                            // Clear contents of Panel1
+                            Program.myForm.splitContainer1.Panel1.Controls.Clear();
+                            // Add StartLeftSideButtons to the Panel1
+                            Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
 
-                        // Clear contents of Panel2
-                        Program.myForm.splitContainer1.Panel2.Controls.Clear();
-                        // Add the PatientSerach to the Panel2
-                        Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
-                    }
-                }
-                // Patient was found in the database
-                else if (found)
-                {
-                    // Open a ResultsGrid depending on current user type
-                    if (PIMS.Program.currentUser is PIMSController.Volunteer)
-                    {
-                        // Clear contents of Panel1
-                        Program.myForm.splitContainer1.Panel1.Controls.Clear();
-                        // Add StartLeftSideButtons to the Panel1
-                        Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
+                            // Clear contents of Panel2
+                            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                            // Add the volunteerResultsGrid to the Panel2
+                            Program.myForm.splitContainer1.Panel2.Controls.Add(new VolunteerResultsGrid(newLastNameQuery));
+                        }
+                        else if (Program.currentUser is PIMSController.Doctor ||
+                                Program.currentUser is PIMSController.MedStaff ||
+                                Program.currentUser is PIMSController.OfficeStaff)
+                        {
+                            // Clear contents of Panel1
+                            Program.myForm.splitContainer1.Panel1.Controls.Clear();
+                            // Add the StartLeftSideButtons to the Panel1
+                            Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
 
-                        // Clear contents of Panel2
-                        Program.myForm.splitContainer1.Panel2.Controls.Clear();
-                        // Add the volunteerResultsGrid to the Panel2
-                        Program.myForm.splitContainer1.Panel2.Controls.Add(new VolunteerResultsGrid(newLastNameQuery));
-                    }
-                    else if (Program.currentUser is PIMSController.Doctor ||
-                            Program.currentUser is PIMSController.MedStaff ||
-                            Program.currentUser is PIMSController.OfficeStaff)
-                    {
-                        // Clear contents of Panel1
-                        Program.myForm.splitContainer1.Panel1.Controls.Clear();
-                        // Add the StartLeftSideButtons to the Panel1
-                        Program.myForm.splitContainer1.Panel1.Controls.Add(new StartLeftSideButtons());
-
-                        // Clear contents of Panel2
-                        Program.myForm.splitContainer1.Panel2.Controls.Clear();
-                        // Add the ResultsGrid form to the Panel2
-                        Program.myForm.splitContainer1.Panel2.Controls.Add(new ResultsGrid(newLastNameQuery));
+                            // Clear contents of Panel2
+                            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                            // Add the ResultsGrid form to the Panel2
+                            Program.myForm.splitContainer1.Panel2.Controls.Add(new ResultsGrid(newLastNameQuery));
+                        }
                     }
                 }
             }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.printButon = new System.Windows.Forms.Button();
             this.itemTextBox = new System.Windows.Forms.TextBox();
             this.itemNameBox = new System.Windows.Forms.Label();
             this.saveUpdateButton = new System.Windows.Forms.Button();
@@ -44,22 +43,11 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // printButon
-            // 
-            this.printButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printButon.Location = new System.Drawing.Point(266, 218);
-            this.printButon.Name = "printButon";
-            this.printButon.Size = new System.Drawing.Size(75, 23);
-            this.printButon.TabIndex = 1;
-            this.printButon.Text = "Print";
-            this.printButon.UseVisualStyleBackColor = true;
-            this.printButon.Click += new System.EventHandler(this.printButon_Click);
-            // 
             // itemTextBox
             // 
             this.itemTextBox.Location = new System.Drawing.Point(203, 72);
             this.itemTextBox.Name = "itemTextBox";
-            this.itemTextBox.Size = new System.Drawing.Size(100, 20);
+            this.itemTextBox.Size = new System.Drawing.Size(200, 20);
             this.itemTextBox.TabIndex = 59;
             // 
             // itemNameBox
@@ -73,7 +61,7 @@
             // 
             // saveUpdateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(107, 218);
+            this.saveUpdateButton.Location = new System.Drawing.Point(203, 218);
             this.saveUpdateButton.Name = "saveUpdateButton";
             this.saveUpdateButton.Size = new System.Drawing.Size(138, 23);
             this.saveUpdateButton.TabIndex = 57;
@@ -103,21 +91,21 @@
             // 
             this.insPaidTextBox.Location = new System.Drawing.Point(203, 124);
             this.insPaidTextBox.Name = "insPaidTextBox";
-            this.insPaidTextBox.Size = new System.Drawing.Size(100, 20);
+            this.insPaidTextBox.Size = new System.Drawing.Size(200, 20);
             this.insPaidTextBox.TabIndex = 53;
             // 
             // paidTextBox
             // 
             this.paidTextBox.Location = new System.Drawing.Point(203, 152);
             this.paidTextBox.Name = "paidTextBox";
-            this.paidTextBox.Size = new System.Drawing.Size(100, 20);
+            this.paidTextBox.Size = new System.Drawing.Size(200, 20);
             this.paidTextBox.TabIndex = 52;
             // 
             // costTextBox
             // 
             this.costTextBox.Location = new System.Drawing.Point(203, 98);
             this.costTextBox.Name = "costTextBox";
-            this.costTextBox.Size = new System.Drawing.Size(100, 20);
+            this.costTextBox.Size = new System.Drawing.Size(200, 20);
             this.costTextBox.TabIndex = 51;
             // 
             // label2
@@ -142,7 +130,7 @@
             // 
             this.idTextBox.Location = new System.Drawing.Point(203, 46);
             this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.Size = new System.Drawing.Size(200, 20);
             this.idTextBox.TabIndex = 61;
             // 
             // idLabel
@@ -178,7 +166,6 @@
             this.Controls.Add(this.costTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.printButon);
             this.Name = "BillingForm";
             this.Size = new System.Drawing.Size(610, 496);
             this.ResumeLayout(false);
@@ -187,7 +174,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button printButon;
+
         private System.Windows.Forms.TextBox itemTextBox;
         private System.Windows.Forms.Label itemNameBox;
         private System.Windows.Forms.Button saveUpdateButton;

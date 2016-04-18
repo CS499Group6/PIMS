@@ -20,6 +20,9 @@ namespace PIMS
         {
             InitializeComponent();
 
+            this.genderComboBox.Items.Add("M");
+            this.genderComboBox.Items.Add("F");
+
             // If the current user is not an OfficeStaff
             // Don't allow the user to see the saveUpdateButton
             if (!(Program.currentUser is PIMSController.OfficeStaff))
@@ -43,15 +46,16 @@ namespace PIMS
                 this.middleNameTextBox.Text = Program.currentPatient.directory.mName;
                 this.dateTimePicker.Value = Program.currentPatient.directory.DOB;
                 if (Program.currentPatient.directory.gender)
-                    this.genderTextBox.Text = "M";
+                    this.genderComboBox.Text = "M";
                 else
-                    this.genderTextBox.Text = "F";
+                    this.genderComboBox.Text = "F";
                 this.addressTextBox.Text = Program.currentPatient.directory.strAddress;
                 this.cityTextBox.Text = Program.currentPatient.directory.city;
                 this.stateTextBox.Text = Program.currentPatient.directory.state;
                 this.zipTextBox.Text = Program.currentPatient.directory.zip;
                 this.primaryPhoneTextBox.Text = Program.currentPatient.directory.phoneNum1;
-                this.secondaryPhoneTextBox.Text = Program.currentPatient.directory.phoneNum2;
+                this.cellPhoneTextBox.Text = Program.currentPatient.directory.phoneNum2;
+                this.workPhoneTextBox.Text = Program.currentPatient.directory.workphone;
                 this.contactName1TextBox.Text = Program.currentPatient.directory.emerContact1.name;
                 this.contactPhone1TextBox.Text = Program.currentPatient.directory.emerContact1.phoneNum;
                 this.contactName2TextBox.Text = Program.currentPatient.directory.emerContact2.name;
@@ -93,13 +97,14 @@ namespace PIMS
             this.firstNameTextBox.ReadOnly = true;
             this.middleNameTextBox.ReadOnly = true;
             this.dateTimePicker.Enabled = false;
-            this.genderTextBox.ReadOnly = true;
+            this.genderComboBox.Enabled = false;
             this.addressTextBox.ReadOnly = true;
             this.cityTextBox.ReadOnly = true;
             this.stateTextBox.ReadOnly = true;
             this.zipTextBox.ReadOnly = true;
             this.primaryPhoneTextBox.ReadOnly = true;
-            this.secondaryPhoneTextBox.ReadOnly = true;
+            this.cellPhoneTextBox.ReadOnly = true;
+            this.workPhoneTextBox.ReadOnly = true;
             this.contactName1TextBox.ReadOnly = true;
             this.contactPhone1TextBox.ReadOnly = true;
             this.contactName2TextBox.ReadOnly = true;
@@ -113,13 +118,14 @@ namespace PIMS
             this.firstNameTextBox.ReadOnly = false;
             this.middleNameTextBox.ReadOnly = false;
             this.dateTimePicker.Enabled = true;
-            this.genderTextBox.ReadOnly = false;
+            this.genderComboBox.Enabled = true;
             this.addressTextBox.ReadOnly = false;
             this.cityTextBox.ReadOnly = false;
             this.stateTextBox.ReadOnly = false;
             this.zipTextBox.ReadOnly = false;
             this.primaryPhoneTextBox.ReadOnly = false;
-            this.secondaryPhoneTextBox.ReadOnly = false;
+            this.cellPhoneTextBox.ReadOnly = false;
+            this.workPhoneTextBox.ReadOnly = false;
             this.contactName1TextBox.ReadOnly = false;
             this.contactPhone1TextBox.ReadOnly = false;
             this.contactName2TextBox.ReadOnly = false;
@@ -129,7 +135,6 @@ namespace PIMS
         // Will allow the Office Staff user to update a patient's profile information
         private void saveUpdateButton_Click(object sender, EventArgs e)
         {
-            
             if (saveUpdateButton.Text == "Update Profile Information")
             {
                 // Make the patient's profile text box's editable
@@ -146,17 +151,7 @@ namespace PIMS
             }
             else if (saveUpdateButton.Text == "Save Profile Information")
             {
-                bool notFilled = false;
-
-                foreach (Control tBox in this.Controls)
-                {
-                    if (tBox is TextBox && tBox.Text.Equals(null))
-                    {
-                        notFilled = true;
-                    }
-                }
-
-                if (!notFilled)
+                if (!(this.lastNameTextBox.Text == "" && this.firstNameTextBox.Text == ""))
                 {
                     // Check to see if we have a current patient
                     if (Program.currentPatient == null)
@@ -173,7 +168,7 @@ namespace PIMS
                     Program.currentPatient.directory.fName = this.firstNameTextBox.Text;
                     Program.currentPatient.directory.mName = this.middleNameTextBox.Text;
                     Program.currentPatient.directory.DOB = this.dateTimePicker.Value;
-                    if (this.genderTextBox.Text.ToUpper().Equals("M"))
+                    if (this.genderComboBox.Text.Equals("M"))
                         Program.currentPatient.directory.gender = true;
                     else Program.currentPatient.directory.gender = false;
                     Program.currentPatient.directory.strAddress = this.addressTextBox.Text;
@@ -181,7 +176,8 @@ namespace PIMS
                     Program.currentPatient.directory.state = this.stateTextBox.Text;
                     Program.currentPatient.directory.zip = this.zipTextBox.Text;
                     Program.currentPatient.directory.phoneNum1 = this.primaryPhoneTextBox.Text;
-                    Program.currentPatient.directory.phoneNum2 = this.secondaryPhoneTextBox.Text;
+                    Program.currentPatient.directory.phoneNum2 = this.cellPhoneTextBox.Text;
+                    Program.currentPatient.directory.workphone = this.workPhoneTextBox.Text;
                     Program.currentPatient.directory.emerContact1.name = this.contactName1TextBox.Text;
                     Program.currentPatient.directory.emerContact1.phoneNum = this.contactPhone1TextBox.Text;
                     Program.currentPatient.directory.emerContact2.name = this.contactName2TextBox.Text;
@@ -212,7 +208,7 @@ namespace PIMS
                 else
                 {
                     // Display error message
-                    MessageBox.Show("All text boxes in the Patient's profile information must be filled!",
+                    MessageBox.Show("Patient's first name and last name must be filled out!",
                      "Not enough data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -244,34 +240,201 @@ namespace PIMS
         // Will allow the user to print the patient's profile information
         private void printButton_Click(object sender, EventArgs e)
         {
-            // Instantiate new printInfo object to print page
-            PIMSController.PrintInfo document = new PIMSController.PrintInfo();
+            string noInfo = "Information not provided";
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter("MyFile.txt"))
+            Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+            var myWordDoc = app.Documents.Open(@"F:\PIMS_Final\FORMS\PIMS PROFILE FORM.docx", ReadOnly: false, Visible: true);
+            app.Visible = true;
+
+            Microsoft.Office.Interop.Word.Find fndLastName = myWordDoc.ActiveWindow.Selection.Find;
+            fndLastName.Text = "@lname";
+
+            if (Program.currentPatient.directory.lName.ToString() == "")
             {
-
-                file.WriteLine("PATIENT ADDRESS\n");
-                String address = String.Format("{0}, {1} {2}\n{3} \n{4}, {5} \n{6}\n\n", Program.currentPatient.directory.lName, Program.currentPatient.directory.fName, Program.currentPatient.directory.mName, Program.currentPatient.directory.strAddress,
-                    Program.currentPatient.directory.city, Program.currentPatient.directory.state, Program.currentPatient.directory.zip);
-                file.WriteLine(address);
-
-                file.WriteLine("PATIENT INFORMATION\n");
-
-                file.WriteLine(String.Format("{0, -25}{1, -25} \n{2, -25}{3, -25} \n{4, -25}{5, -25} \n{6, -25}{7, -25} \n{8, -25}{9, -25} \n{10, -25}{11, -25} \n{12, -25}{13, -25} \n{14, -25}{15, -25} \n{16, -25}{17, -25} \n",
-                    "Patient ID:", Program.currentPatient.directory.patientID,
-                    "Date of Birth:", Program.currentPatient.directory.DOB.Date.ToString("d"),
-                    "Gender:", Program.currentPatient.directory.gender ? "M" : "F",
-                    "Primary Phone:", Program.currentPatient.directory.phoneNum1,
-                    "Secondary Phone:", Program.currentPatient.directory.phoneNum2,
-                    "Emergency Contact:", Program.currentPatient.directory.emerContact1,
-                    "Emergency Contact Number:", Program.currentPatient.directory.emerContact1.phoneNum,
-                    "Emergency Contact:", Program.currentPatient.directory.emerContact2,
-                    "Emergency Contact Number:", Program.currentPatient.directory.emerContact2.phoneNum));
-
+                fndLastName.Replacement.Text = noInfo;
             }
+            else
+            {
+                fndLastName.Replacement.Text = Program.currentPatient.directory.lName.ToString();
+            }
+            fndLastName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
 
-            // Call the print function in the print class
-            document.printButton_Click();
+            Microsoft.Office.Interop.Word.Find fndFirstName = myWordDoc.ActiveWindow.Selection.Find;
+            fndFirstName.Text = "@fname";
+
+            if (Program.currentPatient.directory.fName.ToString() == "")
+            {
+                fndFirstName.Replacement.Text = noInfo;
+            }
+            else
+            {
+                fndFirstName.Replacement.Text = Program.currentPatient.directory.fName.ToString();
+            }
+            fndFirstName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find fndDOB = myWordDoc.ActiveWindow.Selection.Find;
+            fndDOB.Text = "@dob";
+
+            if (Program.currentPatient.directory.DOB.Date.ToShortDateString() == "")
+            {
+                fndDOB.Replacement.Text = noInfo;
+            }
+            else
+            {
+                fndDOB.Replacement.Text = Program.currentPatient.directory.DOB.Date.ToShortDateString();
+            }
+            fndDOB.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findGender = myWordDoc.ActiveWindow.Selection.Find;
+            findGender.Text = "@gender";
+            findGender.Replacement.Text = Program.currentPatient.directory.gender ? "M" : "F";
+            findGender.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find fndStreet = myWordDoc.ActiveWindow.Selection.Find;
+            fndStreet.Text = "@street";
+
+            if (Program.currentPatient.directory.strAddress.ToString() == "")
+            {
+                fndStreet.Replacement.Text = noInfo;
+            }
+            else
+            {
+                fndStreet.Replacement.Text = Program.currentPatient.directory.strAddress.ToString();
+            }
+            fndStreet.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findCity = myWordDoc.ActiveWindow.Selection.Find;
+            findCity.Text = "@city";
+
+            if (Program.currentPatient.directory.city.ToString() == "")
+            {
+                findCity.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findCity.Replacement.Text = Program.currentPatient.directory.city.ToString();
+            }
+            findCity.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findState = myWordDoc.ActiveWindow.Selection.Find;
+            findState.Text = "@state";
+
+            if (Program.currentPatient.directory.state.ToString() == "")
+            {
+                findState.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findState.Replacement.Text = Program.currentPatient.directory.state.ToString();
+            }
+            findState.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findZip = myWordDoc.ActiveWindow.Selection.Find;
+            findZip.Text = "@zip";
+
+            if (Program.currentPatient.directory.zip.ToString() == "")
+            {
+                findZip.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findZip.Replacement.Text = Program.currentPatient.directory.zip.ToString();
+            }
+            findZip.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findPhone1 = myWordDoc.ActiveWindow.Selection.Find;
+            findPhone1.Text = "@phone1";
+
+            if (Program.currentPatient.directory.phoneNum1.ToString() == "")
+            {
+                findPhone1.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findPhone1.Replacement.Text = Program.currentPatient.directory.phoneNum1.ToString();
+            }
+            findPhone1.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findPhone2 = myWordDoc.ActiveWindow.Selection.Find;
+            findPhone2.Text = "@phone2";
+
+            if (Program.currentPatient.directory.phoneNum2.ToString() == "")
+            {
+                findPhone1.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findPhone2.Replacement.Text = Program.currentPatient.directory.phoneNum2.ToString();
+            }
+            findPhone2.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findPhone3 = myWordDoc.ActiveWindow.Selection.Find;
+            findPhone3.Text = "@phone3";
+
+            if (Program.currentPatient.directory.workphone.ToString() == "")
+            {
+                findPhone3.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findPhone3.Replacement.Text = Program.currentPatient.directory.workphone.ToString();
+            }
+            findPhone3.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findCName1 = myWordDoc.ActiveWindow.Selection.Find;
+            findCName1.Text = "@cName1";
+
+            if (Program.currentPatient.directory.emerContact1.name.ToString() == "")
+            {
+                findCName1.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findCName1.Replacement.Text = Program.currentPatient.directory.emerContact1.name.ToString();
+            }
+            findCName1.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findCPhone1 = myWordDoc.ActiveWindow.Selection.Find;
+            findCPhone1.Text = "@cPhone1";
+
+            if (Program.currentPatient.directory.emerContact1.phoneNum.ToString() == "")
+            {
+                findCPhone1.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findCPhone1.Replacement.Text = Program.currentPatient.directory.emerContact1.phoneNum.ToString();
+            }
+            findCPhone1.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findCName2 = myWordDoc.ActiveWindow.Selection.Find;
+            findCName2.Text = "@cName2";
+
+            if (Program.currentPatient.directory.emerContact2.name.ToString() == "")
+            {
+                findCName2.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findCName2.Replacement.Text = Program.currentPatient.directory.emerContact2.name.ToString();
+            }
+            findCName2.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findCPhone2 = myWordDoc.ActiveWindow.Selection.Find;
+            findCPhone2.Text = "@cPhone2";
+
+            if (Program.currentPatient.directory.emerContact2.phoneNum.ToString() == "")
+            {
+                findCPhone2.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findCPhone2.Replacement.Text = Program.currentPatient.directory.emerContact2.phoneNum.ToString();
+            }
+            findCPhone2.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            myWordDoc.SaveAs2(@"F:\PIMS_Final\" + Program.currentPatient.directory.lName + "." + Program.currentPatient.directory.fName + ".Profile Information.pdf");
+            myWordDoc.PrintPreview();
         }
     }
 }

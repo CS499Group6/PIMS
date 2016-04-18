@@ -61,8 +61,12 @@ namespace PIMS
             }
         }
 
-
-       
+        // If the billingDataGridView is clicked
+        // Commit that edit
+        private void billingDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            billingDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
 
         // The cell was selected
         private void billingDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -115,6 +119,44 @@ namespace PIMS
          // Will allow the user to print the patient's billing information
         private void printButton_Click(object sender, EventArgs e)
         {
+            // if (Program.currentPatient.directory.location.bedNum == 0)
+            //{
+            //    // Display information message
+            //    MessageBox.Show("Patient is not admitted in the hospital.\n There is no need to print this information.",
+            //    "No information to print!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+                Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+                var myWordDoc = app.Documents.Open(@"F:\PIMS_Final\FORMS\PIMS BILLING FORM.docx", ReadOnly: false, Visible: true);
+                app.Visible = true;
+
+                Microsoft.Office.Interop.Word.Find fndLastName = myWordDoc.ActiveWindow.Selection.Find;
+                fndLastName.Text = "@lname";
+                fndLastName.Replacement.Text = Program.currentPatient.directory.lName.ToString();
+                fndLastName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                Microsoft.Office.Interop.Word.Find fndFirstName = myWordDoc.ActiveWindow.Selection.Find;
+                fndFirstName.Text = "@fname";
+                fndFirstName.Replacement.Text = Program.currentPatient.directory.fName.ToString();
+                fndFirstName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                //Microsoft.Office.Interop.Word.Table newTable = new this;
+
+
+                Microsoft.Office.Interop.Word.Find billing = myWordDoc.ActiveWindow.Selection.Find;
+                billing.Text = "@billing";
+                //billing.Replacement.Text = ;
+                billing.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                
+
+                myWordDoc.SaveAs2(@"F:\PIMS_Final\" + Program.currentPatient.directory.lName + "." + Program.currentPatient.directory.fName + ".Billing Information.pdf");
+                myWordDoc.PrintPreview();
+            //}
+        
+
+
             // Instantiate new printInfo object to print page
             PIMSController.PrintInfo document = new PIMSController.PrintInfo(); 
 
@@ -140,12 +182,5 @@ namespace PIMS
             // Call the print function in the print class
             document.printButton_Click();
         }
-
-        private void billingDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            billingDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
-        }
-
-
     }
 }

@@ -147,6 +147,24 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel2.Controls.Add(new DoctorNotesForm());
         }
 
+        // Will allow the Doctor to discharge the patient
+        private void dischargeButton_Click(object sender, EventArgs e)
+        {
+            if (Program.currentPatient.directory.location.roomNum != 0)
+            {
+                // Clear contents of Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                // Add Login form to Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new DischargePatientForm());
+            }
+            else
+            {
+                // Display error message
+                MessageBox.Show("Patient is not in the hospital. \n They have already been discharged",
+                    "Patient not in hospital", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         // Will log the current user off of the server
         private void logOffButton_Click(object sender, EventArgs e)
         {

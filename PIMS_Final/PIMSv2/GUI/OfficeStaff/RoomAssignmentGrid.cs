@@ -70,6 +70,7 @@ namespace PIMS
                         {
                             if (row.Selected)
                             {
+                                Program.currentPatient.directory.location.floor = Int32.Parse(row.Cells[1].Value.ToString());
                                 Program.currentPatient.directory.location.bedNum = Int32.Parse(row.Cells[3].Value.ToString());
                                 Program.currentPatient.directory.location.roomNum = Int32.Parse(row.Cells[2].Value.ToString());
                                 Program.currentPatient.directory.location.unit = row.Cells[0].Value.ToString();

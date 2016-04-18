@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.genderTextBox = new System.Windows.Forms.TextBox();
             this.saveUpdateButton = new System.Windows.Forms.Button();
             this.contactPhone2TextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.contactName2TextBox = new System.Windows.Forms.TextBox();
             this.contactPhone1TextBox = new System.Windows.Forms.TextBox();
             this.contactName1TextBox = new System.Windows.Forms.TextBox();
-            this.secondaryPhoneTextBox = new System.Windows.Forms.TextBox();
+            this.cellPhoneTextBox = new System.Windows.Forms.TextBox();
             this.primaryPhoneTextBox = new System.Windows.Forms.TextBox();
             this.zipTextBox = new System.Windows.Forms.TextBox();
             this.stateTextBox = new System.Windows.Forms.TextBox();
@@ -61,18 +60,14 @@
             this.printButton = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.genderComboBox = new System.Windows.Forms.ComboBox();
+            this.workPhoneTextBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // genderTextBox
-            // 
-            this.genderTextBox.Location = new System.Drawing.Point(235, 183);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(158, 20);
-            this.genderTextBox.TabIndex = 54;
             // 
             // saveUpdateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(154, 489);
+            this.saveUpdateButton.Location = new System.Drawing.Point(154, 517);
             this.saveUpdateButton.Name = "saveUpdateButton";
             this.saveUpdateButton.Size = new System.Drawing.Size(153, 23);
             this.saveUpdateButton.TabIndex = 65;
@@ -82,15 +77,15 @@
             // 
             // contactPhone2TextBox
             // 
-            this.contactPhone2TextBox.Location = new System.Drawing.Point(235, 446);
+            this.contactPhone2TextBox.Location = new System.Drawing.Point(235, 474);
             this.contactPhone2TextBox.Name = "contactPhone2TextBox";
-            this.contactPhone2TextBox.Size = new System.Drawing.Size(158, 20);
+            this.contactPhone2TextBox.Size = new System.Drawing.Size(200, 20);
             this.contactPhone2TextBox.TabIndex = 64;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(112, 446);
+            this.label15.Location = new System.Drawing.Point(112, 474);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(120, 13);
             this.label15.TabIndex = 63;
@@ -98,93 +93,93 @@
             // 
             // contactName2TextBox
             // 
-            this.contactName2TextBox.Location = new System.Drawing.Point(235, 417);
+            this.contactName2TextBox.Location = new System.Drawing.Point(235, 445);
             this.contactName2TextBox.Name = "contactName2TextBox";
-            this.contactName2TextBox.Size = new System.Drawing.Size(158, 20);
+            this.contactName2TextBox.Size = new System.Drawing.Size(200, 20);
             this.contactName2TextBox.TabIndex = 63;
             // 
             // contactPhone1TextBox
             // 
-            this.contactPhone1TextBox.Location = new System.Drawing.Point(235, 391);
+            this.contactPhone1TextBox.Location = new System.Drawing.Point(235, 419);
             this.contactPhone1TextBox.Name = "contactPhone1TextBox";
-            this.contactPhone1TextBox.Size = new System.Drawing.Size(158, 20);
+            this.contactPhone1TextBox.Size = new System.Drawing.Size(200, 20);
             this.contactPhone1TextBox.TabIndex = 62;
             // 
             // contactName1TextBox
             // 
-            this.contactName1TextBox.Location = new System.Drawing.Point(235, 365);
+            this.contactName1TextBox.Location = new System.Drawing.Point(235, 393);
             this.contactName1TextBox.Name = "contactName1TextBox";
-            this.contactName1TextBox.Size = new System.Drawing.Size(158, 20);
+            this.contactName1TextBox.Size = new System.Drawing.Size(200, 20);
             this.contactName1TextBox.TabIndex = 61;
             // 
-            // secondaryPhoneTextBox
+            // cellPhoneTextBox
             // 
-            this.secondaryPhoneTextBox.Location = new System.Drawing.Point(235, 339);
-            this.secondaryPhoneTextBox.Name = "secondaryPhoneTextBox";
-            this.secondaryPhoneTextBox.Size = new System.Drawing.Size(158, 20);
-            this.secondaryPhoneTextBox.TabIndex = 60;
+            this.cellPhoneTextBox.Location = new System.Drawing.Point(236, 339);
+            this.cellPhoneTextBox.Name = "cellPhoneTextBox";
+            this.cellPhoneTextBox.Size = new System.Drawing.Size(200, 20);
+            this.cellPhoneTextBox.TabIndex = 60;
             // 
             // primaryPhoneTextBox
             // 
             this.primaryPhoneTextBox.Location = new System.Drawing.Point(235, 313);
             this.primaryPhoneTextBox.Name = "primaryPhoneTextBox";
-            this.primaryPhoneTextBox.Size = new System.Drawing.Size(158, 20);
+            this.primaryPhoneTextBox.Size = new System.Drawing.Size(200, 20);
             this.primaryPhoneTextBox.TabIndex = 59;
             // 
             // zipTextBox
             // 
             this.zipTextBox.Location = new System.Drawing.Point(235, 287);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(158, 20);
+            this.zipTextBox.Size = new System.Drawing.Size(200, 20);
             this.zipTextBox.TabIndex = 58;
             // 
             // stateTextBox
             // 
             this.stateTextBox.Location = new System.Drawing.Point(235, 261);
             this.stateTextBox.Name = "stateTextBox";
-            this.stateTextBox.Size = new System.Drawing.Size(158, 20);
+            this.stateTextBox.Size = new System.Drawing.Size(200, 20);
             this.stateTextBox.TabIndex = 57;
             // 
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(235, 235);
             this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(158, 20);
+            this.cityTextBox.Size = new System.Drawing.Size(200, 20);
             this.cityTextBox.TabIndex = 56;
             // 
             // addressTextBox
             // 
             this.addressTextBox.Location = new System.Drawing.Point(235, 209);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(158, 20);
+            this.addressTextBox.Size = new System.Drawing.Size(200, 20);
             this.addressTextBox.TabIndex = 55;
             // 
             // middleNameTextBox
             // 
             this.middleNameTextBox.Location = new System.Drawing.Point(235, 131);
             this.middleNameTextBox.Name = "middleNameTextBox";
-            this.middleNameTextBox.Size = new System.Drawing.Size(158, 20);
+            this.middleNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.middleNameTextBox.TabIndex = 52;
             // 
             // firstNameTextBox
             // 
             this.firstNameTextBox.Location = new System.Drawing.Point(235, 105);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(158, 20);
+            this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.firstNameTextBox.TabIndex = 51;
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Location = new System.Drawing.Point(235, 79);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(158, 20);
+            this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.lastNameTextBox.TabIndex = 50;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.lastNameTextBox_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(112, 420);
+            this.label14.Location = new System.Drawing.Point(112, 448);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(117, 13);
             this.label14.TabIndex = 49;
@@ -193,7 +188,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(109, 391);
+            this.label13.Location = new System.Drawing.Point(109, 419);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(120, 13);
             this.label13.TabIndex = 48;
@@ -202,7 +197,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(112, 368);
+            this.label12.Location = new System.Drawing.Point(112, 396);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 13);
             this.label12.TabIndex = 47;
@@ -211,20 +206,20 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(134, 339);
+            this.label11.Location = new System.Drawing.Point(151, 365);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 13);
+            this.label11.Size = new System.Drawing.Size(70, 13);
             this.label11.TabIndex = 46;
-            this.label11.Text = "Secondary Phone:";
+            this.label11.Text = "Work Phone:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(151, 313);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 13);
+            this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 45;
-            this.label10.Text = "Primary Phone:";
+            this.label10.Text = "Home Phone:";
             // 
             // label9
             // 
@@ -309,7 +304,7 @@
             // 
             // printButton
             // 
-            this.printButton.Location = new System.Drawing.Point(324, 489);
+            this.printButton.Location = new System.Drawing.Point(324, 517);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(100, 23);
             this.printButton.TabIndex = 69;
@@ -326,7 +321,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(154, 528);
+            this.cancelButton.Location = new System.Drawing.Point(154, 556);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(153, 23);
             this.cancelButton.TabIndex = 72;
@@ -334,21 +329,47 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // genderComboBox
+            // 
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Location = new System.Drawing.Point(236, 182);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(199, 21);
+            this.genderComboBox.TabIndex = 73;
+            // 
+            // workPhoneTextBox
+            // 
+            this.workPhoneTextBox.Location = new System.Drawing.Point(236, 365);
+            this.workPhoneTextBox.Name = "workPhoneTextBox";
+            this.workPhoneTextBox.Size = new System.Drawing.Size(200, 20);
+            this.workPhoneTextBox.TabIndex = 75;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(160, 339);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 13);
+            this.label16.TabIndex = 74;
+            this.label16.Text = "Cell Phone:";
+            // 
             // PatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.workPhoneTextBox);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.genderComboBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.printButton);
-            this.Controls.Add(this.genderTextBox);
             this.Controls.Add(this.saveUpdateButton);
             this.Controls.Add(this.contactPhone2TextBox);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.contactName2TextBox);
             this.Controls.Add(this.contactPhone1TextBox);
             this.Controls.Add(this.contactName1TextBox);
-            this.Controls.Add(this.secondaryPhoneTextBox);
+            this.Controls.Add(this.cellPhoneTextBox);
             this.Controls.Add(this.primaryPhoneTextBox);
             this.Controls.Add(this.zipTextBox);
             this.Controls.Add(this.stateTextBox);
@@ -380,14 +401,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.Button saveUpdateButton;
         private System.Windows.Forms.TextBox contactPhone2TextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox contactName2TextBox;
         private System.Windows.Forms.TextBox contactPhone1TextBox;
         private System.Windows.Forms.TextBox contactName1TextBox;
-        private System.Windows.Forms.TextBox secondaryPhoneTextBox;
+        private System.Windows.Forms.TextBox cellPhoneTextBox;
         private System.Windows.Forms.TextBox primaryPhoneTextBox;
         private System.Windows.Forms.TextBox zipTextBox;
         private System.Windows.Forms.TextBox stateTextBox;
@@ -413,5 +433,8 @@
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ComboBox genderComboBox;
+        private System.Windows.Forms.TextBox workPhoneTextBox;
+        private System.Windows.Forms.Label label16;
     }
 }

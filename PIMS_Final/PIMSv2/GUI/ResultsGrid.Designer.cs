@@ -41,7 +41,7 @@
             this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isAdmitted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addPatientButton = new System.Windows.Forms.Button();
-            this.deletePatientButton = new System.Windows.Forms.Button();
+            this.addNewPatient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,9 +61,11 @@
             this.bedNumber,
             this.unit,
             this.isAdmitted});
-            this.resultsDataGridView.Location = new System.Drawing.Point(22, 58);
+            this.resultsDataGridView.Location = new System.Drawing.Point(24, 28);
             this.resultsDataGridView.Name = "resultsDataGridView";
-            this.resultsDataGridView.Size = new System.Drawing.Size(1294, 560);
+            this.resultsDataGridView.RowHeadersVisible = false;
+            this.resultsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.resultsDataGridView.Size = new System.Drawing.Size(1086, 560);
             this.resultsDataGridView.TabIndex = 0;
             this.resultsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -138,27 +140,26 @@
             this.addPatientButton.TabIndex = 1;
             this.addPatientButton.Text = "Add A New Patient";
             this.addPatientButton.UseVisualStyleBackColor = true;
-            this.addPatientButton.Click += new System.EventHandler(this.addPatientButton_Click);
             // 
-            // deletePatientButton
+            // addNewPatient
             // 
-            this.deletePatientButton.Location = new System.Drawing.Point(977, 651);
-            this.deletePatientButton.Name = "deletePatientButton";
-            this.deletePatientButton.Size = new System.Drawing.Size(147, 23);
-            this.deletePatientButton.TabIndex = 2;
-            this.deletePatientButton.Text = "Delete Selected Patient";
-            this.deletePatientButton.UseVisualStyleBackColor = true;
-            this.deletePatientButton.Click += new System.EventHandler(this.deletePatientButton_Click);
+            this.addNewPatient.Location = new System.Drawing.Point(730, 608);
+            this.addNewPatient.Name = "addNewPatient";
+            this.addNewPatient.Size = new System.Drawing.Size(113, 23);
+            this.addNewPatient.TabIndex = 2;
+            this.addNewPatient.Text = "Add New Patient";
+            this.addNewPatient.UseVisualStyleBackColor = true;
+            this.addNewPatient.Click += new System.EventHandler(this.addNewPatient_Click);
             // 
             // ResultsGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.deletePatientButton);
+            this.Controls.Add(this.addNewPatient);
             this.Controls.Add(this.addPatientButton);
             this.Controls.Add(this.resultsDataGridView);
             this.Name = "ResultsGrid";
-            this.Size = new System.Drawing.Size(1383, 712);
+            this.Size = new System.Drawing.Size(1143, 710);
             ((System.ComponentModel.ISupportInitialize)(this.resultsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -179,6 +180,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bedNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn isAdmitted;
-        private System.Windows.Forms.Button deletePatientButton;
+        private System.Windows.Forms.Button addNewPatient;
     }
 }

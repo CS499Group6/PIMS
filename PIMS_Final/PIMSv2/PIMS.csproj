@@ -48,18 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\BedList.cs" />
-    <Compile Include="GUI\OfficeStaff\AdmitPatientForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\OfficeStaff\AdmitPatientForm.Designer.cs">
-      <DependentUpon>AdmitPatientForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controller\Drug.cs" />
     <Compile Include="Controller\PrintInfo.cs" />
-    <Compile Include="GUI\OfficeStaff\DischargePatientForm.cs">
+    <Compile Include="GUI\Doctor\DischargePatientForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\OfficeStaff\DischargePatientForm.Designer.cs">
+    <Compile Include="GUI\Doctor\DischargePatientForm.Designer.cs">
       <DependentUpon>DischargePatientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Doctor\DoctorNotesForm.cs">
@@ -67,6 +61,12 @@
     </Compile>
     <Compile Include="GUI\Doctor\DoctorNotesForm.Designer.cs">
       <DependentUpon>DoctorNotesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LocationForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\LocationForm.Designer.cs">
+      <DependentUpon>LocationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\OfficeStaff\BillingForm.cs">
       <SubType>UserControl</SubType>
@@ -149,12 +149,6 @@
     </Compile>
     <Compile Include="GUI\BillingGrid.Designer.cs">
       <DependentUpon>BillingGrid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\LocationForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\LocationForm.Designer.cs">
-      <DependentUpon>LocationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\LoginLeftSideButtons.cs">
       <SubType>UserControl</SubType>
@@ -248,19 +242,19 @@
     <Compile Include="GUI\Doctor\ScheduledProcdureGrid.Designer.cs">
       <DependentUpon>ScheduledProcdureGrid.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUI\OfficeStaff\AdmitPatientForm.resx">
-      <DependentUpon>AdmitPatientForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Doctor\DoctorNotesForm.resx">
       <DependentUpon>DoctorNotesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Doctor\ScheduledProcedureForm.resx">
       <DependentUpon>ScheduledProcedureForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LocationForm.resx">
+      <DependentUpon>LocationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\OfficeStaff\BillingForm.resx">
       <DependentUpon>BillingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\DischargePatientForm.resx">
+    <EmbeddedResource Include="GUI\Doctor\DischargePatientForm.resx">
       <DependentUpon>DischargePatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\OfficeStaff\NewPatientLeftSideButtonscs.resx">
@@ -295,9 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\BillingGrid.resx">
       <DependentUpon>BillingGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\LocationForm.resx">
-      <DependentUpon>LocationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginLeftSideButtons.resx">
       <DependentUpon>LoginLeftSideButtons.cs</DependentUpon>

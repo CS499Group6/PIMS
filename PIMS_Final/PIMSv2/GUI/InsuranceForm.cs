@@ -21,15 +21,25 @@ namespace PIMS
             // Don't allow the user to see the saveUpdateButton
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
-                saveUpdateButton.Visible = false;
+                this.saveUpdateButton.Visible = false;
+                this.cancelButton.Visible = false;
             }
+
+            this.cancelButton.Visible = false;
+
             typeComboBox.Items.Add("Medical");
             typeComboBox.Items.Add("Dental");
             typeComboBox.Items.Add("Prescriptions");
             typeComboBox.Items.Add("Vision");
+
             // If we have a current patient, add insuracne information about the patient to various insurance text box's
             if (Program.currentPatient != null)
             {
+                if (Program.currentPatient.billing.insurance.provider == null || Program.currentPatient.billing.insurance.provider == "")
+                {
+                    this.printButton.Visible = false;
+                }
+
                 this.providerTextBox.Text = Program.currentPatient.billing.insurance.provider;
                 this.binTextBox.Text = Program.currentPatient.billing.insurance.bin;
                 this.idTextBox.Text = Program.currentPatient.billing.insurance.id;
@@ -87,22 +97,30 @@ namespace PIMS
             {
                 // Makes the patient's profile text box's editable
                 makeReadable();
+
                 // Change the saveUpdateButton text
                 saveUpdateButton.Text = "Save";
+
+                this.cancelButton.Visible = true;
+
+                // Allow the Office Staff user to see the cancelButton
+                this.cancelButton.Visible = true;
+
                 // Exit out of this function
                 return;
             }
             else if (saveUpdateButton.Text == "Save")
             {
-                //Boolean createNew = false;
+                foreach (Control ctrl in this.Controls)
+                {
+                    if (ctrl is TextBox && (((TextBox)ctrl).Text == "" || ((TextBox)ctrl).Text == ""))
+                    {
+                        MessageBox.Show("Patient's insurance information text box's must all contain data!",
+                        "Not enough information!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Check to see if we have a current patient
-                // If we don't, create a new patient
-                //if (Program.currentPatient == null)
-                //{
-                //    Program.currentPatient = new PIMSController.Patient();
-                //    createNew = true;
-                //}
+                        return;
+                    }
+                }
 
                 // Assign various insurance information to the current patient
                 Program.currentPatient.billing.insurance.provider = providerTextBox.Text;
@@ -112,20 +130,20 @@ namespace PIMS
                 Program.currentPatient.billing.insurance.groupNum = groupTextBox.Text;
                 Program.currentPatient.billing.insurance.insuranceType = typeComboBox.Text;
 
-                //// This is a new patient
-                //// Create a new patient
-                //if (createNew)
-                //    PIMSController.SQLcommands.createPatient();
-                //// This is an existing patient
-                //// Update the exisitng patient
-                //else
-                //    PIMSController.SQLcommands.updatePatient(Program.currentPatient);
-
                 // Makes the patient's profile text box's not editable
                 PIMSController.SQLcommands.updatePatient();
+
+                if (Program.currentPatient.billing.insurance.provider != null && Program.currentPatient.billing.insurance.provider != "")
+                {
+                    this.printButton.Visible = true;
+                }
+
                 makeReadOnly();
+
                 // Change the saveUpdateButton text
                 saveUpdateButton.Text = "Update";
+
+                this.cancelButton.Visible = false;
 
                 // Display information message
                 MessageBox.Show("Patient's insurance information has been saved!",
@@ -133,33 +151,131 @@ namespace PIMS
             }
         }
 
+        // Will toggle the saveUpdateButton Text and the cancelButton Visability
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.saveUpdateButton.Text = "Update";
+
+            this.cancelButton.Visible = false;
+
+            makeReadOnly();
+        }
+
         // Will allow the user to print the patient's insurance information
         private void printButton_Click(object sender, EventArgs e)
         {
-            // Instantiate new printInfo object to print page
-            PIMSController.PrintInfo document = new PIMSController.PrintInfo(); 
+            string noInfo = "Information not provided";
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter("MyFile.txt"))
+            Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+            var myWordDoc = app.Documents.Open(@"F:\PIMS_Final\FORMS\PIMS INSURANCE FORM.docx", ReadOnly: false, Visible: true);
+            app.Visible = true;
+
+            Microsoft.Office.Interop.Word.Find fndLastName = myWordDoc.ActiveWindow.Selection.Find;
+            fndLastName.Text = "@lname";
+
+            if (Program.currentPatient.directory.lName.ToString() == "")
             {
-
-                file.WriteLine("PATIENT BILLING ADDRESS\n");
-                String address = String.Format("{0}, {1} \n{2} \n{3}, {4} \n{5}\n\n", Program.currentPatient.directory.lName, Program.currentPatient.directory.fName, Program.currentPatient.directory.strAddress,
-                    Program.currentPatient.directory.city, Program.currentPatient.directory.state, Program.currentPatient.directory.zip);
-                file.WriteLine(address);
-
-                file.WriteLine("PATIENT INSURANCE INFORMATION\n");
-
-                file.WriteLine(String.Format("{0, 15}: {1, 15} \n{2, 15}: {3, 15} \n{4, 15}: {5, 15} \n{6, 15}: {7, 15} \n{8, 15}: {9, 15} \n {10, 15}: {11, 15} \n",
-                    "Provider", Program.currentPatient.billing.insurance.provider,
-                    "BIN", Program.currentPatient.billing.insurance.bin,
-                    "ID", Program.currentPatient.billing.insurance.id,
-                    "PCN", Program.currentPatient.billing.insurance.pcn,
-                    "Group Number", Program.currentPatient.billing.insurance.groupNum,
-                    "Insurance Type", Program.currentPatient.billing.insurance.insuranceType));
+                fndLastName.Replacement.Text = noInfo;
             }
+            else
+            {
+                fndLastName.Replacement.Text = Program.currentPatient.directory.lName.ToString();
+            }
+            fndLastName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
 
-            // Call the print function in the print class
-            document.printButton_Click();
+            Microsoft.Office.Interop.Word.Find fndFirstName = myWordDoc.ActiveWindow.Selection.Find;
+            fndFirstName.Text = "@fname";
+
+            if (Program.currentPatient.directory.fName.ToString() == "")
+            {
+                fndFirstName.Replacement.Text = noInfo;
+            }
+            else
+            {
+                fndFirstName.Replacement.Text = Program.currentPatient.directory.fName.ToString();
+            }
+            fndFirstName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findProvider = myWordDoc.ActiveWindow.Selection.Find;
+            findProvider.Text = "@provider";
+
+            if (Program.currentPatient.billing.insurance.provider.ToString() == "")
+            {
+                findProvider.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findProvider.Replacement.Text = Program.currentPatient.billing.insurance.provider.ToString();
+            }
+            findProvider.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findBIN = myWordDoc.ActiveWindow.Selection.Find;
+            findBIN.Text = "@bin";
+
+            if (Program.currentPatient.billing.insurance.bin.ToString() == "")
+            {
+                findBIN.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findBIN.Replacement.Text = Program.currentPatient.billing.insurance.bin.ToString();
+            }
+            findBIN.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findID = myWordDoc.ActiveWindow.Selection.Find;
+            findID.Text = "@id";
+
+            if (Program.currentPatient.billing.insurance.id.ToString() == "")
+            {
+                findID.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findID.Replacement.Text = Program.currentPatient.billing.insurance.id.ToString();
+            }
+            findID.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findPCN = myWordDoc.ActiveWindow.Selection.Find;
+            findPCN.Text = "@pcn";
+
+            if (Program.currentPatient.billing.insurance.pcn.ToString() == "")
+            {
+                findPCN.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findPCN.Replacement.Text = Program.currentPatient.billing.insurance.pcn.ToString();
+            }
+            findPCN.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findGroup = myWordDoc.ActiveWindow.Selection.Find;
+            findGroup.Text = "@group";
+
+            if (Program.currentPatient.billing.insurance.groupNum.ToString() == "")
+            {
+                findGroup.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findGroup.Replacement.Text = Program.currentPatient.billing.insurance.groupNum.ToString();
+            }
+            findGroup.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            Microsoft.Office.Interop.Word.Find findTpye = myWordDoc.ActiveWindow.Selection.Find;
+            findTpye.Text = "@type";
+
+            if (Program.currentPatient.billing.insurance.insuranceType.ToString() == "")
+            {
+                findTpye.Replacement.Text = noInfo;
+            }
+            else
+            {
+                findTpye.Replacement.Text = Program.currentPatient.billing.insurance.insuranceType.ToString();
+            }
+            findTpye.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+            myWordDoc.SaveAs2(@"F:\PIMS_Final\" + Program.currentPatient.directory.lName + "." + Program.currentPatient.directory.fName + ".Insurance Information.pdf");
+            myWordDoc.PrintPreview();
         }
     }
 }

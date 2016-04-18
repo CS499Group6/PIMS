@@ -64,7 +64,7 @@ namespace PIMS
         public void makeReadOnly()
         {
             this.dateTimePicker1.Enabled = false;
-            //this.timeTextBox.ReadOnly = true;
+            this.dateTimePicker2.Enabled = false;
             this.procdureTextBox.ReadOnly = true;
             this.perforedByTextBox.ReadOnly = true;
             this.locationTextBox.ReadOnly = true;
@@ -74,7 +74,7 @@ namespace PIMS
         public void makeReadable()
         {
             this.dateTimePicker1.Enabled = true;
-            //this.timeTextBox.ReadOnly = false;
+            this.dateTimePicker2.Enabled = true;
             this.procdureTextBox.ReadOnly = false;
             this.perforedByTextBox.ReadOnly = false;
             this.locationTextBox.ReadOnly = false;

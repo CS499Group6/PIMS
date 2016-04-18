@@ -56,7 +56,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.genderTextBox.Location = new System.Drawing.Point(101, 166);
             this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(158, 20);
+            this.genderTextBox.Size = new System.Drawing.Size(214, 20);
             this.genderTextBox.TabIndex = 47;
             // 
             // middleNameTextBox
@@ -65,7 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.middleNameTextBox.Location = new System.Drawing.Point(101, 114);
             this.middleNameTextBox.Name = "middleNameTextBox";
-            this.middleNameTextBox.Size = new System.Drawing.Size(158, 20);
+            this.middleNameTextBox.Size = new System.Drawing.Size(214, 20);
             this.middleNameTextBox.TabIndex = 42;
             // 
             // firstNameTextBox
@@ -74,7 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.firstNameTextBox.Location = new System.Drawing.Point(101, 88);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(158, 20);
+            this.firstNameTextBox.Size = new System.Drawing.Size(214, 20);
             this.firstNameTextBox.TabIndex = 41;
             // 
             // lastNameTextBox
@@ -83,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lastNameTextBox.Location = new System.Drawing.Point(101, 62);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(158, 20);
+            this.lastNameTextBox.Size = new System.Drawing.Size(214, 20);
             this.lastNameTextBox.TabIndex = 40;
             // 
             // genderLabel
@@ -147,7 +147,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.faciltiyTextBox.Location = new System.Drawing.Point(101, 192);
             this.faciltiyTextBox.Name = "faciltiyTextBox";
-            this.faciltiyTextBox.Size = new System.Drawing.Size(158, 20);
+            this.faciltiyTextBox.Size = new System.Drawing.Size(214, 20);
             this.faciltiyTextBox.TabIndex = 48;
             // 
             // roomNumberTextBox
@@ -156,7 +156,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.roomNumberTextBox.Location = new System.Drawing.Point(101, 218);
             this.roomNumberTextBox.Name = "roomNumberTextBox";
-            this.roomNumberTextBox.Size = new System.Drawing.Size(158, 20);
+            this.roomNumberTextBox.Size = new System.Drawing.Size(214, 20);
             this.roomNumberTextBox.TabIndex = 49;
             // 
             // bedNumberTextBox
@@ -165,7 +165,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bedNumberTextBox.Location = new System.Drawing.Point(101, 244);
             this.bedNumberTextBox.Name = "bedNumberTextBox";
-            this.bedNumberTextBox.Size = new System.Drawing.Size(158, 20);
+            this.bedNumberTextBox.Size = new System.Drawing.Size(214, 20);
             this.bedNumberTextBox.TabIndex = 50;
             // 
             // facilityLabel
@@ -218,7 +218,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.inPatientTextBox.Location = new System.Drawing.Point(101, 270);
             this.inPatientTextBox.Name = "inPatientTextBox";
-            this.inPatientTextBox.Size = new System.Drawing.Size(158, 20);
+            this.inPatientTextBox.Size = new System.Drawing.Size(214, 20);
             this.inPatientTextBox.TabIndex = 54;
             // 
             // yesOrNoLabel
@@ -226,7 +226,7 @@
             this.yesOrNoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.yesOrNoLabel.AutoSize = true;
-            this.yesOrNoLabel.Location = new System.Drawing.Point(265, 273);
+            this.yesOrNoLabel.Location = new System.Drawing.Point(342, 273);
             this.yesOrNoLabel.Name = "yesOrNoLabel";
             this.yesOrNoLabel.Size = new System.Drawing.Size(44, 13);
             this.yesOrNoLabel.TabIndex = 56;
@@ -235,18 +235,19 @@
             // printButon
             // 
             this.printButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printButon.Location = new System.Drawing.Point(101, 310);
+            this.printButon.Location = new System.Drawing.Point(157, 310);
             this.printButon.Name = "printButon";
             this.printButon.Size = new System.Drawing.Size(75, 23);
             this.printButon.TabIndex = 58;
             this.printButon.Text = "Print";
             this.printButon.UseVisualStyleBackColor = true;
+            this.printButon.Click += new System.EventHandler(this.printButon_Click);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(101, 141);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(214, 20);
             this.dateTimePicker1.TabIndex = 59;
             // 
             // VolunteerForm
@@ -274,7 +275,7 @@
             this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.lastNameLabel);
             this.Name = "VolunteerForm";
-            this.Size = new System.Drawing.Size(347, 482);
+            this.Size = new System.Drawing.Size(403, 482);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -40,7 +40,6 @@
             this.approvedVisitorsButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.logOffButton = new System.Windows.Forms.Button();
-            this.dischargeButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -49,14 +48,13 @@
             // 
             // groupBox3
             // 
-            groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             groupBox3.BackColor = System.Drawing.SystemColors.Control;
             groupBox3.Controls.Add(this.exitButton);
             groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupBox3.Location = new System.Drawing.Point(36, 662);
+            groupBox3.Location = new System.Drawing.Point(14, 461);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new System.Drawing.Size(191, 69);
+            groupBox3.Size = new System.Drawing.Size(211, 69);
             groupBox3.TabIndex = 10;
             groupBox3.TabStop = false;
             groupBox3.Text = "Close Application";
@@ -74,9 +72,9 @@
             // 
             // newSearchButton
             // 
-            this.newSearchButton.Location = new System.Drawing.Point(69, 29);
+            this.newSearchButton.Location = new System.Drawing.Point(32, 30);
             this.newSearchButton.Name = "newSearchButton";
-            this.newSearchButton.Size = new System.Drawing.Size(151, 23);
+            this.newSearchButton.Size = new System.Drawing.Size(173, 23);
             this.newSearchButton.TabIndex = 7;
             this.newSearchButton.Text = "Search For A New Patient";
             this.newSearchButton.UseVisualStyleBackColor = true;
@@ -117,9 +115,9 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(69, 74);
+            this.backButton.Location = new System.Drawing.Point(32, 75);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(151, 23);
+            this.backButton.Size = new System.Drawing.Size(173, 23);
             this.backButton.TabIndex = 9;
             this.backButton.Text = "Back To Search Results";
             this.backButton.UseVisualStyleBackColor = true;
@@ -133,9 +131,9 @@
             this.groupBox1.Controls.Add(this.insuranceInformationButton);
             this.groupBox1.Controls.Add(this.billingInformationButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(40, 116);
+            this.groupBox1.Location = new System.Drawing.Point(14, 117);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 239);
+            this.groupBox1.Size = new System.Drawing.Size(213, 237);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
@@ -163,11 +161,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.groupBox2.Controls.Add(this.logOffButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(36, 587);
+            this.groupBox2.Location = new System.Drawing.Point(14, 377);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(191, 69);
+            this.groupBox2.Size = new System.Drawing.Size(211, 69);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Log Off";
@@ -183,28 +182,17 @@
             this.logOffButton.UseVisualStyleBackColor = true;
             this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
             // 
-            // dischargeButton
-            // 
-            this.dischargeButton.Location = new System.Drawing.Point(60, 373);
-            this.dischargeButton.Name = "dischargeButton";
-            this.dischargeButton.Size = new System.Drawing.Size(173, 23);
-            this.dischargeButton.TabIndex = 15;
-            this.dischargeButton.Text = "Discharge Patient";
-            this.dischargeButton.UseVisualStyleBackColor = true;
-            this.dischargeButton.Click += new System.EventHandler(this.dischargeButton_Click);
-            // 
             // OfficeStaffLeftSideButtons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dischargeButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(groupBox3);
             this.Controls.Add(this.newSearchButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.groupBox1);
             this.Name = "OfficeStaffLeftSideButtons";
-            this.Size = new System.Drawing.Size(322, 939);
+            this.Size = new System.Drawing.Size(235, 561);
             groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -225,6 +213,5 @@
         private System.Windows.Forms.Button locationButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button logOffButton;
-        private System.Windows.Forms.Button dischargeButton;
     }
 }

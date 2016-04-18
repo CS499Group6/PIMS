@@ -36,14 +36,23 @@ namespace PIMS
         // Will allow the Office Staff user to serach for a new patient
         private void newSearchButton_Click(object sender, EventArgs e)
         {
-            // Clear contents of Panel1 and Panel2
-            Program.myForm.splitContainer1.Panel1.Controls.Clear();
-            Program.myForm.splitContainer1.Panel2.Controls.Clear();
+            if (Program.currentPatient.directory.location.bedNum == 0)
+            {
+                // Display information message
+                MessageBox.Show("You must assign the patient a room before proceeding!",
+                "Patient must have a room!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Clear contents of Panel1 and Panel2
+                Program.myForm.splitContainer1.Panel1.Controls.Clear();
+                Program.myForm.splitContainer1.Panel2.Controls.Clear();
 
-            // Add LoginLeftSideButtons to Panel1
-            Program.myForm.splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
-            // Add PatientSearch to Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
+                // Add LoginLeftSideButtons to Panel1
+                Program.myForm.splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
+                // Add PatientSearch to Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientSearch());
+            }
         }
 
         // Will allow the Office Staff user to edit the patient's profile information
@@ -96,10 +105,19 @@ namespace PIMS
         // Will display the current patient's list of approved visitors
         private void addVisitorsButton_Click(object sender, EventArgs e)
         {
-            // Clear contents of Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Clear();
-            // Add PatientSearch to Panel2
-            Program.myForm.splitContainer1.Panel2.Controls.Add(new VisitorsGrid());
+            if (Program.currentPatient != null)
+            {
+                // Clear contents of Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                // Add PatientSearch to Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new VisitorsGrid());
+            }
+            else
+            {
+                // Display information message
+                MessageBox.Show("You must create a new patient before proceeding! \n Do this by going to 'Edit Profile Information'!",
+                "No Patient!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         // Will allow the Office Staff user to assign the patient a room
@@ -110,7 +128,7 @@ namespace PIMS
                 // Clear contents of Panel2
                 Program.myForm.splitContainer1.Panel2.Controls.Clear();
                 // Add AdmitPatientForm to Panel2
-                Program.myForm.splitContainer1.Panel2.Controls.Add(new AdmitPatientForm());
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new RoomAssignmentGrid());
             }
             else
             {

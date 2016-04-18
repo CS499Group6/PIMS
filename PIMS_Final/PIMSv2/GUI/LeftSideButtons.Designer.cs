@@ -39,12 +39,13 @@
             this.billingInformationButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.doctorNotesButton = new System.Windows.Forms.Button();
             this.scheduledProceduresButton = new System.Windows.Forms.Button();
             this.prescriptionsButton = new System.Windows.Forms.Button();
             this.nurseNotesButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.logOffButton = new System.Windows.Forms.Button();
-            this.doctorNotesButton = new System.Windows.Forms.Button();
+            this.dischargeButton = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -59,9 +60,9 @@
             groupBox3.BackColor = System.Drawing.SystemColors.Control;
             groupBox3.Controls.Add(this.exitButton);
             groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupBox3.Location = new System.Drawing.Point(23, 692);
+            groupBox3.Location = new System.Drawing.Point(18, 780);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new System.Drawing.Size(191, 61);
+            groupBox3.Size = new System.Drawing.Size(187, 61);
             groupBox3.TabIndex = 5;
             groupBox3.TabStop = false;
             groupBox3.Text = "Close Application";
@@ -79,7 +80,7 @@
             // 
             // newSearchButton
             // 
-            this.newSearchButton.Location = new System.Drawing.Point(41, 25);
+            this.newSearchButton.Location = new System.Drawing.Point(32, 23);
             this.newSearchButton.Name = "newSearchButton";
             this.newSearchButton.Size = new System.Drawing.Size(151, 23);
             this.newSearchButton.TabIndex = 0;
@@ -95,9 +96,9 @@
             this.groupBox1.Controls.Add(this.insuranceInformationButton);
             this.groupBox1.Controls.Add(this.billingInformationButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(23, 130);
+            this.groupBox1.Location = new System.Drawing.Point(14, 138);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(191, 247);
+            this.groupBox1.Size = new System.Drawing.Size(191, 239);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -126,7 +127,7 @@
             // profileInformationButton
             // 
             this.profileInformationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileInformationButton.Location = new System.Drawing.Point(18, 36);
+            this.profileInformationButton.Location = new System.Drawing.Point(18, 30);
             this.profileInformationButton.Name = "profileInformationButton";
             this.profileInformationButton.Size = new System.Drawing.Size(151, 23);
             this.profileInformationButton.TabIndex = 6;
@@ -158,7 +159,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(41, 70);
+            this.backButton.Location = new System.Drawing.Point(32, 70);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(151, 23);
             this.backButton.TabIndex = 6;
@@ -173,16 +174,27 @@
             this.groupBox2.Controls.Add(this.prescriptionsButton);
             this.groupBox2.Controls.Add(this.nurseNotesButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(23, 396);
+            this.groupBox2.Location = new System.Drawing.Point(14, 422);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 205);
+            this.groupBox2.Size = new System.Drawing.Size(191, 205);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
+            // 
+            // doctorNotesButton
+            // 
+            this.doctorNotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorNotesButton.Location = new System.Drawing.Point(18, 165);
+            this.doctorNotesButton.Name = "doctorNotesButton";
+            this.doctorNotesButton.Size = new System.Drawing.Size(151, 23);
+            this.doctorNotesButton.TabIndex = 6;
+            this.doctorNotesButton.Text = "Doctor Notes";
+            this.doctorNotesButton.UseVisualStyleBackColor = true;
+            this.doctorNotesButton.Click += new System.EventHandler(this.doctorNotesButton_Click);
             // 
             // scheduledProceduresButton
             // 
             this.scheduledProceduresButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scheduledProceduresButton.Location = new System.Drawing.Point(18, 70);
+            this.scheduledProceduresButton.Location = new System.Drawing.Point(18, 76);
             this.scheduledProceduresButton.Name = "scheduledProceduresButton";
             this.scheduledProceduresButton.Size = new System.Drawing.Size(151, 23);
             this.scheduledProceduresButton.TabIndex = 5;
@@ -193,7 +205,7 @@
             // prescriptionsButton
             // 
             this.prescriptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prescriptionsButton.Location = new System.Drawing.Point(18, 28);
+            this.prescriptionsButton.Location = new System.Drawing.Point(18, 29);
             this.prescriptionsButton.Name = "prescriptionsButton";
             this.prescriptionsButton.Size = new System.Drawing.Size(151, 23);
             this.prescriptionsButton.TabIndex = 4;
@@ -204,7 +216,7 @@
             // nurseNotesButton
             // 
             this.nurseNotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nurseNotesButton.Location = new System.Drawing.Point(18, 115);
+            this.nurseNotesButton.Location = new System.Drawing.Point(18, 120);
             this.nurseNotesButton.Name = "nurseNotesButton";
             this.nurseNotesButton.Size = new System.Drawing.Size(151, 23);
             this.nurseNotesButton.TabIndex = 3;
@@ -214,13 +226,12 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.groupBox4.Controls.Add(this.logOffButton);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(23, 617);
+            this.groupBox4.Location = new System.Drawing.Point(18, 693);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(175, 69);
+            this.groupBox4.Size = new System.Drawing.Size(191, 69);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Log Off";
@@ -236,21 +247,21 @@
             this.logOffButton.UseVisualStyleBackColor = true;
             this.logOffButton.Click += new System.EventHandler(this.logOffButton_Click);
             // 
-            // doctorNotesButton
+            // dischargeButton
             // 
-            this.doctorNotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorNotesButton.Location = new System.Drawing.Point(18, 159);
-            this.doctorNotesButton.Name = "doctorNotesButton";
-            this.doctorNotesButton.Size = new System.Drawing.Size(151, 23);
-            this.doctorNotesButton.TabIndex = 6;
-            this.doctorNotesButton.Text = "Doctor Notes";
-            this.doctorNotesButton.UseVisualStyleBackColor = true;
-            this.doctorNotesButton.Click += new System.EventHandler(this.doctorNotesButton_Click);
+            this.dischargeButton.Location = new System.Drawing.Point(32, 649);
+            this.dischargeButton.Name = "dischargeButton";
+            this.dischargeButton.Size = new System.Drawing.Size(151, 23);
+            this.dischargeButton.TabIndex = 12;
+            this.dischargeButton.Text = "Discharge Patient";
+            this.dischargeButton.UseVisualStyleBackColor = true;
+            this.dischargeButton.Click += new System.EventHandler(this.dischargeButton_Click);
             // 
             // LeftSideButtons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dischargeButton);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.backButton);
@@ -258,7 +269,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.newSearchButton);
             this.Name = "LeftSideButtons";
-            this.Size = new System.Drawing.Size(262, 836);
+            this.Size = new System.Drawing.Size(215, 891);
             groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -285,5 +296,6 @@
         private System.Windows.Forms.Button nurseNotesButton;
         private System.Windows.Forms.Button scheduledProceduresButton;
         private System.Windows.Forms.Button doctorNotesButton;
+        private System.Windows.Forms.Button dischargeButton;
     }
 }

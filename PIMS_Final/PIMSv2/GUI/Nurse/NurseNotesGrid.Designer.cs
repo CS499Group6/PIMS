@@ -31,11 +31,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nurseNotesDataGridView = new System.Windows.Forms.DataGridView();
-            this.updateAllergiesButton = new System.Windows.Forms.Button();
-            this.updateNurseNotesButton = new System.Windows.Forms.Button();
-            this.addStat = new System.Windows.Forms.Button();
-            this.allergiesTextBox = new System.Windows.Forms.TextBox();
-            this.notesTextBox = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nurse = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +39,11 @@
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateAllergiesButton = new System.Windows.Forms.Button();
+            this.updateNurseNotesButton = new System.Windows.Forms.Button();
+            this.addStat = new System.Windows.Forms.Button();
+            this.allergiesTextBox = new System.Windows.Forms.TextBox();
+            this.notesTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nurseNotesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,52 +85,6 @@
             this.nurseNotesDataGridView.Size = new System.Drawing.Size(851, 313);
             this.nurseNotesDataGridView.TabIndex = 90;
             this.nurseNotesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nurseNotesDataGridView_CellContentClick);
-            // 
-            // updateAllergiesButton
-            // 
-            this.updateAllergiesButton.Location = new System.Drawing.Point(409, 364);
-            this.updateAllergiesButton.Name = "updateAllergiesButton";
-            this.updateAllergiesButton.Size = new System.Drawing.Size(129, 23);
-            this.updateAllergiesButton.TabIndex = 96;
-            this.updateAllergiesButton.Text = "Update Allergies";
-            this.updateAllergiesButton.UseVisualStyleBackColor = true;
-            this.updateAllergiesButton.Click += new System.EventHandler(this.updateAllergiesButton_Click);
-            // 
-            // updateNurseNotesButton
-            // 
-            this.updateNurseNotesButton.Location = new System.Drawing.Point(412, 466);
-            this.updateNurseNotesButton.Name = "updateNurseNotesButton";
-            this.updateNurseNotesButton.Size = new System.Drawing.Size(126, 23);
-            this.updateNurseNotesButton.TabIndex = 95;
-            this.updateNurseNotesButton.Text = "Update Nurse Notes";
-            this.updateNurseNotesButton.UseVisualStyleBackColor = true;
-            this.updateNurseNotesButton.Click += new System.EventHandler(this.updateNurseNotesButton_Click);
-            // 
-            // addStat
-            // 
-            this.addStat.Location = new System.Drawing.Point(729, 560);
-            this.addStat.Name = "addStat";
-            this.addStat.Size = new System.Drawing.Size(127, 23);
-            this.addStat.TabIndex = 97;
-            this.addStat.Text = "Add New Stat";
-            this.addStat.UseVisualStyleBackColor = true;
-            this.addStat.Click += new System.EventHandler(this.addStat_Click);
-            // 
-            // allergiesTextBox
-            // 
-            this.allergiesTextBox.Location = new System.Drawing.Point(121, 364);
-            this.allergiesTextBox.Multiline = true;
-            this.allergiesTextBox.Name = "allergiesTextBox";
-            this.allergiesTextBox.Size = new System.Drawing.Size(226, 83);
-            this.allergiesTextBox.TabIndex = 98;
-            // 
-            // notesTextBox
-            // 
-            this.notesTextBox.Location = new System.Drawing.Point(121, 468);
-            this.notesTextBox.Multiline = true;
-            this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(226, 115);
-            this.notesTextBox.TabIndex = 99;
             // 
             // Column1
             // 
@@ -181,6 +135,52 @@
             this.hr.HeaderText = "Heart Rate";
             this.hr.Name = "hr";
             this.hr.ReadOnly = true;
+            // 
+            // updateAllergiesButton
+            // 
+            this.updateAllergiesButton.Location = new System.Drawing.Point(409, 364);
+            this.updateAllergiesButton.Name = "updateAllergiesButton";
+            this.updateAllergiesButton.Size = new System.Drawing.Size(129, 23);
+            this.updateAllergiesButton.TabIndex = 96;
+            this.updateAllergiesButton.Text = "Update Allergies";
+            this.updateAllergiesButton.UseVisualStyleBackColor = true;
+            this.updateAllergiesButton.Click += new System.EventHandler(this.updateAllergiesButton_Click);
+            // 
+            // updateNurseNotesButton
+            // 
+            this.updateNurseNotesButton.Location = new System.Drawing.Point(412, 466);
+            this.updateNurseNotesButton.Name = "updateNurseNotesButton";
+            this.updateNurseNotesButton.Size = new System.Drawing.Size(126, 23);
+            this.updateNurseNotesButton.TabIndex = 95;
+            this.updateNurseNotesButton.Text = "Update Nurse Notes";
+            this.updateNurseNotesButton.UseVisualStyleBackColor = true;
+            this.updateNurseNotesButton.Click += new System.EventHandler(this.updateNurseNotesButton_Click);
+            // 
+            // addStat
+            // 
+            this.addStat.Location = new System.Drawing.Point(729, 560);
+            this.addStat.Name = "addStat";
+            this.addStat.Size = new System.Drawing.Size(127, 23);
+            this.addStat.TabIndex = 97;
+            this.addStat.Text = "Add New Stat";
+            this.addStat.UseVisualStyleBackColor = true;
+            this.addStat.Click += new System.EventHandler(this.addStat_Click);
+            // 
+            // allergiesTextBox
+            // 
+            this.allergiesTextBox.Location = new System.Drawing.Point(121, 364);
+            this.allergiesTextBox.Multiline = true;
+            this.allergiesTextBox.Name = "allergiesTextBox";
+            this.allergiesTextBox.Size = new System.Drawing.Size(226, 83);
+            this.allergiesTextBox.TabIndex = 98;
+            // 
+            // notesTextBox
+            // 
+            this.notesTextBox.Location = new System.Drawing.Point(121, 468);
+            this.notesTextBox.Multiline = true;
+            this.notesTextBox.Name = "notesTextBox";
+            this.notesTextBox.Size = new System.Drawing.Size(226, 115);
+            this.notesTextBox.TabIndex = 99;
             // 
             // NurseNotesGrid
             // 

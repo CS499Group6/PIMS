@@ -17,6 +17,8 @@ namespace PIMS
         {
             InitializeComponent();
 
+            this.WindowState = FormWindowState.Maximized;
+
             // Add LoginLeftSideButtons to Panel1
             splitContainer1.Panel1.Controls.Add(new LoginLeftSideButtons());
             // Add Login form to Panel2

@@ -18,7 +18,7 @@ namespace PIMS
         {
             InitializeComponent();
 
-            allergiesTextBox.Text = Program.currentPatient.treatment.allergies;
+            allergiesTextBox.Text = Program.currentPatient.treatment.medStaffNotes.allergies;
             notesTextBox.Text = Program.currentPatient.treatment.medStaffNotes.nurseNotes;
 
             // If the current user is not an MedicalStaff
@@ -145,7 +145,7 @@ namespace PIMS
                 // Makes the allergiesTextBox not editable
                 allergiesTextBox.ReadOnly = true;
 
-                // Change the saveUpdateButton text
+                // Change the updateAllergiesButton text
                 updateAllergiesButton.Text = "Update Allergies";
             }
         }
@@ -164,18 +164,18 @@ namespace PIMS
                 // Exit out of this function
                 return;
             }
-            else if (updateAllergiesButton.Text == "Save Nurse Notes")
+            else if (updateNurseNotesButton.Text == "Save Nurse Notes")
             {
                 // Update nurse note's in the database
                 Program.currentPatient.treatment.medStaffNotes.nurseNotes = notesTextBox.Text;
 
                 PIMSController.SQLcommands.updatePatient();
 
-                // Makes the allergiesTextBox editable
-                allergiesTextBox.ReadOnly = true;
+                // Makes the notesTextBox editable
+                notesTextBox.ReadOnly = true;
 
-                // Change the updateAllergiesButton text
-                updateAllergiesButton.Text = "Update Nurse Notes";
+                // Change the updateNurseNotesButton text
+                updateNurseNotesButton.Text = "Update Nurse Notes";
             }
         }
 

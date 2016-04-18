@@ -27,6 +27,7 @@ namespace PIMSController
         public static int drugIndex = 0;
         public static int procIndex = 0;
         public static int patientIndex = 0;
+        public static int staffIndex = 0;
 
         /* 
          *This function gets the max value of the key from the relevant tables
@@ -34,10 +35,21 @@ namespace PIMSController
          */
         public static void initValues()
         {
+            string staffList = "SELECT max(Cast(staffID as int)) from Staff";
+            SqlCommand staffCmd = new SqlCommand(staffList, cnn);
+            cnn.Open();
+            try
+            {
+                staffIndex = (int)staffCmd.ExecuteScalar();
+            }
+            catch
+            {
+                staffIndex = 9999;
+            }
+
 
             string drugList = " SELECT * from drugs";
             SqlCommand cmd = new SqlCommand(drugList, cnn);
-            cnn.Open();
             SqlDataReader datardr = cmd.ExecuteReader();
 
             while (datardr.Read())
@@ -137,6 +149,7 @@ namespace PIMSController
         }
 
 
+
         /*
          * This function checks the login username and password entered 
          * against the data in the Staff database table
@@ -173,7 +186,8 @@ namespace PIMSController
                                 PIMS.Program.currentUser = new MedStaff();
                             else if (datardr.GetValue(2).Equals("vol"))
                                 PIMS.Program.currentUser = new Volunteer();
-
+                            else if (datardr.GetValue(2).Equals("admin"))
+                                PIMS.Program.currentUser = new Admin();
                             PIMS.Program.currentUser.name = datardr.GetValue(1).ToString();
 
                             datardr.Close();
@@ -277,7 +291,32 @@ namespace PIMSController
             cmd.Parameters.Clear();
             cnn.Close();
 
-        }//end create patient
+        }//end update location
+
+        /*
+        * Takes a patient object and uses that patient's location information
+        * sents the current patients room information into the database
+        * 
+        */
+        public static void dischargePatientLocation(Patient A)
+        {
+            Console.WriteLine("UPDATING LOCATION");
+            //create patientid 
+            if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                cnn.Close();
+            cnn.Open();
+
+            SqlCommand cmd;
+            cmd = new SqlCommand("UpdateLocation", cnn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@bed", A.directory.location.bedNum);
+            cmd.Parameters.AddWithValue("@patientID", A.directory.patientID);
+
+            cmd.ExecuteReader();
+            cmd.Parameters.Clear();
+            cnn.Close();
+
+        }//end discharge patient
 
         // This function queries the SQL server and builds the patient requested by the 
         // PatientID according to the type of user currently logged in
@@ -455,7 +494,7 @@ namespace PIMSController
                 if (datardr.GetValue(5) != System.DBNull.Value)
                     x.treatment.docNotes = (String)datardr.GetValue(5);
                 if (datardr.GetValue(6) != System.DBNull.Value)
-                    x.treatment.allergies = (String)datardr.GetValue(6);
+                    x.treatment.medStaffNotes.allergies = (String)datardr.GetValue(6);
                 if (datardr.GetValue(9) != System.DBNull.Value)
                     x.treatment.medStaffNotes.nurseNotes = (String)datardr.GetValue(9);
                 if (datardr.GetValue(10) != System.DBNull.Value)
@@ -690,8 +729,8 @@ namespace PIMSController
 
         static void updatePatientDirInfo()
         {
-            try
-            {
+            //try
+            //{
                 PatientDirInfo dir = PIMS.Program.currentPatient.directory;
                 if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
                     cnn.Close();
@@ -711,7 +750,10 @@ namespace PIMSController
                 cmd.Parameters.AddWithValue("@pid", dir.patientID);
                 cmd.Parameters.AddWithValue("@fn", dir.fName);
                 cmd.Parameters.AddWithValue("@ln", dir.lName);
-                cmd.Parameters.AddWithValue("@mn", dir.mName);
+                if (dir.mName == null || dir.mName == "")
+                    cmd.Parameters.AddWithValue("@mn", System.DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@mn", dir.mName);
                 cmd.Parameters.AddWithValue("@dob", dir.DOB);
                 cmd.Parameters.AddWithValue("@g", dir.gender ? "M" : "F");
                 cmd.Parameters.AddWithValue("@adr", dir.strAddress);
@@ -735,11 +777,11 @@ namespace PIMSController
                 else cmd.Parameters.AddWithValue("@bn", dir.location.bedNum);
 
                 cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating Patient Information.\nPlease try again.");
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error updating Patient Information.\nPlease try again.");
+            //}
 
         }
 
@@ -901,8 +943,8 @@ namespace PIMSController
                 cmd.Parameters.AddWithValue("@dn", info.docNotes);
             else cmd.Parameters.AddWithValue("@dn", System.DBNull.Value);
 
-            if (info.allergies != null)
-                cmd.Parameters.AddWithValue("@a", info.allergies);
+            if (info.medStaffNotes.allergies != null)
+                cmd.Parameters.AddWithValue("@a", info.medStaffNotes.allergies);
             else cmd.Parameters.AddWithValue("@a", System.DBNull.Value);
 
             if (info.medStaffNotes.nurseNotes != null)
@@ -1059,6 +1101,30 @@ namespace PIMSController
             //   return id.ToString();
 
         }//end create patient
+        public static void addUser(User user)
+        {
+
+            if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                cnn.Close();
+            cnn.Open();
+
+            string cmdText = //"IF NOT EXISTS(SELECT userid from Staff where userid = @uid) " +
+                      "INSERT INTO Staff values(@sid, @sn, @pos, @uid, @unit, @pw) ";
+
+
+            SqlCommand cmd = new SqlCommand(cmdText, cnn);
+
+            cmd.Parameters.AddWithValue("@sid", user.staffID);
+            cmd.Parameters.AddWithValue("@sn", user.name);
+            cmd.Parameters.AddWithValue("@pos", user.position);
+            cmd.Parameters.AddWithValue("@unit", user.unit);
+            cmd.Parameters.AddWithValue("@uid", user.username);
+            cmd.Parameters.AddWithValue("@pw", user.password);
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }
+
+
 

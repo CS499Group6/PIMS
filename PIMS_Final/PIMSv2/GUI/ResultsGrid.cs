@@ -31,7 +31,6 @@ namespace PIMS
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
                 addPatientButton.Visible = false;
-                deletePatientButton.Visible = false;
             }
 
             // Do not allow users to add new rows to resultsDataGridView
@@ -47,14 +46,25 @@ namespace PIMS
         // Will fill the resultsDataGridView with the list of available patient's
         private void fillResultsDataGridView(string query)
         {
-            // For all patient's in the database
-            foreach (PIMSController.Patient myPatient in patients)
+            if (query == "*")
             {
-                // If the current patient in myPatient is the patient the user searched for
-                if (query.Length > 2 && (myPatient.directory.lName.ToUpper().StartsWith(query) ||
-                                         myPatient.directory.fName.ToUpper().StartsWith(query)))
+                // For all patient's in the database
+                foreach (PIMSController.Patient myPatient in patients)
                 {
                     addRows(myPatient);
+                }
+            }
+            else
+            {
+                foreach (PIMSController.Patient myPatient in patients)
+                {
+
+                    // If the current patient in myPatient is the patient the user searched for
+                    if (query.Length > 2 && (myPatient.directory.lName.ToUpper().StartsWith(query) ||
+                                             myPatient.directory.fName.ToUpper().StartsWith(query)))
+                    {
+                        addRows(myPatient);
+                    }
                 }
             }
         }
@@ -72,7 +82,7 @@ namespace PIMS
                                                       myPatient.directory.location.roomNum,
                                                       myPatient.directory.location.bedNum,
                                                       myPatient.directory.location.unit,
-                                                      myPatient.directory.isAdmitted ? "Y" : "N");
+                                                      Convert.ToBoolean(myPatient.directory.location.bedNum) ? "Y" : "N");
         }
 
 
@@ -99,11 +109,13 @@ namespace PIMS
             }
             if (count == 0)
             {
+                // Display error message
                 MessageBox.Show("Please select a patient.",
                     "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (count != 1)
             {
+                // Display error message
                 MessageBox.Show("Please select only one patient.",
                     "Row selection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -142,8 +154,8 @@ namespace PIMS
             }
         }
 
-        // Will allow the Office Staff user to add a new patient if they are not in the ResultsGrid
-        private void addPatientButton_Click(object sender, EventArgs e)
+        // Will allow the OfficeStaff user to add a new patien tif they are not in the ResultsGrid
+        private void addNewPatient_Click(object sender, EventArgs e)
         {
             // Clear contents of Panel1 and Panel2
             Program.myForm.splitContainer1.Panel1.Controls.Clear();
@@ -153,12 +165,6 @@ namespace PIMS
             Program.myForm.splitContainer1.Panel1.Controls.Add(new NewPatientLeftSideButtons());
             // Add PatientForm to Panel2
             Program.myForm.splitContainer1.Panel2.Controls.Add(new PatientForm());
-        }
-
-        // Will allow the Office Staff user to delete a patient
-        private void deletePatientButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

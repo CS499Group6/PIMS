@@ -22,16 +22,19 @@ namespace PIMS
             if (!(Program.currentUser is PIMSController.OfficeStaff))
             {
                 updateButton.Visible = false;
+                save.Visible = false;
             }
-            
-            // If we have a current patient, add location information about the patient to various location text box's
-            //if (Program.currentPatient != null)
-            //{
-                floorTextBox.Text = Program.currentPatient.directory.location.floor.ToString();
-                roomTextBox.Text = Program.currentPatient.directory.location.roomNum.ToString();
-                bedTextBox.Text = Program.currentPatient.directory.location.bedNum.ToString();
-                unitTextBox.Text = Program.currentPatient.directory.location.unit;
-            //}
+
+            if (Program.currentPatient.directory.location.bedNum == 0 || Program.currentPatient.directory.location.bedNum == null)
+            {
+                this.printButton.Visible = false;
+                this.save.Visible = false;
+            }
+
+            floorTextBox.Text = Program.currentPatient.directory.location.floor.ToString();
+            roomTextBox.Text = Program.currentPatient.directory.location.roomNum.ToString();
+            bedTextBox.Text = Program.currentPatient.directory.location.bedNum.ToString();
+            unitTextBox.Text = Program.currentPatient.directory.location.unit;
             
             // Makes the patient's location text box's not editable
             makeReadOnly();
@@ -91,8 +94,11 @@ namespace PIMS
 
             // Makes the patient's profile text box's not editable
             makeReadOnly();
+
             // Change the saveUpdateButton text
             updateButton.Text = "Update";
+
+            this.save.Visible = false;
 
             // Display information message
             MessageBox.Show("Patient's location information has been saved!",
@@ -102,9 +108,101 @@ namespace PIMS
         // Will allow the user to print the patient's insurance information
         private void printButton_Click(object sender, EventArgs e)
         {
+            if (Program.currentPatient.directory.location.bedNum == 0 || Program.currentPatient.directory.location.bedNum == null)
+            {
+                // Display information message
+                MessageBox.Show("Patient is not admitted in the hospital.\n There is no need to print this information.",
+                "No information to print!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string noInfo = "Information not provided";
 
+                Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+                var myWordDoc = app.Documents.Open(@"F:\PIMS_Final\FORMS\PIMS LOCATION FORM.docx", ReadOnly: false, Visible: true);
+                app.Visible = true;
+
+                Microsoft.Office.Interop.Word.Find fndLastName = myWordDoc.ActiveWindow.Selection.Find;
+                fndLastName.Text = "@lname";
+
+                if (Program.currentPatient.directory.lName.ToString() == "")
+                {
+                    fndLastName.Replacement.Text = noInfo;
+                }
+                else
+                {
+                    fndLastName.Replacement.Text = Program.currentPatient.directory.lName.ToString();
+                }
+                fndLastName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                Microsoft.Office.Interop.Word.Find fndFirstName = myWordDoc.ActiveWindow.Selection.Find;
+                fndFirstName.Text = "@fname";
+
+                if (Program.currentPatient.directory.fName.ToString() == "")
+                {
+                    fndFirstName.Replacement.Text = noInfo;
+                }
+                else
+                {
+                    fndFirstName.Replacement.Text = Program.currentPatient.directory.fName.ToString();
+                }
+                fndFirstName.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                Microsoft.Office.Interop.Word.Find findFloor = myWordDoc.ActiveWindow.Selection.Find;
+                findFloor.Text = "@floor";
+
+                if (Program.currentPatient.directory.location.floor.ToString() == "")
+                {
+                    findFloor.Replacement.Text = noInfo;
+                }
+                else
+                {
+                    findFloor.Replacement.Text = Program.currentPatient.directory.location.floor.ToString();
+                }
+                findFloor.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                Microsoft.Office.Interop.Word.Find findRoom = myWordDoc.ActiveWindow.Selection.Find;
+                findRoom.Text = "@room";
+
+                if (Program.currentPatient.directory.location.floor.ToString() == "")
+                {
+                    findRoom.Replacement.Text = noInfo;
+                }
+                else
+                {
+                    findRoom.Replacement.Text = Program.currentPatient.directory.location.floor.ToString();
+                }
+                findRoom.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                Microsoft.Office.Interop.Word.Find findBed = myWordDoc.ActiveWindow.Selection.Find;
+                findBed.Text = "@bed";
+
+                if (Program.currentPatient.directory.location.bedNum.ToString() == "")
+                {
+                    findBed.Replacement.Text = noInfo;
+                }
+                else
+                {
+                    findBed.Replacement.Text = Program.currentPatient.directory.location.bedNum.ToString();
+                }
+                findBed.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                Microsoft.Office.Interop.Word.Find findUnit = myWordDoc.ActiveWindow.Selection.Find;
+                findUnit.Text = "@unit";
+
+                if (Program.currentPatient.directory.location.unit.ToString() == "")
+                {
+                    findUnit.Replacement.Text = noInfo;
+                }
+                else
+                {
+                    findUnit.Replacement.Text = Program.currentPatient.directory.location.unit.ToString();
+                }
+                findUnit.Execute(Replace: Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll);
+
+                myWordDoc.SaveAs2(@"F:\PIMS_Final\" + Program.currentPatient.directory.lName + "." + Program.currentPatient.directory.fName + ".Location Information.pdf");
+                myWordDoc.PrintPreview();
+            }
         }
-
-        
     }
 }

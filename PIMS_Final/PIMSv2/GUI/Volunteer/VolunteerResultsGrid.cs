@@ -51,7 +51,7 @@ namespace PIMS
                                                       myPatient.directory.location.roomNum,
                                                       myPatient.directory.location.bedNum,
                                                       myPatient.directory.location.unit,
-                                                      myPatient.directory.isAdmitted ? "Y" : "N");
+                                                      Convert.ToBoolean(myPatient.directory.location.bedNum) ? "Y" : "N");
                 }
             }
         }

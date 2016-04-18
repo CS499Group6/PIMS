@@ -42,11 +42,12 @@
             // 
             // closeApplicationGroupBox
             // 
+            closeApplicationGroupBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             closeApplicationGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             closeApplicationGroupBox.BackColor = System.Drawing.SystemColors.Control;
             closeApplicationGroupBox.Controls.Add(this.exitButton);
             closeApplicationGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            closeApplicationGroupBox.Location = new System.Drawing.Point(36, 662);
+            closeApplicationGroupBox.Location = new System.Drawing.Point(20, 378);
             closeApplicationGroupBox.Name = "closeApplicationGroupBox";
             closeApplicationGroupBox.Size = new System.Drawing.Size(191, 69);
             closeApplicationGroupBox.TabIndex = 7;
@@ -66,7 +67,7 @@
             // 
             // newSearchButton
             // 
-            this.newSearchButton.Location = new System.Drawing.Point(36, 73);
+            this.newSearchButton.Location = new System.Drawing.Point(20, 74);
             this.newSearchButton.Name = "newSearchButton";
             this.newSearchButton.Size = new System.Drawing.Size(175, 23);
             this.newSearchButton.TabIndex = 6;
@@ -78,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, 154);
+            this.label1.Location = new System.Drawing.Point(51, 155);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 8;
@@ -88,7 +89,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 178);
+            this.label2.Location = new System.Drawing.Point(37, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 13);
             this.label2.TabIndex = 9;
@@ -96,9 +97,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.groupBox1.Controls.Add(this.logOffButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(36, 587);
+            this.groupBox1.Location = new System.Drawing.Point(20, 303);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(191, 69);
             this.groupBox1.TabIndex = 10;
@@ -126,7 +128,7 @@
             this.Controls.Add(closeApplicationGroupBox);
             this.Controls.Add(this.newSearchButton);
             this.Name = "StartLeftSideButtons";
-            this.Size = new System.Drawing.Size(347, 744);
+            this.Size = new System.Drawing.Size(234, 461);
             closeApplicationGroupBox.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

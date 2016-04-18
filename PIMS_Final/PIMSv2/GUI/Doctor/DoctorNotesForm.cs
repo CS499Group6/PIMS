@@ -17,12 +17,18 @@ namespace PIMS
         {
             InitializeComponent();
 
+            this.dateTimePicker1.Enabled = false;
+
             // If the current user is not a Doctor
             // Don't allow the user to see the saveUpdatebutton
             if (!(Program.currentUser is PIMSController.Doctor))
             {
                 saveUpdateButton.Visible = false;
-                cancelButton.Visible = false;
+                cancelButton.Visible = false;             
+            }
+            else
+            {
+                this.attendingPhysTextBox.Text = Program.currentUser.name;
             }
 
             // Do not allow the Doctor to see the cancelButton at this time
@@ -32,6 +38,25 @@ namespace PIMS
             }
 
             this.doctorsNotesTextBox.Text = Program.currentPatient.treatment.docNotes;
+            this.primaryPhysTextBox.Text = Program.currentPatient.treatment.primaryDoc;
+
+            if (Program.currentPatient.treatment.dateAdmitted.ToString() != "")
+            {
+                //this.dateTimePicker1.Value = Program.currentPatient.treatment.dateAdmitted;
+            }
+            else
+            {
+                this.dateTimePicker1.Value = DateTime.Today;
+                this.dateTimePicker1.Enabled = false;
+            }
+
+            if (Program.currentPatient.treatment.reasonAdmitted.ToString() != "")
+            {
+                this.reasonAdmittanceTextBox.Text = Program.currentPatient.treatment.reasonAdmitted;
+            }
+
+            // Do not allow the user to edit the attendingPhysTextBox
+            this.attendingPhysTextBox.ReadOnly = true;
 
             // Makes the doctorNotesTextBox not editable
             makeReadOnly();
@@ -41,18 +66,26 @@ namespace PIMS
         public void makeReadOnly()
         {
             this.doctorsNotesTextBox.ReadOnly = true;
+            this.primaryPhysTextBox.ReadOnly = true;
+            this.reasonAdmittanceTextBox.ReadOnly = true;
         }
 
         // Makes the doctorNotesTextBox editable
         public void makeReadable()
         {
             this.doctorsNotesTextBox.ReadOnly = false;
+            this.primaryPhysTextBox.ReadOnly = false;
+            this.reasonAdmittanceTextBox.ReadOnly = false;
         }
 
         // Will allow the Doctor to update notes on the patient
         private void saveUpdateButton_Click(object sender, EventArgs e)
         {
             Program.currentPatient.treatment.docNotes = this.doctorsNotesTextBox.Text;
+            Program.currentPatient.treatment.primaryDoc = this.primaryPhysTextBox.Text;
+            Program.currentPatient.treatment.attendingDoc = this.attendingPhysTextBox.Text;
+            Program.currentPatient.treatment.reasonAdmitted = this.reasonAdmittanceTextBox.Text;
+            Program.currentPatient.treatment.dateAdmitted = this.dateTimePicker1.Value;
 
             if (saveUpdateButton.Text == "Update Notes")
             {

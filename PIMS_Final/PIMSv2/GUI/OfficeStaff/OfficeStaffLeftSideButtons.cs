@@ -137,8 +137,5 @@ namespace PIMS
         {
             System.Windows.Forms.Application.Exit();
         }
-
-
-
     }
 }
