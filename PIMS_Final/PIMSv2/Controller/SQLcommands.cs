@@ -12,8 +12,8 @@ namespace PIMSController
     public class SQLcommands
     {
         // This specifies the server/db/user to use to login to the SQL db
-       // static string connectString = "user id=PIMS;password=PIMS;server=cs-sql\\PIMS;database=PIMS;Connect Timeout=5;";
-        static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+        static string connectString = "user id=PIMS;password=PIMS;server=146.229.232.110\\PIMS;database=PIMS;Connect Timeout=5;";
+       //static string connectString = "Data Source=INA-PC;Initial Catalog=PIMS;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
 
         static SqlConnection cnn = new SqlConnection(connectString);
         
@@ -166,6 +166,65 @@ namespace PIMSController
 
         }
 
+        public static HospLocation buildHospital(int bedID)
+        {
+
+            if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
+                cnn.Close();
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("getLocations", cnn);
+            SqlDataReader rdr;
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                HospLocation current = new HospLocation();
+                current.bedNum = bedID;
+                cmd.Parameters.AddWithValue("@bedNum", bedID);
+
+                 //Create a SqlParameter object to hold the output parameter value
+                SqlParameter units = new SqlParameter();
+                units.ParameterName = "@unit";
+                units.SqlDbType = System.Data.SqlDbType.VarChar;
+                units.Size = 15;
+                units.Direction = System.Data.ParameterDirection.Output;
+                units.Value = current.unit;
+                cmd.Parameters.Add(units);
+
+                 SqlParameter floorN = new SqlParameter();
+                 floorN.ParameterName = "@floorNum";
+                 floorN.SqlDbType = System.Data.SqlDbType.Int;
+                 floorN.Direction = System.Data.ParameterDirection.Output;
+                 floorN.Value = current.floor;
+                 cmd.Parameters.Add(floorN);
+
+                 SqlParameter roomN = new SqlParameter();
+                 roomN.ParameterName = "@roomNum";
+                 roomN.SqlDbType = System.Data.SqlDbType.Int;
+                 roomN.Direction = System.Data.ParameterDirection.Output;
+                 roomN.Value = current.roomNum;
+                 cmd.Parameters.Add(roomN);
+
+                 SqlParameter occup = new SqlParameter();
+                 occup.ParameterName = "@occupants";
+                 occup.SqlDbType = System.Data.SqlDbType.Int;
+                 occup.Direction = System.Data.ParameterDirection.Output;
+                 occup.Value = current.occupancy;
+                 cmd.Parameters.Add(occup);
+            
+                 rdr = cmd.ExecuteReader();
+                 current.unit = Convert.ToString(units.Value);
+                 current.floor = Convert.ToInt32(floorN.Value);
+                 current.roomNum = Convert.ToInt32(roomN.Value);
+                 current.occupancy = Convert.ToInt32(occup.Value);
+
+              
+                cmd.Parameters.Clear();
+                rdr.Close();
+
+            cnn.Close();
+            return current;
+
+        }
+
 
         // This function queries the SQL server and builds the patient requested by the 
         // PatientID according to the type of user currently logged in
@@ -229,7 +288,7 @@ namespace PIMSController
                     x.directory.visitors.Add(v);
                 }
                 if (!(datardr.GetValue(17).Equals(System.DBNull.Value)))
-                    x.directory.location.bedNum = (String)datardr.GetValue(17);
+                    x.directory.location.bedNum = Int32.Parse(datardr.GetValue(17).ToString());
             }
 
             cnn.Close();
@@ -246,11 +305,11 @@ namespace PIMSController
                     if (datardr.GetValue(1) != System.DBNull.Value)
                         x.directory.location.unit = (String)datardr.GetValue(1);
                     if (datardr.GetValue(2) != System.DBNull.Value)
-                        x.directory.location.floor = (String)datardr.GetValue(2);
+                        x.directory.location.floor = Int32.Parse(datardr.GetValue(2).ToString());
                     if (datardr.GetValue(3) != System.DBNull.Value)
-                        x.directory.location.roomNum = (String)datardr.GetValue(3);
+                        x.directory.location.roomNum = Int32.Parse(datardr.GetValue(3).ToString());
                     if (datardr.GetValue(4) != System.DBNull.Value)
-                        x.directory.location.occupancy = (int)datardr.GetValue(4);
+                        x.directory.location.occupancy = Int32.Parse(datardr.GetValue(4).ToString());
                 }
                 datardr.Close();
             }
@@ -499,7 +558,7 @@ namespace PIMSController
                     x.directory.visitors.Add(v);
                 }
                 if (!(datardr.GetValue(17).Equals(System.DBNull.Value)))
-                    x.directory.location.bedNum = (String)datardr.GetValue(17);
+                    x.directory.location.bedNum = Int32.Parse(datardr.GetValue(17).ToString());
                 patients.Add(x);
 
             }

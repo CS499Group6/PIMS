@@ -23,15 +23,15 @@ namespace PIMS
             {
                 saveUpdateButton.Visible = false;
             }
-
+            
             // If we have a current patient, add location information about the patient to various location text box's
-            if (Program.currentPatient != null)
-            {
-                floorTextBox.Text = Program.currentPatient.directory.location.floor;
-                roomTextBox.Text = Program.currentPatient.directory.location.roomNum;
-                bedTextBox.Text = Program.currentPatient.directory.location.bedNum;
+            //if (Program.currentPatient != null)
+            //{
+                floorTextBox.Text = Program.currentPatient.directory.location.floor.ToString();
+                roomTextBox.Text = Program.currentPatient.directory.location.roomNum.ToString();
+                bedTextBox.Text = Program.currentPatient.directory.location.bedNum.ToString();
                 unitTextBox.Text = Program.currentPatient.directory.location.unit;
-            }
+            //}
             
             // Makes the patient's location text box's not editable
             makeReadOnly();
@@ -60,11 +60,10 @@ namespace PIMS
         {
             if (saveUpdateButton.Text == "Update")
             {
-                // Makes the patient's profile text box's editable
-                makeReadable();
-                // Change the saveUpdateButton text
-                saveUpdateButton.Text = "Save";
-                // Exit out of this function
+                // Clear contents of Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                // Add PatientSearch to Panel2
+                Program.myForm.splitContainer1.Panel2.Controls.Add(new RoomAssignmentGrid());
                 return;
             }
             else if (saveUpdateButton.Text == "Save")
@@ -81,9 +80,9 @@ namespace PIMS
 
                 // Assign various location information to the current patient
 
-                Program.currentPatient.directory.location.floor = floorTextBox.Text;
-                Program.currentPatient.directory.location.roomNum = roomTextBox.Text;
-                Program.currentPatient.directory.location.bedNum = bedTextBox.Text;
+                Program.currentPatient.directory.location.floor = Int32.Parse(floorTextBox.Text);
+                Program.currentPatient.directory.location.roomNum = Int32.Parse(roomTextBox.Text);
+                Program.currentPatient.directory.location.bedNum = Int32.Parse(bedTextBox.Text);
                 Program.currentPatient.directory.location.unit = unitTextBox.Text;
 
                 //// This is a new patient

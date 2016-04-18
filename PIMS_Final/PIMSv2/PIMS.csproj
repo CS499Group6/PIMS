@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\BedList.cs" />
     <Compile Include="GUI\OfficeStaff\BillingForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,9 +229,6 @@
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OfficeStaff\RoomAssignmentGrid.resx">
-      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\PatientSearch.resx">
       <DependentUpon>PatientSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\StartLeftSideButtons.resx">
       <DependentUpon>StartLeftSideButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OfficeStaff\RoomAssignmentGrid.resx">
+      <DependentUpon>RoomAssignmentGrid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

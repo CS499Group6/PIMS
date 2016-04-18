@@ -8,14 +8,17 @@ namespace PIMSController
 {
     public class HospLocation
     {
-        public string bedNum { get; set; }
+        public int bedNum { get; set; }
         public string unit { get; set; } //ex: cardiology
-        public string floor { get; set; }
-        public string roomNum { get; set; }
+        public int floor { get; set; }
+        public int roomNum { get; set; }
         public int occupancy { get; set; }//number of occupants currently in that room
+
+        /*
         public HospLocation()
         {
- 
+              
         }
+         */
     }
 }

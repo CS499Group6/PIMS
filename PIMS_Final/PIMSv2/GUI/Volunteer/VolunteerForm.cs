@@ -30,9 +30,9 @@ namespace PIMS
                     this.genderTextBox.Text = "M";
                 else
                     this.genderTextBox.Text = "F";
-                this.faciltiyTextBox.Text = Program.currentPatient.directory.location.floor;
-                this.roomNumberTextBox.Text = Program.currentPatient.directory.location.roomNum;
-                this.bedNumberTextBox.Text = Program.currentPatient.directory.location.bedNum;
+                this.faciltiyTextBox.Text =  Program.currentPatient.directory.location.floor.ToString();
+                this.roomNumberTextBox.Text = Program.currentPatient.directory.location.roomNum.ToString();
+                this.bedNumberTextBox.Text = Program.currentPatient.directory.location.bedNum.ToString();
                 this.inPatientTextBox.Text = Program.currentPatient.directory.isAdmitted ? "Y" : "N";
             }
 

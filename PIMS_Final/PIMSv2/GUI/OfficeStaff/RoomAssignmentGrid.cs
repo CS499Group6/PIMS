@@ -19,47 +19,75 @@ namespace PIMS
 
             // Do not allow users to add new rows to roomAssignmentDataGridView
             roomAssignmentDataGridView.AllowUserToAddRows = false;
+           
+            //fill grid
+            fill();
+        }
 
-            // Add a new event handler
-            roomAssignmentDataGridView.CellValueChanged += roomAssignmentDataGridView_CellValueChanged;
+        public void fill()
+        {
+            //create list
+            List<PIMSController.HospLocation> hosplist = new List<PIMSController.HospLocation>();
+
+            for(int i=1; i<26; i++)
+            {
+                hosplist.Add(PIMSController.SQLcommands.buildHospital(i));
+            }   
+
+            foreach (PIMSController.HospLocation bed in hosplist)
+            {
+
+                roomAssignmentDataGridView.Rows.Add(          
+                   bed.unit,
+                   bed.floor,
+                   bed.roomNum,
+                   bed.bedNum,
+                   Convert.ToBoolean(bed.occupancy) ? "N" : "Y",
+                   Convert.ToBoolean(bed.occupancy)? select.ReadOnly=false:select.ReadOnly=true);
+               
+            }            
+
+        }
+
+        private void roomAssignmentDataGridView_RowsAdded(){
+            
         }
 
         // If the resultsDataGridView is clicked
         // Commit that edit
         private void roomAssignmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            roomAssignmentDataGridView.CellValueChanged += roomAssignmentDataGridView_CellValueChanged;
-        }
+            
+             var senderGrid = (DataGridView)sender;
 
-        // The cell was selected
-        private void roomAssignmentDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (Program.currentPatient != null)
-            {
-                foreach (DataGridViewRow row in roomAssignmentDataGridView.Rows)
-                {
-                    if (row.Cells[0].Value != null && row.Cells[0].Value.Equals("true"))
-                    {
-                        Program.currentPatient.directory.location.bedNum = row.Cells[1].Value.ToString();
-                        Program.currentPatient.directory.location.roomNum = row.Cells[2].Value.ToString();
-                        Program.currentPatient.directory.location.unit = row.Cells[3].Value.ToString();
+                //if sender is from the button column and is not the header row execute commands
+              if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                  e.RowIndex >= 0)
+              {
+                   if (Program.currentPatient != null)
+                     {
+                        foreach (DataGridViewRow row in roomAssignmentDataGridView.Rows)
+                        {
+                            if (row.Selected)
+                            {
+                                Program.currentPatient.directory.location.bedNum = Int32.Parse(row.Cells[3].Value.ToString());
+                                Program.currentPatient.directory.location.roomNum = Int32.Parse(row.Cells[2].Value.ToString());
+                                Program.currentPatient.directory.location.unit = row.Cells[0].Value.ToString();
+                            }
+                        }
+
+                        // Clear contents of Panel2
+                        Program.myForm.splitContainer1.Panel2.Controls.Clear();
+                        // Add PatientSearch to Panel2
+                        Program.myForm.splitContainer1.Panel2.Controls.Add(new LocationForm());
                     }
-                }
             }
 
-            //// This is a new patient
-            //// Create a new patient
-            //if (createNew)
-            //    PIMSController.SQLcommands.createPatient();
-            //// This is an existing patient
-            //// Update the exisitng patient
-            //else
-            //    PIMSController.SQLcommands.updatePatient(Program.currentPatient);
-        }
-
-        private void assignButton_Click(object sender, EventArgs e)
-        {
 
         }
-    }
-}
+
+    
+
+    }//end class
+}//end namespace
+
