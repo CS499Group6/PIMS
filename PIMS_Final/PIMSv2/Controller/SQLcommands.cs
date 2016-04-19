@@ -724,6 +724,10 @@ namespace PIMSController
             if (PIMS.Program.currentUser is MedStaff || PIMS.Program.currentUser is Doctor)
             {
                 updateTreatmentInfo();
+                if (PIMS.Program.currentUser is Doctor)
+                {
+                    updatePatientDirInfo();
+                }
             }
         }
 
@@ -905,162 +909,6 @@ namespace PIMSController
             //}333332
         }
 
-        static void updateTreatmentInfo()
-        {
-            //try
-            //{
-            PatientTreatmentInfo info = PIMS.Program.currentPatient.treatment;
-
-            if (cnn != null && cnn.State == System.Data.ConnectionState.Open)
-                cnn.Close();
-            cnn.Open();
-            String cmdText = "IF NOT EXISTS(SELECT patientID from treatment where patientID = @pid) " +
-                             "INSERT INTO  treatment values(@pid, convert(datetime,ISNULL(@da, '1-1-1970 0:00'))," +
-                             "@r, convert(datetime,ISNULL(@dd, '1-1-1970 0:00')), @pd, @dn, @a, @x, @x, @mn)" +
-                             "else " +
-                             " UPDATE treatment SET dateAdmitted = convert(datetime,ISNULL(@da, '1-1-1970 0:00')), reason = @r, dateDischarged = convert(datetime, ISNULL(@dd, '1-1-1970 0:00'))," +
-                             " primaryDoctor = @pd, doctorNotes = @dn, allergies = @a, medStaffNotes = @mn" +
-                             " WHERE patientID = @pid";
-
-            SqlCommand cmd = new SqlCommand(cmdText, cnn);
-            if (info.dateAdmitted != null)
-                cmd.Parameters.AddWithValue("@da", info.dateAdmitted.ToString());
-            else cmd.Parameters.AddWithValue("@da", System.DBNull.Value.ToString());
-           
-            if (info.reasonAdmitted != null)
-                cmd.Parameters.AddWithValue("@r", info.reasonAdmitted);
-            else cmd.Parameters.AddWithValue("@r", System.DBNull.Value);
-
-            if (info.dateDischarged != null)
-                cmd.Parameters.AddWithValue("@dd", info.dateDischarged.ToString());
-            else cmd.Parameters.AddWithValue("@dd", System.DBNull.Value.ToString());
-
-            if (info.primaryDoc != null)
-                cmd.Parameters.AddWithValue("@pd", info.primaryDoc);
-            else cmd.Parameters.AddWithValue("@pd", System.DBNull.Value);
-
-            if (info.docNotes != null)
-                cmd.Parameters.AddWithValue("@dn", info.docNotes);
-            else cmd.Parameters.AddWithValue("@dn", System.DBNull.Value);
-
-            if (info.medStaffNotes.allergies != null)
-                cmd.Parameters.AddWithValue("@a", info.medStaffNotes.allergies);
-            else cmd.Parameters.AddWithValue("@a", System.DBNull.Value);
-
-            if (info.medStaffNotes.nurseNotes != null)
-                cmd.Parameters.AddWithValue("@mn", info.medStaffNotes.nurseNotes);
-            else cmd.Parameters.AddWithValue("@mn", System.DBNull.Value);
-
-            cmd.Parameters.AddWithValue("@x", System.DBNull.Value);
-            cmd.Parameters.AddWithValue("@pid", PIMS.Program.currentPatient.directory.patientID);
-
-            cmd.ExecuteNonQuery();
-
-
-            Console.WriteLine("updated treatment");
-
-
-
-            cmdText = "IF NOT EXISTS(SELECT location from ScheduledProcedures where idNum = @idn) " +
-                      "INSERT INTO  ScheduledProcedures Values(@pid, @what, convert(datetime, @when)," +
-                             " @who, @whr, @idn) " +
-                       "else " +
-                       "UPDATE ScheduledProcedures SET scheduledProcedure = @what, whenScheduled = convert(datetime, @when), " +
-                             " patientId = @pid, performedBy = @who, location = @whr WHERE idNum = @idn";
-            cmd = new SqlCommand(cmdText, cnn);
-            foreach (MedProcedure proc in info.procedures)
-            {
-
-                cmd.Parameters.AddWithValue("@what", proc.what);
-                Console.WriteLine(proc.when.ToString());
-                cmd.Parameters.AddWithValue("@when", proc.when.ToString());
-                cmd.Parameters.AddWithValue("@pid", PIMS.Program.currentPatient.directory.patientID);
-                cmd.Parameters.AddWithValue("@who", proc.who);
-                cmd.Parameters.AddWithValue("@whr", proc.where);
-                if (proc.id == 0)
-                {
-                    procIndex++;
-                    proc.id = procIndex;
-                }
-                cmd.Parameters.AddWithValue("@idn", proc.id);
-
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-
-            Console.WriteLine("updated procedures");
-
-
-            cmdText = "IF NOT EXISTS (SELECT drugName from Prescriptions where drugID = @did) " +
-                      " INSERT INTO Prescriptions Values(@did, @dn, @ndc, @sig, @pp, @pd, @c, @pid) " +
-                      " ELSE " +
-                      " UPDATE prescriptions SET patientID = @pid, drugName = @dn, NDC = @ndc, " +
-                      "SIG = @sig, prescribingPhysician = @pp, prescribedDate = convert(datetime, @pd), cost = @c " +
-                      " WHERE drugID = @did ";
-
-            cmd = new SqlCommand(cmdText, cnn);
-            foreach (PrescDrug drug in info.prescriptions.prescriptions)
-            {
-                cmd.Parameters.AddWithValue("@pid", PIMS.Program.currentPatient.directory.patientID);
-                cmd.Parameters.AddWithValue("@dn", drug.drug.name);
-                cmd.Parameters.AddWithValue("@ndc", drug.ndc);
-                cmd.Parameters.AddWithValue("@sig", drug.SIG);
-                cmd.Parameters.AddWithValue("@pp", drug.prescribingPhysician);
-                cmd.Parameters.AddWithValue("@pd", drug.dateFilled);
-                cmd.Parameters.AddWithValue("@c", drug.drug.cost);
-                if (drug.id == 0)
-                {
-                    drugIndex++;
-                    drug.id = drugIndex;
-                }
-                cmd.Parameters.AddWithValue("@did", drug.id);
-
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-
-            Console.WriteLine("updated drugs");
-
-            cmdText = "IF NOT EXISTS(SELECT pHeight from patientStats where idNum = @idNum) " +
-                      "INSERT INTO patientStats " +
-                      "values(@pid, @ph , @pw ,  @sp ,  @dp ,  @hr , @t, @idNum , @n) " +
-                      "else " +
-                      "UPDATE patientStats SET patientID = @pid, pHeight = @ph, pWeight = @pw, " +
-                      "systolicPressure = @sp, diastolicPressure = @dp, heartRate = @hr, " +
-                      "timeRead = @t, nurse = @n WHERE idNum = @idNum";
-
-
-
-            cmd = new SqlCommand(cmdText, cnn);
-
-            foreach (MedStaffNotes.patientStats stats in info.medStaffNotes.statList)
-            {
-                cmd.Parameters.AddWithValue("@pid", PIMS.Program.currentPatient.directory.patientID);
-                cmd.Parameters.AddWithValue("@ph", stats.patientHeight);
-                cmd.Parameters.AddWithValue("@pw", stats.patientWeight);
-                cmd.Parameters.AddWithValue("@sp", stats.bloodPressureSys);
-                cmd.Parameters.AddWithValue("@dp", stats.bloodPressureDia);
-                cmd.Parameters.AddWithValue("@hr", stats.heartrate);
-                cmd.Parameters.AddWithValue("@t", stats.time.Date);
-                cmd.Parameters.AddWithValue("@n", stats.nurse);
-
-                if (stats.idNum == 0)
-                {
-                    statsIndex++;
-                    cmd.Parameters.AddWithValue("@idNum", statsIndex);
-                }
-                else cmd.Parameters.AddWithValue("@idNum", stats.idNum);
-
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
-        }
 
         static void updateTreatmentInfo()
         {
@@ -1206,7 +1054,7 @@ namespace PIMSController
                 cmd.Parameters.AddWithValue("@sp", stats.bloodPressureSys);
                 cmd.Parameters.AddWithValue("@dp", stats.bloodPressureDia);
                 cmd.Parameters.AddWithValue("@hr", stats.heartrate);
-                cmd.Parameters.AddWithValue("@t", stats.time.Date);
+                cmd.Parameters.AddWithValue("@t", stats.time);
                 cmd.Parameters.AddWithValue("@n", stats.nurse);
 
                 if (stats.idNum == 0)

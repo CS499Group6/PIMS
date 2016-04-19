@@ -20,11 +20,13 @@ namespace PIMS
             this.dateTimePicker1.Enabled = false;
 
             // If the current user is not a Doctor
-            // Don't allow the user to see the saveUpdatebutton
+            // Don't allow the user to see various items
             if (!(Program.currentUser is PIMSController.Doctor))
             {
-                saveUpdateButton.Visible = false;
-                cancelButton.Visible = false;             
+                this.saveUpdateButton.Visible = false;
+                this.cancelButton.Visible = false;
+                this.attendingPhysTextBox.Visible = false;
+                this.label2.Visible = false;
             }
             else
             {
@@ -40,9 +42,9 @@ namespace PIMS
             this.doctorsNotesTextBox.Text = Program.currentPatient.treatment.docNotes;
             this.primaryPhysTextBox.Text = Program.currentPatient.treatment.primaryDoc;
 
-            if (Program.currentPatient.treatment.dateAdmitted.ToString() != "")
+            if (Program.currentPatient.treatment.dateAdmitted != null)
             {
-                //this.dateTimePicker1.Value = Program.currentPatient.treatment.dateAdmitted;
+                this.dateTimePicker1.Value = (DateTime)Program.currentPatient.treatment.dateAdmitted;
             }
             else
             {
@@ -50,9 +52,14 @@ namespace PIMS
                 this.dateTimePicker1.Enabled = false;
             }
 
-            if (Program.currentPatient.treatment.reasonAdmitted.ToString() != "")
+            if ((Program.currentPatient.treatment.reasonAdmitted != null && Program.currentPatient.treatment.reasonAdmitted != ""))
             {
                 this.reasonAdmittanceTextBox.Text = Program.currentPatient.treatment.reasonAdmitted;
+            }
+
+            if ((Program.currentPatient.treatment.diagnosis != null && Program.currentPatient.treatment.diagnosis != ""))
+            {
+                this.diagnosisTextBox.Text = Program.currentPatient.treatment.diagnosis;
             }
 
             // Do not allow the user to edit the attendingPhysTextBox
@@ -68,6 +75,8 @@ namespace PIMS
             this.doctorsNotesTextBox.ReadOnly = true;
             this.primaryPhysTextBox.ReadOnly = true;
             this.reasonAdmittanceTextBox.ReadOnly = true;
+            this.diagnosisTextBox.ReadOnly = true;
+            this.dateTimePicker1.Enabled = false;
         }
 
         // Makes the doctorNotesTextBox editable
@@ -76,6 +85,8 @@ namespace PIMS
             this.doctorsNotesTextBox.ReadOnly = false;
             this.primaryPhysTextBox.ReadOnly = false;
             this.reasonAdmittanceTextBox.ReadOnly = false;
+            this.diagnosisTextBox.ReadOnly = false;
+            this.dateTimePicker1.Enabled = true;
         }
 
         // Will allow the Doctor to update notes on the patient
@@ -86,6 +97,7 @@ namespace PIMS
             Program.currentPatient.treatment.attendingDoc = this.attendingPhysTextBox.Text;
             Program.currentPatient.treatment.reasonAdmitted = this.reasonAdmittanceTextBox.Text;
             Program.currentPatient.treatment.dateAdmitted = this.dateTimePicker1.Value;
+            Program.currentPatient.treatment.diagnosis = this.diagnosisTextBox.Text;
 
             if (saveUpdateButton.Text == "Update Notes")
             {

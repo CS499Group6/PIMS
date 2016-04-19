@@ -150,8 +150,8 @@ namespace PIMS
         // Will allow the Doctor to discharge the patient
         private void dischargeButton_Click(object sender, EventArgs e)
         {
-            if (Program.currentPatient.directory.location.roomNum != 0)
-            {
+            if (Program.currentPatient.directory.location.bedNum != 0 && Program.currentPatient.directory.location.bedNum != null)
+            {           
                 // Clear contents of Panel2
                 Program.myForm.splitContainer1.Panel2.Controls.Clear();
                 // Add Login form to Panel2

@@ -40,11 +40,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.reasonAdmittanceTextBox = new System.Windows.Forms.TextBox();
+            this.diagnosisTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // doctorsNotesTextBox
             // 
-            this.doctorsNotesTextBox.Location = new System.Drawing.Point(143, 214);
+            this.doctorsNotesTextBox.Location = new System.Drawing.Point(142, 271);
             this.doctorsNotesTextBox.Multiline = true;
             this.doctorsNotesTextBox.Name = "doctorsNotesTextBox";
             this.doctorsNotesTextBox.Size = new System.Drawing.Size(432, 231);
@@ -53,7 +55,7 @@
             // doctorsNotesLabel
             // 
             this.doctorsNotesLabel.AutoSize = true;
-            this.doctorsNotesLabel.Location = new System.Drawing.Point(57, 214);
+            this.doctorsNotesLabel.Location = new System.Drawing.Point(56, 271);
             this.doctorsNotesLabel.Name = "doctorsNotesLabel";
             this.doctorsNotesLabel.Size = new System.Drawing.Size(80, 13);
             this.doctorsNotesLabel.TabIndex = 1;
@@ -61,7 +63,7 @@
             // 
             // saveUpdateButton
             // 
-            this.saveUpdateButton.Location = new System.Drawing.Point(422, 509);
+            this.saveUpdateButton.Location = new System.Drawing.Point(421, 566);
             this.saveUpdateButton.Name = "saveUpdateButton";
             this.saveUpdateButton.Size = new System.Drawing.Size(117, 23);
             this.saveUpdateButton.TabIndex = 2;
@@ -71,7 +73,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(293, 509);
+            this.cancelButton.Location = new System.Drawing.Point(292, 566);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(91, 23);
             this.cancelButton.TabIndex = 3;
@@ -143,10 +145,28 @@
             this.reasonAdmittanceTextBox.Size = new System.Drawing.Size(208, 20);
             this.reasonAdmittanceTextBox.TabIndex = 8;
             // 
+            // diagnosisTextBox
+            // 
+            this.diagnosisTextBox.Location = new System.Drawing.Point(151, 219);
+            this.diagnosisTextBox.Name = "diagnosisTextBox";
+            this.diagnosisTextBox.Size = new System.Drawing.Size(208, 20);
+            this.diagnosisTextBox.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(79, 219);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Diagnosis:";
+            // 
             // DoctorNotesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.diagnosisTextBox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -160,7 +180,7 @@
             this.Controls.Add(this.doctorsNotesLabel);
             this.Controls.Add(this.doctorsNotesTextBox);
             this.Name = "DoctorNotesForm";
-            this.Size = new System.Drawing.Size(671, 557);
+            this.Size = new System.Drawing.Size(671, 619);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +200,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox reasonAdmittanceTextBox;
+        private System.Windows.Forms.TextBox diagnosisTextBox;
+        private System.Windows.Forms.Label label5;
     }
 }
